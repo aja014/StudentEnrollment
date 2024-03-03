@@ -73,7 +73,7 @@ using namespace std;
 //	
 //}
 
-int getchVal(string& s, int l) { // 101 is up, 111 is down
+int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, l is length
 	char x[32];
 
 	int num = 1;
@@ -132,6 +132,11 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down
 						++z;
 					}
 					else if (l == 12 && z < 11) { // gnumber
+						cout << a;
+						x[z] = a;
+						++z;
+					}
+					else if (l == 12 && z < 12) { // gnumber
 						cout << a;
 						x[z] = a;
 						++z;

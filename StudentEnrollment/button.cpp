@@ -969,6 +969,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 	int i; // student counter // Global variable
 	int poolnum = 20240000; // pooling num // Global variable
 	string searchpool[32]; // local variable
+	string e; //local variable
 	
 		table();
 		//char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = "" // local variable
@@ -977,7 +978,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 		//	, gcnum[32] = "", grelation[32] = "";
 
 		string fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
-			grelation;
+			grelation,targety;
 
 		char d; // local variable
 
@@ -1128,7 +1129,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								fname = "", mname = "", lname = "", age = "", gender = "",
 								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 								municipality = "", province = "", gfname = "", gmname = "", 
-								glname = "", gcnum = "",grelation = ""; // Erasing string values done
+								glname = "", gcnum = "",grelation = "",targety = ""; // Erasing string values done
 
 								coorxy(1, 4); cout << "not found";
 								// You have business here if not found - done
@@ -1350,53 +1351,52 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							key = 1;
 						}*/
 					}
-					//key = 1;
+					key = 1;
 					if (key == 1) {
 						if (students[i][0] == "") { // making student number - done
 							key = 0;
 							poolnum++;
 							string pn = to_string(poolnum);
-							students[i][0] = pn; 
+							students[i][0] = pn;  // youre here doing the new page of which year to enroll
+							system("cls");
+							do {
+								coorxy(45, 11); cout << "What year do you want to enroll? :    "; 
+								coorxy(80, 11); cin >> e;
+							}
+							while (e != "1" && e != "2" && e != "3" && e != "4");
+							targety = e;
+							do {
+								e = "";
+								coorxy(45, 12); cout << "Enter what semester :    ";
+								coorxy(67, 12); cin >> e;
+								//e += f;
+
+							} while (e != "1" && e != "2");
+							targety += e;
+							students[i][18] = targety;
+							coorxy(45, 14); cout <<"target year/sem code" << targety;
+							targety = "";
+
 							// Pooling number table
-							coorxy(3, 27); cout << char(179) << " Pooling num : " << students[i][0];  // number
+							coorxy(43, 16); cout << char(179) << " Pooling num : " << students[i][0];  // number
 							n = 0;
-							coorxy(28, 27); cout << char(179);
+							coorxy(68, 16); cout << char(179);
 							for (int j = 0; j < 2; j++) {
-								coorxy(3, 26 + n); cout << string(26, char(196));
+								coorxy(43, 15 + n); cout << string(26, char(196));
 								n += 2;
 							}
 							i++;
+							coorxy(40, 20); system("pause");
 						}
-
-						//for (int o = 0; o < 1; o++) { // erasing char variables
-						//	fname[o] = '\0';
-						//	mname[o] = '\0';
-						//	lname[o] = '\0';
-						//	age[o] = '\0';
-						//	gender[o] = '\0';
-						//	lrn[o] = '\0';
-						//	bmonth[o] = '\0';
-						//	bday[o] = '\0';
-						//	byear[o] = '\0';
-						//	barangay[o] = '\0';
-						//	municipality[o] = '\0';
-						//	province[o] = '\0';
-						//	gfname[o] = '\0';
-						//	gmname[o] = '\0';
-						//	glname[o] = '\0';
-						//	gcnum[o] = '\0';
-						//	grelation[o] = '\0';
-						//}
-
-						fname = "", mname = "", lname = "", age = "", gender = "",
-						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-						municipality = "", province = "", gfname = "", gmname = "",
-						glname = "", gcnum = "", grelation = ""; // Erasing string values done
-
-						system("cls"); // do the when updating, the system will clear
-						table();
-
 					}
+
+					fname = "", mname = "", lname = "", age = "", gender = "",
+					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+					municipality = "", province = "", gfname = "", gmname = "",
+					glname = "", gcnum = "", grelation = "", targety = ""; // Erasing string values done
+
+					system("cls"); // do the when updating, the system will clear
+					table();
 					
 				}
 			break;
@@ -1428,9 +1428,9 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 					// youre here deleting the char fname values - done
 
 					fname = "", mname = "", lname = "", age = "", gender = "",
-					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-					municipality = "", province = "", gfname = "", gmname = "",
-					glname = "", gcnum = "", grelation = ""; // Erasing string values done
+						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+						municipality = "", province = "", gfname = "", gmname = "",
+						glname = "", gcnum = "", grelation = "", targety = ""; // Erasing string values done
 
 					/*for (int o = 0; o < 1; o++) {
 						fname[o] = '\0';
