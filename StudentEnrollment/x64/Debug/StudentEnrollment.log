@@ -1,0 +1,3 @@
+﻿  button.cpp
+C:\Users\Asus\Documents\GitHub\2ndsemproj\StudentEnrollment\button.cpp(26,7): warning C4101: 'poolingnum': unreferenced local variable
+  StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\2ndsemproj\StudentEnrollment\x64\Debug\StudentEnrollment.exe
