@@ -6,10 +6,77 @@
 
 using namespace std;
 
-int getchVal(char x[], int l) { // 101 is up, 111 is down
-	//x[32];
+//int getchVal(char x[], int l) { // 101 is up, 111 is down
+//	//x[32];
+//
+//	int num =1;
+//	char a;
+//
+//	for (int z = 0;;) {
+//		a = _getch();
+//
+//		if (a == -32) {
+//			a = _getch();
+//			if (a == 72||a == 75) return  101;
+//			else if (a == 80 || a == 77) return 111;
+//		}
+//		else if (a == 13) {
+//			x[z] = '\0';
+//			return 111;
+//			break;
+//		}
+//		else if (a == 8 && z >= 1) {
+//			cout << "\b \b";
+//			x[--z] = '\0';
+//		}
+//		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
+//			if (num == 1) {
+//				//cout << string(20, ' ');
+//				for (int u = 0; u < 32; u++) {
+//					x[u] = '\0';
+//				}
+//				num = 0;
+//			}
+//			if (l >= 2 && l <=11) { // age
+//				if ((a >= '0' && a <= '9')) {
+//					if (l ==2  && z < 2) { // age and bday
+//						cout << a;
+//						x[z] = a;
+//						++z;
+//					}
+//					else if (l == 11 && z < 11) { // gnumber
+//						cout << a;
+//						x[z] = a;
+//						++z;
+//					}
+//					else if (l==4 && z < 4) { // byear and zip
+//						cout << a;
+//						x[z] = a;
+//						++z;
+//					}
+//					else if (l == 12 && z < 11) { // gnumber
+//						cout << a;
+//						x[z] = a;
+//						++z;
+//					}
+//				}
+//			}
+//			else {
+//			cout << a;
+//			x[z] = a;
+//			++z;
+//			}
+//		}
+//	}
+//
+//		
+//	
+//}
 
-	int num =1;
+int getchVal(string& s, int l) { // 101 is up, 111 is down
+	char x[32];
+
+	int num = 1;
 	char a;
 
 	for (int z = 0;;) {
@@ -17,11 +84,20 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 
 		if (a == -32) {
 			a = _getch();
-			if (a == 72||a == 75) return  101;
+			if (a == 72 || a == 75) return  101;
 			else if (a == 80 || a == 77) return 111;
 		}
 		else if (a == 13) {
 			x[z] = '\0';
+			for (int j = 0;j<z; j++) { // Storing to string variable
+				if ((x[j] >= 'a' && x[j] <= 'z') || (x[j] >= 'A' && x[j] <= 'Z') || (x[j] >= '0' && x[j] <= '9') || x[j] == ' ') {
+					s += x[j];
+				}
+				else {
+					break;
+				}
+			}
+
 			return 111;
 			break;
 		}
@@ -30,16 +106,17 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 			x[--z] = '\0';
 		}
 		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
-			if (num == 1) {
-				//cout << string(20, ' ');
-				for (int u = 0; u < 32; u++) {
-					x[u] = '\0';
-				}
+			if (num == 1) { // erasing previous string value
+				s = "";
 				num = 0;
+				//cout << string(20, ' ');
+				/*for (int u = 0; u < 32; u++) {
+					x[u] = '\0';
+				}*/
 			}
-			if (l >= 2 && l <=11) { // age
+			if (l >= 2 && l <= 11) { // age
 				if ((a >= '0' && a <= '9')) {
-					if (l ==2  && z < 2) { // age and bday
+					if (l == 2 && z < 2) { // age and bday
 						cout << a;
 						x[z] = a;
 						++z;
@@ -49,7 +126,7 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 						x[z] = a;
 						++z;
 					}
-					else if (l==4 && z < 4) { // byear and zip
+					else if (l == 4 && z < 4) { // byear and zip
 						cout << a;
 						x[z] = a;
 						++z;
@@ -62,15 +139,12 @@ int getchVal(char x[], int l) { // 101 is up, 111 is down
 				}
 			}
 			else {
-			cout << a;
-			x[z] = a;
-			++z;
+				cout << a;
+				x[z] = a;
+				++z;
 			}
 		}
 	}
-
-		
-	
 }
 
 void getchcout(char x[]) { // x = array of letters  y is size of letters

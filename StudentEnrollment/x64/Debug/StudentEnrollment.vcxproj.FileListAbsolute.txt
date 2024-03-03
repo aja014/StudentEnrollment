@@ -1,1 +1,2 @@
 C:\Users\Asus\Documents\GitHub\2ndsemproj\StudentEnrollment\x64\Debug\StudentEnrollment.exe
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe

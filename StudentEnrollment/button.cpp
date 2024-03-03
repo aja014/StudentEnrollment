@@ -12,258 +12,258 @@
 
 using namespace std;
 
-int menu(int x) {
-	system("cls");
-
-	char a;
-
-	if (x == 1) {
-		table();
-		char  fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
-			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
-			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
-			, gcnum[32] = "", grelation[32] = "";
-		int poolingnum[32];
-
-		int counter = 1,n;
-	
-		Q:
-		switch (counter) {
-		case 1:
-			coorxy(19, 7);  n = getchVal(fname,0);
-			coorxy(19, 7); cout << string(20, ' ');
-			coorxy(19, 7); getchcout(fname);
-			if (n == 101) counter = 18;
-			else counter++;
-			goto Q;
-			break;
-		case 2:
-			coorxy(57, 7);  n = getchVal(mname,0);
-			coorxy(57, 7); cout << string(20, ' ');
-			coorxy(57, 7); getchcout(mname);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 3:
-			coorxy(93, 7); n = getchVal(lname,0);
-			coorxy(93, 7); cout << string(20, ' ');
-			coorxy(93, 7); getchcout(lname);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 4:
-			coorxy(12, 9); n = getchVal(age,2);
-			coorxy(12, 9); cout << string(20, ' ');
-			coorxy(12, 9); getchcout(age);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 5:
-			coorxy(15, 11); n = getchVal(gender,0);
-			coorxy(15, 11); cout << string(20, ' ');
-			coorxy(15, 11); getchcout(gender);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 6:
-			coorxy(56, 11); n = getchVal(lrn, 12);
-			coorxy(56, 11); cout << string(20, ' ');
-			coorxy(56, 11); getchcout(lrn);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 7:
-			coorxy(26, 13); n = getchVal(bmonth, 0);
-			coorxy(26, 13); cout << string(20, ' ');
-			coorxy(26, 13); getchcout(bmonth);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 8:
-			coorxy(56, 13); n = getchVal(bday, 2);
-			coorxy(56, 13); cout << string(20, ' ');
-			coorxy(56, 13); getchcout(bday);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 9:
-			coorxy(93, 13); n = getchVal(byear, 4);
-			coorxy(93, 13); cout << string(20, ' ');
-			coorxy(93, 13); getchcout(byear);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 10:
-			coorxy(29, 15); n = getchVal(barangay, 0);
-			coorxy(29, 15); cout << string(20, ' ');
-			coorxy(29, 15); getchcout(barangay);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 11:
-			coorxy(33, 17); n = getchVal(municipality, 0);
-			coorxy(33, 17); cout << string(20, ' ');
-			coorxy(33, 17); getchcout(municipality);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 12:
-			coorxy(29, 19); n = getchVal(province, 0);
-			coorxy(29, 19); cout << string(20, ' ');
-			coorxy(29, 19); getchcout(province);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 13:
-			coorxy(38, 21); n = getchVal(postalzip, 4);
-			coorxy(38, 21); cout << string(20, ' ');
-			coorxy(38, 21); getchcout(postalzip);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 14:
-			coorxy(31, 23); n = getchVal(gfname,0);
-			coorxy(31, 23); cout << string(17, ' ');
-			coorxy(31, 23); getchcout(gfname);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 15:
-			coorxy(65, 23); n = getchVal(gmname, 0);
-			coorxy(65, 23); cout << string(15, ' ');
-			coorxy(65, 23); getchcout(gmname);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 16:
-			coorxy(97, 23); n = getchVal(glname, 0);
-			coorxy(97, 23); cout << string(17, ' ');
-			coorxy(97, 23); getchcout(glname);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 17:
-			coorxy(35, 25); n = getchVal(gcnum,11);
-			coorxy(35, 25); cout << string(17, ' ');
-			coorxy(35, 25); getchcout(gcnum);
-			if (n == 101) counter--;
-			else counter++;
-			goto Q;
-			break;
-		case 18:
-			coorxy(29, 27); n = getchVal(grelation, 0);
-			coorxy(29, 27); cout << string(30, ' ');
-			coorxy(29, 27); getchcout(grelation);
-			if (n == 101) counter--;
-			else counter = 1;
-			break;
-		}
-		system("cls");
-
-		cout << "Name : "; getchcout(fname); cout << " "; getchcout(mname); cout << " "; getchcout(lname); cout << " \n";
-		cout << "Age : ";  getchcout(age); cout << endl;
-		cout << "Gender : ";  getchcout(gender); cout << endl;
-		cout << "Lrn : "; getchcout(lrn); cout << endl;
-		cout << "Birthdate : "; getchcout(bmonth); cout << " "; getchcout(bday); cout << " "; getchcout(byear); cout << " \n";
-		cout << "barangay : "; gc(barangay); cout << endl;
-		cout << "municipality : "; gc(municipality); cout << endl;
-		cout << "province : "; gc(province); cout << endl;
-		cout << "postal/zip : "; gc(postalzip); cout << endl;
-		cout << "Guardian : "; gc(gfname); cout << " "; gc(gmname); cout << " "; gc(glname); cout << endl;
-		cout << "Guardian contact number: "; gc(gcnum); cout << endl;
-		cout << "Guardian relation : "; gc(grelation); cout << endl;
-
-		coorxy(0, 29); system("pause");
-		system("cls");
-	}
-	else if (x == 2) {
-		int num = 1;
-
-		coorxy(18, 7); cout << "Search";
-		coorxy(19, 13); cout << "Back";
-
-		for (int i = 0; i < 11;) {
-			buttonxy(10, 5 + i, 20, 3);
-			i += 6;
-		}
-
-		buttonxy2(10, 5, 20, 3, 2);
-
-		for (int i = 0;;) {
-
-			coorxy(0, 0);  a = _getch();
-
-			coorxy(35, 7); cout << string(15, ' ') << flush;
-
-			if (a == 72)num--;
-			else if (a == 80)num++;
-
-			if (num < 1) num = 2;
-			else if (num > 2) num = 1;
-
-			if (a == 13) {
-				if (num == 2) {
-					buttonxy2(10, 11, 20, 3, 1);
-					Sleep(200);
-					system("cls");
-					break;
-					return 0;
-				}
-				else {
-					buttonxy2(10, 5, 20, 3, 1);
-					Sleep(200);
-					buttonxy(10, 5, 20, 3);
-					coorxy(35, 7); cout << "Not yet done";
-				}
-			}
-
-			for (int i = 0; i < 25; i++) { // erase selection
-				coorxy(9, 4 + i); cout << string(1, ' ');
-				coorxy(32, 4 + i); cout << string(1, ' ');
-			}
-
-			switch (num) {
-			case 1: buttonxy2(10, 5, 20, 3, 2);
-				break;
-			case 2: buttonxy2(10, 11, 20, 3, 2);
-				break;
-			}
-		}
-
-	}
-	else if (x == 3) {
-		char a;
-		int num = 1;
-		coorxy(19, 7); cout << "Back";
-		buttonxy(10, 5, 20, 3);
-		buttonxy2(10, 5, 20, 3, 2);
-		
-		do {
-			coorxy(0,0); a = _getch();
-		} while (a != 13);
-
-		buttonxy2(10, 5, 20, 3, 1);
-		Sleep(200);
-
-	}
-	system("cls");
-	return 0;
-}
+//int menu(int x) {
+//	system("cls");
+//
+//	char a;
+//
+//	if (x == 1) {
+//		table();
+//		char  fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
+//			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
+//			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
+//			, gcnum[32] = "", grelation[32] = "";
+//		int poolingnum[32];
+//
+//		int counter = 1,n;
+//	
+//		Q:
+//		switch (counter) {
+//		case 1:
+//			coorxy(19, 7);  n = getchVal(fname,0);
+//			coorxy(19, 7); cout << string(20, ' ');
+//			coorxy(19, 7); getchcout(fname);
+//			if (n == 101) counter = 18;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 2:
+//			coorxy(57, 7);  n = getchVal(mname,0);
+//			coorxy(57, 7); cout << string(20, ' ');
+//			coorxy(57, 7); getchcout(mname);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 3:
+//			coorxy(93, 7); n = getchVal(lname,0);
+//			coorxy(93, 7); cout << string(20, ' ');
+//			coorxy(93, 7); getchcout(lname);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 4:
+//			coorxy(12, 9); n = getchVal(age,2);
+//			coorxy(12, 9); cout << string(20, ' ');
+//			coorxy(12, 9); getchcout(age);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 5:
+//			coorxy(15, 11); n = getchVal(gender,0);
+//			coorxy(15, 11); cout << string(20, ' ');
+//			coorxy(15, 11); getchcout(gender);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 6:
+//			coorxy(56, 11); n = getchVal(lrn, 12);
+//			coorxy(56, 11); cout << string(20, ' ');
+//			coorxy(56, 11); getchcout(lrn);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 7:
+//			coorxy(26, 13); n = getchVal(bmonth, 0);
+//			coorxy(26, 13); cout << string(20, ' ');
+//			coorxy(26, 13); getchcout(bmonth);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 8:
+//			coorxy(56, 13); n = getchVal(bday, 2);
+//			coorxy(56, 13); cout << string(20, ' ');
+//			coorxy(56, 13); getchcout(bday);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 9:
+//			coorxy(93, 13); n = getchVal(byear, 4);
+//			coorxy(93, 13); cout << string(20, ' ');
+//			coorxy(93, 13); getchcout(byear);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 10:
+//			coorxy(29, 15); n = getchVal(barangay, 0);
+//			coorxy(29, 15); cout << string(20, ' ');
+//			coorxy(29, 15); getchcout(barangay);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 11:
+//			coorxy(33, 17); n = getchVal(municipality, 0);
+//			coorxy(33, 17); cout << string(20, ' ');
+//			coorxy(33, 17); getchcout(municipality);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 12:
+//			coorxy(29, 19); n = getchVal(province, 0);
+//			coorxy(29, 19); cout << string(20, ' ');
+//			coorxy(29, 19); getchcout(province);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 13:
+//			coorxy(38, 21); n = getchVal(postalzip, 4);
+//			coorxy(38, 21); cout << string(20, ' ');
+//			coorxy(38, 21); getchcout(postalzip);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 14:
+//			coorxy(31, 23); n = getchVal(gfname,0);
+//			coorxy(31, 23); cout << string(17, ' ');
+//			coorxy(31, 23); getchcout(gfname);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 15:
+//			coorxy(65, 23); n = getchVal(gmname, 0);
+//			coorxy(65, 23); cout << string(15, ' ');
+//			coorxy(65, 23); getchcout(gmname);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 16:
+//			coorxy(97, 23); n = getchVal(glname, 0);
+//			coorxy(97, 23); cout << string(17, ' ');
+//			coorxy(97, 23); getchcout(glname);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 17:
+//			coorxy(35, 25); n = getchVal(gcnum,11);
+//			coorxy(35, 25); cout << string(17, ' ');
+//			coorxy(35, 25); getchcout(gcnum);
+//			if (n == 101) counter--;
+//			else counter++;
+//			goto Q;
+//			break;
+//		case 18:
+//			coorxy(29, 27); n = getchVal(grelation, 0);
+//			coorxy(29, 27); cout << string(30, ' ');
+//			coorxy(29, 27); getchcout(grelation);
+//			if (n == 101) counter--;
+//			else counter = 1;
+//			break;
+//		}
+//		system("cls");
+//
+//		cout << "Name : "; getchcout(fname); cout << " "; getchcout(mname); cout << " "; getchcout(lname); cout << " \n";
+//		cout << "Age : ";  getchcout(age); cout << endl;
+//		cout << "Gender : ";  getchcout(gender); cout << endl;
+//		cout << "Lrn : "; getchcout(lrn); cout << endl;
+//		cout << "Birthdate : "; getchcout(bmonth); cout << " "; getchcout(bday); cout << " "; getchcout(byear); cout << " \n";
+//		cout << "barangay : "; gc(barangay); cout << endl;
+//		cout << "municipality : "; gc(municipality); cout << endl;
+//		cout << "province : "; gc(province); cout << endl;
+//		cout << "postal/zip : "; gc(postalzip); cout << endl;
+//		cout << "Guardian : "; gc(gfname); cout << " "; gc(gmname); cout << " "; gc(glname); cout << endl;
+//		cout << "Guardian contact number: "; gc(gcnum); cout << endl;
+//		cout << "Guardian relation : "; gc(grelation); cout << endl;
+//
+//		coorxy(0, 29); system("pause");
+//		system("cls");
+//	}
+//	else if (x == 2) {
+//		int num = 1;
+//
+//		coorxy(18, 7); cout << "Search";
+//		coorxy(19, 13); cout << "Back";
+//
+//		for (int i = 0; i < 11;) {
+//			buttonxy(10, 5 + i, 20, 3);
+//			i += 6;
+//		}
+//
+//		buttonxy2(10, 5, 20, 3, 2);
+//
+//		for (int i = 0;;) {
+//
+//			coorxy(0, 0);  a = _getch();
+//
+//			coorxy(35, 7); cout << string(15, ' ') << flush;
+//
+//			if (a == 72)num--;
+//			else if (a == 80)num++;
+//
+//			if (num < 1) num = 2;
+//			else if (num > 2) num = 1;
+//
+//			if (a == 13) {
+//				if (num == 2) {
+//					buttonxy2(10, 11, 20, 3, 1);
+//					Sleep(200);
+//					system("cls");
+//					break;
+//					return 0;
+//				}
+//				else {
+//					buttonxy2(10, 5, 20, 3, 1);
+//					Sleep(200);
+//					buttonxy(10, 5, 20, 3);
+//					coorxy(35, 7); cout << "Not yet done";
+//				}
+//			}
+//
+//			for (int i = 0; i < 25; i++) { // erase selection
+//				coorxy(9, 4 + i); cout << string(1, ' ');
+//				coorxy(32, 4 + i); cout << string(1, ' ');
+//			}
+//
+//			switch (num) {
+//			case 1: buttonxy2(10, 5, 20, 3, 2);
+//				break;
+//			case 2: buttonxy2(10, 11, 20, 3, 2);
+//				break;
+//			}
+//		}
+//
+//	}
+//	else if (x == 3) {
+//		char a;
+//		int num = 1;
+//		coorxy(19, 7); cout << "Back";
+//		buttonxy(10, 5, 20, 3);
+//		buttonxy2(10, 5, 20, 3, 2);
+//		
+//		do {
+//			coorxy(0,0); a = _getch();
+//		} while (a != 13);
+//
+//		buttonxy2(10, 5, 20, 3, 1);
+//		Sleep(200);
+//
+//	}
+//	system("cls");
+//	return 0;
+//}
 
 //int main() {
 //
@@ -971,10 +971,13 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 	string searchpool[32]; // local variable
 	
 		table();
-		char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = "" // local variable
-			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
-			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
-			, gcnum[32] = "", grelation[32] = "";
+		//char fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = "" // local variable
+		//	, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
+		//	, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
+		//	, gcnum[32] = "", grelation[32] = "";
+
+		string fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
+			grelation;
 
 		char d; // local variable
 
@@ -1043,24 +1046,42 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(97, 20); cout << students[k][15];
 								coorxy(35, 22); cout << students[k][16];
 								coorxy(29, 24); cout << students[k][17];
+
+								fname = students[k][1];
+								mname = students[k][2];
+								lname = students[k][3];
+								age = students[k][4];
+								gender = students[k][5];
+								lrn = students[k][6];
+								bmonth = students[k][7];
+								bday = students[k][8];
+								byear = students[k][9];
+								barangay = students[k][10];
+								municipality = students[k][11];
+								province = students[k][12];
+								gfname = students[k][13];
+								gmname = students[k][14];
+								glname = students[k][15];
+								gcnum = students[k][16];
+								grelation = students[k][17];
 								
-								strcpy_s(fname, sizeof(fname), students[k][1].c_str()); // this is for storing the information of saved students to char variabale
-								strcpy_s(mname, sizeof(mname), students[k][2].c_str());
-								strcpy_s(lname, sizeof(lname), students[k][3].c_str());
-								strcpy_s(age, sizeof(age), students[k][4].c_str());
-								strcpy_s(gender, sizeof(gender), students[k][5].c_str());
-								strcpy_s(lrn, sizeof(lrn), students[k][6].c_str());
-								strcpy_s(bmonth, sizeof(bmonth), students[k][7].c_str());
-								strcpy_s(bday, sizeof(bday), students[k][8].c_str());
-								strcpy_s(byear, sizeof(byear), students[k][9].c_str());
-								strcpy_s(barangay, sizeof(barangay), students[k][10].c_str());
-								strcpy_s(municipality, sizeof(municipality), students[k][11].c_str());
-								strcpy_s(province, sizeof(province), students[k][12].c_str());
-								strcpy_s(gfname, sizeof(gfname), students[k][13].c_str());
-								strcpy_s(gmname, sizeof(gmname), students[k][14].c_str());
-								strcpy_s(glname, sizeof(glname), students[k][15].c_str());
-								strcpy_s(gcnum, sizeof(gcnum), students[k][16].c_str());
-								strcpy_s(grelation, sizeof(grelation), students[k][17].c_str());
+								//strcpy_s(fname, sizeof(fname), students[k][1].c_str()); // this is for storing the information of saved students to char variabale
+								//strcpy_s(mname, sizeof(mname), students[k][2].c_str());
+								//strcpy_s(lname, sizeof(lname), students[k][3].c_str());
+								//strcpy_s(age, sizeof(age), students[k][4].c_str());
+								//strcpy_s(gender, sizeof(gender), students[k][5].c_str());
+								//strcpy_s(lrn, sizeof(lrn), students[k][6].c_str());
+								//strcpy_s(bmonth, sizeof(bmonth), students[k][7].c_str());
+								//strcpy_s(bday, sizeof(bday), students[k][8].c_str());
+								//strcpy_s(byear, sizeof(byear), students[k][9].c_str());
+								//strcpy_s(barangay, sizeof(barangay), students[k][10].c_str());
+								//strcpy_s(municipality, sizeof(municipality), students[k][11].c_str());
+								//strcpy_s(province, sizeof(province), students[k][12].c_str());
+								//strcpy_s(gfname, sizeof(gfname), students[k][13].c_str());
+								//strcpy_s(gmname, sizeof(gmname), students[k][14].c_str());
+								//strcpy_s(glname, sizeof(glname), students[k][15].c_str());
+								//strcpy_s(gcnum, sizeof(gcnum), students[k][16].c_str());
+								//strcpy_s(grelation, sizeof(grelation), students[k][17].c_str());
 								coorxy(31, 2);
 
 								break;
@@ -1084,7 +1105,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 								coorxy(35, 22); cout << string(17, ' '); // guardian contact number
 								coorxy(29, 24); cout << string(30, ' '); // guardian relation
 
-								for (int o = 0; o < 1; o++) {
+								/*for (int o = 0; o < 1; o++) {
 									fname[o] = '\0';
 									mname[o] = '\0';
 									lname[o] = '\0';
@@ -1102,7 +1123,12 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 									glname[o] = '\0';
 									gcnum[o] = '\0';
 									grelation[o] = '\0';
-								}
+								}*/
+
+								fname = "", mname = "", lname = "", age = "", gender = "",
+								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+								municipality = "", province = "", gfname = "", gmname = "", 
+								glname = "", gcnum = "",grelation = ""; // Erasing string values done
 
 								coorxy(1, 4); cout << "not found";
 								// You have business here if not found - done
@@ -1130,7 +1156,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 1:
 				coorxy(19, 6); n = getchVal(fname, 0);
 				coorxy(19, 6); cout << string(20, ' ');
-				coorxy(19, 6); getchcout(fname);
+				coorxy(19, 6); cout << fname;//getchcout(fname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1138,7 +1164,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 2:
 				coorxy(57, 6); n = getchVal(mname, 0);
 				coorxy(57, 6); cout << string(20, ' ');
-				coorxy(57, 6); getchcout(mname);
+				coorxy(57, 6); cout << mname; //getchcout(mname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1146,7 +1172,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 3:
 				coorxy(93, 6); n = getchVal(lname, 0);
 				coorxy(93, 6); cout << string(20, ' ');
-				coorxy(93, 6); getchcout(lname);
+				coorxy(93, 6); cout << lname; //getchcout(lname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1154,7 +1180,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 4:
 				coorxy(18, 8); n = getchVal(age, 2);
 				coorxy(18, 8); cout << string(20, ' ');
-				coorxy(18, 8); getchcout(age);
+				coorxy(18, 8); cout << age; //getchcout(age);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1162,7 +1188,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 5:
 				coorxy(18, 10); n = getchVal(gender, 0);
 				coorxy(18, 10); cout << string(20, ' ');
-				coorxy(18, 10); getchcout(gender);
+				coorxy(18, 10); cout << gender; //getchcout(gender);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1170,7 +1196,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 6:
 				coorxy(56, 10); n = getchVal(lrn, 12);
 				coorxy(56, 10); cout << string(20, ' ');
-				coorxy(56, 10); getchcout(lrn);
+				coorxy(56, 10); cout << lrn; //getchcout(lrn);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1178,7 +1204,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 7:
 				coorxy(26, 12); n = getchVal(bmonth, 0);
 				coorxy(26, 12); cout << string(20, ' ');
-				coorxy(26, 12); getchcout(bmonth);
+				coorxy(26, 12); cout << bmonth; //getchcout(bmonth);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1186,7 +1212,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 8:
 				coorxy(56, 12); n = getchVal(bday, 2);
 				coorxy(56, 12); cout << string(20, ' ');
-				coorxy(56, 12); getchcout(bday);
+				coorxy(56, 12); cout << bday; //getchcout(bday);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1194,7 +1220,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 9:
 				coorxy(93, 12); n = getchVal(byear, 4);
 				coorxy(93, 12); cout << string(20, ' ');
-				coorxy(93, 12); getchcout(byear);
+				coorxy(93, 12); cout << byear; //getchcout(byear);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1202,7 +1228,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 10:
 				coorxy(29, 14); n = getchVal(barangay, 0);
 				coorxy(29, 14); cout << string(30, ' ');
-				coorxy(29, 14); getchcout(barangay);
+				coorxy(29, 14); cout << barangay; //getchcout(barangay);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1210,7 +1236,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 11:
 				coorxy(33, 16); n = getchVal(municipality, 0);
 				coorxy(33, 16); cout << string(30, ' ');
-				coorxy(33, 16); getchcout(municipality);
+				coorxy(33, 16); cout << municipality; //getchcout(municipality);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1218,7 +1244,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 12:
 				coorxy(29, 18); n = getchVal(province, 0);
 				coorxy(29, 18); cout << string(30, ' ');
-				coorxy(29, 18); getchcout(province);
+				coorxy(29, 18); cout << province; //getchcout(province);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1234,7 +1260,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 13:
 				coorxy(31, 20); n = getchVal(gfname, 0);
 				coorxy(31, 20); cout << string(17, ' ');
-				coorxy(31, 20); getchcout(gfname);
+				coorxy(31, 20); cout << gfname;// getchcout(gfname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1242,7 +1268,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 14:
 				coorxy(65, 20); n = getchVal(gmname, 0);
 				coorxy(65, 20); cout << string(15, ' ');
-				coorxy(65, 20); getchcout(gmname);
+				coorxy(65, 20); cout << gmname; //getchcout(gmname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1250,7 +1276,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 15:
 				coorxy(97, 20); n = getchVal(glname, 0);
 				coorxy(97, 20); cout << string(17, ' ');
-				coorxy(97, 20); getchcout(glname);
+				coorxy(97, 20); cout << glname; //getchcout(glname);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1258,7 +1284,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 16:
 				coorxy(35, 22); n = getchVal(gcnum, 11);
 				coorxy(35, 22); cout << string(17, ' ');
-				coorxy(35, 22); getchcout(gcnum);
+				coorxy(35, 22); cout << gcnum; //getchcout(gcnum);
 				if (n == 101) counter--;
 				else counter++;
 				goto Q;
@@ -1266,7 +1292,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 			case 17:
 				coorxy(29, 24); n = getchVal(grelation, 0);
 				coorxy(29, 24); cout << string(30, ' ');
-				coorxy(29, 24); getchcout(grelation);
+				coorxy(29, 24); cout << grelation; //getchcout(grelation);
 				if (n == 101) counter--;
 				else counter++;
 				break;
@@ -1342,25 +1368,31 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							i++;
 						}
 
-						for (int o = 0; o < 1; o++) { // erasing char variables
-							fname[o] = '\0';
-							mname[o] = '\0';
-							lname[o] = '\0';
-							age[o] = '\0';
-							gender[o] = '\0';
-							lrn[o] = '\0';
-							bmonth[o] = '\0';
-							bday[o] = '\0';
-							byear[o] = '\0';
-							barangay[o] = '\0';
-							municipality[o] = '\0';
-							province[o] = '\0';
-							gfname[o] = '\0';
-							gmname[o] = '\0';
-							glname[o] = '\0';
-							gcnum[o] = '\0';
-							grelation[o] = '\0';
-						}
+						//for (int o = 0; o < 1; o++) { // erasing char variables
+						//	fname[o] = '\0';
+						//	mname[o] = '\0';
+						//	lname[o] = '\0';
+						//	age[o] = '\0';
+						//	gender[o] = '\0';
+						//	lrn[o] = '\0';
+						//	bmonth[o] = '\0';
+						//	bday[o] = '\0';
+						//	byear[o] = '\0';
+						//	barangay[o] = '\0';
+						//	municipality[o] = '\0';
+						//	province[o] = '\0';
+						//	gfname[o] = '\0';
+						//	gmname[o] = '\0';
+						//	glname[o] = '\0';
+						//	gcnum[o] = '\0';
+						//	grelation[o] = '\0';
+						//}
+
+						fname = "", mname = "", lname = "", age = "", gender = "",
+						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+						municipality = "", province = "", gfname = "", gmname = "",
+						glname = "", gcnum = "", grelation = ""; // Erasing string values done
+
 						system("cls"); // do the when updating, the system will clear
 						table();
 
@@ -1394,7 +1426,13 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						}
 					}
 					// youre here deleting the char fname values - done
-					for (int o = 0; o < 1; o++) {
+
+					fname = "", mname = "", lname = "", age = "", gender = "",
+					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+					municipality = "", province = "", gfname = "", gmname = "",
+					glname = "", gcnum = "", grelation = ""; // Erasing string values done
+
+					/*for (int o = 0; o < 1; o++) {
 						fname[o] = '\0';
 						mname[o] = '\0';
 						lname[o] = '\0';
@@ -1412,7 +1450,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 						glname[o] = '\0';
 						gcnum[o] = '\0';
 						grelation[o] = '\0';
-					}
+					}*/
 					n = 0;
 					coorxy(3, 27); cout << string(20, ' ') ;
 					coorxy(28, 27); cout << ' ';
@@ -1464,4 +1502,13 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 
 		coorxy(0, 29); system("pause");
 }
+
+//int main() {
+//	string fullname = "";
+//	getchVal(fullname, 0);
+//
+//	coorxy(45, 11); cout << fullname;
+//
+//	coorxy(0, 29); system("pause");
+//}
 
