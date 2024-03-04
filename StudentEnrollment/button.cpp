@@ -1351,7 +1351,7 @@ int main() { // DO THE POOLING NUMBER AND ENTER SELECTION ANIMATION
 							key = 1;
 						}*/
 					}
-					key = 1;
+					//key = 1;
 					if (key == 1) {
 						if (students[i][0] == "") { // making student number - done
 							key = 0;
