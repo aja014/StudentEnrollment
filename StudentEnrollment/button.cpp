@@ -16,39 +16,48 @@ using namespace std;
 
 
 
-int i = 0; // student counter // Global variable
+int poolnum = 20240000; // pooling num // Global variable
+string poolnum1; // temp storage for string to int convertion
 string students[10][19]; // Global variable
-string var;
+
 
 void savefile() {
-	ofstream myfile("C:\\Students.txt");
+	ofstream myfile("C:\\Users\\Asus\\Documents\\GitHub\\StudentEnrollment\\StudentEnrollment\\Students.txt");
 	if (myfile.is_open()) {
-		myfile << i + "$" << endl;
+		//myfile << i + "$" << endl;
 		for (int j = 0; j < 10; j++) {
 			if (students[j][0] != "") {
 			myfile << students[j][0] + "$" + students[j][1] + "$" + students[j][2] + "$" + students[j][3] + "$" + students[j][4] + "$" + students[j][5] + "$" + students[j][6] + "$" + students[j][7] + "$" + students[j][8] + "$" + students[j][9] + "$" + students[j][10] + "$" + students[j][11] + "$" + students[j][12] + "$" + students[j][13] + "$" + students[j][14] + "$" + students[j][15] + "$" + students[j][16] + "$" + students[j][17] + "$" << endl;
 			}
-			else {
+			/*else {
 				break;
-			}
+			}*/
+			//myfile << students[j][0] + "$" + students[j][1] + "$" + students[j][2] + "$" + students[j][3] + "$" + students[j][4] + "$" + students[j][5] + "$" + students[j][6] + "$" + students[j][7] + "$" + students[j][8] + "$" + students[j][9] + "$" + students[j][10] + "$" + students[j][11] + "$" + students[j][12] + "$" + students[j][13] + "$" + students[j][14] + "$" + students[j][15] + "$" + students[j][16] + "$" + students[j][17] + "$" << endl;
+
 		}
 	}
 	myfile.close();
 }
 
 void loadfile() {
-	ifstream myfile("C:\\Students.txt");
+	ifstream myfile("C:\\Users\\Asus\\Documents\\GitHub\\StudentEnrollment\\StudentEnrollment\\Students.txt");
 	string line;
-	int c = 0;
+	int c = 0,j=0;
+
 	if (myfile.is_open()) {
 		while (getline(myfile, line)) {
 			stringstream ss(line);
 			//var = line.substr(0);
 			//getline(ss, var, '$');
-			for (int j = 0; j < 19; j++) {
+			for (j = 0; j < 19; j++) {
 					getline(ss, students[c][j], '$');
+						poolnum1 = students[c][j];
+					}
 				}
-			c++;
+			c++; // youre here finding the empty pooling num if empty and skip if they have
+
+
+				if (j == 0 && (students[c][j] != "")) {
 			/*for (int j = 0; j < 10; j++) {
 				for (int k = 0; k < 19; k++) {
 
@@ -698,14 +707,17 @@ int main() {  // youre at studentcounter
 
 	
 	loadfile();
+	if (poolnum1 != "") {
+		poolnum = stoi(poolnum1); // continuation of poolnum
+	}
 	//stringstream iss(var); // conversion of counter i
 	//iss >> i;
 
-	i = stoi(var);
-	system("cls");
+	/*i = stoi(var);*/
+	//system("cls");
+	cout << poolnum;
 	string finder; // Local variable
 	
-	int poolnum = 20240000; // pooling num // Global variable
 	string searchpool[32]; // local variable
 	string e; //local variable
 	
@@ -718,11 +730,11 @@ int main() {  // youre at studentcounter
 		char d; // local variable
 
 		int counter = 0, n; // local variable
+		int i = 0; // student counter // local variable
 
 		int exit=0; // local variable
 		for (i = 0;;) {
 			Q:
-
 
 			switch (counter) {
 			case 0:
@@ -783,6 +795,7 @@ int main() {  // youre at studentcounter
 								coorxy(35, 22); cout << students[k][16];
 								coorxy(29, 24); cout << students[k][17];
 
+								pooln = students[k][0];
 								fname = students[k][1];
 								mname = students[k][2];
 								lname = students[k][3];
@@ -861,14 +874,13 @@ int main() {  // youre at studentcounter
 									grelation[o] = '\0';
 								}*/
 
-								fname = "", mname = "", lname = "", age = "", gender = "",
+								pooln = "";  fname = "", mname = "", lname = "", age = "", gender = "",
 								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 								municipality = "", province = "", gfname = "", gmname = "", 
 								glname = "", gcnum = "",grelation = "",targety = ""; // Erasing string values done
 
 								coorxy(1, 4); cout << "not found";
 								// You have business here if not found - done
-
 								int cn = 0; // counter finder of student who don't have pooling num - done
 								while (students[cn][0] != "") {
 									cn++;
@@ -1083,7 +1095,7 @@ int main() {  // youre at studentcounter
 								break;
 							}
 							else {
-								key = 1;
+								key = 1; // if students have no pooling number
 							}
 						}
 					}
@@ -1093,7 +1105,7 @@ int main() {  // youre at studentcounter
 							key = 0;
 							poolnum++;
 							string pn = to_string(poolnum);
-							students[i][0] = pn;  // youre here doing the new page of which year to enroll
+							students[i][0] = pn;  // youre here doing the new page of which year to enroll - done
 							pooln = pn;
 
 							system("cls");
@@ -1126,13 +1138,21 @@ int main() {  // youre at studentcounter
 							i++;
 							
 							coorxy(40, 20); system("pause");
-					}
+						}
 					
 					}
 					pooln = "",fname = "", mname = "", lname = "", age = "", gender = "",
 					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 					municipality = "", province = "", gfname = "", gmname = "",
 					glname = "", gcnum = "", grelation = "", targety = ""; // Erasing string values done
+					 // youre here with appending after updating 
+
+					for (int x = 0; x < 10; x++) { // empty student pooling number finder
+						if (students[x][0] == "") {
+							i = x;
+							break;
+						}
+					}
 
 					system("cls"); // do the when updating, the system will clear
 					table();
@@ -1151,7 +1171,7 @@ int main() {  // youre at studentcounter
 					else if (b == 80 || b == 77) counter++;
 				}
 				else if (b == 13) {
-					
+					i;
 					coorxy(67, 27); cout << "  ";
 					coorxy(87, 27); cout << "  ";
 					coorxy(68, 27); cout << "<<";
@@ -1165,7 +1185,7 @@ int main() {  // youre at studentcounter
 					}
 					// youre here deleting the char fname values - done
 
-					fname = "", mname = "", lname = "", age = "", gender = "",
+					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
 					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 					municipality = "", province = "", gfname = "", gmname = "",
 					glname = "", gcnum = "", grelation = "", targety = ""; // Erasing string values done
