@@ -1135,12 +1135,13 @@ int main() {  // youre at studentcounter
 								coorxy(43, 15 + n); cout << string(26, char(196));
 								n += 2;
 							}
-							i++;
-							
+							i++;// Create the file here using the pooln as filename and parse it with ".txt" 
+							//After creation, store the local variables to the file
 							coorxy(40, 20); system("pause");
 						}
 					
-					}
+					}// Else get the string value of finder variabl and combine it with ".txt" then open it.
+//When successful, store the temporary variables to the file
 					pooln = "",fname = "", mname = "", lname = "", age = "", gender = "",
 					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 					municipality = "", province = "", gfname = "", gmname = "",
