@@ -1365,7 +1365,7 @@ int main() {  // youre at studentcounter
 
 						}
 
-						// resetting the display
+						// Erasing display
 
 						coorxy(19, 6); cout << string(15, ' ');
 						coorxy(57, 6); cout << string(15, ' ');
