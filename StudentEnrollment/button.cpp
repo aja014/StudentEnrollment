@@ -1454,14 +1454,14 @@ int main() {  // youre at studentcounter
 							int ext = 0; // confirmation exit
 							do {
 								string tempfinder = to_string(temppool) + ".txt";
-								ifstream newfile; // making new file and check if it doesnt exist
+								ifstream newfile; // making new file and check if it exist
 								newfile.open(tempfinder);
 								if (newfile.is_open()) {
 									temppool++;
 									newfile.close();
 								}
 								else {
-									finder = to_string(temppool); // if it doesnt exist, it'll be as current file;
+									finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
 									currentfile = finder + ".txt";
 									ext = 1;
 									break;
@@ -1664,6 +1664,7 @@ int main() {  // youre at studentcounter
 						
 						} while (e != "1" && e != "2");
 						targety += e;
+						e = "";
 						coorxy(45, 14); cout <<"target year/sem code" << targety;
 						
 						// Pooling number table
@@ -1690,14 +1691,14 @@ int main() {  // youre at studentcounter
 					int ext = 0;
 					do {
 						string tempfinder = to_string(temppool) + ".txt";
-						ifstream newfile; // making new file and check if it doesnt exist
+						ifstream newfile; // making new file and check if it exist
 						newfile.open(tempfinder);
 						if (newfile.is_open()) {
 							temppool++;
 							newfile.close();
 						}
 						else {
-							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as current file;
+							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
 							currentfile = finder + ".txt";
 							ext = 1;
 							break;
@@ -1719,7 +1720,11 @@ int main() {  // youre at studentcounter
 					table();
 				}
 			break;
+
 			case 19:
+
+				// youre here
+
 				coorxy(67, 27); cout << "<<";
 				coorxy(87, 27); cout << ">>";
 				char b;
@@ -1738,18 +1743,18 @@ int main() {  // youre at studentcounter
 					coorxy(68, 27); cout << "<<";
 					coorxy(86, 27); cout << ">>";
 					Sleep(100);
-					if (students[i][0] != "") {
-						poolnum--; // Youre here with the problem of spamming "delete" - done
-						for (int k = 0; k < 18; k++) {
-							students[i][k] = "\0";
-						}
-					}
-					// youre here deleting the char fname values - done
+					
+
+					// Youre here at deleting the file
+
+
+
+					// Erasing Values - done
 
 					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
 					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 					municipality = "", province = "", gfname = "", gmname = "",
-					glname = "", gcnum = "", grelation = "", targety = ""; // Erasing string values done
+					glname = "", gcnum = "", grelation = "", targety = ""; 
 
 					
 					n = 0;
@@ -1759,12 +1764,28 @@ int main() {  // youre at studentcounter
 						coorxy(3, 26 + n); cout << string(26, ' ');
 						n += 2;
 					}
-					// youre here about finding empty pooling number when deleting
-					int cn = 0; // counter
-					while (students[cn][0] != "") {
-						cn++;
-						i = cn;
-					}
+
+
+					//finding the empty file - done
+
+					int temppool = 20240001;
+					int ext = 0;
+					do {
+						string tempfinder = to_string(temppool) + ".txt";
+						ifstream newfile; // making new file and check if it exist
+						newfile.open(tempfinder);
+						if (newfile.is_open()) {
+							temppool++;
+							newfile.close();
+						}
+						else {
+							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+							currentfile = finder + ".txt";
+							ext = 1;
+							break;
+						}
+					} while (ext != 1);
+					
 
 					coorxy(68, 27); cout << "  ";
 					coorxy(86, 27); cout << "  ";
