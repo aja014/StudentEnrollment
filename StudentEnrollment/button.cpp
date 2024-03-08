@@ -1364,6 +1364,27 @@ int main() {  // youre at studentcounter
 							finder += searchpool[k];
 
 						}
+
+						// resetting the display
+
+						coorxy(19, 6); cout << string(15, ' ');
+						coorxy(57, 6); cout << string(15, ' ');
+						coorxy(93, 6); cout << string(15, ' ');
+						coorxy(18, 8); cout << string(15, ' ');
+						coorxy(18, 10); cout << string(15, ' ');
+						coorxy(56, 10); cout << string(15, ' ');
+						coorxy(26, 12); cout << string(15, ' ');
+						coorxy(56, 12); cout << string(15, ' ');
+						coorxy(93, 12); cout << string(15, ' ');
+						coorxy(29, 14); cout << string(15, ' ');
+						coorxy(33, 16); cout << string(15, ' ');
+						coorxy(29, 18); cout << string(15, ' ');
+						coorxy(31, 20); cout << string(15, ' ');
+						coorxy(65, 20); cout << string(15, ' ');
+						coorxy(97, 20); cout << string(15, ' ');
+						coorxy(35, 22); cout << string(15, ' ');
+						coorxy(29, 24); cout << string(15, ' ');
+
 						// youre here at finding  - done
 
 						string findtxt = finder + ".txt";
@@ -1700,7 +1721,7 @@ int main() {  // youre at studentcounter
 						}
 						else {
 							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-							currentfile = finder + ".txt";
+							currentfile = temppoolnum + ".txt";
 							ext = 1;
 							break;
 						}
