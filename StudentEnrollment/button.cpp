@@ -77,636 +77,1021 @@ void loadfile() {
 }
 	
 
-//int menu(int x) {
-//	system("cls");
-//
-//	char a;
-//
-//	if (x == 1) {
-//		table();
-//		char  fname[32] = "", mname[32] = "", lname[32] = "", age[32] = "", gender[32] = "", lrn[32] = ""
-//			, bmonth[32] = "", bday[32] = "", byear[32] = "", barangay[32] = "", municipality[32] = ""
-//			, province[32] = "", postalzip[32] = "", gfname[32] = "", gmname[32] = "", glname[32] = ""
-//			, gcnum[32] = "", grelation[32] = "";
-//		int poolingnum[32];
-//
-//		int counter = 1,n;
-//	
-//		Q:
-//		switch (counter) {
-//		case 1:
-//			coorxy(19, 7);  n = getchVal(fname,0);
-//			coorxy(19, 7); cout << string(20, ' ');
-//			coorxy(19, 7); getchcout(fname);
-//			if (n == 101) counter = 18;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 2:
-//			coorxy(57, 7);  n = getchVal(mname,0);
-//			coorxy(57, 7); cout << string(20, ' ');
-//			coorxy(57, 7); getchcout(mname);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 3:
-//			coorxy(93, 7); n = getchVal(lname,0);
-//			coorxy(93, 7); cout << string(20, ' ');
-//			coorxy(93, 7); getchcout(lname);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 4:
-//			coorxy(12, 9); n = getchVal(age,2);
-//			coorxy(12, 9); cout << string(20, ' ');
-//			coorxy(12, 9); getchcout(age);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 5:
-//			coorxy(15, 11); n = getchVal(gender,0);
-//			coorxy(15, 11); cout << string(20, ' ');
-//			coorxy(15, 11); getchcout(gender);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 6:
-//			coorxy(56, 11); n = getchVal(lrn, 12);
-//			coorxy(56, 11); cout << string(20, ' ');
-//			coorxy(56, 11); getchcout(lrn);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 7:
-//			coorxy(26, 13); n = getchVal(bmonth, 0);
-//			coorxy(26, 13); cout << string(20, ' ');
-//			coorxy(26, 13); getchcout(bmonth);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 8:
-//			coorxy(56, 13); n = getchVal(bday, 2);
-//			coorxy(56, 13); cout << string(20, ' ');
-//			coorxy(56, 13); getchcout(bday);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 9:
-//			coorxy(93, 13); n = getchVal(byear, 4);
-//			coorxy(93, 13); cout << string(20, ' ');
-//			coorxy(93, 13); getchcout(byear);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 10:
-//			coorxy(29, 15); n = getchVal(barangay, 0);
-//			coorxy(29, 15); cout << string(20, ' ');
-//			coorxy(29, 15); getchcout(barangay);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 11:
-//			coorxy(33, 17); n = getchVal(municipality, 0);
-//			coorxy(33, 17); cout << string(20, ' ');
-//			coorxy(33, 17); getchcout(municipality);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 12:
-//			coorxy(29, 19); n = getchVal(province, 0);
-//			coorxy(29, 19); cout << string(20, ' ');
-//			coorxy(29, 19); getchcout(province);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 13:
-//			coorxy(38, 21); n = getchVal(postalzip, 4);
-//			coorxy(38, 21); cout << string(20, ' ');
-//			coorxy(38, 21); getchcout(postalzip);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 14:
-//			coorxy(31, 23); n = getchVal(gfname,0);
-//			coorxy(31, 23); cout << string(17, ' ');
-//			coorxy(31, 23); getchcout(gfname);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 15:
-//			coorxy(65, 23); n = getchVal(gmname, 0);
-//			coorxy(65, 23); cout << string(15, ' ');
-//			coorxy(65, 23); getchcout(gmname);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 16:
-//			coorxy(97, 23); n = getchVal(glname, 0);
-//			coorxy(97, 23); cout << string(17, ' ');
-//			coorxy(97, 23); getchcout(glname);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 17:
-//			coorxy(35, 25); n = getchVal(gcnum,11);
-//			coorxy(35, 25); cout << string(17, ' ');
-//			coorxy(35, 25); getchcout(gcnum);
-//			if (n == 101) counter--;
-//			else counter++;
-//			goto Q;
-//			break;
-//		case 18:
-//			coorxy(29, 27); n = getchVal(grelation, 0);
-//			coorxy(29, 27); cout << string(30, ' ');
-//			coorxy(29, 27); getchcout(grelation);
-//			if (n == 101) counter--;
-//			else counter = 1;
-//			break;
-//		}
-//		system("cls");
-//
-//		cout << "Name : "; getchcout(fname); cout << " "; getchcout(mname); cout << " "; getchcout(lname); cout << " \n";
-//		cout << "Age : ";  getchcout(age); cout << endl;
-//		cout << "Gender : ";  getchcout(gender); cout << endl;
-//		cout << "Lrn : "; getchcout(lrn); cout << endl;
-//		cout << "Birthdate : "; getchcout(bmonth); cout << " "; getchcout(bday); cout << " "; getchcout(byear); cout << " \n";
-//		cout << "barangay : "; gc(barangay); cout << endl;
-//		cout << "municipality : "; gc(municipality); cout << endl;
-//		cout << "province : "; gc(province); cout << endl;
-//		cout << "postal/zip : "; gc(postalzip); cout << endl;
-//		cout << "Guardian : "; gc(gfname); cout << " "; gc(gmname); cout << " "; gc(glname); cout << endl;
-//		cout << "Guardian contact number: "; gc(gcnum); cout << endl;
-//		cout << "Guardian relation : "; gc(grelation); cout << endl;
-//
-//		coorxy(0, 29); system("pause");
-//		system("cls");
-//	}
-//	else if (x == 2) {
-//		int num = 1;
-//
-//		coorxy(18, 7); cout << "Search";
-//		coorxy(19, 13); cout << "Back";
-//
-//		for (int i = 0; i < 11;) {
-//			buttonxy(10, 5 + i, 20, 3);
-//			i += 6;
-//		}
-//
-//		buttonxy2(10, 5, 20, 3, 2);
-//
-//		for (int i = 0;;) {
-//
-//			coorxy(0, 0);  a = _getch();
-//
-//			coorxy(35, 7); cout << string(15, ' ') << flush;
-//
-//			if (a == 72)num--;
-//			else if (a == 80)num++;
-//
-//			if (num < 1) num = 2;
-//			else if (num > 2) num = 1;
-//
-//			if (a == 13) {
-//				if (num == 2) {
-//					buttonxy2(10, 11, 20, 3, 1);
-//					Sleep(200);
-//					system("cls");
-//					break;
-//					return 0;
-//				}
-//				else {
-//					buttonxy2(10, 5, 20, 3, 1);
-//					Sleep(200);
-//					buttonxy(10, 5, 20, 3);
-//					coorxy(35, 7); cout << "Not yet done";
-//				}
-//			}
-//
-//			for (int i = 0; i < 25; i++) { // erase selection
-//				coorxy(9, 4 + i); cout << string(1, ' ');
-//				coorxy(32, 4 + i); cout << string(1, ' ');
-//			}
-//
-//			switch (num) {
-//			case 1: buttonxy2(10, 5, 20, 3, 2);
-//				break;
-//			case 2: buttonxy2(10, 11, 20, 3, 2);
-//				break;
-//			}
-//		}
-//
-//	}
-//	else if (x == 3) {
-//		char a;
-//		int num = 1;
-//		coorxy(19, 7); cout << "Back";
-//		buttonxy(10, 5, 20, 3);
-//		buttonxy2(10, 5, 20, 3, 2);
-//		
-//		do {
-//			coorxy(0,0); a = _getch();
-//		} while (a != 13);
-//
-//		buttonxy2(10, 5, 20, 3, 1);
-//		Sleep(200);
-//
-//	}
-//	system("cls");
-//	return 0;
-//}
+int menu(int x) {
+	system("cls");
 
-//int main() {
-//
-//	font1(600, 10, 20);
-//
-//
-//	char user[] = "user1", upass[] = "upass1";
-//	char admin[] = "admin1", apass[] = "apass1";
-//	char username[32], password[32], a;
-//
-//	//int num = 0;
-//	int num = 1;
-//	int ld = 0;
-//	int access = 0;
-//
-//	coorxy(55, 4); cout << string(7, char(220));
-//	Sleep(100);
-//	for (int i = 0; i < 3; i++) {
-//		Sleep(100);
-//		coorxy(58, 2 + i); cout << char(219);
-//		coorxy(57 + i, 15); cout << char(220);
-//	}
-//	Sleep(100);
-//	coorxy(59, 2); cout << string(3, char(220));
-//	Sleep(100);
-//	coorxy(59, 3); cout << string(3, char(223));
-//	Sleep(100);
-//	coorxy(55, 5); cout << char(221);
-//	Sleep(100);
-//	coorxy(61, 5); cout << char(222);
-//	Sleep(100);
-//	coorxy(53, 6); cout << char(222);
-//	Sleep(100);
-//	coorxy(63, 6); cout << char(221);
-//	Sleep(100);
-//	coorxy(54, 7); cout << string(9, char(223));
-//	Sleep(100);
-//	coorxy(55, 7); cout << char(219);
-//	Sleep(100);
-//	coorxy(61, 7); cout << char(219);
-//	Sleep(100);
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(54 + ld, 5); cout << char(220);
-//		ld += 8;
-//	}
-//	for (int i = 0; i < 10; i++) {
-//		Sleep(100);
-//		coorxy(55, 8 + i); cout << char(221);
-//		coorxy(61, 8 + i); cout << char(222);
-//	}
-//	for (int i = 0; i < 9; i++) {
-//		Sleep(100);
-//		coorxy(54 + i, 14); cout << char(254);
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(41 + ld, 8); cout << string(2, char(220));
-//		ld += 33;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(43 + ld, 8); cout << char(219);
-//		ld += 30;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(44 + ld, 8); cout << string(11, char(223));
-//		ld += 18;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(40 + ld, 9); cout << char(219);
-//		coorxy(40 + ld, 10); cout << char(219);
-//		ld += 36;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(41 + ld, 10); cout << string(14, char(220));
-//		ld += 21;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 7; i++) {
-//		Sleep(100);
-//		coorxy(41, 11 + i); cout << char(219);
-//		coorxy(75, 11 + i); cout << char(219);
-//	}
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(57, 16 + i); cout << char(221);
-//		coorxy(59, 16 + i); cout << char(222);
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(44 + ld, 12); cout << string(8, char(177));
-//		coorxy(44 + ld, 13); cout << string(8, char(177));
-//		coorxy(44 + ld, 15); cout << string(8, char(177));
-//		coorxy(44 + ld, 16); cout << string(8, char(177));
-//		ld += 21;
-//		coorxy(57, 10 + i); cout << string(3, char(177));
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(26+ld, 11); cout << string(15, char(220));
-//		coorxy(25, 12); cout << char(219);
-//		coorxy(91, 12); cout << char(219);
-//		coorxy(26+ld, 13); cout << string(15, char(223));
-//		ld += 50;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 5; i++) {
-//		Sleep(100);
-//		coorxy(27, 13 + i); cout << char(219);
-//		coorxy(89, 13 + i); cout << char(219);
-//	}
-//
-//	Sleep(100);
-//	coorxy(57, 9); cout << string(3, char(220));
-//	Sleep(100);
-//	coorxy(57, 12); cout << string(3, char(223));
-//	Sleep(100);
-//	coorxy(44, 18); cout << string(11, char(223));
-//	Sleep(100);
-//	coorxy(62, 18); cout << string(11, char(223));
-//	Sleep(100);
-//	coorxy(43, 18); cout << char(219);
-//	Sleep(100);
-//	coorxy(73, 18); cout << char(219);
-//	Sleep(100);
-//	coorxy(41, 18); cout << string(35, char(223));
-//
-//	for (int i = 0; i < 14; i++) {
-//		Sleep(100);
-//		coorxy(27+i, 17); cout << char(219);
-//		coorxy(89-i, 17); cout << char(219);
-//	}
-//	for (int i = 0; i < 9; i++) {
-//		Sleep(100);
-//		coorxy(30 + i, 14); cout << char(177);
-//		coorxy(30 + i, 15); cout << char(177);
-//		coorxy(86 - i, 14); cout << char(177);
-//		coorxy(86 - i, 15); cout << char(177);
-//	}
-//
-//	coorxy(38, 27); cout << "BSIT Student Enrollment Management System";
-//	coorxy(45, 22); system("pause"); ////////////// OPENING 
-//	coorxy(45, 22); cout << string(40, ' ');
-//
-//	coorxy(42, 20); cout << "Username :";
-//	coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
-//	coorxy(53, 20); cout << char(179);
-//	coorxy(74, 20); cout << char(179);
-//	coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
-//
-//	coorxy(42, 23); cout << "Password :";
-//	coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
-//	coorxy(53, 23); cout << char(179);
-//	coorxy(74, 23); cout << char(179);
-//	coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
-//
-//	Usr: // Login security system
-//	coorxy(55, 20);
-//	for (int i = 0;;) { // Login security for username
-//		a = _getch();
-//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-//			if (i < 19) {
-//				cout << a;
-//				username[i] = a;
-//				++i;
-//				//num++;
-//			}
-//		}
-//		else if (a == 8 && i >= 1) {
-//			cout << "\b \b";
-//			username[--i] = '\0';
-//			//num--;
-//		}
-//		else if (a == 13) {
-//			username[i] = '\0';
-//			//if (strcmp(username, user) == 0) {
-//			break;
-//			/*}
-//			else {
-//				i = 0;
-//				coorxy(55, 20); cout << string(19, ' ');
-//				goto Usr;
-//			}*/
-//		}
-//	}
-//	coorxy(55, 23);
-//	for (int i = 0;;) { // login security for password
-//		a = _getch();
-//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-//			if (i < 19) {
-//				cout << "*";
-//				password[i] = a;
-//				++i;
-//			}
-//		}
-//		else if (a == 8 && i >= 1) {
-//			cout << "\b \b";
-//			password[--i] = '\0';
-//		}
-//		else if (a == 13) {
-//			password[i] = '\0';
-//			if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
-//				if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
-//					access = 1; // admin access
-//				}
-//				break;
-//
-//			}
-//			else {
-//				i = 0;
-//				//coorxy(40, 10); cout << "wrong password";
-//				coorxy(55, 20); cout << string(19, ' ');
-//				coorxy(55, 23); cout << string(19, ' ');
-//				goto Usr;
-//			}
-//		}
-//	}
-//
-//
-//	//coorxy(45, 25); system("pause");
-//	system("cls");
-//
-//	for (int i = 0; i < 24;) {
-//		buttonxy(10, 3 + i, 25, 3);
-//		i += 6;
-//	}
-//
-//	buttonxy2(10, 3, 25, 3,2);
-//
-//	for (int i = 0;;) {
-//
-//		coorxy(14, 5); cout << "Student Registration";
-//		coorxy(13, 11); cout << "Curriculum Management";
-//		coorxy(15, 17); cout << "Student Enrollment";
-//		coorxy(21, 23); cout << "Exit";
-//
-//		for (int i = 0; i < 24;) {
-//			buttonxy(10, 3 + i, 25, 3);
-//			i += 6;
-//		}
-//		coorxy(0, 0); char  a = _getch();
-//
-//
-//		if (a == 72) num--;
-//		else if (a == 80) num++;
-//
-//		else if (a == 13) { // PRESSING ENTER KEY
-//
-//
-//			//for (int i = 0; i < 25; i++) { // erase selection animation
-//			//	coorxy(9, 4 + i); cout << string(1, 'x');
-//			//	coorxy(37, 4 + i); cout << string(1, 'x');
-//			//}
-//
-//			if (num == 4) { // Exit Pressed button function
-//				buttonxy2(10, 21, 25, 3, 1);
-//				Sleep(250);
-//				system("cls");
-//
-//				int exit = 0;
-//				int num = 1;
-//				
-//
-//				for (int i = 0; i < 26;) {
-//					buttonxy(45+i, 11, 12, 1);
-//					i += 17;
-//				}
-//
-//				buttonxy2(45, 11, 12, 1, 2);
-//				coorxy(55, 9); cout << "Are you sure?";
-//				coorxy(50, 12); cout << "Yes";
-//				coorxy(68, 12); cout << "No";
-//
-//				char a;
-//				for (int i = 0;;) {
-//				coorxy(0, 0); a =_getch();
-//
-//					if (a == 75)num--; // arrow key function
-//					else if (a == 77)num++;
-//
-//					if (num < 1)num = 1;
-//					else if (num > 2) num = 2;
-//
-//					if (a == 13) { // exit confirmation
-//						if (num == 2) {
-//							buttonxy2(62, 11, 12, 1,1);
-//							Sleep(200);
-//							system("cls");
-//							break;
-//						}
-//						else {
-//							exit = 1;
-//							buttonxy2(45, 11, 12, 1, 1);
-//							Sleep(200);
-//							system("cls");
-//							break;
-//						}
-//					}
-//
-//					for (int i = 0;i<5;) { //erasing selection animation
-//						coorxy(43, 10+i); cout << string(40, ' ');
-//						i += 4;
-//						
-//					}
-//					switch (num) { // Exit selection animation
-//					case 1:buttonxy2(45, 11, 12, 1,2);
-//						break;
-//					case 2:buttonxy2(62, 11, 12, 1, 2);
-//						break;
-//					}
-//
-//				}
-//				if (exit == 1) { // exit
-//					break;
-//				}
-//			}
-//			else {
-//
-//			switch (num) { // Pressed button animation
-//			case 1: buttonxy2(10, 3, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			case 2: buttonxy2(10, 9, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			case 3: buttonxy2(10, 15, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			default:
-//					break;
-//				}
-//			system("cls");
-//			menu(num); // Options when entered part 2
-//			//switch (num) { // Options when entered part 1 *error*
-//			//case 1: enrollment();
-//			//	break;
-//			//} 
-//			}
-//		}
-//		
-//
-//		if (num < 1) num = 4;
-//		else if (num > 4) num = 1;
-//
-//		for (int i = 0; i < 25; i++) { // erase selection
-//			coorxy(9, 2 + i); cout << string(1, ' ');
-//			coorxy(37, 2 + i); cout << string(1, ' ');
-//		}
-//
-//
-//		switch (num) { // Selection bar
-//		case 1: buttonxy2(10, 3, 25, 3,2);
-//			break;
-//		case 2:buttonxy2(10, 9, 25, 3,2);
-//			break;
-//		case 3:buttonxy2(10, 15, 25, 3,2);
-//			break;
-//		case 4:buttonxy2(10, 21, 25, 3,02);
-//			break;
-//		}
-//	}
-//
-//
-//
-//
-//	//coorxy(0, 29); system("pause");
-//}
+	char a;
+
+	if (x == 1) {
+		string currentfile;
+		string finder; // Local variable
+		string temppoolnum; // local variable
+		string searchpool[32]; // local variable
+		string e; //local variable for targety
+
+		//finding the empty file - done
+
+		int temppool = 20240001;
+		int ext = 0;
+		do {
+			string tempfinder = to_string(temppool) + ".txt";
+			ifstream newfile; // making new file and check if it exist
+			newfile.open(tempfinder);
+			if (newfile.is_open()) {
+				temppool++;
+				newfile.close();
+			}
+			else {
+				temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+				currentfile = temppoolnum + ".txt";
+				ext = 1;
+				break;
+			}
+		} while (ext != 1);
+
+
+		table();
+
+
+		string pooln, fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
+			grelation, targety;
+
+		char d; // local variable
+
+		int counter = 0, n; // local variable
+		int i = 0; // student counter // local variable
+
+		int exit = 0; // local variable
+		for (i = 0;;) {
+		Q:
+
+			switch (counter) {
+			case 0:
+
+
+				coorxy(31, 2);
+				for (int j = 0;;) {
+					d = _getch();
+					if (d == -32) {
+						d = _getch();
+						if (d == 72 || d == 75) {
+							counter = 20;
+							break;
+						}
+						else if (d == 80 || d == 77) {
+							counter++;
+							break;
+						}
+					}
+					else if (d == 8 && j >= 1) {
+						cout << "\b \b";
+						searchpool[--j] = '\0';
+					}
+					else if ((d >= '0' && d <= '9') && j < 8) {
+						cout << d;
+						searchpool[j] = d;
+						++j;
+					}
+					else if (d == 13) {
+						//counter++;
+						searchpool[j] = '\0';
+
+						for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
+							finder += searchpool[k];
+
+						}
+
+						// Erasing display
+
+						coorxy(19, 6); cout << string(15, ' ');
+						coorxy(57, 6); cout << string(15, ' ');
+						coorxy(93, 6); cout << string(15, ' ');
+						coorxy(18, 8); cout << string(15, ' ');
+						coorxy(18, 10); cout << string(15, ' ');
+						coorxy(56, 10); cout << string(15, ' ');
+						coorxy(26, 12); cout << string(15, ' ');
+						coorxy(56, 12); cout << string(15, ' ');
+						coorxy(93, 12); cout << string(15, ' ');
+						coorxy(29, 14); cout << string(15, ' ');
+						coorxy(33, 16); cout << string(15, ' ');
+						coorxy(29, 18); cout << string(15, ' ');
+						coorxy(31, 20); cout << string(15, ' ');
+						coorxy(65, 20); cout << string(15, ' ');
+						coorxy(97, 20); cout << string(15, ' ');
+						coorxy(35, 22); cout << string(15, ' ');
+						coorxy(29, 24); cout << string(15, ' ');
+
+						// youre here at finding  - done
+
+						string findtxt = finder + ".txt";
+						ifstream loadfile(findtxt);
+						if (loadfile.is_open()) { // if found, store the data
+							currentfile = findtxt;
+							string line;
+							while (getline(loadfile, line)) {
+								stringstream ss(line);
+								getline(ss, pooln, '$');
+								getline(ss, fname, '$');
+								getline(ss, mname, '$');
+								getline(ss, lname, '$');
+								getline(ss, age, '$');
+								getline(ss, gender, '$');
+								getline(ss, lrn, '$');
+								getline(ss, bmonth, '$');
+								getline(ss, bday, '$');
+								getline(ss, byear, '$');
+								getline(ss, barangay, '$');
+								getline(ss, municipality, '$');
+								getline(ss, province, '$');
+								getline(ss, gfname, '$');
+								getline(ss, gmname, '$');
+								getline(ss, glname, '$');
+								getline(ss, gcnum, '$');
+								getline(ss, grelation, '$');
+								getline(ss, targety, '$');
+							}
+
+							// displaying found datas - done
+
+							coorxy(19, 6); cout << fname;
+							coorxy(57, 6); cout << mname;
+							coorxy(93, 6); cout << lname;
+							coorxy(18, 8); cout << age;
+							coorxy(18, 10); cout << gender;
+							coorxy(56, 10); cout << lrn;
+							coorxy(26, 12); cout << bmonth;
+							coorxy(56, 12); cout << bday;
+							coorxy(93, 12); cout << byear;
+							coorxy(29, 14); cout << barangay;
+							coorxy(33, 16); cout << municipality;
+							coorxy(29, 18); cout << province;
+							coorxy(31, 20); cout << gfname;
+							coorxy(65, 20); cout << gmname;
+							coorxy(97, 20); cout << glname;
+							coorxy(35, 22); cout << gcnum;
+							coorxy(29, 24); cout << grelation;
+
+
+							loadfile.close();
+							coorxy(10, 0); cout << "         ";
+							coorxy(10, 0); cout << "found";
+						}
+						else { // if not found;
+
+
+							// erasing display - done
+
+							coorxy(19, 6); cout << string(15, ' ');
+							coorxy(57, 6); cout << string(15, ' ');
+							coorxy(93, 6); cout << string(15, ' ');
+							coorxy(18, 8); cout << string(15, ' ');
+							coorxy(18, 10); cout << string(15, ' ');
+							coorxy(56, 10); cout << string(15, ' ');
+							coorxy(26, 12); cout << string(15, ' ');
+							coorxy(56, 12); cout << string(15, ' ');
+							coorxy(93, 12); cout << string(15, ' ');
+							coorxy(29, 14); cout << string(15, ' ');
+							coorxy(33, 16); cout << string(15, ' ');
+							coorxy(29, 18); cout << string(15, ' ');
+							coorxy(31, 20); cout << string(15, ' ');
+							coorxy(65, 20); cout << string(15, ' ');
+							coorxy(97, 20); cout << string(15, ' ');
+							coorxy(35, 22); cout << string(15, ' ');
+							coorxy(29, 24); cout << string(15, ' ');
+
+
+							pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
+								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+								municipality = "", province = "", gfname = "", gmname = "",
+								glname = "", gcnum = "", grelation = "", targety = "";
+
+
+							// finding new empty pooling number - done
+
+							int temppool = 20240001; // temporary pooling number
+							int ext = 0; // confirmation exit
+							do {
+								string tempfinder = to_string(temppool) + ".txt";
+								ifstream newfile; // making new file and check if it exist
+								newfile.open(tempfinder);
+								if (newfile.is_open()) {
+									temppool++;
+									newfile.close();
+								}
+								else {
+									finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+									currentfile = finder + ".txt";
+									ext = 1;
+									break;
+								}
+							} while (ext != 1);
+							coorxy(10, 0); cout << "not found";
+						}
+
+
+						coorxy(31, 2); cout << string(8, ' ');
+
+						j = 0; // resetting the searchfinder
+						temppoolnum = finder; // backuping the pooling num
+						finder = ""; // resetting poolinf finder
+						counter = 0;
+						goto Q;
+					}
+				}
+
+
+				break;
+			case 1:
+				coorxy(19, 6); n = getchVal(fname, 0);
+				coorxy(19, 6); cout << string(20, ' ');
+				coorxy(19, 6); cout << fname;//getchcout(fname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 2:
+				coorxy(57, 6); n = getchVal(mname, 0);
+				coorxy(57, 6); cout << string(20, ' ');
+				coorxy(57, 6); cout << mname; //getchcout(mname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 3:
+				coorxy(93, 6); n = getchVal(lname, 0);
+				coorxy(93, 6); cout << string(20, ' ');
+				coorxy(93, 6); cout << lname; //getchcout(lname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 4:
+				coorxy(18, 8); n = getchVal(age, 2);
+				coorxy(18, 8); cout << string(20, ' ');
+				coorxy(18, 8); cout << age; //getchcout(age);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 5:
+				coorxy(18, 10); n = getchVal(gender, 0);
+				coorxy(18, 10); cout << string(20, ' ');
+				coorxy(18, 10); cout << gender; //getchcout(gender);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 6:
+				coorxy(56, 10); n = getchVal(lrn, 12);
+				coorxy(56, 10); cout << string(20, ' ');
+				coorxy(56, 10); cout << lrn; //getchcout(lrn);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 7:
+				coorxy(26, 12); n = getchVal(bmonth, 0);
+				coorxy(26, 12); cout << string(20, ' ');
+				coorxy(26, 12); cout << bmonth; //getchcout(bmonth);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 8:
+				coorxy(56, 12); n = getchVal(bday, 2);
+				coorxy(56, 12); cout << string(20, ' ');
+				coorxy(56, 12); cout << bday; //getchcout(bday);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 9:
+				coorxy(93, 12); n = getchVal(byear, 4);
+				coorxy(93, 12); cout << string(20, ' ');
+				coorxy(93, 12); cout << byear; //getchcout(byear);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 10:
+				coorxy(29, 14); n = getchVal(barangay, 0);
+				coorxy(29, 14); cout << string(30, ' ');
+				coorxy(29, 14); cout << barangay; //getchcout(barangay);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 11:
+				coorxy(33, 16); n = getchVal(municipality, 0);
+				coorxy(33, 16); cout << string(30, ' ');
+				coorxy(33, 16); cout << municipality; //getchcout(municipality);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 12:
+				coorxy(29, 18); n = getchVal(province, 0);
+				coorxy(29, 18); cout << string(30, ' ');
+				coorxy(29, 18); cout << province; //getchcout(province);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+				/*case 13:
+					coorxy(38, 21); n = getchVal(postalzip, 4);
+					coorxy(38, 21); cout << string(20, ' ');
+					coorxy(38, 21); getchcout(postalzip);
+					if (n == 101) counter--;
+					else counter++;
+					goto Q;
+					break;*/
+			case 13:
+				coorxy(31, 20); n = getchVal(gfname, 0);
+				coorxy(31, 20); cout << string(17, ' ');
+				coorxy(31, 20); cout << gfname;// getchcout(gfname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 14:
+				coorxy(65, 20); n = getchVal(gmname, 0);
+				coorxy(65, 20); cout << string(15, ' ');
+				coorxy(65, 20); cout << gmname; //getchcout(gmname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 15:
+				coorxy(97, 20); n = getchVal(glname, 0);
+				coorxy(97, 20); cout << string(17, ' ');
+				coorxy(97, 20); cout << glname; //getchcout(glname);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 16:
+				coorxy(35, 22); n = getchVal(gcnum, 11);
+				coorxy(35, 22); cout << string(17, ' ');
+				coorxy(35, 22); cout << gcnum; //getchcout(gcnum);
+				if (n == 101) counter--;
+				else counter++;
+				goto Q;
+				break;
+			case 17:
+				coorxy(29, 24); n = getchVal(grelation, 0);
+				coorxy(29, 24); cout << string(30, ' ');
+				coorxy(29, 24); cout << grelation; //getchcout(grelation);
+				if (n == 101) counter--;
+				else counter++;
+				break;
+			case 18:
+				coorxy(42, 27); cout << "<<";
+				coorxy(62, 27); cout << ">>";
+				char a;
+				a = _getch();
+				if (a == -32) {
+					a = _getch();
+					coorxy(42, 27); cout << "  ";
+					coorxy(62, 27); cout << "  ";
+					if (a == 72 || a == 75) counter--;
+					else if (a == 80 || a == 77) counter++;
+				}
+				else if (a == 13) {
+
+					coorxy(42, 27); cout << "  ";
+					coorxy(62, 27); cout << "  ";
+					coorxy(43, 27); cout << "<<";
+					coorxy(61, 27); cout << ">>";
+					Sleep(100);
+
+					//checking if pooling number is already registerd - done
+
+					if (targety == "") {
+						system("cls");
+						do {
+							coorxy(45, 11); cout << "What year do you want to enroll? :    ";
+							coorxy(80, 11); getchVal(e, 0);
+						} while (e != "1" && e != "2" && e != "3" && e != "4");
+						targety = e;
+						do {
+							e = "";
+							coorxy(45, 12); cout << "Enter what semester :    ";
+							coorxy(67, 12); getchVal(e, 0);
+							//e += f;
+
+						} while (e != "1" && e != "2");
+						targety += e;
+						e = "";
+						coorxy(45, 14); cout << "target year/sem code" << targety;
+
+						// Pooling number table
+						coorxy(43, 16); cout << char(179) << " Pooling num : " << temppoolnum;  // number
+						n = 0;
+						coorxy(68, 16); cout << char(179);
+						for (int j = 0; j < 2; j++) {
+							coorxy(43, 15 + n); cout << string(26, char(196));
+							n += 2;
+						}
+						coorxy(43, 18); system("pause");
+					}
+
+
+					// saving the file - done
+
+					ofstream savefile;
+					savefile.open(currentfile);
+					savefile << pooln + "$" + fname + "$" + mname + "$" + lname + "$" + age + "$" + gender + "$" + lrn + "$" + bmonth + "$" + bday + "$" + byear + "$" + barangay + "$" + municipality + "$" + province + "$" + gfname + "$" + gmname + "$" + glname + "$" + gcnum + "$" + grelation + "$" + targety + "$" << endl;
+					savefile.close();
+
+					//finding the empty file - done
+
+					int temppool = 20240001;
+					int ext = 0;
+					do {
+						string tempfinder = to_string(temppool) + ".txt";
+						ifstream newfile; // making new file and check if it exist
+						newfile.open(tempfinder);
+						if (newfile.is_open()) {
+							temppool++;
+							newfile.close();
+						}
+						else {
+							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+							currentfile = temppoolnum + ".txt";
+							ext = 1;
+							break;
+						}
+					} while (ext != 1);
+
+
+					coorxy(43, 27); cout << "  ";
+					coorxy(61, 27); cout << "  ";
+
+					//Erasing Values - done
+
+					pooln = "", fname = "", mname = "", lname = "", age = "", gender = "",
+						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+						municipality = "", province = "", gfname = "", gmname = "",
+						glname = "", gcnum = "", grelation = "", targety = "";
+
+					system("cls");
+					table();
+				}
+				break;
+
+			case 19:
+
+				// youre here
+
+				coorxy(67, 27); cout << "<<";
+				coorxy(87, 27); cout << ">>";
+				char b;
+				b = _getch();
+				if (b == -32) {
+					b = _getch();
+					coorxy(67, 27); cout << "  ";
+					coorxy(87, 27); cout << "  ";
+					if (b == 72 || b == 75) counter--;
+					else if (b == 80 || b == 77) counter++;
+				}
+				else if (b == 13) {
+					i;
+					coorxy(67, 27); cout << "  ";
+					coorxy(87, 27); cout << "  ";
+					coorxy(68, 27); cout << "<<";
+					coorxy(86, 27); cout << ">>";
+					Sleep(100);
+
+
+					// Youre here at deleting the file
+
+					remove(currentfile.c_str());
+
+
+
+					// Erasing Values - done
+
+					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
+						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+						municipality = "", province = "", gfname = "", gmname = "",
+						glname = "", gcnum = "", grelation = "", targety = "";
+
+
+					n = 0;
+					coorxy(3, 27); cout << string(20, ' ');
+					coorxy(28, 27); cout << ' ';
+					for (int x = 0; x < 2; x++) {
+						coorxy(3, 26 + n); cout << string(26, ' ');
+						n += 2;
+					}
+
+
+					//finding the empty file - done
+
+					int temppool = 20240001;
+					int ext = 0;
+					do {
+						string tempfinder = to_string(temppool) + ".txt";
+						ifstream newfile; // making new file and check if it exist
+						newfile.open(tempfinder);
+						if (newfile.is_open()) {
+							temppool++;
+							newfile.close();
+						}
+						else {
+							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+							currentfile = temppoolnum + ".txt";
+							ext = 1;
+							break;
+						}
+					} while (ext != 1);
+
+
+					coorxy(68, 27); cout << "  ";
+					coorxy(86, 27); cout << "  ";
+					system("cls");
+					table();
+				}
+				break;
+
+			case 20:
+				coorxy(92, 27); cout << "<<";
+				coorxy(112, 27); cout << ">>";
+				char c;
+				c = _getch();
+				if (c == -32) {
+					c = _getch();
+					coorxy(92, 27); cout << "  ";
+					coorxy(112, 27); cout << "  ";
+					if (c == 72 || c == 75) counter--;
+					else if (c == 80 || c == 77) counter = 0;
+				}
+				else if (c == 13) {
+					coorxy(92, 27); cout << "  ";
+					coorxy(112, 27); cout << "  ";
+					coorxy(93, 27); cout << "<<";
+					coorxy(111, 27); cout << ">>";
+					Sleep(100);
+					system("cls");
+					exit = 1;
+				}
+				break;
+			}
+			if (exit == 1) break;
+		}
+		system("cls");
+	}
+	else if (x == 2) {
+		int num = 1;
+
+		coorxy(18, 7); cout << "Search";
+		coorxy(19, 13); cout << "Back";
+
+		for (int i = 0; i < 11;) {
+			buttonxy(10, 5 + i, 20, 3);
+			i += 6;
+		}
+
+		buttonxy2(10, 5, 20, 3, 2);
+
+		for (int i = 0;;) {
+
+			coorxy(0, 0);  a = _getch();
+
+			coorxy(35, 7); cout << string(15, ' ') << flush;
+
+			if (a == 72)num--;
+			else if (a == 80)num++;
+
+			if (num < 1) num = 2;
+			else if (num > 2) num = 1;
+
+			if (a == 13) {
+				if (num == 2) {
+					buttonxy2(10, 11, 20, 3, 1);
+					Sleep(200);
+					system("cls");
+					break;
+					return 0;
+				}
+				else {
+					buttonxy2(10, 5, 20, 3, 1);
+					Sleep(200);
+					buttonxy(10, 5, 20, 3);
+					coorxy(35, 7); cout << "Not yet done";
+				}
+			}
+
+			for (int i = 0; i < 25; i++) { // erase selection
+				coorxy(9, 4 + i); cout << string(1, ' ');
+				coorxy(32, 4 + i); cout << string(1, ' ');
+			}
+
+			switch (num) {
+			case 1: buttonxy2(10, 5, 20, 3, 2);
+				break;
+			case 2: buttonxy2(10, 11, 20, 3, 2);
+				break;
+			}
+		}
+
+	}
+	else if (x == 3) {
+		char a;
+		int num = 1;
+		coorxy(19, 7); cout << "Back";
+		buttonxy(10, 5, 20, 3);
+		buttonxy2(10, 5, 20, 3, 2);
+		
+		do {
+			coorxy(0,0); a = _getch();
+		} while (a != 13);
+
+		buttonxy2(10, 5, 20, 3, 1);
+		Sleep(200);
+
+	}
+	system("cls");
+	return 0;
+}
+
+int main() {
+
+	font1(600, 10, 20);
+
+
+	char user[] = "user1", upass[] = "upass1";
+	char admin[] = "admin1", apass[] = "apass1";
+	char username[32], password[32], a;
+
+	//int num = 0;
+	int num = 1;
+	int ld = 0;
+	int access = 0;
+
+	coorxy(55, 4); cout << string(7, char(220));
+	Sleep(100);
+	for (int i = 0; i < 3; i++) {
+		Sleep(100);
+		coorxy(58, 2 + i); cout << char(219);
+		coorxy(57 + i, 15); cout << char(220);
+	}
+	Sleep(100);
+	coorxy(59, 2); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(59, 3); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(55, 5); cout << char(221);
+	Sleep(100);
+	coorxy(61, 5); cout << char(222);
+	Sleep(100);
+	coorxy(53, 6); cout << char(222);
+	Sleep(100);
+	coorxy(63, 6); cout << char(221);
+	Sleep(100);
+	coorxy(54, 7); cout << string(9, char(223));
+	Sleep(100);
+	coorxy(55, 7); cout << char(219);
+	Sleep(100);
+	coorxy(61, 7); cout << char(219);
+	Sleep(100);
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(54 + ld, 5); cout << char(220);
+		ld += 8;
+	}
+	for (int i = 0; i < 10; i++) {
+		Sleep(100);
+		coorxy(55, 8 + i); cout << char(221);
+		coorxy(61, 8 + i); cout << char(222);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(54 + i, 14); cout << char(254);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 8); cout << string(2, char(220));
+		ld += 33;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(43 + ld, 8); cout << char(219);
+		ld += 30;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 8); cout << string(11, char(223));
+		ld += 18;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(40 + ld, 9); cout << char(219);
+		coorxy(40 + ld, 10); cout << char(219);
+		ld += 36;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 10); cout << string(14, char(220));
+		ld += 21;
+	}
+	ld = 0;
+	for (int i = 0; i < 7; i++) {
+		Sleep(100);
+		coorxy(41, 11 + i); cout << char(219);
+		coorxy(75, 11 + i); cout << char(219);
+	}
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(57, 16 + i); cout << char(221);
+		coorxy(59, 16 + i); cout << char(222);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 12); cout << string(8, char(177));
+		coorxy(44 + ld, 13); cout << string(8, char(177));
+		coorxy(44 + ld, 15); cout << string(8, char(177));
+		coorxy(44 + ld, 16); cout << string(8, char(177));
+		ld += 21;
+		coorxy(57, 10 + i); cout << string(3, char(177));
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(26+ld, 11); cout << string(15, char(220));
+		coorxy(25, 12); cout << char(219);
+		coorxy(91, 12); cout << char(219);
+		coorxy(26+ld, 13); cout << string(15, char(223));
+		ld += 50;
+	}
+	ld = 0;
+	for (int i = 0; i < 5; i++) {
+		Sleep(100);
+		coorxy(27, 13 + i); cout << char(219);
+		coorxy(89, 13 + i); cout << char(219);
+	}
+
+	Sleep(100);
+	coorxy(57, 9); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(57, 12); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(44, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(62, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(43, 18); cout << char(219);
+	Sleep(100);
+	coorxy(73, 18); cout << char(219);
+	Sleep(100);
+	coorxy(41, 18); cout << string(35, char(223));
+
+	for (int i = 0; i < 14; i++) {
+		Sleep(100);
+		coorxy(27+i, 17); cout << char(219);
+		coorxy(89-i, 17); cout << char(219);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(30 + i, 14); cout << char(177);
+		coorxy(30 + i, 15); cout << char(177);
+		coorxy(86 - i, 14); cout << char(177);
+		coorxy(86 - i, 15); cout << char(177);
+	}
+
+	coorxy(38, 27); cout << "BSIT Student Enrollment Management System";
+	coorxy(45, 22); system("pause"); ////////////// OPENING 
+	coorxy(45, 22); cout << string(40, ' ');
+
+	coorxy(42, 20); cout << "Username :";
+	coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
+	coorxy(53, 20); cout << char(179);
+	coorxy(74, 20); cout << char(179);
+	coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
+
+	coorxy(42, 23); cout << "Password :";
+	coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
+	coorxy(53, 23); cout << char(179);
+	coorxy(74, 23); cout << char(179);
+	coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
+
+	Usr: // Login security system
+	coorxy(55, 20);
+	for (int i = 0;;) { // Login security for username
+		a = _getch();
+		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+			if (i < 19) {
+				cout << a;
+				username[i] = a;
+				++i;
+				//num++;
+			}
+		}
+		else if (a == 8 && i >= 1) {
+			cout << "\b \b";
+			username[--i] = '\0';
+			//num--;
+		}
+		else if (a == 13) {
+			username[i] = '\0';
+			//if (strcmp(username, user) == 0) {
+			break;
+			/*}
+			else {
+				i = 0;
+				coorxy(55, 20); cout << string(19, ' ');
+				goto Usr;
+			}*/
+		}
+	}
+	coorxy(55, 23);
+	for (int i = 0;;) { // login security for password
+		a = _getch();
+		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+			if (i < 19) {
+				cout << "*";
+				password[i] = a;
+				++i;
+			}
+		}
+		else if (a == 8 && i >= 1) {
+			cout << "\b \b";
+			password[--i] = '\0';
+		}
+		else if (a == 13) {
+			password[i] = '\0';
+			if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
+				if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
+					access = 1; // admin access
+				}
+				break;
+
+			}
+			else {
+				i = 0;
+				//coorxy(40, 10); cout << "wrong password";
+				coorxy(55, 20); cout << string(19, ' ');
+				coorxy(55, 23); cout << string(19, ' ');
+				goto Usr;
+			}
+		}
+	}
+
+
+	//coorxy(45, 25); system("pause");
+	system("cls");
+
+	for (int i = 0; i < 24;) {
+		buttonxy(10, 3 + i, 25, 3);
+		i += 6;
+	}
+
+	buttonxy2(10, 3, 25, 3,2);
+
+	for (int i = 0;;) {
+
+		coorxy(14, 5); cout << "Student Registration";
+		coorxy(13, 11); cout << "Curriculum Management";
+		coorxy(15, 17); cout << "Student Enrollment";
+		coorxy(21, 23); cout << "Exit";
+
+		for (int i = 0; i < 24;) {
+			buttonxy(10, 3 + i, 25, 3);
+			i += 6;
+		}
+		coorxy(0, 0); char  a = _getch();
+
+
+		if (a == 72) num--;
+		else if (a == 80) num++;
+
+		else if (a == 13) { // PRESSING ENTER KEY
+
+
+			//for (int i = 0; i < 25; i++) { // erase selection animation
+			//	coorxy(9, 4 + i); cout << string(1, 'x');
+			//	coorxy(37, 4 + i); cout << string(1, 'x');
+			//}
+
+			if (num == 4) { // Exit Pressed button function
+				buttonxy2(10, 21, 25, 3, 1);
+				Sleep(250);
+				system("cls");
+
+				int exit = 0;
+				int num = 1;
+				
+
+				for (int i = 0; i < 26;) {
+					buttonxy(45+i, 11, 12, 1);
+					i += 17;
+				}
+
+				buttonxy2(45, 11, 12, 1, 2);
+				coorxy(55, 9); cout << "Are you sure?";
+				coorxy(50, 12); cout << "Yes";
+				coorxy(68, 12); cout << "No";
+
+				char a;
+				for (int i = 0;;) {
+				coorxy(0, 0); a =_getch();
+
+					if (a == 75)num--; // arrow key function
+					else if (a == 77)num++;
+
+					if (num < 1)num = 1;
+					else if (num > 2) num = 2;
+
+					if (a == 13) { // exit confirmation
+						if (num == 2) {
+							buttonxy2(62, 11, 12, 1,1);
+							Sleep(200);
+							system("cls");
+							break;
+						}
+						else {
+							exit = 1;
+							buttonxy2(45, 11, 12, 1, 1);
+							Sleep(200);
+							system("cls");
+							break;
+						}
+					}
+
+					for (int i = 0;i<5;) { //erasing selection animation
+						coorxy(43, 10+i); cout << string(40, ' ');
+						i += 4;
+						
+					}
+					switch (num) { // Exit selection animation
+					case 1:buttonxy2(45, 11, 12, 1,2);
+						break;
+					case 2:buttonxy2(62, 11, 12, 1, 2);
+						break;
+					}
+
+				}
+				if (exit == 1) { // exit
+					break;
+				}
+			}
+			else {
+
+			switch (num) { // Pressed button animation
+			case 1: buttonxy2(10, 3, 25, 3, 1);
+					Sleep(200);
+					break;
+			case 2: buttonxy2(10, 9, 25, 3, 1);
+					Sleep(200);
+					break;
+			case 3: buttonxy2(10, 15, 25, 3, 1);
+					Sleep(200);
+					break;
+			default:
+					break;
+				}
+			system("cls");
+			menu(num); // Options when entered part 2
+			//switch (num) { // Options when entered part 1 *error*
+			//case 1: enrollment();
+			//	break;
+			//} 
+			}
+		}
+		
+
+		if (num < 1) num = 4;
+		else if (num > 4) num = 1;
+
+		for (int i = 0; i < 25; i++) { // erase selection
+			coorxy(9, 2 + i); cout << string(1, ' ');
+			coorxy(37, 2 + i); cout << string(1, ' ');
+		}
+
+
+		switch (num) { // Selection bar
+		case 1: buttonxy2(10, 3, 25, 3,2);
+			break;
+		case 2:buttonxy2(10, 9, 25, 3,2);
+			break;
+		case 3:buttonxy2(10, 15, 25, 3,2);
+			break;
+		case 4:buttonxy2(10, 21, 25, 3,02);
+			break;
+		}
+	}
+
+
+
+
+	//coorxy(0, 29); system("pause");
+}
 
 //int main() {  // youre at studentcounter
 //
@@ -1250,604 +1635,549 @@ void loadfile() {
 //		
 //}
 
-//int main() {
-//	ofstream myfileO("C:\\Students.txt");
-//	fstream myfileF("C:\\Students.txt");
+
+//int main() {  // Registration
 //
-//	string fname, mname, lname,pooln;
-//
-//
-//
-//	if (myfileO.is_open()) {
-//		coorxy(40, 7); cout << "ADD:";
+//	string currentfile;
+//	string finder; // Local variable
+//	string temppoolnum; // local variable
+//	string searchpool[32]; // local variable
+//	string e; //local variable for targety
 //	
-//		coorxy(40, 8); cout << "pooling number : "; getchVal(pooln, 0);
-//		coorxy(40, 9); cout << "first name : "; getchVal(fname,0);
-//		coorxy(40, 10); cout << "middle name : "; getchVal(mname, 0);
-//		coorxy(40, 11); cout << "last name : "; getchVal(lname, 0);
+//		table();
+//		
+//
+//		string pooln,fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
+//			grelation,targety;
+//
+//		char d; // local variable
+//
+//		int counter = 0, n; // local variable
+//		int i = 0; // student counter // local variable
+//
+//		int exit=0; // local variable
+//		for (i = 0;;) {
+//			Q:
+//
+//			switch (counter) {
+//			case 0:
+//
+//				
+//				coorxy(31, 2);
+//				for (int j = 0;;) {
+//					d = _getch();
+//					if (d == -32) {
+//						d = _getch();
+//						if (d == 72 || d == 75) {
+//							counter = 20;
+//							break;
+//						}
+//						else if (d == 80 || d == 77) {
+//							counter++;
+//							break;
+//						}
+//					}
+//					else if (d == 8 && j >= 1) {
+//						cout << "\b \b";
+//						searchpool[--j] = '\0';
+//					}
+//					else if ((d >= '0' && d <= '9') && j < 8) {
+//						cout << d;
+//						searchpool[j] = d;
+//						++j;
+//					}
+//					else if (d == 13) {
+//						//counter++;
+//						searchpool[j] = '\0';
+//
+//						for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
+//							finder += searchpool[k];
+//
+//						}
+//
+//						// Erasing display
+//
+//						coorxy(19, 6); cout << string(15, ' ');
+//						coorxy(57, 6); cout << string(15, ' ');
+//						coorxy(93, 6); cout << string(15, ' ');
+//						coorxy(18, 8); cout << string(15, ' ');
+//						coorxy(18, 10); cout << string(15, ' ');
+//						coorxy(56, 10); cout << string(15, ' ');
+//						coorxy(26, 12); cout << string(15, ' ');
+//						coorxy(56, 12); cout << string(15, ' ');
+//						coorxy(93, 12); cout << string(15, ' ');
+//						coorxy(29, 14); cout << string(15, ' ');
+//						coorxy(33, 16); cout << string(15, ' ');
+//						coorxy(29, 18); cout << string(15, ' ');
+//						coorxy(31, 20); cout << string(15, ' ');
+//						coorxy(65, 20); cout << string(15, ' ');
+//						coorxy(97, 20); cout << string(15, ' ');
+//						coorxy(35, 22); cout << string(15, ' ');
+//						coorxy(29, 24); cout << string(15, ' ');
+//
+//						// youre here at finding  - done
+//
+//						string findtxt = finder + ".txt";
+//						ifstream loadfile(findtxt);
+//						if (loadfile.is_open()) { // if found, store the data
+//							currentfile = findtxt; 
+//							string line;
+//							while (getline(loadfile, line)) {
+//								stringstream ss(line);
+//								getline(ss, pooln, '$');
+//								getline(ss, fname, '$');
+//								getline(ss, mname, '$');
+//								getline(ss, lname, '$');
+//								getline(ss, age, '$');
+//								getline(ss, gender, '$');
+//								getline(ss, lrn, '$');
+//								getline(ss, bmonth, '$');
+//								getline(ss, bday, '$');
+//								getline(ss, byear, '$');
+//								getline(ss, barangay, '$');
+//								getline(ss, municipality, '$');
+//								getline(ss, province, '$');
+//								getline(ss, gfname, '$');
+//								getline(ss, gmname, '$');
+//								getline(ss, glname, '$');
+//								getline(ss, gcnum, '$');
+//								getline(ss, grelation, '$');
+//								getline(ss, targety, '$');
+//							}
+//
+//							// displaying found datas - done
+//
+//							coorxy(19, 6); cout << fname; 
+//							coorxy(57, 6); cout << mname;
+//							coorxy(93, 6); cout << lname;
+//							coorxy(18, 8); cout << age;
+//							coorxy(18, 10); cout << gender;
+//							coorxy(56, 10); cout << lrn;
+//							coorxy(26, 12); cout << bmonth;
+//							coorxy(56, 12); cout << bday;
+//							coorxy(93, 12); cout << byear;
+//							coorxy(29, 14); cout << barangay;
+//							coorxy(33, 16); cout << municipality;
+//							coorxy(29, 18); cout << province;
+//							coorxy(31, 20); cout << gfname;
+//							coorxy(65, 20); cout << gmname;
+//							coorxy(97, 20); cout << glname;
+//							coorxy(35, 22); cout << gcnum;
+//							coorxy(29, 24); cout << grelation;
 //
 //
+//							loadfile.close();
+//							coorxy(10, 0); cout << "         ";
+//							coorxy(10, 0); cout << "found";
+//						}
+//						else { // if not found;
 //
-//		myfileO << pooln + "$" + fname + "$" + mname + "$" + lname + "$" << endl;
-//		myfileO.close();
 //
-//	}
-//	else {
-//		coorxy(40, 8); cout << "not found";
-//	}
-//	coorxy(40, 13); system("pause");
-//	system("cls");
+//							// erasing display - done
 //
-//	myfileF.is_open();
+//							coorxy(19, 6); cout << string(15, ' ');
+//							coorxy(57, 6); cout << string(15, ' ');
+//							coorxy(93, 6); cout << string(15, ' ');
+//							coorxy(18, 8); cout << string(15, ' ');
+//							coorxy(18, 10); cout << string(15, ' ');
+//							coorxy(56, 10); cout << string(15, ' ');
+//							coorxy(26, 12); cout << string(15, ' ');
+//							coorxy(56, 12); cout << string(15, ' ');
+//							coorxy(93, 12); cout << string(15, ' ');
+//							coorxy(29, 14); cout << string(15, ' ');
+//							coorxy(33, 16); cout << string(15, ' ');
+//							coorxy(29, 18); cout << string(15, ' ');
+//							coorxy(31, 20); cout << string(15, ' ');
+//							coorxy(65, 20); cout << string(15, ' ');
+//							coorxy(97, 20); cout << string(15, ' ');
+//							coorxy(35, 22); cout << string(15, ' ');
+//							coorxy(29, 24); cout << string(15, ' ');
 //
-//	string line,finder;
-//	coorxy(40, 6); cout << "Search";
-//	coorxy(40, 7); cout << "enter the pooling number : "; getchVal(finder, 0);
 //
-//	while (getline(myfileF, line)) {
-//		if (line.substr(0, 10) == finder) {
-//			stringstream ss(line);
-//			getline(ss, pooln, '$');
-//			getline(ss, fname, '$');
-//			getline(ss, mname, '$');
-//			getline(ss, lname, '$');
-//			myfileF.close();
+//							pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
+//							lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+//							municipality = "", province = "", gfname = "", gmname = "",
+//							glname = "", gcnum = "", grelation = "", targety = "";
+//
+//
+//							// finding new empty pooling number - done
+//
+//							int temppool = 20240001; // temporary pooling number
+//							int ext = 0; // confirmation exit
+//							do {
+//								string tempfinder = to_string(temppool) + ".txt";
+//								ifstream newfile; // making new file and check if it exist
+//								newfile.open(tempfinder);
+//								if (newfile.is_open()) {
+//									temppool++;
+//									newfile.close();
+//								}
+//								else {
+//									finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+//									currentfile = finder + ".txt";
+//									ext = 1;
+//									break;
+//								}
+//							} while (ext != 1);
+//							coorxy(10, 0); cout << "not found";
+//						}
+//						
+//
+//						coorxy(31, 2); cout << string(8, ' ');
+//
+//						j = 0; // resetting the searchfinder
+//						temppoolnum = finder; // backuping the pooling num
+//						finder = ""; // resetting poolinf finder
+//						counter = 0;
+//						goto Q;
+//					}
+//				}
+//
+//
+//				break;
+//			case 1:
+//				coorxy(19, 6); n = getchVal(fname, 0);
+//				coorxy(19, 6); cout << string(20, ' ');
+//				coorxy(19, 6); cout << fname;//getchcout(fname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 2:
+//				coorxy(57, 6); n = getchVal(mname, 0);
+//				coorxy(57, 6); cout << string(20, ' ');
+//				coorxy(57, 6); cout << mname; //getchcout(mname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 3:
+//				coorxy(93, 6); n = getchVal(lname, 0);
+//				coorxy(93, 6); cout << string(20, ' ');
+//				coorxy(93, 6); cout << lname; //getchcout(lname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 4:
+//				coorxy(18, 8); n = getchVal(age, 2);
+//				coorxy(18, 8); cout << string(20, ' ');
+//				coorxy(18, 8); cout << age; //getchcout(age);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 5:
+//				coorxy(18, 10); n = getchVal(gender, 0);
+//				coorxy(18, 10); cout << string(20, ' ');
+//				coorxy(18, 10); cout << gender; //getchcout(gender);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 6:
+//				coorxy(56, 10); n = getchVal(lrn, 12);
+//				coorxy(56, 10); cout << string(20, ' ');
+//				coorxy(56, 10); cout << lrn; //getchcout(lrn);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 7:
+//				coorxy(26, 12); n = getchVal(bmonth, 0);
+//				coorxy(26, 12); cout << string(20, ' ');
+//				coorxy(26, 12); cout << bmonth; //getchcout(bmonth);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 8:
+//				coorxy(56, 12); n = getchVal(bday, 2);
+//				coorxy(56, 12); cout << string(20, ' ');
+//				coorxy(56, 12); cout << bday; //getchcout(bday);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 9:
+//				coorxy(93, 12); n = getchVal(byear, 4);
+//				coorxy(93, 12); cout << string(20, ' ');
+//				coorxy(93, 12); cout << byear; //getchcout(byear);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 10:
+//				coorxy(29, 14); n = getchVal(barangay, 0);
+//				coorxy(29, 14); cout << string(30, ' ');
+//				coorxy(29, 14); cout << barangay; //getchcout(barangay);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 11:
+//				coorxy(33, 16); n = getchVal(municipality, 0);
+//				coorxy(33, 16); cout << string(30, ' ');
+//				coorxy(33, 16); cout << municipality; //getchcout(municipality);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 12:
+//				coorxy(29, 18); n = getchVal(province, 0);
+//				coorxy(29, 18); cout << string(30, ' ');
+//				coorxy(29, 18); cout << province; //getchcout(province);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			/*case 13:
+//				coorxy(38, 21); n = getchVal(postalzip, 4);
+//				coorxy(38, 21); cout << string(20, ' ');
+//				coorxy(38, 21); getchcout(postalzip);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;*/
+//			case 13:
+//				coorxy(31, 20); n = getchVal(gfname, 0);
+//				coorxy(31, 20); cout << string(17, ' ');
+//				coorxy(31, 20); cout << gfname;// getchcout(gfname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 14:
+//				coorxy(65, 20); n = getchVal(gmname, 0);
+//				coorxy(65, 20); cout << string(15, ' ');
+//				coorxy(65, 20); cout << gmname; //getchcout(gmname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 15:
+//				coorxy(97, 20); n = getchVal(glname, 0);
+//				coorxy(97, 20); cout << string(17, ' ');
+//				coorxy(97, 20); cout << glname; //getchcout(glname);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 16:
+//				coorxy(35, 22); n = getchVal(gcnum, 11);
+//				coorxy(35, 22); cout << string(17, ' ');
+//				coorxy(35, 22); cout << gcnum; //getchcout(gcnum);
+//				if (n == 101) counter--;
+//				else counter++;
+//				goto Q;
+//				break;
+//			case 17:
+//				coorxy(29, 24); n = getchVal(grelation, 0);
+//				coorxy(29, 24); cout << string(30, ' ');
+//				coorxy(29, 24); cout << grelation; //getchcout(grelation);
+//				if (n == 101) counter--;
+//				else counter++;
+//				break;
+//			case 18:
+//				coorxy(42, 27); cout << "<<";
+//				coorxy(62, 27); cout << ">>";
+//				char a;
+//				a = _getch();
+//				if (a == -32) {
+//					a = _getch();
+//					coorxy(42, 27); cout << "  ";
+//					coorxy(62, 27); cout << "  ";
+//					if (a == 72 || a == 75) counter--;
+//					else if (a == 80 || a == 77) counter++;
+//				}
+//				else if (a == 13) {
+//
+//					coorxy(42, 27); cout << "  ";
+//					coorxy(62, 27); cout << "  ";
+//					coorxy(43, 27); cout << "<<";
+//					coorxy(61, 27); cout << ">>";
+//					Sleep(100);
+//					
+//					//checking if pooling number is already registerd - done
+//
+//					if (targety == "") {
+//						system("cls");
+//						do {
+//							coorxy(45, 11); cout << "What year do you want to enroll? :    "; 
+//							coorxy(80, 11); getchVal(e,0);
+//						}
+//						while (e != "1" && e != "2" && e != "3" && e != "4");
+//						targety = e;
+//						do {
+//							e = "";
+//							coorxy(45, 12); cout << "Enter what semester :    ";
+//							coorxy(67, 12); getchVal(e, 0);
+//							//e += f;
+//						
+//						} while (e != "1" && e != "2");
+//						targety += e;
+//						e = "";
+//						coorxy(45, 14); cout <<"target year/sem code" << targety;
+//						
+//						// Pooling number table
+//						coorxy(43, 16); cout << char(179) << " Pooling num : " << temppoolnum;  // number
+//						n = 0;
+//						coorxy(68, 16); cout << char(179);
+//						for (int j = 0; j < 2; j++) {
+//							coorxy(43, 15 + n); cout << string(26, char(196));
+//							n += 2;
+//						}
+//					}
+//
+//
+//					// saving the file - done
+//
+//					ofstream savefile;
+//					savefile.open(currentfile);
+//					savefile << pooln + "$" + fname + "$" + mname + "$" + lname + "$" + age + "$" + gender + "$" + lrn + "$" + bmonth + "$" + bday + "$" + byear + "$" + barangay + "$" + municipality + "$" + province + "$" + gfname + "$" + gmname + "$" + glname + "$" + gcnum + "$" + grelation + "$" + targety +"$" << endl;
+//					savefile.close();
+//
+//					//finding the empty file - done
+//
+//					int temppool = 20240001;
+//					int ext = 0;
+//					do {
+//						string tempfinder = to_string(temppool) + ".txt";
+//						ifstream newfile; // making new file and check if it exist
+//						newfile.open(tempfinder);
+//						if (newfile.is_open()) {
+//							temppool++;
+//							newfile.close();
+//						}
+//						else {
+//							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+//							currentfile = temppoolnum + ".txt";
+//							ext = 1;
+//							break;
+//						}
+//					} while (ext != 1);
+//
+//
+//					coorxy(43, 27); cout << "  ";
+//					coorxy(61, 27); cout << "  ";
+//					
+//					//Erasing Values - done
+//					
+//					pooln = "",fname = "", mname = "", lname = "", age = "", gender = "",
+//					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+//					municipality = "", province = "", gfname = "", gmname = "",
+//					glname = "", gcnum = "", grelation = "", targety = ""; 
+//
+//					system("cls"); 
+//					table();
+//				}
 //			break;
+//
+//			case 19:
+//
+//				// youre here
+//
+//				coorxy(67, 27); cout << "<<";
+//				coorxy(87, 27); cout << ">>";
+//				char b;
+//				b = _getch();
+//				if (b == -32) {
+//					b = _getch();
+//					coorxy(67, 27); cout << "  ";
+//					coorxy(87, 27); cout << "  ";
+//					if (b == 72 || b == 75) counter--;
+//					else if (b == 80 || b == 77) counter++;
+//				}
+//				else if (b == 13) {
+//					i;
+//					coorxy(67, 27); cout << "  ";
+//					coorxy(87, 27); cout << "  ";
+//					coorxy(68, 27); cout << "<<";
+//					coorxy(86, 27); cout << ">>";
+//					Sleep(100);
+//					
+//
+//					// Youre here at deleting the file
+//
+//					remove(currentfile.c_str());
+//					
+//
+//
+//					// Erasing Values - done
+//
+//					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
+//					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+//					municipality = "", province = "", gfname = "", gmname = "",
+//					glname = "", gcnum = "", grelation = "", targety = ""; 
+//
+//					
+//					n = 0;
+//					coorxy(3, 27); cout << string(20, ' ') ;
+//					coorxy(28, 27); cout << ' ';
+//					for (int x = 0; x < 2; x++) {
+//						coorxy(3, 26 + n); cout << string(26, ' ');
+//						n += 2;
+//					}
+//
+//
+//					//finding the empty file - done
+//
+//					int temppool = 20240001;
+//					int ext = 0;
+//					do {
+//						string tempfinder = to_string(temppool) + ".txt";
+//						ifstream newfile; // making new file and check if it exist
+//						newfile.open(tempfinder);
+//						if (newfile.is_open()) {
+//							temppool++;
+//							newfile.close();
+//						}
+//						else {
+//							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+//							currentfile = temppoolnum + ".txt";
+//							ext = 1;
+//							break;
+//						}
+//					} while (ext != 1);
+//					
+//
+//					coorxy(68, 27); cout << "  ";
+//					coorxy(86, 27); cout << "  ";
+//					system("cls");
+//					table();
+//				}
+//				break;
+//
+//			case 20:
+//				coorxy(92, 27); cout << "<<";
+//				coorxy(112, 27); cout << ">>";
+//				char c;
+//				c = _getch();
+//				if (c == -32) {
+//					c = _getch();
+//					coorxy(92, 27); cout << "  ";
+//					coorxy(112, 27); cout << "  ";
+//					if (c == 72 || c == 75) counter--;
+//					else if (c == 80 || c == 77) counter=0;
+//				}
+//				else if (c == 13) {
+//					coorxy(92, 27); cout << "  ";
+//					coorxy(112, 27); cout << "  ";
+//					coorxy(93, 27); cout << "<<";
+//					coorxy(111, 27); cout << ">>";
+//					Sleep(100);
+//					system("cls");
+//					exit = 1;
+//				}
+//				break;
+//			}
+//			if (exit == 1) break;
 //		}
-//	}
-//	coorxy(40, 8); cout << "pooling number : "<< pooln;
-//	coorxy(40, 9); cout << "first name : " << fname;
-//	coorxy(40, 10); cout << "middle name : " << mname;
-//	coorxy(40, 11); cout << "last name : " << lname;
+//		system("cls");
 //
-//	//myfileF.close();
+//		//savefile();
 //
-//	coorxy(0, 29); system("pause");
+//		
 //}
-
-
-int main() {  // youre at studentcounter
-
-	string currentfile;
-	string finder; // Local variable
-	string temppoolnum; // local variable
-	string searchpool[32]; // local variable
-	string e; //local variable for targety
-	
-		table();
-		
-
-		string pooln,fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
-			grelation,targety;
-
-		char d; // local variable
-
-		int counter = 0, n; // local variable
-		int i = 0; // student counter // local variable
-
-		int exit=0; // local variable
-		for (i = 0;;) {
-			Q:
-
-			switch (counter) {
-			case 0:
-
-				
-				coorxy(31, 2);
-				for (int j = 0;;) {
-					d = _getch();
-					if (d == -32) {
-						d = _getch();
-						if (d == 72 || d == 75) {
-							counter = 20;
-							break;
-						}
-						else if (d == 80 || d == 77) {
-							counter++;
-							break;
-						}
-					}
-					else if (d == 8 && j >= 1) {
-						cout << "\b \b";
-						searchpool[--j] = '\0';
-					}
-					else if ((d >= '0' && d <= '9') && j < 8) {
-						cout << d;
-						searchpool[j] = d;
-						++j;
-					}
-					else if (d == 13) {
-						//counter++;
-						searchpool[j] = '\0';
-
-						for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
-							finder += searchpool[k];
-
-						}
-
-						// Erasing display
-
-						coorxy(19, 6); cout << string(15, ' ');
-						coorxy(57, 6); cout << string(15, ' ');
-						coorxy(93, 6); cout << string(15, ' ');
-						coorxy(18, 8); cout << string(15, ' ');
-						coorxy(18, 10); cout << string(15, ' ');
-						coorxy(56, 10); cout << string(15, ' ');
-						coorxy(26, 12); cout << string(15, ' ');
-						coorxy(56, 12); cout << string(15, ' ');
-						coorxy(93, 12); cout << string(15, ' ');
-						coorxy(29, 14); cout << string(15, ' ');
-						coorxy(33, 16); cout << string(15, ' ');
-						coorxy(29, 18); cout << string(15, ' ');
-						coorxy(31, 20); cout << string(15, ' ');
-						coorxy(65, 20); cout << string(15, ' ');
-						coorxy(97, 20); cout << string(15, ' ');
-						coorxy(35, 22); cout << string(15, ' ');
-						coorxy(29, 24); cout << string(15, ' ');
-
-						// youre here at finding  - done
-
-						string findtxt = finder + ".txt";
-						ifstream loadfile(findtxt);
-						if (loadfile.is_open()) { // if found, store the data
-							currentfile = findtxt; 
-							string line;
-							while (getline(loadfile, line)) {
-								stringstream ss(line);
-								getline(ss, pooln, '$');
-								getline(ss, fname, '$');
-								getline(ss, mname, '$');
-								getline(ss, lname, '$');
-								getline(ss, age, '$');
-								getline(ss, gender, '$');
-								getline(ss, lrn, '$');
-								getline(ss, bmonth, '$');
-								getline(ss, bday, '$');
-								getline(ss, byear, '$');
-								getline(ss, barangay, '$');
-								getline(ss, municipality, '$');
-								getline(ss, province, '$');
-								getline(ss, gfname, '$');
-								getline(ss, gmname, '$');
-								getline(ss, glname, '$');
-								getline(ss, gcnum, '$');
-								getline(ss, grelation, '$');
-								getline(ss, targety, '$');
-							}
-
-							// displaying found datas - done
-
-							coorxy(19, 6); cout << fname; 
-							coorxy(57, 6); cout << mname;
-							coorxy(93, 6); cout << lname;
-							coorxy(18, 8); cout << age;
-							coorxy(18, 10); cout << gender;
-							coorxy(56, 10); cout << lrn;
-							coorxy(26, 12); cout << bmonth;
-							coorxy(56, 12); cout << bday;
-							coorxy(93, 12); cout << byear;
-							coorxy(29, 14); cout << barangay;
-							coorxy(33, 16); cout << municipality;
-							coorxy(29, 18); cout << province;
-							coorxy(31, 20); cout << gfname;
-							coorxy(65, 20); cout << gmname;
-							coorxy(97, 20); cout << glname;
-							coorxy(35, 22); cout << gcnum;
-							coorxy(29, 24); cout << grelation;
-
-
-							loadfile.close();
-							coorxy(10, 0); cout << "         ";
-							coorxy(10, 0); cout << "found";
-						}
-						else { // if not found;
-
-
-							// erasing display - done
-
-							coorxy(19, 6); cout << string(15, ' ');
-							coorxy(57, 6); cout << string(15, ' ');
-							coorxy(93, 6); cout << string(15, ' ');
-							coorxy(18, 8); cout << string(15, ' ');
-							coorxy(18, 10); cout << string(15, ' ');
-							coorxy(56, 10); cout << string(15, ' ');
-							coorxy(26, 12); cout << string(15, ' ');
-							coorxy(56, 12); cout << string(15, ' ');
-							coorxy(93, 12); cout << string(15, ' ');
-							coorxy(29, 14); cout << string(15, ' ');
-							coorxy(33, 16); cout << string(15, ' ');
-							coorxy(29, 18); cout << string(15, ' ');
-							coorxy(31, 20); cout << string(15, ' ');
-							coorxy(65, 20); cout << string(15, ' ');
-							coorxy(97, 20); cout << string(15, ' ');
-							coorxy(35, 22); cout << string(15, ' ');
-							coorxy(29, 24); cout << string(15, ' ');
-
-
-							pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
-							lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-							municipality = "", province = "", gfname = "", gmname = "",
-							glname = "", gcnum = "", grelation = "", targety = "";
-
-
-							// finding new empty pooling number - done
-
-							int temppool = 20240001; // temporary pooling number
-							int ext = 0; // confirmation exit
-							do {
-								string tempfinder = to_string(temppool) + ".txt";
-								ifstream newfile; // making new file and check if it exist
-								newfile.open(tempfinder);
-								if (newfile.is_open()) {
-									temppool++;
-									newfile.close();
-								}
-								else {
-									finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-									currentfile = finder + ".txt";
-									ext = 1;
-									break;
-								}
-							} while (ext != 1);
-							coorxy(10, 0); cout << "not found";
-						}
-						
-
-						coorxy(31, 2); cout << string(8, ' ');
-
-						j = 0; // resetting the searchfinder
-						temppoolnum = finder; // backuping the pooling num
-						finder = ""; // resetting poolinf finder
-						counter = 0;
-						goto Q;
-					}
-				}
-
-
-				break;
-			case 1:
-				coorxy(19, 6); n = getchVal(fname, 0);
-				coorxy(19, 6); cout << string(20, ' ');
-				coorxy(19, 6); cout << fname;//getchcout(fname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 2:
-				coorxy(57, 6); n = getchVal(mname, 0);
-				coorxy(57, 6); cout << string(20, ' ');
-				coorxy(57, 6); cout << mname; //getchcout(mname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 3:
-				coorxy(93, 6); n = getchVal(lname, 0);
-				coorxy(93, 6); cout << string(20, ' ');
-				coorxy(93, 6); cout << lname; //getchcout(lname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 4:
-				coorxy(18, 8); n = getchVal(age, 2);
-				coorxy(18, 8); cout << string(20, ' ');
-				coorxy(18, 8); cout << age; //getchcout(age);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 5:
-				coorxy(18, 10); n = getchVal(gender, 0);
-				coorxy(18, 10); cout << string(20, ' ');
-				coorxy(18, 10); cout << gender; //getchcout(gender);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 6:
-				coorxy(56, 10); n = getchVal(lrn, 12);
-				coorxy(56, 10); cout << string(20, ' ');
-				coorxy(56, 10); cout << lrn; //getchcout(lrn);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 7:
-				coorxy(26, 12); n = getchVal(bmonth, 0);
-				coorxy(26, 12); cout << string(20, ' ');
-				coorxy(26, 12); cout << bmonth; //getchcout(bmonth);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 8:
-				coorxy(56, 12); n = getchVal(bday, 2);
-				coorxy(56, 12); cout << string(20, ' ');
-				coorxy(56, 12); cout << bday; //getchcout(bday);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 9:
-				coorxy(93, 12); n = getchVal(byear, 4);
-				coorxy(93, 12); cout << string(20, ' ');
-				coorxy(93, 12); cout << byear; //getchcout(byear);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 10:
-				coorxy(29, 14); n = getchVal(barangay, 0);
-				coorxy(29, 14); cout << string(30, ' ');
-				coorxy(29, 14); cout << barangay; //getchcout(barangay);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 11:
-				coorxy(33, 16); n = getchVal(municipality, 0);
-				coorxy(33, 16); cout << string(30, ' ');
-				coorxy(33, 16); cout << municipality; //getchcout(municipality);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 12:
-				coorxy(29, 18); n = getchVal(province, 0);
-				coorxy(29, 18); cout << string(30, ' ');
-				coorxy(29, 18); cout << province; //getchcout(province);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			/*case 13:
-				coorxy(38, 21); n = getchVal(postalzip, 4);
-				coorxy(38, 21); cout << string(20, ' ');
-				coorxy(38, 21); getchcout(postalzip);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;*/
-			case 13:
-				coorxy(31, 20); n = getchVal(gfname, 0);
-				coorxy(31, 20); cout << string(17, ' ');
-				coorxy(31, 20); cout << gfname;// getchcout(gfname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 14:
-				coorxy(65, 20); n = getchVal(gmname, 0);
-				coorxy(65, 20); cout << string(15, ' ');
-				coorxy(65, 20); cout << gmname; //getchcout(gmname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 15:
-				coorxy(97, 20); n = getchVal(glname, 0);
-				coorxy(97, 20); cout << string(17, ' ');
-				coorxy(97, 20); cout << glname; //getchcout(glname);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 16:
-				coorxy(35, 22); n = getchVal(gcnum, 11);
-				coorxy(35, 22); cout << string(17, ' ');
-				coorxy(35, 22); cout << gcnum; //getchcout(gcnum);
-				if (n == 101) counter--;
-				else counter++;
-				goto Q;
-				break;
-			case 17:
-				coorxy(29, 24); n = getchVal(grelation, 0);
-				coorxy(29, 24); cout << string(30, ' ');
-				coorxy(29, 24); cout << grelation; //getchcout(grelation);
-				if (n == 101) counter--;
-				else counter++;
-				break;
-			case 18:
-				coorxy(42, 27); cout << "<<";
-				coorxy(62, 27); cout << ">>";
-				char a;
-				a = _getch();
-				if (a == -32) {
-					a = _getch();
-					coorxy(42, 27); cout << "  ";
-					coorxy(62, 27); cout << "  ";
-					if (a == 72 || a == 75) counter--;
-					else if (a == 80 || a == 77) counter++;
-				}
-				else if (a == 13) {
-
-					coorxy(42, 27); cout << "  ";
-					coorxy(62, 27); cout << "  ";
-					coorxy(43, 27); cout << "<<";
-					coorxy(61, 27); cout << ">>";
-					Sleep(100);
-					
-					//checking if pooling number is already registerd - done
-
-					if (targety == "") {
-						system("cls");
-						do {
-							coorxy(45, 11); cout << "What year do you want to enroll? :    "; 
-							coorxy(80, 11); getchVal(e,0);
-						}
-						while (e != "1" && e != "2" && e != "3" && e != "4");
-						targety = e;
-						do {
-							e = "";
-							coorxy(45, 12); cout << "Enter what semester :    ";
-							coorxy(67, 12); getchVal(e, 0);
-							//e += f;
-						
-						} while (e != "1" && e != "2");
-						targety += e;
-						e = "";
-						coorxy(45, 14); cout <<"target year/sem code" << targety;
-						
-						// Pooling number table
-						coorxy(43, 16); cout << char(179) << " Pooling num : " << temppoolnum;  // number
-						n = 0;
-						coorxy(68, 16); cout << char(179);
-						for (int j = 0; j < 2; j++) {
-							coorxy(43, 15 + n); cout << string(26, char(196));
-							n += 2;
-						}
-					}
-
-
-					// saving the file - done
-
-					ofstream savefile;
-					savefile.open(currentfile);
-					savefile << pooln + "$" + fname + "$" + mname + "$" + lname + "$" + age + "$" + gender + "$" + lrn + "$" + bmonth + "$" + bday + "$" + byear + "$" + barangay + "$" + municipality + "$" + province + "$" + gfname + "$" + gmname + "$" + glname + "$" + gcnum + "$" + grelation + "$" + targety +"$" << endl;
-					savefile.close();
-
-					//finding the empty file - done
-
-					int temppool = 20240001;
-					int ext = 0;
-					do {
-						string tempfinder = to_string(temppool) + ".txt";
-						ifstream newfile; // making new file and check if it exist
-						newfile.open(tempfinder);
-						if (newfile.is_open()) {
-							temppool++;
-							newfile.close();
-						}
-						else {
-							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-							currentfile = temppoolnum + ".txt";
-							ext = 1;
-							break;
-						}
-					} while (ext != 1);
-
-
-					coorxy(43, 27); cout << "  ";
-					coorxy(61, 27); cout << "  ";
-					
-					//Erasing Values - done
-					
-					pooln = "",fname = "", mname = "", lname = "", age = "", gender = "",
-					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-					municipality = "", province = "", gfname = "", gmname = "",
-					glname = "", gcnum = "", grelation = "", targety = ""; 
-
-					system("cls"); 
-					table();
-				}
-			break;
-
-			case 19:
-
-				// youre here
-
-				coorxy(67, 27); cout << "<<";
-				coorxy(87, 27); cout << ">>";
-				char b;
-				b = _getch();
-				if (b == -32) {
-					b = _getch();
-					coorxy(67, 27); cout << "  ";
-					coorxy(87, 27); cout << "  ";
-					if (b == 72 || b == 75) counter--;
-					else if (b == 80 || b == 77) counter++;
-				}
-				else if (b == 13) {
-					i;
-					coorxy(67, 27); cout << "  ";
-					coorxy(87, 27); cout << "  ";
-					coorxy(68, 27); cout << "<<";
-					coorxy(86, 27); cout << ">>";
-					Sleep(100);
-					
-
-					// Youre here at deleting the file
-
-					remove(currentfile.c_str());
-					
-
-
-					// Erasing Values - done
-
-					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
-					lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-					municipality = "", province = "", gfname = "", gmname = "",
-					glname = "", gcnum = "", grelation = "", targety = ""; 
-
-					
-					n = 0;
-					coorxy(3, 27); cout << string(20, ' ') ;
-					coorxy(28, 27); cout << ' ';
-					for (int x = 0; x < 2; x++) {
-						coorxy(3, 26 + n); cout << string(26, ' ');
-						n += 2;
-					}
-
-
-					//finding the empty file - done
-
-					int temppool = 20240001;
-					int ext = 0;
-					do {
-						string tempfinder = to_string(temppool) + ".txt";
-						ifstream newfile; // making new file and check if it exist
-						newfile.open(tempfinder);
-						if (newfile.is_open()) {
-							temppool++;
-							newfile.close();
-						}
-						else {
-							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-							currentfile = finder + ".txt";
-							ext = 1;
-							break;
-						}
-					} while (ext != 1);
-					
-
-					coorxy(68, 27); cout << "  ";
-					coorxy(86, 27); cout << "  ";
-					system("cls");
-					table();
-				}
-				break;
-
-			case 20:
-				coorxy(92, 27); cout << "<<";
-				coorxy(112, 27); cout << ">>";
-				char c;
-				c = _getch();
-				if (c == -32) {
-					c = _getch();
-					coorxy(92, 27); cout << "  ";
-					coorxy(112, 27); cout << "  ";
-					if (c == 72 || c == 75) counter--;
-					else if (c == 80 || c == 77) counter=0;
-				}
-				else if (c == 13) {
-					coorxy(92, 27); cout << "  ";
-					coorxy(112, 27); cout << "  ";
-					coorxy(93, 27); cout << "<<";
-					coorxy(111, 27); cout << ">>";
-					Sleep(100);
-					system("cls");
-					exit = 1;
-				}
-				break;
-			}
-			if (exit == 1) break;
-		}
-		system("cls");
-
-		//savefile();
-
-		
-}
 
 
