@@ -7,7 +7,8 @@
 #include "getchValue.h"
 #include <conio.h>
 #include <string> // for conversion	
-//#include <cstring> // for copying value
+#include <cstdio> // for deleting text file (database)
+
 //#include "Delay.h"
 #define gc getchcout
 //#include "enrollment.cpp"
@@ -1747,6 +1748,8 @@ int main() {  // youre at studentcounter
 
 					// Youre here at deleting the file
 
+					remove(currentfile.c_str());
+					
 
 
 					// Erasing Values - done
