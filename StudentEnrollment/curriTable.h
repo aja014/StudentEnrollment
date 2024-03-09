@@ -68,7 +68,7 @@ void tablec()
 	gotoxy(100, 26); cout << string(15, char(205));	gotoxy(100, 28); cout << string(15, char(205)); gotoxy(100, 27); cout << string(1, char(186)); gotoxy(115, 27); cout << string(1, char(186));
 	gotoxy(100, 26); cout << string(1, char(201));	gotoxy(100, 28); cout << string(1, char(200));	gotoxy(115, 26); cout << string(1, char(187));	gotoxy(115, 28); cout << string(1, char(188));
 
-	gotoxy(62, 27); cout << "ADD SUBJECT"; gotoxy(85, 27); cout << "DELETE"; gotoxy(106, 27); cout << "BACK";
+	gotoxy(62, 27); cout << "ADD/UPDATE"; gotoxy(85, 27); cout << "DELETE"; gotoxy(106, 27); cout << "BACK";
 
 	gotoxy(5, 2); cout << "SEARCH YEAR: " << char(179); gotoxy(45, 2); cout << char(179) << "SEARCH SEMESTER:" << char(179);
 
