@@ -1830,7 +1830,7 @@ int main() { // curriculum
 						string line;
 						for (int z = 0; z < 9; z++) {
 							getline(openf, line);
-							stringstream ss(line);
+							stringstream ss(line); 
 
 							for (int x = 0; x < 4; x++) {
 								getline(ss, var[cntr], '$');
@@ -1849,12 +1849,6 @@ int main() { // curriculum
 						}
 					}
 					openf.close();
-					//else { // if not found, reset.
-					//	year = "";
-					//	sem = "";
-					//	system("cls");
-					//	tablec();
-					//}
 				}
 				else { // if not existing
 
@@ -1900,8 +1894,8 @@ int main() { // curriculum
 			goto Q;
 			break;
 		case 2:
-			//coorxy(0, 2); cout << "r3";
-			coorxy(0, 8);
+			
+			coorxy(0, 8); cout << char('*');
 			switch (_getch()) {
 			case 72:
 				counter--;
