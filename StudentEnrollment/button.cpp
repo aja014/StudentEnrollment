@@ -1703,7 +1703,7 @@ int main() { // curriculum
 	int cntr = 0; // counter for database
 
 	// Loading file // Getting data from database and store to local variable
-	/*ifstream loadfile("12.txt");
+	/*ifstream loadfile("11.txt");
 	if (loadfile.is_open()) {
 		string line;
 		for (int z = 0; z < 9; z++) {
@@ -1730,6 +1730,9 @@ int main() { // curriculum
 	//variables for display
 	int cx =37;
 	int cy = 8;
+	//variables for display - for year and sem
+	int dn = 0;
+	int r = 0;
 	int lvar=0;
 
 	do {
@@ -1739,22 +1742,29 @@ int main() { // curriculum
 	cx = 37;
 	cy = 8;
 	lvar = 0;
+	r = 0;
 	for (int z = 0; z < 9; z++) {
 		coorxy(cx, cy);
 		for (int x = 0; x < 1; x++) {
-			coorxy(cx, cy); cout << var[lvar];
-			cx += 15;
-			lvar++;
-			coorxy(cx, cy); cout << var[lvar];
-			cx += 40;
-			lvar++;
-			coorxy(cx, cy); cout << var[lvar];
-			cx += 10;
-			lvar++;
-			coorxy(cx, cy); cout << var[lvar];
-			lvar++;
+			if (var[r] != "") {
+				coorxy(cx, cy); cout << var[lvar];
+				cx += 15;
+				lvar++;
+				coorxy(cx, cy); cout << var[lvar];
+				cx += 40;
+				lvar++;
+				coorxy(cx, cy); cout << var[lvar];
+				cx += 10;
+				lvar++;
+				coorxy(cx, cy); cout << var[lvar];
+				lvar++;
+				cy += 2;
+			}
+			else {
+				lvar += 4;
+			}
 		}
-		cy += 2;
+		r += 4;
 		cx = 37;
 	}
 
@@ -1770,71 +1780,123 @@ int main() { // curriculum
 
 			coorxy(64, 2); st = getchVal(sem, 0);
 			if (st == 101) counter--;
-			else counter++;
+			else if (st == 111) {
+				counter++;
 
-			// Erasing variables first
+				// Erasing variables first
 
-			for (int z = 0; z < 36; z++) { 
-				var[z] = "";
-			}
+				for (int z = 0; z < 36; z++) {
+					var[z] = "";
+				}
 
-			// Clearing display
+				// Clearing display
 
-			cx = 37;
-			cy = 8;
-			lvar = 0;
+				cx = 12;
+				cy = 8;
 
-			for (int z = 0; z < 9; z++) {
+					for (int z = 0; z < 9; z++) {
 						coorxy(cx, cy);
 						for (int x = 0; x < 1; x++) {
-							coorxy(cx, cy); cout << string(13,' ');
+							coorxy(cx, cy); cout << string(21, ' ');
+							cx += 25;
+							coorxy(cx, cy); cout << string(13, ' ');
 							cx += 15;
-							coorxy(cx, cy); cout << string(38,' ');
+							coorxy(cx, cy); cout << string(38, ' ');
 							cx += 40;
-							coorxy(cx, cy); cout << string(8,' ');
+							coorxy(cx, cy); cout << string(8, ' ');
 							cx += 10;
-							coorxy(cx, cy); cout << string(14,' ');
+							coorxy(cx, cy); cout << string(14, ' ');
 						}
 						cy += 2;
-						cx = 37;
-			}
-
-		
-			// Loading file
+						cx = 12;
+					}
 
 
-			if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
-				temp = year + sem + ".txt";
-				ifstream openf(temp);
-				if (openf.is_open()) {
-					cntr = 0;
-					string line;
-					for (int z = 0; z < 9; z++) {
-						getline(openf, line);
-						stringstream ss(line);
-						for (int x = 0; x < 4; x++) {
-							getline(ss, var[cntr], '$');
-							cntr++;
+				// Loading file
+
+				if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
+
+
+
+					temp = year + sem + ".txt";
+					ifstream openf(temp);
+					if (openf.is_open()) { // if found
+
+						//reset display
+
+						r = 0;
+						dn = 0;
+						cntr = 0;
+						string line;
+						for (int z = 0; z < 9; z++) {
+							getline(openf, line);
+							stringstream ss(line);
+
+							for (int x = 0; x < 4; x++) {
+								getline(ss, var[cntr], '$');
+								cntr++;
+							}
+
+							if (var[r] != "") { // this is for displaying the year text if there's a subject
+								coorxy(13, 8 + dn); cout << year << " year";
+								dn += 2;
+							}
+							else {
+								coorxy(13, 8 + dn); cout << "             ";
+							}
+							r += 4;
+
 						}
 					}
+					openf.close();
+					//else { // if not found, reset.
+					//	year = "";
+					//	sem = "";
+					//	system("cls");
+					//	tablec();
+					//}
 				}
-				//else { // if not found, reset.
-				//	year = "";
-				//	sem = "";
-				//	system("cls");
-				//	tablec();
-				//}
-				
-				openf.close();
-			}
-			else { // if not existing
-				year = "";
-				sem = "";
-				system("cls");
-				tablec();
-				counter = 0;
-			}
+				else { // if not existing
 
+					// resetting year and sem
+
+					year = "";
+					sem = "";
+
+					coorxy(20, 2); cout << string(20, ' '); // erasing searchbar for year
+					coorxy(64, 2); cout << string(20, ' '); // erasing searchbar for sem
+
+					// Erasing variables first
+
+					for (int z = 0; z < 36; z++) {
+						var[z] = "";
+					}
+
+					// Clearing display
+
+					cx = 12;
+					cy = 8;
+
+					for (int z = 0; z < 9; z++) {
+						coorxy(cx, cy);
+						for (int x = 0; x < 1; x++) {
+							coorxy(cx, cy); cout << string(21, ' ');
+							cx += 25;
+							coorxy(cx, cy); cout << string(13, ' ');
+							cx += 15;
+							coorxy(cx, cy); cout << string(38, ' ');
+							cx += 40;
+							coorxy(cx, cy); cout << string(8, ' ');
+							cx += 10;
+							coorxy(cx, cy); cout << string(14, ' ');
+						}
+						cy += 2;
+						cx = 12;
+					}
+
+					counter = 0;
+				}
+			}
 			goto Q;
 			break;
 		case 2:
@@ -2011,7 +2073,6 @@ int main() { // curriculum
 						savefile << endl;
 					}
 					savefile.close();
-
 				}
 				system("cls");
 				tablec();
@@ -2037,6 +2098,31 @@ int main() { // curriculum
 				coorxy(96, 27); cout << ">> ";
 				Sleep(100);
 				// deleting file
+
+				// Erasing
+
+				for (int z = 0; z < 36; z++) {
+					var[z] = "";
+				}
+
+				if (temp != "") { // condition to check temporary file is empty
+					cntr = 0;
+					ofstream savefile;
+					savefile.open(temp);
+					for (int z = 0; z < 9; z++) {
+						for (int x = 0; x < 4; x++) {
+							savefile << var[cntr] + "$";
+							cntr++;
+						}
+						savefile << endl;
+					}
+					savefile.close();
+				}
+				system("cls");
+				tablec();
+
+
+				remove(temp.c_str());
 				break;
 			}
 			coorxy(77, 27); cout << "   ";
