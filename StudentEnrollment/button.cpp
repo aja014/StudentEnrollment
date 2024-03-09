@@ -1754,7 +1754,7 @@ int main() { // curriculum
 			for (int z = 0; z < 9; z++) {
 				coorxy(cx, cy);
 				for (int x = 0; x < 1; x++) {
-					if (var[r] != "") {
+					if (var[r] != "") {// skip if subject code is empty
 						coorxy(cx, cy); cout << var[lvar];
 						cx += 15;
 						lvar++;
