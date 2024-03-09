@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="button.h" />
     <ClInclude Include="Coorxy.h" />
+    <ClInclude Include="curriTable.h" />
     <ClInclude Include="Delay.h" />
     <ClInclude Include="getchValue.h" />
     <ClInclude Include="Table.h" />
