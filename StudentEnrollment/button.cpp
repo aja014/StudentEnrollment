@@ -1728,13 +1728,13 @@ int main() { // curriculum
 	string temp; // temporary storage for searching file
 	int st; // storage for returning value
 	//variables for display
-	int cx =37;
-	int cy = 8;
+	int cx =37; // x position
+	int cy = 8; // y position
 	//variables for display - for year and sem
 	int dn = 0;
 	int r = 0;
 	int lvar=0;
-
+	int num = 1;
 	do {
 	Q:
 
@@ -1743,6 +1743,8 @@ int main() { // curriculum
 	cy = 8;
 	lvar = 0;
 	r = 0;
+	dn = 0;
+	num = 1;
 	for (int z = 0; z < 9; z++) {
 		coorxy(cx, cy);
 		for (int x = 0; x < 1; x++) {
@@ -1758,6 +1760,10 @@ int main() { // curriculum
 				lvar++;
 				coorxy(cx, cy); cout << var[lvar];
 				lvar++;
+				coorxy(13, 8 + dn); cout << year << " year";
+				coorxy(5, 8 + dn); cout << num;
+				num++;
+				dn += 2;
 				cy += 2;
 			}
 			else {
@@ -1895,7 +1901,7 @@ int main() { // curriculum
 			break;
 		case 2:
 			
-			coorxy(0, 8); cout << char('*');
+			coorxy(0, 8); 
 			switch (_getch()) {
 			case 72:
 				counter--;
