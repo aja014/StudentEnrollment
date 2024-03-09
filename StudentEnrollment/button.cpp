@@ -1735,136 +1735,67 @@ int main() { // curriculum
 	int r = 0;
 	int lvar=0;
 	int num = 1;
+
+
 	do {
 	Q:
 
-	// displaying the variables
-	cx = 37;
-	cy = 8;
-	lvar = 0;
-	r = 0;
-	dn = 0;
-	num = 1;
-	for (int z = 0; z < 9; z++) {
-		coorxy(cx, cy);
-		for (int x = 0; x < 1; x++) {
-			if (var[r] != "") {
-				coorxy(cx, cy); cout << var[lvar];
-				cx += 15;
-				lvar++;
-				coorxy(cx, cy); cout << var[lvar];
-				cx += 40;
-				lvar++;
-				coorxy(cx, cy); cout << var[lvar];
-				cx += 10;
-				lvar++;
-				coorxy(cx, cy); cout << var[lvar];
-				lvar++;
-				coorxy(13, 8 + dn); cout << year << " year";
-				coorxy(5, 8 + dn); cout << num;
-				num++;
-				dn += 2;
-				cy += 2;
-			}
-			else {
-				lvar += 4;
+		if (year != "" && sem != "") { // check if year & sem search bar is empty
+
+			// displaying the variables
+
+			cx = 37;
+			cy = 8;
+			lvar = 0;
+			r = 0;
+			dn = 0;
+			num = 1;
+
+			for (int z = 0; z < 9; z++) {
+				coorxy(cx, cy);
+				for (int x = 0; x < 1; x++) {
+					if (var[r] != "") {
+						coorxy(cx, cy); cout << var[lvar];
+						cx += 15;
+						lvar++;
+						coorxy(cx, cy); cout << var[lvar];
+						cx += 40;
+						lvar++;
+						coorxy(cx, cy); cout << var[lvar];
+						cx += 10;
+						lvar++;
+						coorxy(cx, cy); cout << var[lvar];
+						lvar++;
+						coorxy(13, 8 + dn); cout << year << " year";
+						coorxy(5, 8 + dn); cout << num;
+						num++;
+						dn += 2;
+						cy += 2;
+					}
+					else {
+						lvar += 4;
+					}
+				}
+				r += 4;
+				cx = 37;
 			}
 		}
-		r += 4;
-		cx = 37;
-	}
+
 
 		switch (counter) {
 
-		case 0:
-			coorxy(20, 2); st = getchVal(year,0);
-			if (st == 101) counter = 13;
-			else counter++; 
-			goto Q;
-			break;
-		case 1:
+			case 0:
+				coorxy(20, 2); st = getchVal(year,0);
+				if (st == 101) counter = 13;
+				else counter++; 
+				goto Q;
+				break;
 
-			coorxy(64, 2); st = getchVal(sem, 0);
-			if (st == 101) counter--;
-			else if (st == 111) {
-				counter++;
-
-				// Erasing variables first
-
-				for (int z = 0; z < 36; z++) {
-					var[z] = "";
-				}
-
-				// Clearing display
-
-				cx = 12;
-				cy = 8;
-
-					for (int z = 0; z < 9; z++) {
-						coorxy(cx, cy);
-						for (int x = 0; x < 1; x++) {
-							coorxy(cx, cy); cout << string(21, ' ');
-							cx += 25;
-							coorxy(cx, cy); cout << string(13, ' ');
-							cx += 15;
-							coorxy(cx, cy); cout << string(38, ' ');
-							cx += 40;
-							coorxy(cx, cy); cout << string(8, ' ');
-							cx += 10;
-							coorxy(cx, cy); cout << string(14, ' ');
-						}
-						cy += 2;
-						cx = 12;
-					}
-
-
-				// Loading file
-
-				if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
-
-
-
-					temp = year + sem + ".txt";
-					ifstream openf(temp);
-					if (openf.is_open()) { // if found
-
-						//reset display
-
-						r = 0;
-						dn = 0;
-						cntr = 0;
-						string line;
-						for (int z = 0; z < 9; z++) {
-							getline(openf, line);
-							stringstream ss(line); 
-
-							for (int x = 0; x < 4; x++) {
-								getline(ss, var[cntr], '$');
-								cntr++;
-							}
-
-							if (var[r] != "") { // this is for displaying the year text if there's a subject
-								coorxy(13, 8 + dn); cout << year << " year";
-								dn += 2;
-							}
-							else {
-								coorxy(13, 8 + dn); cout << "             ";
-							}
-							r += 4;
-
-						}
-					}
-					openf.close();
-				}
-				else { // if not existing
-
-					// resetting year and sem
-
-					year = "";
-					sem = "";
-
-					coorxy(20, 2); cout << string(20, ' '); // erasing searchbar for year
-					coorxy(64, 2); cout << string(20, ' '); // erasing searchbar for sem
+			case 1:
+				coorxy(64, 2); st = getchVal(sem, 0);
+				if (st == 101) counter--;
+				else if (st == 111) {
+					counter++;
 
 					// Erasing variables first
 
@@ -1874,12 +1805,14 @@ int main() { // curriculum
 
 					// Clearing display
 
-					cx = 12;
+					cx = 5;
 					cy = 8;
 
 					for (int z = 0; z < 9; z++) {
 						coorxy(cx, cy);
 						for (int x = 0; x < 1; x++) {
+							coorxy(cx, cy); cout << string(4, ' ');
+							cx += 7;
 							coorxy(cx, cy); cout << string(21, ' ');
 							cx += 25;
 							coorxy(cx, cy); cout << string(13, ' ');
@@ -1891,270 +1824,348 @@ int main() { // curriculum
 							coorxy(cx, cy); cout << string(14, ' ');
 						}
 						cy += 2;
-						cx = 12;
+						cx = 5;
 					}
 
-					counter = 0;
-				}
-			}
-			goto Q;
-			break;
-		case 2:
-			
-			coorxy(0, 8); 
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[0], var[1], var[2], var[3], 0, 8);
-				break;
-			}
-			goto Q;
-			break;
-		case 3:
-			//coorxy(0, 3); cout << "r4";
-			coorxy(0, 10);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[4], var[5], var[6], var[7], 0, 10);
-				break;
-			}
-			goto Q;
-			break;
-		case 4:
-			//coorxy(0, 4); cout << "r5";
-			coorxy(0, 12);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[8], var[9], var[10], var[11], 0, 12);
-				break;
-			}
-			goto Q;
-			break;
-		case 5:
-			//coorxy(0, 4); cout << "r5";
-			coorxy(0, 14);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[12], var[13], var[14], var[15], 0, 14);
-				break;
-			}
-			goto Q;
-			break;
-		case 6:
-			//coorxy(0, 5); cout << "r6";
-			coorxy(0, 16);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[16], var[17], var[18], var[19], 0, 16);
-				break;
-			}
-			goto Q;
-			break;
-		case 7:
-			//coorxy(0, 5); cout << "r6";
-			coorxy(0, 18);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[20], var[21], var[22], var[23], 0, 18);
-				break;
-			}
-			goto Q;
-			break;
-		case 8:
-			//coorxy(0, 5); cout << "r6";
-			coorxy(0, 20);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[24], var[25], var[26], var[27], 0, 20);
-				break;
-			}
-			goto Q;
-			break;
-		case 9:
-			//coorxy(0, 5); cout << "r6";
-			coorxy(0, 22);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[28], var[29], var[30], var[31], 0, 22);
-				break;
-			}
-			goto Q;
-			break;
-		case 10:
-			//coorxy(0, 5); cout << "r6";
-			coorxy(0, 24);
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				multival(var[32], var[33], var[34], var[35], 0, 24);
-				break;
-			}
-			goto Q;
-			break;
-		case 11:
-			coorxy(57, 27); cout << "<<";
-			coorxy(77, 27); cout << ">>";
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				coorxy(57, 27); cout << " <<";
-				coorxy(76, 27); cout << ">> ";
-				Sleep(100);
+
+					// Loading file
+
+					if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
 
 
-				// Add / update here to data base
 
-				if (temp != "") { // condition to check temporary file is empty
-					cntr = 0;
-					ofstream savefile;
-					savefile.open(temp);
-					for (int z = 0; z < 9; z++) {
-						for (int x = 0; x < 4; x++) {
-							savefile << var[cntr] + "$";
-							cntr++;
+						temp = year + sem + ".txt";
+						ifstream openf(temp);
+						if (openf.is_open()) { // if found
+
+							//reset display
+
+							r = 0;
+							dn = 0;
+							cntr = 0;
+							string line;
+							for (int z = 0; z < 9; z++) {
+								getline(openf, line);
+								stringstream ss(line); 
+
+								for (int x = 0; x < 4; x++) {
+									getline(ss, var[cntr], '$');
+									cntr++;
+								}
+
+								if (var[r] != "") { // this is for displaying the year text if there's a subject
+									coorxy(13, 8 + dn); cout << year << " year";
+									dn += 2;
+								}
+								else {
+									coorxy(13, 8 + dn); cout << "             ";
+								}
+								r += 4;
+
+							}
 						}
-						savefile << endl;
+						openf.close();
 					}
-					savefile.close();
-				}
-				system("cls");
-				tablec();
+					else { // if not existing
 
-				break;
-			}
-			coorxy(57, 27); cout << "   ";
-			coorxy(76, 27); cout << "   ";
-			goto Q;
-			break;
-		case 12:
-			coorxy(77, 27); cout << "<<";
-			coorxy(97, 27); cout << ">>";
-			switch (_getch()) {
-			case 72:
-				counter--;
-				break;
-			case 80:
-				counter++;
-				break;
-			case 13:
-				coorxy(77, 27); cout << " <<";
-				coorxy(96, 27); cout << ">> ";
-				Sleep(100);
-				// deleting file
+						// resetting year and sem
 
-				// Erasing
+						year = "";
+						sem = "";
 
-				for (int z = 0; z < 36; z++) {
-					var[z] = "";
-				}
+						coorxy(20, 2); cout << string(20, ' '); // erasing searchbar for year
+						coorxy(64, 2); cout << string(20, ' '); // erasing searchbar for sem
 
-				if (temp != "") { // condition to check temporary file is empty
-					cntr = 0;
-					ofstream savefile;
-					savefile.open(temp);
-					for (int z = 0; z < 9; z++) {
-						for (int x = 0; x < 4; x++) {
-							savefile << var[cntr] + "$";
-							cntr++;
+						// Erasing variables first
+
+						for (int z = 0; z < 36; z++) {
+							var[z] = "";
 						}
-						savefile << endl;
+
+						// Clearing display
+
+						cx = 5;
+						cy = 8;
+
+						for (int z = 0; z < 9; z++) {
+							coorxy(cx, cy);
+							for (int x = 0; x < 1; x++) {
+								coorxy(cx, cy); cout << string(4, ' ');
+								cx += 7;
+								coorxy(cx, cy); cout << string(21, ' ');
+								cx += 25;
+								coorxy(cx, cy); cout << string(13, ' ');
+								cx += 15;
+								coorxy(cx, cy); cout << string(38, ' ');
+								cx += 40;
+								coorxy(cx, cy); cout << string(8, ' ');
+								cx += 10;
+								coorxy(cx, cy); cout << string(14, ' ');
+							}
+							cy += 2;
+							cx = 5;
+						}
+
+						counter = 0;
 					}
-					savefile.close();
 				}
-				system("cls");
-				tablec();
-
-
-				remove(temp.c_str());
-				break;
-			}
-			coorxy(77, 27); cout << "   ";
-			coorxy(96, 27); cout << "   ";
-			goto Q;
-			break;
-		case 13:
-			coorxy(97, 27); cout << "<<";
-			coorxy(117, 27); cout << ">>";
-			switch (_getch()) {
-			case 72:
-				counter--;
-				coorxy(97, 27); cout << "  ";
-				coorxy(117, 27); cout << "  ";
 				goto Q;
 				break;
-			case 80:
-				counter=0;
-				coorxy(97, 27); cout << "  ";
-				coorxy(117, 27); cout << "  ";
+			case 2:
+				coorxy(0, 8); 
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[0], var[1], var[2], var[3], 0, 8);
+					break;
+				}
+				goto Q;
+				break;
+			case 3:
+				//coorxy(0, 3); cout << "r4";
+				coorxy(0, 10);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[4], var[5], var[6], var[7], 0, 10);
+					break;
+				}
+				goto Q;
+				break;
+			case 4:
+				//coorxy(0, 4); cout << "r5";
+				coorxy(0, 12);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[8], var[9], var[10], var[11], 0, 12);
+					break;
+				}
+				goto Q;
+				break;
+			case 5:
+				//coorxy(0, 4); cout << "r5";
+				coorxy(0, 14);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[12], var[13], var[14], var[15], 0, 14);
+					break;
+				}
+				goto Q;
+				break;
+			case 6:
+				//coorxy(0, 5); cout << "r6";
+				coorxy(0, 16);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[16], var[17], var[18], var[19], 0, 16);
+					break;
+				}
+				goto Q;
+				break;
+			case 7:
+				//coorxy(0, 5); cout << "r6";
+				coorxy(0, 18);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[20], var[21], var[22], var[23], 0, 18);
+					break;
+				}
+				goto Q;
+				break;
+			case 8:
+				//coorxy(0, 5); cout << "r6";
+				coorxy(0, 20);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[24], var[25], var[26], var[27], 0, 20);
+					break;
+				}
+				goto Q;
+				break;
+			case 9:
+				//coorxy(0, 5); cout << "r6";
+				coorxy(0, 22);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[28], var[29], var[30], var[31], 0, 22);
+					break;
+				}
+				goto Q;
+				break;
+			case 10:
+				//coorxy(0, 5); cout << "r6";
+				coorxy(0, 24);
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					multival(var[32], var[33], var[34], var[35], 0, 24);
+					break;
+				}
+				goto Q;
+				break;
+			case 11:
+				coorxy(57, 27); cout << "<<";
+				coorxy(77, 27); cout << ">>";
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					coorxy(57, 27); cout << " <<";
+					coorxy(76, 27); cout << ">> ";
+					Sleep(100);
+
+
+					// Add / update here to data base
+
+					if (temp != "") { // condition to check temporary file is empty
+						cntr = 0;
+						ofstream savefile;
+						savefile.open(temp);
+						for (int z = 0; z < 9; z++) {
+							for (int x = 0; x < 4; x++) {
+								savefile << var[cntr] + "$";
+								cntr++;
+							}
+							savefile << endl;
+						}
+						savefile.close();
+					}
+					system("cls");
+					tablec();
+
+					break;
+				}
+				coorxy(57, 27); cout << "   ";
+				coorxy(76, 27); cout << "   ";
+				goto Q;
+				break;
+			case 12:
+				coorxy(77, 27); cout << "<<";
+				coorxy(97, 27); cout << ">>";
+				switch (_getch()) {
+				case 72:
+					counter--;
+					break;
+				case 80:
+					counter++;
+					break;
+				case 13:
+					coorxy(77, 27); cout << " <<";
+					coorxy(96, 27); cout << ">> ";
+					Sleep(100);
+					// deleting file
+
+					// Erasing
+
+					for (int z = 0; z < 36; z++) {
+						var[z] = "";
+					}
+
+					if (temp != "") { // condition to check temporary file is empty
+						cntr = 0;
+						ofstream savefile;
+						savefile.open(temp);
+						for (int z = 0; z < 9; z++) {
+							for (int x = 0; x < 4; x++) {
+								savefile << var[cntr] + "$";
+								cntr++;
+							}
+							savefile << endl;
+						}
+						savefile.close();
+					}
+					system("cls");
+					tablec();
+
+
+					remove(temp.c_str());
+					break;
+				}
+				coorxy(77, 27); cout << "   ";
+				coorxy(96, 27); cout << "   ";
 				goto Q;
 				break;
 			case 13:
-				coorxy(97, 27); cout << " <<";
-				coorxy(116, 27); cout << ">> ";
-				Sleep(100);
-				ext = 1;
+				coorxy(97, 27); cout << "<<";
+				coorxy(117, 27); cout << ">>";
+				switch (_getch()) {
+				case 72:
+					counter--;
+					coorxy(97, 27); cout << "  ";
+					coorxy(117, 27); cout << "  ";
+					goto Q;
+					break;
+				case 80:
+					counter=0;
+					coorxy(97, 27); cout << "  ";
+					coorxy(117, 27); cout << "  ";
+					goto Q;
+					break;
+				case 13:
+					coorxy(97, 27); cout << " <<";
+					coorxy(116, 27); cout << ">> ";
+					Sleep(100);
+					ext = 1;
+					break;
+				}
+				coorxy(97, 27); cout << "   ";
+				coorxy(116, 27); cout << "   ";
 				break;
-			}
-			coorxy(97, 27); cout << "   ";
-			coorxy(116, 27); cout << "   ";
-			break;
 		}
 	}while (ext != 1);
 	coorxy(0, 29); system("pause");
