@@ -27,58 +27,85 @@ using namespace std;
 // ifstream to read
 // ofstream to write
 
-void multival(string& w, string& x, string& y, string& z, int a,int b) { // w x y z is the storage, a b is the position of gotoxy
-	int localcounter = 1;
-	int sm;
-	
-	//getting the values inside the line
+void multival(string& w, string& x, string& y, string& z, int a,int b, int c) { // w x y z is the storage, a b is the position of gotoxy, c if erasing (1 == erase)
 
-	Q:
-	switch (localcounter) {
-	case 1: 
-		coorxy(a + 37, b);sm = getchValc(w, 0);
+
+	if (c == 1) { // this is to erase
+		w = "";
 		coorxy(a + 37, b); cout << string(13, ' ');
 		coorxy(a + 37, b); cout << w;
-		if (sm == 111)localcounter++; // if getchvalc returned a value
-		else if (sm == 100) goto Q; // if getchvalc returned empty/null
-		goto Q;
-		break;
-	case 2:
-		coorxy(a + 52, b); sm = getchValc(x , 0);
+		x = "";
 		coorxy(a + 52, b); cout << string(37, ' ');
 		coorxy(a + 52, b); cout << x;
-		if (sm == 101)localcounter--;
-		else if (sm == 100) goto Q;
-		else localcounter++;
-		goto Q;
-		break;
-	case 3:
-		coorxy(a + 92, b); sm = getchValc(y, 0);
+		y = "";
 		coorxy(a + 92, b); cout << string(8, ' ');
 		coorxy(a + 92, b); cout << y;
-		if (sm == 101)localcounter--;
-		else if (sm == 100) goto Q;
-		else localcounter++;
-		goto Q;
-		break;
-	case 4:
-		coorxy(a + 102, b); sm = getchValc(z, 0);
+		z = "";
 		coorxy(a + 102, b); cout << string(14, ' ');
 		coorxy(a + 102, b); cout << z;
-		if (sm == 101) {
-			localcounter--;
+	}
+	else {
+
+		int localcounter = 1;
+		int sm;
+
+		//getting the values inside the line
+
+	Q:
+		switch (localcounter) {
+		case 1:
+			coorxy(a + 37, b); sm = getchValc(w, 0);
+			coorxy(a + 37, b); cout << string(13, ' ');
+			coorxy(a + 37, b); cout << w;
+			if (sm == 111)localcounter++; // if getchvalc returned a value
+			else if (sm == 100) goto Q; // if getchvalc returned empty/null
 			goto Q;
-		}
-		else if (sm == 100) {
-			goto Q;
-		}
-		else {
-			//localcounter++;
 			break;
+		case 2:
+			coorxy(a + 52, b); sm = getchValc(x, 0);
+			coorxy(a + 52, b); cout << string(37, ' ');
+			coorxy(a + 52, b); cout << x;
+			if (sm == 101)localcounter--;
+			else if (sm == 100) goto Q;
+			else localcounter++;
+			goto Q;
+			break;
+		case 3:
+			coorxy(a + 92, b); sm = getchValc(y, 0);
+			coorxy(a + 92, b); cout << string(8, ' ');
+			coorxy(a + 92, b); cout << y;
+			if (sm == 101)localcounter--;
+			else if (sm == 100) goto Q;
+			else localcounter++;
+			goto Q;
+			break;
+		case 4:
+			coorxy(a + 102, b); sm = getchValc(z, 0);
+			coorxy(a + 102, b); cout << string(14, ' ');
+			coorxy(a + 102, b); cout << z;
+			if (sm == 101) {
+				localcounter--;
+				goto Q;
+			}
+			else if (sm == 100) {
+				goto Q;
+			}
+			else {
+				//localcounter++;
+				break;
+			}
 		}
 	}
 
+
 }
+
+//void erasingSub(string& w, string& x, string& y, string& z) {
+//	w = "";
+//	x = "";
+//	y = "";
+//	z = "";
+//}
 
 //int menu(int x) {
 //	system("cls");
@@ -1738,61 +1765,64 @@ int main() { // curriculum
 
 
 	do {
+
 	Q:
 
-		if (year != "" && sem != "") { // check if year & sem search bar is empty
+		// displaying the variables
 
-			// displaying the variables
+		//cx = 37;
+		//cy = 8;
+		//lvar = 0;
+		//r = 0;
+		//dn = 0;
+		//num = 1;
 
-			cx = 37;
-			cy = 8;
-			lvar = 0;
-			r = 0;
-			dn = 0;
-			num = 1;
-
-			for (int z = 0; z < 9; z++) {
-				coorxy(cx, cy);
-				for (int x = 0; x < 1; x++) {
-					if (var[r] != "") {// skip if subject code is empty
-						coorxy(cx, cy); cout << var[lvar];
-						cx += 15;
-						lvar++;
-						coorxy(cx, cy); cout << var[lvar];
-						cx += 40;
-						lvar++;
-						coorxy(cx, cy); cout << var[lvar];
-						cx += 10;
-						lvar++;
-						coorxy(cx, cy); cout << var[lvar];
-						lvar++;
-						coorxy(13, 8 + dn); cout << year << " year";
-						coorxy(5, 8 + dn); cout << num;
-						num++;
-						dn += 2;
-						cy += 2;
-					}
-					else {
-						lvar += 4;
-					}
-				}
-				r += 4;
-				cx = 37;
-			}
-		}
+		//for (int z = 0; z < 9; z++) {
+		//	coorxy(cx, cy);
+		//	for (int x = 0; x < 1; x++) {
+		//		if (var[r] != "") {// skip if subject code is empty
+		//			coorxy(cx, cy); cout << var[lvar];
+		//			cx += 15;
+		//			lvar++;
+		//			coorxy(cx, cy); cout << var[lvar];
+		//			cx += 40;
+		//			lvar++;
+		//			coorxy(cx, cy); cout << var[lvar];
+		//			cx += 10;
+		//			lvar++;
+		//			coorxy(cx, cy); cout << var[lvar];
+		//			lvar++;
+		//			coorxy(13, 8 + dn); cout << "year " << year << " / " << "sem " << sem;
+		//			coorxy(5, 8 + dn); cout << num;
+		//			num++;
+		//			dn += 2;
+		//			cy += 2;
+		//		}
+		//		else {
+		//			lvar += 4;
+		//		}
+		//	}
+		//	r += 4;
+		//	cx = 37;
+		//}
 
 
 		switch (counter) {
 
 			case 0:
-				coorxy(20, 2); st = getchVal(year,0);
-				if (st == 101) counter = 13;
-				else counter++; 
+				coorxy(20, 2); st = getchValc(year,0);
+				coorxy(20, 2); cout << string(15, ' ');
+				coorxy(20, 2); cout << year;
+				if (st == 111) counter++;
+				else if (st == 100) goto Q;
 				goto Q;
 				break;
 
 			case 1:
-				coorxy(64, 2); st = getchVal(sem, 0);
+				coorxy(64, 2); st = getchValc(sem, 0);
+				coorxy(64, 2); cout << string(15, ' ');
+				coorxy(64, 2); cout << sem;
+				coorxy(64, 2);
 				if (st == 101) counter--;
 				else if (st == 111) {
 					counter++;
@@ -1828,6 +1858,8 @@ int main() { // curriculum
 					}
 
 
+
+
 					// Loading file
 
 					if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
@@ -1853,18 +1885,60 @@ int main() { // curriculum
 									cntr++;
 								}
 
-								if (var[r] != "") { // this is for displaying the year text if there's a subject
-									coorxy(13, 8 + dn); cout << year << " year";
-									dn += 2;
-								}
-								else {
-									coorxy(13, 8 + dn); cout << "             ";
-								}
-								r += 4;
+								//if (var[r] != "") { // this is for displaying the year text if there's a subject
+								//	coorxy(13, 8 + dn); cout << "year" << year << " / " << "sem " << sem;
+								//	dn += 2;
+								//}
+								//else {
+								//	coorxy(13, 8 + dn); cout << "             ";
+								//}
+								//r += 4;
 
 							}
 						}
 						openf.close();
+
+						// displaying the variables
+
+						cx = 37;
+						cy = 8;
+						lvar = 0;
+						r = 0;
+						dn = 0;
+						num = 1;
+
+						for (int z = 0; z < 9; z++) {
+							coorxy(cx, cy);
+							for (int x = 0; x < 1; x++) {
+								if (var[r] != "") {// skip if subject code is empty
+									coorxy(cx, cy); cout << var[lvar];
+									cx += 15;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar];
+									cx += 40;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar];
+									cx += 10;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar];
+									lvar++;
+									coorxy(13, 8 + dn); cout << "year " << year << " / " << "sem " << sem;
+									coorxy(5, 8 + dn); cout << num;
+									num++;
+									dn += 2;
+									cy += 2;
+								}
+								else {
+									lvar += 4;
+								}
+							}
+							r += 4;
+							cx = 37;
+						}
+
+
+						/*year = "";
+						sem = "";*/
 					}
 					else { // if not existing
 
@@ -1909,19 +1983,23 @@ int main() { // curriculum
 						counter = 0;
 					}
 				}
+
 				goto Q;
 				break;
 			case 2:
 				coorxy(0, 8); 
 				switch (_getch()) {
 				case 72:
-					counter--;
+					counter=0;
 					break;
 				case 80:
 					counter++;
 					break;
 				case 13:
-					multival(var[0], var[1], var[2], var[3], 0, 8);
+					multival(var[0], var[1], var[2], var[3], 0, 8,0);
+					break;
+				case 8:
+					multival(var[0], var[1], var[2], var[3],0,8,1);
 					break;
 				}
 				goto Q;
@@ -1937,7 +2015,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[4], var[5], var[6], var[7], 0, 10);
+					multival(var[4], var[5], var[6], var[7], 0, 10,0);
+					break;
+				case 8:
+					multival(var[4], var[5], var[6], var[7], 0, 10, 1);
 					break;
 				}
 				goto Q;
@@ -1953,7 +2034,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[8], var[9], var[10], var[11], 0, 12);
+					multival(var[8], var[9], var[10], var[11], 0, 12,0);
+					break;
+				case 8:
+					multival(var[8], var[9], var[10], var[11], 0, 12, 1);
 					break;
 				}
 				goto Q;
@@ -1969,7 +2053,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[12], var[13], var[14], var[15], 0, 14);
+					multival(var[12], var[13], var[14], var[15], 0, 14,0);
+					break;
+				case 8:
+					multival(var[12], var[13], var[14], var[15], 0, 14, 1);
 					break;
 				}
 				goto Q;
@@ -1985,7 +2072,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[16], var[17], var[18], var[19], 0, 16);
+					multival(var[16], var[17], var[18], var[19], 0, 16,0);
+					break;
+				case 8:
+					multival(var[16], var[17], var[18], var[19], 0, 16, 1);
 					break;
 				}
 				goto Q;
@@ -2001,7 +2091,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[20], var[21], var[22], var[23], 0, 18);
+					multival(var[20], var[21], var[22], var[23], 0, 18,0);
+					break;
+				case 8:
+					multival(var[20], var[21], var[22], var[23], 0, 18, 1);
 					break;
 				}
 				goto Q;
@@ -2017,7 +2110,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[24], var[25], var[26], var[27], 0, 20);
+					multival(var[24], var[25], var[26], var[27], 0, 20,0);
+					break;
+				case 8:
+					multival(var[24], var[25], var[26], var[27], 0, 20, 1);
 					break;
 				}
 				goto Q;
@@ -2033,7 +2129,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[28], var[29], var[30], var[31], 0, 22);
+					multival(var[28], var[29], var[30], var[31], 0, 22,0);
+					break;
+				case 8:
+					multival(var[28], var[29], var[30], var[31], 0, 22, 1);
 					break;
 				}
 				goto Q;
@@ -2049,7 +2148,10 @@ int main() { // curriculum
 					counter++;
 					break;
 				case 13:
-					multival(var[32], var[33], var[34], var[35], 0, 24);
+					multival(var[32], var[33], var[34], var[35], 0, 24,0);
+					break;
+				case 8:
+					multival(var[32], var[33], var[34], var[35], 0, 24, 1);
 					break;
 				}
 				goto Q;
@@ -2074,14 +2176,26 @@ int main() { // curriculum
 
 					if (temp != "") { // condition to check temporary file is empty
 						cntr = 0;
+						r = 0;
+						int dltd = 0;
 						ofstream savefile;
 						savefile.open(temp);
 						for (int z = 0; z < 9; z++) {
-							for (int x = 0; x < 4; x++) {
-								savefile << var[cntr] + "$";
-								cntr++;
+							if (var[r] != "") { // this is to check if subject is not empty
+								for (int x = 0; x < 4; x++) {
+									savefile << var[cntr] + "$";
+									cntr++;
+								}
+								savefile << endl;
 							}
-							savefile << endl;
+							else { // if subject is empty
+								cntr += 4;
+								dltd++; // this is the counter for how many subject will be deleted
+							}
+							r += 4;
+						}
+						for (int z = 0; z < dltd; z++) { // this is to add empty subject in the end depending on how many is deleted
+							savefile << "$$$$" << endl;
 						}
 						savefile.close();
 					}
