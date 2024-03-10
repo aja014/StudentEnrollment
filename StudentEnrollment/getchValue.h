@@ -151,7 +151,7 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 }
 
 int getchValc(string& s, int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[32];
+	char x[50];
 
 	int num = 1;
 	int nm = 1; // for curriculum erasing

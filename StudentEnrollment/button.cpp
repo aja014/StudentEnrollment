@@ -1723,40 +1723,21 @@ int main() { // curriculum
 	tablec();
 
 	string var[45]; // variables
+	string year; // variable for searching year
+	string sem; // variable for searching sem
+	string temp; // temporary storage for searching file
 
 
 	int counter = 0; // counter for option
 	int ext = 0; // exit confirmation
 	int cntr = 0; // counter for database
-
-	// Loading file // Getting data from database and store to local variable
-	/*ifstream loadfile("11.txt");
-	if (loadfile.is_open()) {
-		string line;
-		for (int z = 0; z < 9; z++) {
-			getline(loadfile, line);
-			stringstream ss(line);
-			for (int x = 0; x < 4; x++) {
-				getline(ss, var[cntr], '$');
-				cntr++;
-			}
-		}
-		loadfile.close();
-	}*/
-
-
-
-
-
-	// doing the switching rows
-
-	string year; // variable for searching year
-	string sem; // variable for searching sem
-	string temp; // temporary storage for searching file
+	int dltd = 0; // variable for empty subject
 	int st; // storage for returning value
+
 	//variables for display
 	int cx =37; // x position
 	int cy = 8; // y position
+
 	//variables for display - for year and sem
 	int dn = 0;
 	int r = 0;
@@ -1764,48 +1745,13 @@ int main() { // curriculum
 	int num = 1;
 
 
+
+
+	// doing the switching rows - done
+
 	do {
 
 	Q:
-
-		// displaying the variables
-
-		//cx = 37;
-		//cy = 8;
-		//lvar = 0;
-		//r = 0;
-		//dn = 0;
-		//num = 1;
-
-		//for (int z = 0; z < 9; z++) {
-		//	coorxy(cx, cy);
-		//	for (int x = 0; x < 1; x++) {
-		//		if (var[r] != "") {// skip if subject code is empty
-		//			coorxy(cx, cy); cout << var[lvar];
-		//			cx += 15;
-		//			lvar++;
-		//			coorxy(cx, cy); cout << var[lvar];
-		//			cx += 40;
-		//			lvar++;
-		//			coorxy(cx, cy); cout << var[lvar];
-		//			cx += 10;
-		//			lvar++;
-		//			coorxy(cx, cy); cout << var[lvar];
-		//			lvar++;
-		//			coorxy(13, 8 + dn); cout << "year " << year << " / " << "sem " << sem;
-		//			coorxy(5, 8 + dn); cout << num;
-		//			num++;
-		//			dn += 2;
-		//			cy += 2;
-		//		}
-		//		else {
-		//			lvar += 4;
-		//		}
-		//	}
-		//	r += 4;
-		//	cx = 37;
-		//}
-
 
 		switch (counter) {
 
@@ -1884,16 +1830,6 @@ int main() { // curriculum
 									getline(ss, var[cntr], '$');
 									cntr++;
 								}
-
-								//if (var[r] != "") { // this is for displaying the year text if there's a subject
-								//	coorxy(13, 8 + dn); cout << "year" << year << " / " << "sem " << sem;
-								//	dn += 2;
-								//}
-								//else {
-								//	coorxy(13, 8 + dn); cout << "             ";
-								//}
-								//r += 4;
-
 							}
 						}
 						openf.close();
@@ -1935,10 +1871,6 @@ int main() { // curriculum
 							r += 4;
 							cx = 37;
 						}
-
-
-						/*year = "";
-						sem = "";*/
 					}
 					else { // if not existing
 
@@ -2177,10 +2109,10 @@ int main() { // curriculum
 					if (temp != "") { // condition to check temporary file is empty
 						cntr = 0;
 						r = 0;
-						int dltd = 0;
+						dltd = 0;
 						ofstream savefile;
 						savefile.open(temp);
-						for (int z = 0; z < 9; z++) {
+						for (int z = 0; z < 9; z++) { // this is for saving existing subject
 							if (var[r] != "") { // this is to check if subject is not empty
 								for (int x = 0; x < 4; x++) {
 									savefile << var[cntr] + "$";
@@ -2189,12 +2121,12 @@ int main() { // curriculum
 								savefile << endl;
 							}
 							else { // if subject is empty
-								cntr += 4;
-								dltd++; // this is the counter for how many subject will be deleted
+								cntr += 4; // this is to skip the iteration of variables
+								dltd++; // this is the counter of how many subject is emtpy
 							}
 							r += 4;
 						}
-						for (int z = 0; z < dltd; z++) { // this is to add empty subject in the end depending on how many is deleted
+						for (int z = 0; z < dltd; z++) { // this is to add empty lines in the end depending on how many subject is empty
 							savefile << "$$$$" << endl;
 						}
 						savefile.close();
@@ -2222,6 +2154,8 @@ int main() { // curriculum
 					coorxy(77, 27); cout << " <<";
 					coorxy(96, 27); cout << ">> ";
 					Sleep(100);
+
+
 					// deleting file
 
 					// Erasing
