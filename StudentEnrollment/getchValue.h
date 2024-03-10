@@ -124,7 +124,7 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 				s = "";
 				num = 0;
 			}
-			if (l >= 2 && l <= 11) { // age
+			if (l >= 2 && l <= 12) { // age
 				if ((a >= '0' && a <= '9')) {
 					if (l == 2 && z < 2) { // age and bday
 						cout << a;
