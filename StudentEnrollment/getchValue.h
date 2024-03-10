@@ -73,8 +73,8 @@ using namespace std;
 //	
 //}
 
-int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[32];
+int getchVal(string& s, char t ,int l) { // 101 is up, 111 is down // s string storage, l is length
+	char x[100];
 
 	int num = 1;
 	int nm = 1;
@@ -117,40 +117,18 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 				}
 			}
 		}
-		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
+		else if (((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') && z <l) {
 			
 			// erasing previous string value
 			if (num == 1) { 
 				s = "";
 				num = 0;
 			}
-			if (l >= 2 && l <= 12) { // age
+			if (t == 'n') { // age
 				if ((a >= '0' && a <= '9')) {
-					if (l == 2 && z < 2) { // age and bday
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 11 && z < 11) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 4 && z < 4) { // byear and zip
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 12 && z < 11) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 12 && z < 12) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
+					cout << a;
+					x[z] = a;
+					++z;
 				}
 			}
 			else {
@@ -162,7 +140,7 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 	}
 }
 
-int getchValc(string& s, int l) { // 101 is up, 111 is down // s string storage, l is length
+int getchValc(string& s, char t, int l) { // 101 is up, 111 is down // s string storage, l is length
 	char x[50];
 
 	int num = 1;
@@ -206,40 +184,18 @@ int getchValc(string& s, int l) { // 101 is up, 111 is down // s string storage,
 				}
 			}
 		}
-		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
+		else if (((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ')&& z < l) {
 
 			// erasing previous string value
 			if (num == 1) {
 				s = "";
 				num = 0;
 			}
-			if (l >= 2 && l <= 11) { // age
+			if (t == 'n') { // age
 				if ((a >= '0' && a <= '9')) {
-					if (l == 2 && z < 2) { // age and bday
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 11 && z < 11) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 4 && z < 4) { // byear and zip
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 12 && z < 11) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
-					else if (l == 12 && z < 12) { // gnumber
-						cout << a;
-						x[z] = a;
-						++z;
-					}
+					cout << a;
+					x[z] = a;
+					++z;
 				}
 			}
 			else {
