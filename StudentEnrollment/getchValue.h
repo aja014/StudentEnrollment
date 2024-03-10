@@ -77,6 +77,7 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 	char x[32];
 
 	int num = 1;
+	int nm = 1;
 	char a;
 
 	for (int z = 0;;) {
@@ -101,9 +102,20 @@ int getchVal(string& s, int l) { // 101 is up, 111 is down // s string storage, 
 			return 111;
 			break;
 		}
-		else if (a == 8 && z >= 1) {
-			cout << "\b \b";
-			x[--z] = '\0';
+		else if (a == 8 && (z >= 1 || s != "")) {
+			if (nm == 1 && s != "") { // for first time erasing
+				s = "";
+				nm = 0;
+				return 100;
+				break;
+			}
+			else {
+				cout << "\b \b";
+				if (z > 0) {
+					x[z] = '\0';
+					--z;
+				}
+			}
 		}
 		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
 			
@@ -188,7 +200,10 @@ int getchValc(string& s, int l) { // 101 is up, 111 is down // s string storage,
 			}
 			else {
 				cout << "\b \b";
-				x[--z] = '\0';
+				if (z > 0) {
+					x[z] = '\0';
+					--z;
+				}
 			}
 		}
 		else if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') || (a >= '0' && a <= '9') || a == ' ') {
