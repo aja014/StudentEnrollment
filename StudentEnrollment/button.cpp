@@ -2715,12 +2715,14 @@ int menu(int x) {
 ///////////////////////////////
 
 int main() { // Enrolment
-	//menu(2);
+	//menu(1);
+
+	Q:
 	string sc = " "; // space variable
 	string info[20]; // information storage for searched pooling number
 	string prevSub[36]; // temporary storage of previous subjects 
-	string incomingYearSem; // temporary storage for incoming year and sem
 	string enrolledSub[36]; // temporary storage for enrolled subjects
+	string incomingYearSem; // temporary storage for incoming year and sem
 	string infoPath; // pooling number text file
 	
 	string srchbar;
@@ -2765,21 +2767,26 @@ int main() { // Enrolment
 	int ctr = 0; // counter for loading
 
 	if (incomingYearSem == "11.txt") {
+		
+
+		// Loading subjects
+
 		ifstream esub(incomingYearSem);
 		if (esub.is_open()) {
 			string line;
 			for (int x = 0; x < 9; x++) {
 				getline(esub, line);
-				for (int y = 0; y < 4; y++) {
-					stringstream ss(line);
-					getline(ss, enrolledSub[ctr], '$');
-					ctr++;
+				if (line.substr(0) != "$$$$") {
+					for (int y = 0; y < 4; y++) {
+						stringstream ss(line);
+						getline(ss, enrolledSub[ctr], '$');
+						ctr++;
+					}
 				}
-
 			}
 		}
 
-		//display
+		// display
 
 		int cy = 10;
 		int cntr = 0;
@@ -2793,8 +2800,56 @@ int main() { // Enrolment
 			cy++;
 		}
 	}
+	else if (incomingYearSem == "21.txt" || incomingYearSem == "31.txt" || incomingYearSem == "41.txt"){
+
+
+	
+		// conversion to previous sem
+		int tempyear = stoi(info[18]) - 1; 
+		int tempsem = stoi(info[19]) + 1;
+
+		string test = to_string(tempyear) + to_string(tempsem) + ".txt"; // new temp file path
+
+		// Loading subjects
+
+		ifstream psub(test);
+		if (psub.is_open()) {
+			string line;
+			for (int x = 0; x < 9; x++) {
+				getline(psub, line);
+				if (line.substr(0) != "$$$$") { // checking if line is not empty
+					for (int y = 0; y < 4; y++) {
+						stringstream ss(line);
+						getline(ss, prevSub[ctr], '$');
+						ctr++;
+					}
+				}
+			}
+		}
+
+		// display
+
+		int cy = 10;
+		int cntr = 0;
+		int arrcntr = 0;
+		for (int x = 0; x < 9; x++) {
+			coorxy(40, cy);
+			if (prevSub[arrcntr] != "") {
+				for (int y = 0; y < 4; y++) {
+					cout << prevSub[cntr] << " ";
+					cntr++;
+				}
+				cout << endl;
+			}
+			arrcntr += 4;
+			cy++;
+		}
+
+		
+	}
 	
 
 
 	coorxy(0, 29); system("pause");
+	goto Q;
 }
