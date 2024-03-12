@@ -21,5 +21,4 @@ C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(55,16): warning C4309: 'argument': truncation of constant value
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(56,17): warning C4309: 'argument': truncation of constant value
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(57,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(99,7): warning C4101: 'a': unreferenced local variable
   StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe

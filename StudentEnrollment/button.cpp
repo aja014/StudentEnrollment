@@ -96,13 +96,13 @@ void multival(string& w, string& x, string& y, string& z, int a,int b, int c) { 
 int menu(int x) { 
 
 	system("cls");
-	char a;
+	//char a;
 
 	if (x == 1) {
 		string currentfile; // storage for filename
 
 		string pooln, fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
-			grelation, targety;// Local varible storage for information
+			grelation, year,sem;// Local varible storage for information
 
 		string finder; // storage for searching pooling number
 		string temppoolnum; // storage for conversion of int temppool to string
@@ -234,7 +234,8 @@ int menu(int x) {
 								getline(ss, glname, '$');
 								getline(ss, gcnum, '$');
 								getline(ss, grelation, '$');
-								getline(ss, targety, '$');
+								getline(ss, year, '$');
+								getline(ss, sem, '$');
 							}
 
 							// displaying found datas - done
@@ -289,7 +290,7 @@ int menu(int x) {
 							pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
 								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 								municipality = "", province = "", gfname = "", gmname = "",
-								glname = "", gcnum = "", grelation = "", targety = "";
+								glname = "", gcnum = "", grelation = "", year = "",sem="";
 
 
 							// finding new empty pooling number - done
@@ -497,13 +498,13 @@ int menu(int x) {
 
 						//checking if pooling number is already registerd - done
 
-						if (targety == "") {
+						if (year == "" && sem == "") {
 							system("cls");
 							do {
 								coorxy(45, 11); cout << "What year do you want to enroll? :    ";
 								coorxy(80, 11); getchVal(e, 'n', 1);
 							} while (e != "1" && e != "2" && e != "3" && e != "4");
-							targety = e;
+							year = e;
 							do {
 								e = "";
 								coorxy(45, 12); cout << "Enter what semester :    ";
@@ -511,12 +512,13 @@ int menu(int x) {
 								//e += f;
 
 							} while (e != "1" && e != "2");
-							targety += e;
+							sem = e;
 							e = "";
-							coorxy(45, 14); cout << "target year/sem code" << targety;
+							coorxy(45, 14); cout << "target year/sem code" << year << sem;
 
 							// Pooling number table
 							coorxy(43, 16); cout << char(179) << " Pooling num : " << temppoolnum;  // number
+							pooln = temppoolnum;
 							n = 0;
 							coorxy(68, 16); cout << char(179);
 							for (int j = 0; j < 2; j++) {
@@ -531,7 +533,7 @@ int menu(int x) {
 
 						ofstream savefile;
 						savefile.open(currentfile);
-						savefile << pooln + "$" + fname + "$" + mname + "$" + lname + "$" + age + "$" + gender + "$" + lrn + "$" + bmonth + "$" + bday + "$" + byear + "$" + barangay + "$" + municipality + "$" + province + "$" + gfname + "$" + gmname + "$" + glname + "$" + gcnum + "$" + grelation + "$" + targety + "$" << endl;
+						savefile << pooln + "$" + fname + "$" + mname + "$" + lname + "$" + age + "$" + gender + "$" + lrn + "$" + bmonth + "$" + bday + "$" + byear + "$" + barangay + "$" + municipality + "$" + province + "$" + gfname + "$" + gmname + "$" + glname + "$" + gcnum + "$" + grelation + "$" + year + "$" + sem << endl;
 						savefile.close();
 					}
 
@@ -564,7 +566,7 @@ int menu(int x) {
 					pooln = "", fname = "", mname = "", lname = "", age = "", gender = "",
 						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 						municipality = "", province = "", gfname = "", gmname = "",
-						glname = "", gcnum = "", grelation = "", targety = "";
+						glname = "", gcnum = "", grelation = "", year = "", sem="";
 
 					system("cls");
 					table();
@@ -606,7 +608,7 @@ int menu(int x) {
 					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
 						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
 						municipality = "", province = "", gfname = "", gmname = "",
-						glname = "", gcnum = "", grelation = "", targety = "";
+						glname = "", gcnum = "", grelation = "", year = "", sem = "";
 
 
 					n = 0;
@@ -744,8 +746,8 @@ int menu(int x) {
 						coorxy(cx, cy);
 						for (int x = 0; x < 1; x++) {
 							coorxy(cx, cy); cout << string(4, ' ');
-							cx += 7;
-							coorxy(cx, cy); cout << string(21, ' ');
+							cx += 6;
+							coorxy(cx, cy); cout << string(23, ' ');
 							cx += 25;
 							coorxy(cx, cy); cout << string(13, ' ');
 							cx += 15;
@@ -765,8 +767,6 @@ int menu(int x) {
 					// Loading file
 
 					if ((year == "1" || year == "2" || year == "3" || year == "4") && (sem == "1" || sem == "2")) {
-
-
 
 						temp = year + sem + ".txt";
 						ifstream openf(temp);
@@ -853,8 +853,8 @@ int menu(int x) {
 							coorxy(cx, cy);
 							for (int x = 0; x < 1; x++) {
 								coorxy(cx, cy); cout << string(4, ' ');
-								cx += 7;
-								coorxy(cx, cy); cout << string(21, ' ');
+								cx += 6;
+								coorxy(cx, cy); cout << string(23, ' ');
 								cx += 25;
 								coorxy(cx, cy); cout << string(13, ' ');
 								cx += 15;
@@ -1199,6 +1199,7 @@ int menu(int x) {
 		Sleep(200);
 
 	}
+
 	system("cls");
 	return 0;
 }
@@ -2026,6 +2027,7 @@ int menu(int x) {
 //
 //					if (targety == "") {
 //						system("cls");
+//						pooltable();
 //						do {
 //							coorxy(45, 11); cout << "What year do you want to enroll? :    ";
 //							coorxy(80, 11); getchVal(e, 'n', 1);
@@ -2273,8 +2275,8 @@ int menu(int x) {
 //					coorxy(cx, cy);
 //					for (int x = 0; x < 1; x++) {
 //						coorxy(cx, cy); cout << string(4, ' ');
-//						cx += 7;
-//						coorxy(cx, cy); cout << string(21, ' ');
+//						cx += 6;
+//						coorxy(cx, cy); cout << string(24, ' ');
 //						cx += 25;
 //						coorxy(cx, cy); cout << string(13, ' ');
 //						cx += 15;
@@ -2343,7 +2345,7 @@ int menu(int x) {
 //								lvar++;
 //								coorxy(cx, cy); cout << var[lvar];
 //								lvar++;
-//								coorxy(13, 8 + dn); cout << "year " << year << " / " << "sem " << sem;
+//								coorxy(11, 8 + dn); cout << "1 year" << year << " / " << "sem " << sem;
 //								coorxy(5, 8 + dn); cout << num;
 //								num++;
 //								dn += 2;
@@ -2382,8 +2384,8 @@ int menu(int x) {
 //						coorxy(cx, cy);
 //						for (int x = 0; x < 1; x++) {
 //							coorxy(cx, cy); cout << string(4, ' ');
-//							cx += 7;
-//							coorxy(cx, cy); cout << string(21, ' ');
+//							cx += 6;
+//							coorxy(cx, cy); cout << string(23, ' ');
 //							cx += 25;
 //							coorxy(cx, cy); cout << string(13, ' ');
 //							cx += 15;
@@ -2712,6 +2714,87 @@ int menu(int x) {
 
 ///////////////////////////////
 
-int main() {
-	menu(2);
+int main() { // Enrolment
+	//menu(2);
+	string sc = " "; // space variable
+	string info[20]; // information storage for searched pooling number
+	string prevSub[36]; // temporary storage of previous subjects 
+	string incomingYearSem; // temporary storage for incoming year and sem
+	string enrolledSub[36]; // temporary storage for enrolled subjects
+	string infoPath; // pooling number text file
+	
+	string srchbar;
+	coorxy(40, 2); cout << "Enter the pooling number : "; getchVal(srchbar, 'l', 8);
+
+	// conversion
+	infoPath = srchbar + ".txt";
+
+	// Loading information
+	int i = 0;
+	ifstream loadinfo(infoPath);
+	if (loadinfo.is_open()) { // if found
+		string line;
+		string tempcode; // declaring temporary code subject for comparing
+		while (getline(loadinfo,line)) {
+			stringstream ss(line);
+			for (int x = 0; x < 20; x++) {
+				getline(ss, info[x], '$');
+			}
+		}
+
+	// display
+
+	coorxy(30, 3); cout << info[0]; // pooling num
+	coorxy(30, 4); cout << info[1] << sc << info[2] << sc << info[3]; // fullname
+	coorxy(30, 5); cout << info[5]; // gender
+	coorxy(30, 6); cout << info[4]; // age
+	coorxy(30, 7); cout << info[10] <<sc<< info[11] <<sc<< info[12]; // address
+
+	} else {
+		coorxy(40, 4); cout << "not found";
+	}
+	loadinfo.close();
+
+	incomingYearSem = info[18] +info[19] + ".txt"; // declaring temporary storage for target year/sem file
+
+
+	coorxy(30, 8); cout << "incoming " << info[18] << " year " << info[19] << " sem"; // year and sem
+
+	// Loading of subjects to be enrolled
+
+	int ctr = 0; // counter for loading
+
+	if (incomingYearSem == "11.txt") {
+		ifstream esub(incomingYearSem);
+		if (esub.is_open()) {
+			string line;
+			for (int x = 0; x < 9; x++) {
+				getline(esub, line);
+				for (int y = 0; y < 4; y++) {
+					stringstream ss(line);
+					getline(ss, enrolledSub[ctr], '$');
+					ctr++;
+				}
+
+			}
+		}
+
+		//display
+
+		int cy = 10;
+		int cntr = 0;
+		for (int x = 0; x < 9; x++) {
+			coorxy(40, cy);
+			for (int y = 0; y < 4; y++) {
+				cout << enrolledSub[cntr] << " ";
+				cntr++;
+			}
+			cout << endl;
+			cy++;
+		}
+	}
+	
+
+
+	coorxy(0, 29); system("pause");
 }
