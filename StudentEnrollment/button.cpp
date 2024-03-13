@@ -2764,11 +2764,17 @@ int main() { // Enrolment
 	//menu(1);
 
 	string finder; // finder storage
-	int lcntr; // local counter
+	int lcntr; // local counter // inside switch
 	int tempre; // return value storage
-	int cntr = 0;
+	int cntr = 0; // counter for first switch
+	int tempyear; // temporary strage for year string to int conversion
+	int tempsem;// temporary strage for sem string to int conversion
 
+	string subfile;
 	string stinfo[20]; // storage for student information
+
+	string ftsub[36]; // storage for incoming subject
+	string presub[36];
 
 
 	R:
@@ -2782,10 +2788,13 @@ int main() { // Enrolment
 
 		E:
 			
+		// Switch for local option
+
 		switch (lcntr) {
 		case 0:
-
 			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
+			coorxy(27, 2); cout << string(8, ' ');
+			coorxy(27, 2); cout << finder;
 			if (tempre == 101) lcntr = 2;
 			else if (tempre == 110) lcntr++;
 			else if (tempre == 100) goto E;
@@ -2847,6 +2856,70 @@ int main() { // Enrolment
 				}
 				file.close();
 
+				// Open another ifstream for future subject
+
+				string subf;
+				subf = stinfo[18] + stinfo[19] + ".txt";
+				ifstream subtxt(subf);
+				if (subtxt.is_open()) {
+					string line;
+					for (int x = 0; x < 9; x++) {
+						getline(subtxt, line);
+						stringstream ss(line);
+						if (line.substr(0) != "$$$$") { // check if subject is not empty
+							for (int y = 0; y < 4; y++) {
+								getline(ss, ftsub[y], '$');
+							}
+						}
+					}
+				}
+				subtxt.close();
+
+				// get the previous sub if not fresh man
+
+				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
+					tempyear = stoi(stinfo[18]) - 1;
+					tempsem = stoi(stinfo[19]) + 1;
+
+					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
+					ifstream subtxt(prevsubfile);
+					if (subtxt.is_open()) {
+						string line;
+						for (int x = 0; x < 9; x++) {
+							getline(subtxt, line);
+							stringstream ss(line);
+							if (line.substr(0) != "$$$$") { // check if subject is not empty
+								for (int y = 0; y < 4; y++) {
+									getline(ss, presub[y], '$');
+								}
+							}
+						}
+					}
+					subtxt.close();
+
+				}
+				else if (stinfo[19] == "2") { // if remain in same year
+
+					tempsem = stoi(stinfo[19]) - 1;
+					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
+					ifstream subtxt(prevsubfile);
+					if (subtxt.is_open()) {
+						string line;
+						for (int x = 0; x < 9; x++) {
+							getline(subtxt, line);
+							stringstream ss(line);
+							if (line.substr(0) != "$$$$") { // check if subject is not empty
+								for (int y = 0; y < 4; y++) {
+									getline(ss, presub[y], '$');
+								}
+							}
+						}
+					}
+					subtxt.close();
+				}
+
+
+
 				lcntr++;
 			}
 			goto E;
@@ -2890,6 +2963,7 @@ int main() { // Enrolment
 
 					if (lext == 1) {
 						cntr++;
+						subfile = stinfo[18] + stinfo[19];
 						goto R;
 					}
 					else goto E;
@@ -2933,9 +3007,25 @@ int main() { // Enrolment
 		break;
 
 	case 1:
-		page2();
-		break;
 
+		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
+			cntr++;
+			system("cls");
+			goto R;
+		}
+		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
+			page2();
+
+		}
+		else { // getting the previous sub of last sem
+			page2();
+
+		}
+
+		break; // break for case 1
+	case 2:
+		page3();
+		break;
 	}
 
 	coorxy(0, 29); system("pause");
