@@ -2763,20 +2763,22 @@ int menu(int x) {
 int main() { // Enrolment
 	//menu(1);
 
-
-
-	
+	string finder; // finder storage
+	int lcntr; // local counter
+	int tempre; // return value storage
 	int cntr = 0;
+
 	string stinfo[20]; // storage for student information
 
 
+	R:
 	switch (cntr) {
 	case 0:
 		page1(); // display table
 
-		int tempre;
-		int lcntr = 0;
-		string finder;
+		tempre = 0;
+		lcntr = 0;
+		finder = "";
 
 		E:
 			
@@ -2802,19 +2804,46 @@ int main() { // Enrolment
 						}
 					}
 				
-				// erase display - youre here
-
+				// erase display - done
+					coorxy(15, 6); cout << string(25, ' '); // surname
+					coorxy(54, 6); cout << string(26, ' '); // firstname
+					coorxy(94, 6); cout << string(23, ' '); // middle name
+					coorxy(11, 8); cout << string(9, ' ');// age
+					coorxy(31, 8); cout << string(29, ' ');// gender
+					coorxy(68, 8); cout << string(15, ' ');// lrn
+					coorxy(15, 10); cout << string(102, ' ');// address
+					coorxy(21, 12); cout << string(5, ' ');// year
+					coorxy(73, 12); cout << string(5, ' ');// sem
 
 				// display
 				coorxy(15, 6); cout << stinfo[3]; // surname
 				coorxy(54, 6); cout << stinfo[1]; // first name
-				coorxy(94, 6); cout << stinfo[2]; // middle name
+				coorxy(95, 6); cout << stinfo[2]; // middle name
 				coorxy(11, 8); cout << stinfo[4]; // age
 				coorxy(31, 8); cout << stinfo[5]; // gender
 				coorxy(68, 8); cout << stinfo[6]; // lrn
 				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
 				coorxy(21, 12); cout << stinfo[18]; // year
-				coorxy(73, 12); cout << stinfo[19]; // year
+				coorxy(73, 12); cout << stinfo[19]; // sem
+				}
+				else {
+
+					// remove values
+
+					for (int x = 0; x < 20; x++) {
+						stinfo[x] = "";
+					}
+
+					// erase display - done
+					coorxy(15, 6); cout << string(25, ' '); // surname
+					coorxy(54, 6); cout << string(26, ' '); // firstname
+					coorxy(94, 6); cout << string(23, ' '); // middle name
+					coorxy(11, 8); cout << string(9, ' ');// age
+					coorxy(31, 8); cout << string(29, ' ');// gender
+					coorxy(68, 8); cout << string(15, ' ');// lrn
+					coorxy(15, 10); cout << string(102, ' ');// address
+					coorxy(21, 12); cout << string(5, ' ');// year
+					coorxy(73, 12); cout << string(5, ' ');// sem
 				}
 				file.close();
 
@@ -2823,7 +2852,12 @@ int main() { // Enrolment
 			goto E;
 			break;
 		case 1:
-			buttonxy2(80, 16, 14, 1, 2);
+
+			// Enroll Button
+
+			coorxy(77, 17); cout << "<< ";
+			coorxy(96, 17); cout << " >>";
+			//buttonxy2(80, 16, 14, 1, 2);
 			switch (_getch()) {
 				case 224:
 					switch (_getch()) { // Get the second value
@@ -2834,17 +2868,40 @@ int main() { // Enrolment
 						lcntr++;
 						break;
 					}
+					coorxy(77, 17); cout << "   ";
+					coorxy(96, 17); cout << "   ";
 					goto E;
 					break;
 				case 13: // proceed to enroll
+					coorxy(77, 17); cout << " <<";
+					coorxy(96, 17); cout << ">> ";
 					buttonxy2(80,16,14,1,1);
 					Sleep(100);
-					system("cls");
-					break;
+					int lext = 0;
+					for (int x = 0; x < 20; x++) {
+						if (stinfo[x] == "") {
+							break;
+						}
+						else {
+							lext = 1;
+							system("cls");
+						}
+					}
+
+					if (lext == 1) {
+						cntr++;
+						goto R;
+					}
+					else goto E;
 			}
 			break;
 		case 2:
-			buttonxy2(100, 16, 14, 1, 2);
+
+			// Back button
+
+			coorxy(97, 17); cout << "<< ";
+			coorxy(116, 17); cout << " >>";
+			//buttonxy2(100, 16, 14, 1, 2);
 			switch (_getch()) {
 			case 224:
 				switch (_getch()) { // Get the second value
@@ -2855,18 +2912,30 @@ int main() { // Enrolment
 					lcntr=0;
 					break;
 				}
+				coorxy(97, 17); cout << "   ";
+				coorxy(116, 17); cout << "   ";
 				goto E;
 			case 13:
-				buttonxy2(103, 16, 14, 1, 1);
-				Sleep(100);
+				coorxy(97, 17); cout << " <<";
+				coorxy(116, 17); cout << ">> ";
+				buttonxy2(100, 16, 14, 1, 1);
+				Sleep(150);
 				system("cls");
+
+
+				// Back to main menu here
+
 				break;
 			}
 			
 			break;
 		} // this is for local switch
-
 		break;
+
+	case 1:
+		page2();
+		break;
+
 	}
 
 	coorxy(0, 29); system("pause");

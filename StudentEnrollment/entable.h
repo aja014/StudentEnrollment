@@ -71,13 +71,13 @@ void page2()
 	vl(117, 4, 21, 179);
 	hl(3, 25, 115, 196);
 	//buttons
-	gotoxy(80, 26); cout << string(15, char(205));	gotoxy(80, 28); cout << string(15, char(205)); gotoxy(80, 27); cout << char(186); gotoxy(95, 27); cout << char(186);
-	gotoxy(80, 26); cout << char(201);	gotoxy(80, 28); cout << char(200);	gotoxy(95, 26); cout << char(187);	gotoxy(95, 28); cout << char(188);
+	gotoxy(70, 26); cout << string(15, char(205));	gotoxy(70, 28); cout << string(15, char(205)); gotoxy(70, 27); cout << char(186); gotoxy(85, 27); cout << char(186);
+	gotoxy(70, 26); cout << char(201);	gotoxy(70, 28); cout << char(200);	gotoxy(85, 26); cout << char(187);	gotoxy(85, 28); cout << char(188);
 
-	gotoxy(100, 26); cout << string(15, char(205));	gotoxy(100, 28); cout << string(15, char(205)); gotoxy(100, 27); cout << char(186); gotoxy(115, 27); cout << char(186);
-	gotoxy(100, 26); cout << char(201);	gotoxy(100, 28); cout << char(200);	gotoxy(115, 26); cout << char(187);	gotoxy(115, 28); cout << char(188);
+	gotoxy(95, 26); cout << string(15, char(205));	gotoxy(95, 28); cout << string(15, char(205)); gotoxy(95, 27); cout << char(186); gotoxy(110, 27); cout << char(186);
+	gotoxy(95, 26); cout << char(201);	gotoxy(95, 28); cout << char(200);	gotoxy(110, 26); cout << char(187);	gotoxy(110, 28); cout << char(188);
 
-	gotoxy(86, 27); cout << "NEXT"; gotoxy(106, 27); cout << "BACK";
+	gotoxy(76, 27); cout << "NEXT"; gotoxy(101, 27); cout << "BACK";
 
 	coorxy(5, 6); cout << "NO"; coorxy(15, 6); cout << "YEAR LEVEL"; coorxy(36, 6); cout << " SUBJECT CODE";
 	coorxy(65, 6); cout << " SUBJECT DESCRIPTION"; coorxy(106, 6); cout << "MARKS";
