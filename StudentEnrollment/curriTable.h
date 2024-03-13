@@ -8,18 +8,18 @@ using namespace std;
 
 
 
-void horizontal_line(int gx, int gy, int l, char a)
+void horizontal_line(int gx, int gy, int l, int a)
 {
 	for (int i = 0; i < l; i++)
 	{
-		gotoxy(gx + i, gy); std::cout << a;
+		gotoxy(gx + i, gy); std::cout << char(a);
 	}
 }
-void vertical_line(int gx, int gy, int h, char a)
+void vertical_line(int gx, int gy, int h, int a)
 {
 	for (int i = 0; i < h; i++)
 	{
-		gotoxy(gx, gy + i); std::cout << a;
+		gotoxy(gx, gy + i); std::cout << char(a);
 	}
 }
 

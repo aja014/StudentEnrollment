@@ -1,9 +1,9 @@
-111$111$123123$111$
-$$$$
-$$$$
-$$$$
-$$$$
-$$$$
-$$$$
+CC 107$$3$IT 206 IT 208$
+IT 302$Systems Integration and Architecture$3$IT 206 IT 207$
+IT 303$System Analysis and Design$3$IT 206 IT 208$
+IT 304W$UI and UX Design$3$IT 207 IT 107$
+IT 305W$Advanced Web Application$3$IT 211$
+IT 306$Mobile Applications Development$3$IT 208 IT 203$
+SSP 101d$The Entrepreneurial Mind$3$NONE$
 $$$$
 $$$$

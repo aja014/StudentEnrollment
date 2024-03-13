@@ -1,24 +1,2 @@
 ﻿  button.cpp
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(32,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(33,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(34,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(35,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(36,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(37,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(38,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(39,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(40,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(41,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(45,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(46,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(47,14): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(48,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(50,15): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(51,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(52,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(53,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(54,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(55,16): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(56,17): warning C4309: 'argument': truncation of constant value
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\curriTable.h(57,17): warning C4309: 'argument': truncation of constant value
   StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe

@@ -9,6 +9,7 @@
 #include <string> // for conversion	
 #include <cstdio> // for deleting text file (database)
 #include "curriTable.h" // Display table for Curriculum
+#include "entable.h" // Display for enrollment
 
 //#include "Delay.h"
 #define gc getchcout
@@ -46,7 +47,7 @@ void multival(string& w, string& x, string& y, string& z, int a,int b, int c) { 
 	Q:
 		switch (localcounter) {
 		case 1:
-			coorxy(a + 37, b); sm = getchValc(w, 'n', 13);
+			coorxy(a + 37, b); sm = getchValc(w, 'l', 13);
 			coorxy(a + 37, b); cout << string(13, ' ');
 			coorxy(a + 37, b); cout << w;
 			if (sm == 111)localcounter++; // if getchvalc returned a value
@@ -63,7 +64,7 @@ void multival(string& w, string& x, string& y, string& z, int a,int b, int c) { 
 			goto Q;
 			break;
 		case 3:
-			coorxy(a + 92, b); sm = getchValc(y, 'n', 8);
+			coorxy(a + 92, b); sm = getchValc(y, 'l', 8);
 			coorxy(a + 92, b); cout << string(8, ' ');
 			coorxy(a + 92, b); cout << y;
 			if (sm == 101)localcounter--;
@@ -72,7 +73,7 @@ void multival(string& w, string& x, string& y, string& z, int a,int b, int c) { 
 			goto Q;
 			break;
 		case 4:
-			coorxy(a + 102, b); sm = getchValc(z, 'n', 14);
+			coorxy(a + 102, b); sm = getchValc(z, 'l', 14);
 			coorxy(a + 102, b); cout << string(14, ' ');
 			coorxy(a + 102, b); cout << z;
 			if (sm == 101) {
@@ -2210,6 +2211,8 @@ int menu(int x) {
 //	string year; // variable for searching year
 //	string sem; // variable for searching sem
 //	string temp; // temporary storage for searching file
+//	string ysuff;//suffix for year
+//	string ssuff;// suffix for sem
 //
 //
 //	int counter = 0; // counter for option
@@ -2274,17 +2277,17 @@ int menu(int x) {
 //				for (int z = 0; z < 9; z++) {
 //					coorxy(cx, cy);
 //					for (int x = 0; x < 1; x++) {
-//						coorxy(cx, cy); cout << string(4, ' ');
+//						coorxy(cx, cy); cout << string(4, ' ');// subject no.
 //						cx += 6;
-//						coorxy(cx, cy); cout << string(24, ' ');
+//						coorxy(cx, cy); cout << string(24, ' ');  // year level
 //						cx += 25;
-//						coorxy(cx, cy); cout << string(13, ' ');
+//						coorxy(cx, cy); cout << string(13, ' '); // subject code
 //						cx += 15;
-//						coorxy(cx, cy); cout << string(38, ' ');
+//						coorxy(cx, cy); cout << string(38, ' '); // subject description
 //						cx += 40;
-//						coorxy(cx, cy); cout << string(8, ' ');
+//						coorxy(cx, cy); cout << string(8, ' '); // credits
 //						cx += 10;
-//						coorxy(cx, cy); cout << string(14, ' ');
+//						coorxy(cx, cy); cout << string(15, ' '); // pre-req
 //					}
 //					cy += 2;
 //					cx = 5;
@@ -2330,6 +2333,49 @@ int menu(int x) {
 //					dn = 0;
 //					num = 1;
 //
+//					if (year == "1" && sem == "1")
+//					{
+//						ysuff = "st";
+//						ssuff = "st";
+//					}
+//					else if (year == "1" && sem == "2")
+//					{
+//						ysuff = "st";
+//						ssuff = "nd";
+//					}
+//					else if (year == "2" && sem == "1")
+//					{
+//						ysuff = "nd";
+//						ssuff = "st";
+//					}
+//					else if (year == "2" && sem == "2")
+//					{
+//						ysuff = "nd";
+//						ssuff = "nd";
+//					}
+//					else if (year == "3" && sem == "1")
+//					{
+//						ysuff = "rd";
+//						ssuff = "st";
+//					}
+//					else if (year == "3" && sem == "2")
+//					{
+//						ysuff = "rd";
+//						ssuff = "nd";
+//					}
+//					else if (year == "4" && sem == "1")
+//					{
+//						ysuff = "th";
+//						ssuff = "st";
+//					}
+//					else if (year == "4" && sem == "2")
+//					{
+//						ysuff = "th";
+//						ssuff = "nd";
+//					}
+//
+//
+//
 //					for (int z = 0; z < 9; z++) {
 //						coorxy(cx, cy);
 //						for (int x = 0; x < 1; x++) {
@@ -2345,7 +2391,7 @@ int menu(int x) {
 //								lvar++;
 //								coorxy(cx, cy); cout << var[lvar];
 //								lvar++;
-//								coorxy(11, 8 + dn); cout << "1 year" << year << " / " << "sem " << sem;
+//								coorxy(11, 8 + dn); cout << year << ysuff << " Year" << " - " << sem << ssuff << " Semester";
 //								coorxy(5, 8 + dn); cout << num;
 //								num++;
 //								dn += 2;
@@ -2383,17 +2429,17 @@ int menu(int x) {
 //					for (int z = 0; z < 9; z++) {
 //						coorxy(cx, cy);
 //						for (int x = 0; x < 1; x++) {
-//							coorxy(cx, cy); cout << string(4, ' ');
+//							coorxy(cx, cy); cout << string(4, ' ');// subject no.
 //							cx += 6;
-//							coorxy(cx, cy); cout << string(23, ' ');
+//							coorxy(cx, cy); cout << string(24, ' ');  // year level
 //							cx += 25;
-//							coorxy(cx, cy); cout << string(13, ' ');
+//							coorxy(cx, cy); cout << string(13, ' '); // subject code
 //							cx += 15;
-//							coorxy(cx, cy); cout << string(38, ' ');
+//							coorxy(cx, cy); cout << string(38, ' '); // subject description
 //							cx += 40;
-//							coorxy(cx, cy); cout << string(8, ' ');
+//							coorxy(cx, cy); cout << string(8, ' '); // credits
 //							cx += 10;
-//							coorxy(cx, cy); cout << string(14, ' ');
+//							coorxy(cx, cy); cout << string(15, ' '); // pre-req
 //						}
 //						cy += 2;
 //						cx = 5;
@@ -2717,139 +2763,111 @@ int menu(int x) {
 int main() { // Enrolment
 	//menu(1);
 
-	Q:
-	string sc = " "; // space variable
-	string info[20]; // information storage for searched pooling number
-	string prevSub[36]; // temporary storage of previous subjects 
-	string enrolledSub[36]; // temporary storage for enrolled subjects
-	string incomingYearSem; // temporary storage for incoming year and sem
-	string infoPath; // pooling number text file
+
+
 	
-	string srchbar;
-	coorxy(40, 2); cout << "Enter the pooling number : "; getchVal(srchbar, 'l', 8);
-
-	// conversion
-	infoPath = srchbar + ".txt";
-
-	// Loading information
-	int i = 0;
-	ifstream loadinfo(infoPath);
-	if (loadinfo.is_open()) { // if found
-		string line;
-		string tempcode; // declaring temporary code subject for comparing
-		while (getline(loadinfo,line)) {
-			stringstream ss(line);
-			for (int x = 0; x < 20; x++) {
-				getline(ss, info[x], '$');
-			}
-		}
-
-	// display
-
-	coorxy(30, 3); cout << info[0]; // pooling num
-	coorxy(30, 4); cout << info[1] << sc << info[2] << sc << info[3]; // fullname
-	coorxy(30, 5); cout << info[5]; // gender
-	coorxy(30, 6); cout << info[4]; // age
-	coorxy(30, 7); cout << info[10] <<sc<< info[11] <<sc<< info[12]; // address
-
-	} else {
-		coorxy(40, 4); cout << "not found";
-	}
-	loadinfo.close();
-
-	incomingYearSem = info[18] +info[19] + ".txt"; // declaring temporary storage for target year/sem file
+	int cntr = 0;
+	string stinfo[20]; // storage for student information
 
 
-	coorxy(30, 8); cout << "incoming " << info[18] << " year " << info[19] << " sem"; // year and sem
+	switch (cntr) {
+	case 0:
+		page1(); // display table
 
-	// Loading of subjects to be enrolled
+		int tempre;
+		int lcntr = 0;
+		string finder;
 
-	int ctr = 0; // counter for loading
+		E:
+			
+		switch (lcntr) {
+		case 0:
 
-	if (incomingYearSem == "11.txt") {
-		
+			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
+			if (tempre == 101) lcntr = 2;
+			else if (tempre == 110) lcntr++;
+			else if (tempre == 100) goto E;
+			else if (tempre == 111) {
 
-		// Loading subjects
+				string txtfile = finder + ".txt";
+				ifstream file(txtfile);
 
-		ifstream esub(incomingYearSem);
-		if (esub.is_open()) {
-			string line;
-			for (int x = 0; x < 9; x++) {
-				getline(esub, line);
-				if (line.substr(0) != "$$$$") {
-					for (int y = 0; y < 4; y++) {
+				if (file.is_open()) {
+
+					string line;
+					while (getline(file, line)) {
 						stringstream ss(line);
-						getline(ss, enrolledSub[ctr], '$');
-						ctr++;
+						for (int x = 0; x < 20; x++) {
+							getline(ss, stinfo[x], '$');
+						}
 					}
+				
+				// erase display - youre here
+
+
+				// display
+				coorxy(15, 6); cout << stinfo[3]; // surname
+				coorxy(54, 6); cout << stinfo[1]; // first name
+				coorxy(94, 6); cout << stinfo[2]; // middle name
+				coorxy(11, 8); cout << stinfo[4]; // age
+				coorxy(31, 8); cout << stinfo[5]; // gender
+				coorxy(68, 8); cout << stinfo[6]; // lrn
+				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
+				coorxy(21, 12); cout << stinfo[18]; // year
+				coorxy(73, 12); cout << stinfo[19]; // year
 				}
+				file.close();
+
+				lcntr++;
 			}
-		}
-
-		// display
-
-		int cy = 10;
-		int cntr = 0;
-		for (int x = 0; x < 9; x++) {
-			coorxy(40, cy);
-			for (int y = 0; y < 4; y++) {
-				cout << enrolledSub[cntr] << " ";
-				cntr++;
-			}
-			cout << endl;
-			cy++;
-		}
-	}
-	else if (incomingYearSem == "21.txt" || incomingYearSem == "31.txt" || incomingYearSem == "41.txt"){
-
-
-	
-		// conversion to previous sem
-		int tempyear = stoi(info[18]) - 1; 
-		int tempsem = stoi(info[19]) + 1;
-
-		string test = to_string(tempyear) + to_string(tempsem) + ".txt"; // new temp file path
-
-		// Loading subjects
-
-		ifstream psub(test);
-		if (psub.is_open()) {
-			string line;
-			for (int x = 0; x < 9; x++) {
-				getline(psub, line);
-				if (line.substr(0) != "$$$$") { // checking if line is not empty
-					for (int y = 0; y < 4; y++) {
-						stringstream ss(line);
-						getline(ss, prevSub[ctr], '$');
-						ctr++;
+			goto E;
+			break;
+		case 1:
+			buttonxy2(80, 16, 14, 1, 2);
+			switch (_getch()) {
+				case 224:
+					switch (_getch()) { // Get the second value
+					case 72: // Up arrow
+						lcntr--;
+						break;
+					case 80: // Down arrow
+						lcntr++;
+						break;
 					}
-				}
+					goto E;
+					break;
+				case 13: // proceed to enroll
+					buttonxy2(80,16,14,1,1);
+					Sleep(100);
+					system("cls");
+					break;
 			}
-		}
-
-		// display
-
-		int cy = 10;
-		int cntr = 0;
-		int arrcntr = 0;
-		for (int x = 0; x < 9; x++) {
-			coorxy(40, cy);
-			if (prevSub[arrcntr] != "") {
-				for (int y = 0; y < 4; y++) {
-					cout << prevSub[cntr] << " ";
-					cntr++;
+			break;
+		case 2:
+			buttonxy2(100, 16, 14, 1, 2);
+			switch (_getch()) {
+			case 224:
+				switch (_getch()) { // Get the second value
+				case 72: // Up arrow
+					lcntr--;
+					break;
+				case 80: // Down arrow
+					lcntr=0;
+					break;
 				}
-				cout << endl;
+				goto E;
+			case 13:
+				buttonxy2(103, 16, 14, 1, 1);
+				Sleep(100);
+				system("cls");
+				break;
 			}
-			arrcntr += 4;
-			cy++;
-		}
+			
+			break;
+		} // this is for local switch
 
-		
+		break;
 	}
-	
-
 
 	coorxy(0, 29); system("pause");
-	goto Q;
 }
