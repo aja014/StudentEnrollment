@@ -1205,374 +1205,374 @@ int menu(int x) {
 	return 0;
 }
 
-//int main() {
-//
-//	font1(600, 10, 20);
-//
-//
-//	char user[] = "user1", upass[] = "upass1";
-//	char admin[] = "admin1", apass[] = "apass1";
-//	char username[32], password[32], a;
-//
-//	//int num = 0;
-//	int num = 1;
-//	int ld = 0;
-//	int access = 0;
-//
-//	coorxy(55, 4); cout << string(7, char(220));
-//	Sleep(100);
-//	for (int i = 0; i < 3; i++) {
-//		Sleep(100);
-//		coorxy(58, 2 + i); cout << char(219);
-//		coorxy(57 + i, 15); cout << char(220);
-//	}
-//	Sleep(100);
-//	coorxy(59, 2); cout << string(3, char(220));
-//	Sleep(100);
-//	coorxy(59, 3); cout << string(3, char(223));
-//	Sleep(100);
-//	coorxy(55, 5); cout << char(221);
-//	Sleep(100);
-//	coorxy(61, 5); cout << char(222);
-//	Sleep(100);
-//	coorxy(53, 6); cout << char(222);
-//	Sleep(100);
-//	coorxy(63, 6); cout << char(221);
-//	Sleep(100);
-//	coorxy(54, 7); cout << string(9, char(223));
-//	Sleep(100);
-//	coorxy(55, 7); cout << char(219);
-//	Sleep(100);
-//	coorxy(61, 7); cout << char(219);
-//	Sleep(100);
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(54 + ld, 5); cout << char(220);
-//		ld += 8;
-//	}
-//	for (int i = 0; i < 10; i++) {
-//		Sleep(100);
-//		coorxy(55, 8 + i); cout << char(221);
-//		coorxy(61, 8 + i); cout << char(222);
-//	}
-//	for (int i = 0; i < 9; i++) {
-//		Sleep(100);
-//		coorxy(54 + i, 14); cout << char(254);
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(41 + ld, 8); cout << string(2, char(220));
-//		ld += 33;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(43 + ld, 8); cout << char(219);
-//		ld += 30;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(44 + ld, 8); cout << string(11, char(223));
-//		ld += 18;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(40 + ld, 9); cout << char(219);
-//		coorxy(40 + ld, 10); cout << char(219);
-//		ld += 36;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(41 + ld, 10); cout << string(14, char(220));
-//		ld += 21;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 7; i++) {
-//		Sleep(100);
-//		coorxy(41, 11 + i); cout << char(219);
-//		coorxy(75, 11 + i); cout << char(219);
-//	}
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(57, 16 + i); cout << char(221);
-//		coorxy(59, 16 + i); cout << char(222);
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(44 + ld, 12); cout << string(8, char(177));
-//		coorxy(44 + ld, 13); cout << string(8, char(177));
-//		coorxy(44 + ld, 15); cout << string(8, char(177));
-//		coorxy(44 + ld, 16); cout << string(8, char(177));
-//		ld += 21;
-//		coorxy(57, 10 + i); cout << string(3, char(177));
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 2; i++) {
-//		Sleep(100);
-//		coorxy(26+ld, 11); cout << string(15, char(220));
-//		coorxy(25, 12); cout << char(219);
-//		coorxy(91, 12); cout << char(219);
-//		coorxy(26+ld, 13); cout << string(15, char(223));
-//		ld += 50;
-//	}
-//	ld = 0;
-//	for (int i = 0; i < 5; i++) {
-//		Sleep(100);
-//		coorxy(27, 13 + i); cout << char(219);
-//		coorxy(89, 13 + i); cout << char(219);
-//	}
-//
-//	Sleep(100);
-//	coorxy(57, 9); cout << string(3, char(220));
-//	Sleep(100);
-//	coorxy(57, 12); cout << string(3, char(223));
-//	Sleep(100);
-//	coorxy(44, 18); cout << string(11, char(223));
-//	Sleep(100);
-//	coorxy(62, 18); cout << string(11, char(223));
-//	Sleep(100);
-//	coorxy(43, 18); cout << char(219);
-//	Sleep(100);
-//	coorxy(73, 18); cout << char(219);
-//	Sleep(100);
-//	coorxy(41, 18); cout << string(35, char(223));
-//
-//	for (int i = 0; i < 14; i++) {
-//		Sleep(100);
-//		coorxy(27+i, 17); cout << char(219);
-//		coorxy(89-i, 17); cout << char(219);
-//	}
-//	for (int i = 0; i < 9; i++) {
-//		Sleep(100);
-//		coorxy(30 + i, 14); cout << char(177);
-//		coorxy(30 + i, 15); cout << char(177);
-//		coorxy(86 - i, 14); cout << char(177);
-//		coorxy(86 - i, 15); cout << char(177);
-//	}
-//
-//	coorxy(38, 27); cout << "BSIT Student Enrollment Management System";
-//	coorxy(45, 22); system("pause"); ////////////// OPENING 
-//	coorxy(45, 22); cout << string(40, ' ');
-//
-//	coorxy(42, 20); cout << "Username :";
-//	coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
-//	coorxy(53, 20); cout << char(179);
-//	coorxy(74, 20); cout << char(179);
-//	coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
-//
-//	coorxy(42, 23); cout << "Password :";
-//	coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
-//	coorxy(53, 23); cout << char(179);
-//	coorxy(74, 23); cout << char(179);
-//	coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
-//
-//	Usr: // Login security system
-//	coorxy(55, 20);
-//	for (int i = 0;;) { // Login security for username
-//		a = _getch();
-//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-//			if (i < 19) {
-//				cout << a;
-//				username[i] = a;
-//				++i;
-//			}
-//		}
-//		else if (a == 8 && i >= 1) {
-//			cout << "\b \b";
-//			username[--i] = '\0';
-//		}
-//		else if (a == 13) {
-//			username[i] = '\0';
-//			break;
-//		}
-//	}
-//	coorxy(55, 23);
-//	for (int i = 0;;) { // login security for password
-//		a = _getch();
-//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-//			if (i < 19) {
-//				cout << "*";
-//				password[i] = a;
-//				++i;
-//			}
-//		}
-//		else if (a == 8 && i >= 1) {
-//			cout << "\b \b";
-//			password[--i] = '\0';
-//		}
-//		else if (a == 13) {
-//			password[i] = '\0';
-//			if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
-//				if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
-//					access = 1; // admin access
-//				}
-//				break;
-//
-//			}
-//			else {
-//				i = 0;
-//				//coorxy(40, 10); cout << "wrong password";
-//				coorxy(55, 20); cout << string(19, ' ');
-//				coorxy(55, 23); cout << string(19, ' ');
-//				goto Usr;
-//			}
-//		}
-//	}
-//
-//
-//	//coorxy(45, 25); system("pause");
-//	system("cls");
-//
-//	for (int i = 0; i < 24;) {
-//		buttonxy(10, 3 + i, 25, 3);
-//		i += 6;
-//	}
-//
-//	buttonxy2(10, 3, 25, 3,2);
-//
-//	for (int i = 0;;) {
-//
-//		coorxy(14, 5); cout << "Student Registration";
-//		coorxy(13, 11); cout << "Curriculum Management";
-//		coorxy(15, 17); cout << "Student Enrollment";
-//		coorxy(21, 23); cout << "Exit";
-//
-//		for (int i = 0; i < 24;) {
-//			buttonxy(10, 3 + i, 25, 3);
-//			i += 6;
-//		}
-//		coorxy(0, 0); char  a = _getch();
-//
-//
-//		if (a == 72) num--;
-//		else if (a == 80) num++;
-//
-//		else if (a == 13) { // PRESSING ENTER KEY
-//
-//
-//			//for (int i = 0; i < 25; i++) { // erase selection animation
-//			//	coorxy(9, 4 + i); cout << string(1, 'x');
-//			//	coorxy(37, 4 + i); cout << string(1, 'x');
-//			//}
-//
-//			if (num == 4) { // Exit Pressed button function
-//				buttonxy2(10, 21, 25, 3, 1);
-//				Sleep(250);
-//				system("cls");
-//
-//				int exit = 0;
-//				int num = 1;
-//				
-//
-//				for (int i = 0; i < 26;) {
-//					buttonxy(45+i, 11, 12, 1);
-//					i += 17;
-//				}
-//
-//				buttonxy2(45, 11, 12, 1, 2);
-//				coorxy(55, 9); cout << "Are you sure?";
-//				coorxy(50, 12); cout << "Yes";
-//				coorxy(68, 12); cout << "No";
-//
-//				char a;
-//				for (int i = 0;;) {
-//				coorxy(0, 0); a =_getch();
-//
-//					if (a == 75)num--; // arrow key function
-//					else if (a == 77)num++;
-//
-//					if (num < 1)num = 1;
-//					else if (num > 2) num = 2;
-//
-//					if (a == 13) { // exit confirmation
-//						if (num == 2) {
-//							buttonxy2(62, 11, 12, 1,1);
-//							Sleep(200);
-//							system("cls");
-//							break;
-//						}
-//						else {
-//							exit = 1;
-//							buttonxy2(45, 11, 12, 1, 1);
-//							Sleep(200);
-//							system("cls");
-//							break;
-//						}
-//					}
-//
-//					for (int i = 0;i<5;) { //erasing selection animation
-//						coorxy(43, 10+i); cout << string(40, ' ');
-//						i += 4;
-//						
-//					}
-//					switch (num) { // Exit selection animation
-//					case 1:buttonxy2(45, 11, 12, 1,2);
-//						break;
-//					case 2:buttonxy2(62, 11, 12, 1, 2);
-//						break;
-//					}
-//
-//				}
-//				if (exit == 1) { // exit
-//					break;
-//				}
-//			}
-//			else {
-//
-//			switch (num) { // Pressed button animation
-//			case 1: buttonxy2(10, 3, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			case 2: buttonxy2(10, 9, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			case 3: buttonxy2(10, 15, 25, 3, 1);
-//					Sleep(200);
-//					break;
-//			default:
-//					break;
-//				}
-//			system("cls");
-//			menu(num); // Options when entered part 2
-//			//switch (num) { // Options when entered part 1 *error*
-//			//case 1: enrollment();
-//			//	break;
-//			//} 
-//			}
-//		}
-//		
-//
-//		if (num < 1) num = 4;
-//		else if (num > 4) num = 1;
-//
-//		for (int i = 0; i < 25; i++) { // erase selection
-//			coorxy(9, 2 + i); cout << string(1, ' ');
-//			coorxy(37, 2 + i); cout << string(1, ' ');
-//		}
-//
-//
-//		switch (num) { // Selection bar
-//		case 1: buttonxy2(10, 3, 25, 3,2);
-//			break;
-//		case 2:buttonxy2(10, 9, 25, 3,2);
-//			break;
-//		case 3:buttonxy2(10, 15, 25, 3,2);
-//			break;
-//		case 4:buttonxy2(10, 21, 25, 3,02);
-//			break;
-//		}
-//	}
-//
-//
-//
-//
-//	//coorxy(0, 29); system("pause");
-//}
+int main() {
+
+	font1(600, 10, 20);
+
+
+	char user[] = "user1", upass[] = "upass1";
+	char admin[] = "admin1", apass[] = "apass1";
+	char username[32], password[32], a;
+
+	//int num = 0;
+	int num = 1;
+	int ld = 0;
+	int access = 0;
+
+	coorxy(55, 4); cout << string(7, char(220));
+	Sleep(100);
+	for (int i = 0; i < 3; i++) {
+		Sleep(100);
+		coorxy(58, 2 + i); cout << char(219);
+		coorxy(57 + i, 15); cout << char(220);
+	}
+	Sleep(100);
+	coorxy(59, 2); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(59, 3); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(55, 5); cout << char(221);
+	Sleep(100);
+	coorxy(61, 5); cout << char(222);
+	Sleep(100);
+	coorxy(53, 6); cout << char(222);
+	Sleep(100);
+	coorxy(63, 6); cout << char(221);
+	Sleep(100);
+	coorxy(54, 7); cout << string(9, char(223));
+	Sleep(100);
+	coorxy(55, 7); cout << char(219);
+	Sleep(100);
+	coorxy(61, 7); cout << char(219);
+	Sleep(100);
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(54 + ld, 5); cout << char(220);
+		ld += 8;
+	}
+	for (int i = 0; i < 10; i++) {
+		Sleep(100);
+		coorxy(55, 8 + i); cout << char(221);
+		coorxy(61, 8 + i); cout << char(222);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(54 + i, 14); cout << char(254);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 8); cout << string(2, char(220));
+		ld += 33;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(43 + ld, 8); cout << char(219);
+		ld += 30;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 8); cout << string(11, char(223));
+		ld += 18;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(40 + ld, 9); cout << char(219);
+		coorxy(40 + ld, 10); cout << char(219);
+		ld += 36;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 10); cout << string(14, char(220));
+		ld += 21;
+	}
+	ld = 0;
+	for (int i = 0; i < 7; i++) {
+		Sleep(100);
+		coorxy(41, 11 + i); cout << char(219);
+		coorxy(75, 11 + i); cout << char(219);
+	}
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(57, 16 + i); cout << char(221);
+		coorxy(59, 16 + i); cout << char(222);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 12); cout << string(8, char(177));
+		coorxy(44 + ld, 13); cout << string(8, char(177));
+		coorxy(44 + ld, 15); cout << string(8, char(177));
+		coorxy(44 + ld, 16); cout << string(8, char(177));
+		ld += 21;
+		coorxy(57, 10 + i); cout << string(3, char(177));
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(26+ld, 11); cout << string(15, char(220));
+		coorxy(25, 12); cout << char(219);
+		coorxy(91, 12); cout << char(219);
+		coorxy(26+ld, 13); cout << string(15, char(223));
+		ld += 50;
+	}
+	ld = 0;
+	for (int i = 0; i < 5; i++) {
+		Sleep(100);
+		coorxy(27, 13 + i); cout << char(219);
+		coorxy(89, 13 + i); cout << char(219);
+	}
+
+	Sleep(100);
+	coorxy(57, 9); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(57, 12); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(44, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(62, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(43, 18); cout << char(219);
+	Sleep(100);
+	coorxy(73, 18); cout << char(219);
+	Sleep(100);
+	coorxy(41, 18); cout << string(35, char(223));
+
+	for (int i = 0; i < 14; i++) {
+		Sleep(100);
+		coorxy(27+i, 17); cout << char(219);
+		coorxy(89-i, 17); cout << char(219);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(30 + i, 14); cout << char(177);
+		coorxy(30 + i, 15); cout << char(177);
+		coorxy(86 - i, 14); cout << char(177);
+		coorxy(86 - i, 15); cout << char(177);
+	}
+
+	coorxy(38, 27); cout << "BSIT Student Enrollment Management System";
+	coorxy(45, 22); system("pause"); ////////////// OPENING 
+	coorxy(45, 22); cout << string(40, ' ');
+
+	coorxy(42, 20); cout << "Username :";
+	coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
+	coorxy(53, 20); cout << char(179);
+	coorxy(74, 20); cout << char(179);
+	coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
+
+	coorxy(42, 23); cout << "Password :";
+	coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
+	coorxy(53, 23); cout << char(179);
+	coorxy(74, 23); cout << char(179);
+	coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
+
+	Usr: // Login security system
+	coorxy(55, 20);
+	for (int i = 0;;) { // Login security for username
+		a = _getch();
+		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+			if (i < 19) {
+				cout << a;
+				username[i] = a;
+				++i;
+			}
+		}
+		else if (a == 8 && i >= 1) {
+			cout << "\b \b";
+			username[--i] = '\0';
+		}
+		else if (a == 13) {
+			username[i] = '\0';
+			break;
+		}
+	}
+	coorxy(55, 23);
+	for (int i = 0;;) { // login security for password
+		a = _getch();
+		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+			if (i < 19) {
+				cout << "*";
+				password[i] = a;
+				++i;
+			}
+		}
+		else if (a == 8 && i >= 1) {
+			cout << "\b \b";
+			password[--i] = '\0';
+		}
+		else if (a == 13) {
+			password[i] = '\0';
+			if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
+				if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
+					access = 1; // admin access
+				}
+				break;
+
+			}
+			else {
+				i = 0;
+				//coorxy(40, 10); cout << "wrong password";
+				coorxy(55, 20); cout << string(19, ' ');
+				coorxy(55, 23); cout << string(19, ' ');
+				goto Usr;
+			}
+		}
+	}
+
+
+	//coorxy(45, 25); system("pause");
+	system("cls");
+
+	for (int i = 0; i < 24;) {
+		buttonxy(10, 3 + i, 25, 3);
+		i += 6;
+	}
+
+	buttonxy2(10, 3, 25, 3,2);
+
+	for (int i = 0;;) {
+
+		coorxy(14, 5); cout << "Student Registration";
+		coorxy(13, 11); cout << "Curriculum Management";
+		coorxy(15, 17); cout << "Student Enrollment";
+		coorxy(21, 23); cout << "Exit";
+
+		for (int i = 0; i < 24;) {
+			buttonxy(10, 3 + i, 25, 3);
+			i += 6;
+		}
+		coorxy(0, 0); char  a = _getch();
+
+
+		if (a == 72) num--;
+		else if (a == 80) num++;
+
+		else if (a == 13) { // PRESSING ENTER KEY
+
+
+			//for (int i = 0; i < 25; i++) { // erase selection animation
+			//	coorxy(9, 4 + i); cout << string(1, 'x');
+			//	coorxy(37, 4 + i); cout << string(1, 'x');
+			//}
+
+			if (num == 4) { // Exit Pressed button function
+				buttonxy2(10, 21, 25, 3, 1);
+				Sleep(250);
+				system("cls");
+
+				int exit = 0;
+				int num = 1;
+				
+
+				for (int i = 0; i < 26;) {
+					buttonxy(45+i, 11, 12, 1);
+					i += 17;
+				}
+
+				buttonxy2(45, 11, 12, 1, 2);
+				coorxy(55, 9); cout << "Are you sure?";
+				coorxy(50, 12); cout << "Yes";
+				coorxy(68, 12); cout << "No";
+
+				char a;
+				for (int i = 0;;) {
+				coorxy(0, 0); a =_getch();
+
+					if (a == 75)num--; // arrow key function
+					else if (a == 77)num++;
+
+					if (num < 1)num = 1;
+					else if (num > 2) num = 2;
+
+					if (a == 13) { // exit confirmation
+						if (num == 2) {
+							buttonxy2(62, 11, 12, 1,1);
+							Sleep(200);
+							system("cls");
+							break;
+						}
+						else {
+							exit = 1;
+							buttonxy2(45, 11, 12, 1, 1);
+							Sleep(200);
+							system("cls");
+							break;
+						}
+					}
+
+					for (int i = 0;i<5;) { //erasing selection animation
+						coorxy(43, 10+i); cout << string(40, ' ');
+						i += 4;
+						
+					}
+					switch (num) { // Exit selection animation
+					case 1:buttonxy2(45, 11, 12, 1,2);
+						break;
+					case 2:buttonxy2(62, 11, 12, 1, 2);
+						break;
+					}
+
+				}
+				if (exit == 1) { // exit
+					break;
+				}
+			}
+			else {
+
+			switch (num) { // Pressed button animation
+			case 1: buttonxy2(10, 3, 25, 3, 1);
+					Sleep(200);
+					break;
+			case 2: buttonxy2(10, 9, 25, 3, 1);
+					Sleep(200);
+					break;
+			case 3: buttonxy2(10, 15, 25, 3, 1);
+					Sleep(200);
+					break;
+			default:
+					break;
+				}
+			system("cls");
+			menu(num); // Options when entered part 2
+			//switch (num) { // Options when entered part 1 *error*
+			//case 1: enrollment();
+			//	break;
+			//} 
+			}
+		}
+		
+
+		if (num < 1) num = 4;
+		else if (num > 4) num = 1;
+
+		for (int i = 0; i < 25; i++) { // erase selection
+			coorxy(9, 2 + i); cout << string(1, ' ');
+			coorxy(37, 2 + i); cout << string(1, ' ');
+		}
+
+
+		switch (num) { // Selection bar
+		case 1: buttonxy2(10, 3, 25, 3,2);
+			break;
+		case 2:buttonxy2(10, 9, 25, 3,2);
+			break;
+		case 3:buttonxy2(10, 15, 25, 3,2);
+			break;
+		case 4:buttonxy2(10, 21, 25, 3,02);
+			break;
+		}
+	}
+
+
+
+
+	//coorxy(0, 29); system("pause");
+}
 
 
 //void savefile() {
@@ -2760,273 +2760,274 @@ int menu(int x) {
 
 ///////////////////////////////
 
-int main() { // Enrolment
-	//menu(1);
-
-	string finder; // finder storage
-	int lcntr; // local counter // inside switch
-	int tempre; // return value storage
-	int cntr = 0; // counter for first switch
-	int tempyear; // temporary strage for year string to int conversion
-	int tempsem;// temporary strage for sem string to int conversion
-
-	string subfile;
-	string stinfo[20]; // storage for student information
-
-	string ftsub[36]; // storage for incoming subject
-	string presub[36];
-
-
-	R:
-	switch (cntr) {
-	case 0:
-		page1(); // display table
-
-		tempre = 0;
-		lcntr = 0;
-		finder = "";
-
-		E:
-			
-		// Switch for local option
-
-		switch (lcntr) {
-		case 0:
-			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
-			coorxy(27, 2); cout << string(8, ' ');
-			coorxy(27, 2); cout << finder;
-			if (tempre == 101) lcntr = 2;
-			else if (tempre == 110) lcntr++;
-			else if (tempre == 100) goto E;
-			else if (tempre == 111) {
-
-				string txtfile = finder + ".txt";
-				ifstream file(txtfile);
-
-				if (file.is_open()) {
-
-					string line;
-					while (getline(file, line)) {
-						stringstream ss(line);
-						for (int x = 0; x < 20; x++) {
-							getline(ss, stinfo[x], '$');
-						}
-					}
-				
-				// erase display - done
-					coorxy(15, 6); cout << string(25, ' '); // surname
-					coorxy(54, 6); cout << string(26, ' '); // firstname
-					coorxy(94, 6); cout << string(23, ' '); // middle name
-					coorxy(11, 8); cout << string(9, ' ');// age
-					coorxy(31, 8); cout << string(29, ' ');// gender
-					coorxy(68, 8); cout << string(15, ' ');// lrn
-					coorxy(15, 10); cout << string(102, ' ');// address
-					coorxy(21, 12); cout << string(5, ' ');// year
-					coorxy(73, 12); cout << string(5, ' ');// sem
-
-				// display
-				coorxy(15, 6); cout << stinfo[3]; // surname
-				coorxy(54, 6); cout << stinfo[1]; // first name
-				coorxy(95, 6); cout << stinfo[2]; // middle name
-				coorxy(11, 8); cout << stinfo[4]; // age
-				coorxy(31, 8); cout << stinfo[5]; // gender
-				coorxy(68, 8); cout << stinfo[6]; // lrn
-				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
-				coorxy(21, 12); cout << stinfo[18]; // year
-				coorxy(73, 12); cout << stinfo[19]; // sem
-				}
-				else {
-
-					// remove values
-
-					for (int x = 0; x < 20; x++) {
-						stinfo[x] = "";
-					}
-
-					// erase display - done
-					coorxy(15, 6); cout << string(25, ' '); // surname
-					coorxy(54, 6); cout << string(26, ' '); // firstname
-					coorxy(94, 6); cout << string(23, ' '); // middle name
-					coorxy(11, 8); cout << string(9, ' ');// age
-					coorxy(31, 8); cout << string(29, ' ');// gender
-					coorxy(68, 8); cout << string(15, ' ');// lrn
-					coorxy(15, 10); cout << string(102, ' ');// address
-					coorxy(21, 12); cout << string(5, ' ');// year
-					coorxy(73, 12); cout << string(5, ' ');// sem
-				}
-				file.close();
-
-				// Open another ifstream for future subject
-
-				string subf;
-				subf = stinfo[18] + stinfo[19] + ".txt";
-				ifstream subtxt(subf);
-				if (subtxt.is_open()) {
-					string line;
-					for (int x = 0; x < 9; x++) {
-						getline(subtxt, line);
-						stringstream ss(line);
-						if (line.substr(0) != "$$$$") { // check if subject is not empty
-							for (int y = 0; y < 4; y++) {
-								getline(ss, ftsub[y], '$');
-							}
-						}
-					}
-				}
-				subtxt.close();
-
-				// get the previous sub if not fresh man
-
-				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
-					tempyear = stoi(stinfo[18]) - 1;
-					tempsem = stoi(stinfo[19]) + 1;
-
-					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
-					ifstream subtxt(prevsubfile);
-					if (subtxt.is_open()) {
-						string line;
-						for (int x = 0; x < 9; x++) {
-							getline(subtxt, line);
-							stringstream ss(line);
-							if (line.substr(0) != "$$$$") { // check if subject is not empty
-								for (int y = 0; y < 4; y++) {
-									getline(ss, presub[y], '$');
-								}
-							}
-						}
-					}
-					subtxt.close();
-
-				}
-				else if (stinfo[19] == "2") { // if remain in same year
-
-					tempsem = stoi(stinfo[19]) - 1;
-					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
-					ifstream subtxt(prevsubfile);
-					if (subtxt.is_open()) {
-						string line;
-						for (int x = 0; x < 9; x++) {
-							getline(subtxt, line);
-							stringstream ss(line);
-							if (line.substr(0) != "$$$$") { // check if subject is not empty
-								for (int y = 0; y < 4; y++) {
-									getline(ss, presub[y], '$');
-								}
-							}
-						}
-					}
-					subtxt.close();
-				}
-
-
-
-				lcntr++;
-			}
-			goto E;
-			break;
-		case 1:
-
-			// Enroll Button
-
-			coorxy(77, 17); cout << "<< ";
-			coorxy(96, 17); cout << " >>";
-			//buttonxy2(80, 16, 14, 1, 2);
-			switch (_getch()) {
-				case 224:
-					switch (_getch()) { // Get the second value
-					case 72: // Up arrow
-						lcntr--;
-						break;
-					case 80: // Down arrow
-						lcntr++;
-						break;
-					}
-					coorxy(77, 17); cout << "   ";
-					coorxy(96, 17); cout << "   ";
-					goto E;
-					break;
-				case 13: // proceed to enroll
-					coorxy(77, 17); cout << " <<";
-					coorxy(96, 17); cout << ">> ";
-					buttonxy2(80,16,14,1,1);
-					Sleep(100);
-					int lext = 0;
-					for (int x = 0; x < 20; x++) {
-						if (stinfo[x] == "") {
-							break;
-						}
-						else {
-							lext = 1;
-							system("cls");
-						}
-					}
-
-					if (lext == 1) {
-						cntr++;
-						subfile = stinfo[18] + stinfo[19];
-						goto R;
-					}
-					else goto E;
-			}
-			break;
-		case 2:
-
-			// Back button
-
-			coorxy(97, 17); cout << "<< ";
-			coorxy(116, 17); cout << " >>";
-			//buttonxy2(100, 16, 14, 1, 2);
-			switch (_getch()) {
-			case 224:
-				switch (_getch()) { // Get the second value
-				case 72: // Up arrow
-					lcntr--;
-					break;
-				case 80: // Down arrow
-					lcntr=0;
-					break;
-				}
-				coorxy(97, 17); cout << "   ";
-				coorxy(116, 17); cout << "   ";
-				goto E;
-			case 13:
-				coorxy(97, 17); cout << " <<";
-				coorxy(116, 17); cout << ">> ";
-				buttonxy2(100, 16, 14, 1, 1);
-				Sleep(150);
-				system("cls");
-
-
-				// Back to main menu here
-
-				break;
-			}
-			
-			break;
-		} // this is for local switch
-		break;
-
-	case 1:
-
-		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
-			cntr++;
-			system("cls");
-			goto R;
-		}
-		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
-			page2();
-
-		}
-		else { // getting the previous sub of last sem
-			page2();
-
-		}
-
-		break; // break for case 1
-	case 2:
-		page3();
-		break;
-	}
-
-	coorxy(0, 29); system("pause");
-}
+//int main() { // Enrolment
+//	//menu(2);
+//
+//	string finder; // finder storage
+//	int lcntr; // local counter // inside switch
+//	int tempre; // return value storage
+//	int cntr = 0; // counter for first switch
+//	int tempyear; // temporary strage for year string to int conversion
+//	int tempsem;// temporary strage for sem string to int conversion
+//
+//	string subfile;
+//	string stinfo[20]; // storage for student information
+//
+//	string ftsub[36]; // storage for incoming subject
+//	string presub[36];
+//
+//
+//	R:
+//	switch (cntr) {
+//	case 0:
+//		page1(); // display table
+//
+//		tempre = 0;
+//		lcntr = 0;
+//		finder = "";
+//
+//		E:
+//			
+//		// Switch for local option
+//
+//		switch (lcntr) {
+//		case 0:
+//			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
+//			coorxy(27, 2); cout << string(8, ' ');
+//			coorxy(27, 2); cout << finder;
+//			if (tempre == 101) lcntr = 2;
+//			else if (tempre == 110) lcntr++;
+//			else if (tempre == 100) goto E;
+//			else if (tempre == 111) {
+//
+//				string txtfile = finder + ".txt";
+//				ifstream file(txtfile);
+//
+//				if (file.is_open()) {
+//
+//					string line;
+//					while (getline(file, line)) {
+//						stringstream ss(line);
+//						for (int x = 0; x < 20; x++) {
+//							getline(ss, stinfo[x], '$');
+//						}
+//					}
+//				
+//				// erase display - done
+//					coorxy(15, 6); cout << string(25, ' '); // surname
+//					coorxy(54, 6); cout << string(26, ' '); // firstname
+//					coorxy(94, 6); cout << string(23, ' '); // middle name
+//					coorxy(11, 8); cout << string(9, ' ');// age
+//					coorxy(31, 8); cout << string(29, ' ');// gender
+//					coorxy(68, 8); cout << string(15, ' ');// lrn
+//					coorxy(15, 10); cout << string(102, ' ');// address
+//					coorxy(21, 12); cout << string(5, ' ');// year
+//					coorxy(73, 12); cout << string(5, ' ');// sem
+//
+//				// display
+//				coorxy(15, 6); cout << stinfo[3]; // surname
+//				coorxy(54, 6); cout << stinfo[1]; // first name
+//				coorxy(95, 6); cout << stinfo[2]; // middle name
+//				coorxy(11, 8); cout << stinfo[4]; // age
+//				coorxy(31, 8); cout << stinfo[5]; // gender
+//				coorxy(68, 8); cout << stinfo[6]; // lrn
+//				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
+//				coorxy(21, 12); cout << stinfo[18]; // year
+//				coorxy(73, 12); cout << stinfo[19]; // sem
+//				}
+//				else {
+//
+//					// remove values
+//
+//					for (int x = 0; x < 20; x++) {
+//						stinfo[x] = "";
+//					}
+//
+//					// erase display - done
+//					coorxy(15, 6); cout << string(25, ' '); // surname
+//					coorxy(54, 6); cout << string(26, ' '); // firstname
+//					coorxy(94, 6); cout << string(23, ' '); // middle name
+//					coorxy(11, 8); cout << string(9, ' ');// age
+//					coorxy(31, 8); cout << string(29, ' ');// gender
+//					coorxy(68, 8); cout << string(15, ' ');// lrn
+//					coorxy(15, 10); cout << string(102, ' ');// address
+//					coorxy(21, 12); cout << string(5, ' ');// year
+//					coorxy(73, 12); cout << string(5, ' ');// sem
+//				}
+//				file.close();
+//
+//				// Open another ifstream for future subject
+//
+//				string subf;
+//				subf = stinfo[18] + stinfo[19] + ".txt";
+//				ifstream subtxt(subf);
+//				if (subtxt.is_open()) {
+//					string line;
+//					for (int x = 0; x < 9; x++) {
+//						getline(subtxt, line);
+//						stringstream ss(line);
+//						if (line.substr(0) != "$$$$") { // check if subject is not empty
+//							for (int y = 0; y < 4; y++) {
+//								getline(ss, ftsub[y], '$');
+//							}
+//						}
+//					}
+//				}
+//				subtxt.close();
+//
+//				// get the previous sub if not fresh man
+//
+//				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
+//					tempyear = stoi(stinfo[18]) - 1;
+//					tempsem = stoi(stinfo[19]) + 1;
+//
+//					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
+//					ifstream subtxt(prevsubfile);
+//					if (subtxt.is_open()) {
+//						string line;
+//						for (int x = 0; x < 9; x++) {
+//							getline(subtxt, line);
+//							stringstream ss(line);
+//							if (line.substr(0) != "$$$$") { // check if subject is not empty
+//								for (int y = 0; y < 4; y++) {
+//									getline(ss, presub[y], '$');
+//								}
+//							}
+//						}
+//					}
+//					subtxt.close();
+//
+//				}
+//				else if (stinfo[19] == "2") { // if remain in same year
+//
+//					tempsem = stoi(stinfo[19]) - 1;
+//					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
+//					ifstream subtxt(prevsubfile);
+//					if (subtxt.is_open()) {
+//						string line;
+//						for (int x = 0; x < 9; x++) {
+//							getline(subtxt, line);
+//							stringstream ss(line);
+//							if (line.substr(0) != "$$$$") { // check if subject is not empty
+//								for (int y = 0; y < 4; y++) {
+//									getline(ss, presub[y], '$');
+//								}
+//							}
+//						}
+//					}
+//					subtxt.close();
+//				}
+//
+//
+//
+//				lcntr++;
+//			}
+//			goto E;
+//			break;
+//		case 1:
+//
+//			// Enroll Button
+//
+//			coorxy(77, 17); cout << "<< ";
+//			coorxy(96, 17); cout << " >>";
+//			//buttonxy2(80, 16, 14, 1, 2);
+//			switch (_getch()) {
+//				case 224:
+//					switch (_getch()) { // Get the second value
+//					case 72: // Up arrow
+//						lcntr--;
+//						break;
+//					case 80: // Down arrow
+//						lcntr++;
+//						break;
+//					}
+//					coorxy(77, 17); cout << "   ";
+//					coorxy(96, 17); cout << "   ";
+//					goto E;
+//					break;
+//				case 13: // proceed to enroll
+//					coorxy(77, 17); cout << " <<";
+//					coorxy(96, 17); cout << ">> ";
+//					buttonxy2(80,16,14,1,1);
+//					Sleep(100);
+//					int lext = 0;
+//					for (int x = 0; x < 20; x++) {
+//						if (stinfo[x] == "") {
+//							break;
+//						}
+//						else {
+//							lext = 1;
+//							system("cls");
+//						}
+//					}
+//
+//					if (lext == 1) {
+//						cntr++;
+//						subfile = stinfo[18] + stinfo[19];
+//						goto R;
+//					}
+//					else goto E;
+//			}
+//			break;
+//		case 2:
+//
+//			// Back button
+//
+//			coorxy(97, 17); cout << "<< ";
+//			coorxy(116, 17); cout << " >>";
+//			//buttonxy2(100, 16, 14, 1, 2);
+//			switch (_getch()) {
+//			case 224:
+//				switch (_getch()) { // Get the second value
+//				case 72: // Up arrow
+//					lcntr--;
+//					break;
+//				case 80: // Down arrow
+//					lcntr=0;
+//					break;
+//				}
+//				coorxy(97, 17); cout << "   ";
+//				coorxy(116, 17); cout << "   ";
+//				goto E;
+//			case 13:
+//				coorxy(97, 17); cout << " <<";
+//				coorxy(116, 17); cout << ">> ";
+//				buttonxy2(100, 16, 14, 1, 1);
+//				Sleep(150);
+//				system("cls");
+//
+//
+//				// Back to main menu here
+//
+//				break;
+//			}
+//			
+//			break;
+//		} // this is for local switch
+//		break;
+//
+//	case 1:
+//
+//		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
+//			cntr++;
+//			system("cls");
+//			goto R;
+//		}
+//		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
+//
+//			page2();
+//
+//		}
+//		else { // getting the previous sub of last sem
+//			page2();
+//
+//		}
+//
+//		break; // break for case 1
+//	case 2:
+//		page3();
+//		break;
+//	}
+//
+//	coorxy(0, 29); system("pause");
+//}
