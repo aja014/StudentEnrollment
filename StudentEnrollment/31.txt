@@ -1,0 +1,9 @@
+CC 107$Application Development and Emerging Technology$3$IT 206$IT 208$
+IT 302$Systems Integration and Architecture$3$IT 206$IT 207$
+IT 303$System Analysis and Design$3$IT 206$IT 208$
+IT 304W$UI and UX Design$3$IT 207$IT 107$
+IT 305W$Advanced Web Applications$3$IT 211$$
+IT 306W$Mobile Application Development$3$IT 208$IT 203$
+SSP 101d$The Enterpreneurial Mind$3$NONE$$
+$$$$
+$$$$
