@@ -1,2 +1,6 @@
 ﻿  button.cpp
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3207,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3340,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\getchValue.h(342): warning C4715: 'getchVale': not all control paths return a value
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(2847): warning C4715: 'marks': not all control paths return a value
   StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe

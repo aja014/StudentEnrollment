@@ -274,6 +274,73 @@ int getchValc(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 	}
 }
 
+int getchVale(string& s, char t, int l) { // 101 is up, 111 is down // s string storage, l is length
+	char x[50];
+
+	int num = 1;
+	int nm = 1; // for curriculum erasing
+	char a;
+
+	for (int z = 0;;) {
+		a = _getch();
+
+		/*if (a == -32) {
+			a = _getch();
+			if (a == 72 || a == 75) return  101;
+			else if (a == 80 || a == 77) return 111;
+		}*/
+		if (a == 13) {
+			x[z] = '\0';
+			for (int j = 0; j < z; j++) { // Storing to string variable
+				if ((x[j] >= 'a' && x[j] <= 'z') || (x[j] >= 'A' && x[j] <= 'Z') || (x[j] >= '0' && x[j] <= '9') || x[j] == ' ') {
+					s += x[j];
+				}
+				else {
+					break;
+				}
+			}
+
+			/*return 111;*/
+			break;
+		}
+		else if (a == 8 && (z >= 1 || s != "")) {
+			if (nm == 1 && s != "") { // for first time erasing
+				s = "";
+				nm = 0;
+				return 100;
+				break;
+			}
+			else {
+				cout << "\b \b";
+				if (z > 0) {
+					x[z] = '\0';
+					--z;
+				}
+			}
+		}
+		else if (/*((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z') ||*/ (a >= '0' && a <= '1') /*|| a == ' ' */ && z < l) {
+
+			// erasing previous string value
+			if (num == 1) {
+				s = "";
+				num = 0;
+			}
+			if (t == 'n') { // age
+				if ((a >= '0' && a <= '9')) {
+					cout << a;
+					x[z] = a;
+					++z;
+				}
+			}
+			else {
+				cout << a;
+				x[z] = a;
+				++z;
+			}
+		}
+	}
+}
+
 
 int getchValarr(string s[], int l) { // 101 is up, 111 is down // s string storage, l is length
 	char x[32];

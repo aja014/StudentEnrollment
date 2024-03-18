@@ -2826,6 +2826,28 @@ int menu(int x) {
 
 //enrolment
 
+
+bool marks(int x, string y, string  z) {
+	if (x == 1) {
+		if (y == "1") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else if (x == 2) {
+		if (y == "1" && z == "1") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}
+
+
+
 int main() { // Enrolment
 	//menu(2);
 
@@ -2842,7 +2864,7 @@ int main() { // Enrolment
 	string stinfo[20]; // storage for student information
 
 	string dssub[45]; // storage for incoming subject
-	string presub[45];
+	string presub[45]; // storage for previous sub
 	
 
 
@@ -3095,7 +3117,7 @@ int main() { // Enrolment
 			int prereq = 3;
 			int y =0; // counter for how many subject have pre requisites
 			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-			string repititvesub;
+			//string repititvesub;
 			for (int x = 0; x < 9; x++) {
 				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
 					int cnf = 0;
@@ -3167,14 +3189,49 @@ int main() { // Enrolment
 			}
 
 
-			// this is for determining how many cases/cin will be used
+			// this is for determining how many cases/cin will be used in marking
 
-			int* grd = new int[n1];
+			string* grd = new string[n1];
 			cx = 108;
 			cy = 8;
 			for (int a = 0; a < n1;a++) {
-				coorxy(cx, cy); cin >> grd[a];
+				coorxy(cx, cy); getchVale(grd[a],'n',1);
 				cy += 2;
+			}
+
+			// Removing failed subjects to prereq array
+
+			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - youre at getting all the subjects
+				if (grd[a] == "0") { // if the pre req index == 0 / failed
+					int index = -1; // just initialization of not existing index
+					int sz = size(prereqsub); // declaring the size of the loop
+					for (int s = 0; s < sz; s++) {
+						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+							index = a; // now declaring the index of subject to be removed
+							break;
+						}
+					}
+
+					if (index != -1) { // if index is existing
+						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+						}
+						--sz;
+						for (int a = index; a < n1-1; a++) { // now the grade of next subject will be the first because the first one was removed
+							grd[a] = grd[a + 1];
+						}
+						--n1; // decrementing the number of iterations when subject is removed
+					}
+				}
+				else {
+					a++;
+				}
+			}
+
+			// This is just for testing
+
+			for (int a = 0; a < size(prereqsub); a++) {
+				cout <<endl<< prereqsub[a] << "     ";
 			}
 
 
@@ -3262,7 +3319,52 @@ int main() { // Enrolment
 					}
 					z += 5;
 				}
+			}
 
+			//
+			//int* grd = new int[n1];
+			string *grd = new string[n1];
+
+			cx = 108;
+			cy = 8;
+			for (int a = 0; a < n1; a++) {
+				coorxy(cx, cy); cin >> grd[a];
+				cy += 2;
+			}
+
+			// Removing the failed subject to prereq
+
+			for (int a = 0; a < n1;) {
+				if (grd[a] == "0") { // if the pre req index == 0 / failed
+					int index = -1; // just initialization of not existing index
+					int sz = size(prereqsub); // declaring the size of the loop
+					for (int s = 0; s < sz; s++) {
+						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+							index = a; // now declaring the index of subject to be removed
+							break;
+						}
+					}
+
+					if (index != -1) { // if index is existing
+						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+						}
+						--sz;
+						for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
+							grd[a] = grd[a + 1];
+						}
+						--n1; // decrementing the number of iterations when subject is removed
+					}
+				}
+				else {
+					a++;
+				}
+			}
+
+			// This is just for testing
+
+			for (int a = 0; a < size(prereqsub); a++) {
+				cout << prereqsub[a]<< "     ";
 			}
 
 
