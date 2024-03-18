@@ -2836,12 +2836,14 @@ int main() { // Enrolment
 	int tempyear; // temporary strage for year string to int conversion
 	int tempsem;// temporary strage for sem string to int conversion
 	int v = 0; // temporary variable storage for storing sub
+	int n1 = 0; // counter for number of prereq
 
 	string subfile;
 	string stinfo[20]; // storage for student information
 
 	string dssub[45]; // storage for incoming subject
 	string presub[45];
+	
 
 
 	R:
@@ -3136,26 +3138,46 @@ int main() { // Enrolment
 
 			// Displaying prerequisites
 
-			int cx =36;
+			int cx =5;
 			int cy =8;
 			int z = 0;
+			n1=0;
 
 			for (int x = 0; x < y; x++) { 
 				z = 0;
-				cx = 36;
+				cx = 5;
 				for (int a = 0; a < 9; a++){
 					if (prereqsub[x] == presub[z]) {
+						coorxy(cx, cy); cout << n1+1;
+						cx += 5;
+						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+						cx += 27;
+						/*coorxy(cx, cy); cout << prereqsub[x];
+						cx += 10;*/
 						coorxy(cx, cy); cout << presub[z];
 						cx += 15;
 						coorxy(cx, cy); cout << presub[z + 1];
 						cy += 2;
+						n1++;
 						//z = 0;
 						break;
 					}
 					z += 5;
 				}
-
 			}
+
+
+			// this is for determining how many cases/cin will be used
+
+			int* grd = new int[n1];
+			cx = 108;
+			cy = 8;
+			for (int a = 0; a < n1;a++) {
+				coorxy(cx, cy); cin >> grd[a];
+				cy += 2;
+			}
+
+
 		}
 		else { // getting the previous sub of last sem
 			page2();	
@@ -3213,7 +3235,7 @@ int main() { // Enrolment
 
 			}
 
-			int cx = 36;
+			int cx = 5;
 			int cy = 8;
 			int z = 0;
 
@@ -3221,13 +3243,20 @@ int main() { // Enrolment
 
 			for (int x = 0; x < y; x++) {
 				z = 0;
-				cx = 36;
+				cx = 5;
 				for (int a = 0; a < 9; a++) {
 					if (prereqsub[x] == presub[z]) {
+						coorxy(cx, cy); cout << n1 + 1;
+						cx += 5;
+						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+						cx += 27;
+						/*coorxy(cx, cy); cout << prereqsub[x];
+						cx += 10;*/
 						coorxy(cx, cy); cout << presub[z];
 						cx += 15;
 						coorxy(cx, cy); cout << presub[z + 1];
 						cy += 2;
+						n1++;
 						//z = 0;
 						break;
 					}
