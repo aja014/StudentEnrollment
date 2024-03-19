@@ -1318,19 +1318,528 @@ int menu(int x, int y) {
 	}
 
 	else if (x == 3) {
-		char a;
-		int num = 1;
-		coorxy(19, 7); cout << "Back";
-		buttonxy(10, 5, 20, 3);
-		buttonxy2(10, 5, 20, 3, 2);
-		
-		do {
-			coorxy(0,0); a = _getch();
-		} while (a != 13);
+		//menu(2);
 
-		buttonxy2(10, 5, 20, 3, 1);
-		Sleep(200);
+		string finder; // finder storage
+		int lcntr; // local counter // inside switch
+		int tempre; // return value storage
+		int cntr = 0; // counter for first switch
+		int tempyear; // temporary strage for year string to int conversion
+		int tempsem;// temporary strage for sem string to int conversion
+		int v = 0; // temporary variable storage for storing sub
+		int n1 = 0; // counter for number of prereq
 
+		string subfile;
+		string stinfo[20]; // storage for student information
+
+		string dssub[45]; // storage for incoming subject
+		string presub[45]; // storage for previous sub
+
+
+
+	R:
+		switch (cntr) {
+		case 0:
+			page1(); // display table
+
+			tempre = 0;
+			lcntr = 0;
+			finder = "";
+
+		E:
+
+			// Switch for local option
+
+			switch (lcntr) {
+			case 0:
+				coorxy(27, 2); tempre = getchVal2(finder, 'n', 8);
+				coorxy(27, 2); cout << string(8, ' ');
+				coorxy(27, 2); cout << finder;
+				if (tempre == 101) lcntr = 2;
+				else if (tempre == 110) lcntr++;
+				else if (tempre == 100) goto E;
+				else if (tempre == 111) {
+
+					string txtfile = finder + ".txt";
+					ifstream file(txtfile);
+
+					if (file.is_open()) {
+
+						string line;
+						while (getline(file, line)) {
+							stringstream ss(line);
+							for (int x = 0; x < 20; x++) {
+								getline(ss, stinfo[x], '$');
+							}
+						}
+
+						// erase display - done
+						coorxy(15, 6); cout << string(25, ' '); // surname
+						coorxy(54, 6); cout << string(26, ' '); // firstname
+						coorxy(94, 6); cout << string(23, ' '); // middle name
+						coorxy(11, 8); cout << string(9, ' ');// age
+						coorxy(31, 8); cout << string(29, ' ');// gender
+						coorxy(68, 8); cout << string(15, ' ');// lrn
+						coorxy(15, 10); cout << string(102, ' ');// address
+						coorxy(21, 12); cout << string(5, ' ');// year
+						coorxy(73, 12); cout << string(5, ' ');// sem
+
+						// display
+						coorxy(15, 6); cout << stinfo[3]; // surname
+						coorxy(54, 6); cout << stinfo[1]; // first name
+						coorxy(95, 6); cout << stinfo[2]; // middle name
+						coorxy(11, 8); cout << stinfo[4]; // age
+						coorxy(31, 8); cout << stinfo[5]; // gender
+						coorxy(68, 8); cout << stinfo[6]; // lrn
+						coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
+						coorxy(21, 12); cout << stinfo[18]; // year
+						coorxy(73, 12); cout << stinfo[19]; // sem
+					}
+					else {
+
+						// remove values
+
+						for (int x = 0; x < 20; x++) {
+							stinfo[x] = "";
+						}
+
+						// erase display - done
+						coorxy(15, 6); cout << string(25, ' '); // surname
+						coorxy(54, 6); cout << string(26, ' '); // firstname
+						coorxy(94, 6); cout << string(23, ' '); // middle name
+						coorxy(11, 8); cout << string(9, ' ');// age
+						coorxy(31, 8); cout << string(29, ' ');// gender
+						coorxy(68, 8); cout << string(15, ' ');// lrn
+						coorxy(15, 10); cout << string(102, ' ');// address
+						coorxy(21, 12); cout << string(5, ' ');// year
+						coorxy(73, 12); cout << string(5, ' ');// sem
+					}
+					file.close();
+
+					// Open another ifstream for future subject
+					v = 0;
+					string subf;
+					subf = stinfo[18] + stinfo[19] + ".txt";
+					ifstream subtxt(subf);
+					if (subtxt.is_open()) {
+						string line;
+						for (int x = 0; x < 9; x++) {
+							getline(subtxt, line);
+							stringstream ss(line);
+							if (line.substr(0) != "$$$$$") { // check if subject is not empty
+								for (int y = 0; y < 5; y++) {
+									getline(ss, dssub[v], '$');
+									v++;
+								}
+							}
+						}
+					}
+					subtxt.close();
+
+					// get the previous sub if not fresh man
+
+					if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
+						tempyear = stoi(stinfo[18]) - 1;
+						tempsem = stoi(stinfo[19]) + 1;
+						v = 0;
+						string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
+						ifstream subtxt(prevsubfile);
+						if (subtxt.is_open()) {
+							string line;
+							for (int x = 0; x < 9; x++) {
+								getline(subtxt, line);
+								stringstream ss(line);
+								if (line.substr(0) != "$$$$") { // check if subject is not empty
+									for (int y = 0; y < 5; y++) {
+										getline(ss, presub[v], '$');
+										v++;
+
+									}
+								}
+							}
+						}
+						subtxt.close();
+
+					}
+					else if (stinfo[19] == "2") { // if remain in same year
+
+						tempsem = stoi(stinfo[19]) - 1;
+						string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
+						ifstream subtxt(prevsubfile);
+						v = 0;
+						if (subtxt.is_open()) {
+							string line;
+							for (int x = 0; x < 9; x++) {
+								getline(subtxt, line);
+								stringstream ss(line);
+								if (line.substr(0) != "$$$$") { // check if subject is not empty
+									for (int y = 0; y < 5; y++) {
+										getline(ss, presub[v], '$');
+										v++;
+									}
+								}
+							}
+						}
+						subtxt.close();
+					}
+
+
+
+					lcntr++;
+				}
+				goto E;
+				break;
+			case 1:
+
+				// Enroll Button
+
+				coorxy(77, 17); cout << "<< ";
+				coorxy(96, 17); cout << " >>";
+				//buttonxy2(80, 16, 14, 1, 2);
+				switch (_getch()) {
+				case 224:
+					switch (_getch()) { // Get the second value
+					case 72: // Up arrow
+						lcntr--;
+						break;
+					case 80: // Down arrow
+						lcntr++;
+						break;
+					}
+					coorxy(77, 17); cout << "   ";
+					coorxy(96, 17); cout << "   ";
+					goto E;
+					break;
+				case 13: // proceed to enroll
+					coorxy(77, 17); cout << " <<";
+					coorxy(96, 17); cout << ">> ";
+					buttonxy2(80, 16, 14, 1, 1);
+					Sleep(100);
+					int lext = 0;
+					for (int x = 0; x < 20; x++) {
+						if (stinfo[x] == "") {
+							break;
+						}
+						else {
+							lext = 1;
+							system("cls");
+						}
+					}
+
+					if (lext == 1) {
+						cntr++;
+						subfile = stinfo[18] + stinfo[19];
+						goto R;
+					}
+					else goto E;
+				}
+				break;
+			case 2:
+
+				// Back button
+
+				coorxy(97, 17); cout << "<< ";
+				coorxy(116, 17); cout << " >>";
+				//buttonxy2(100, 16, 14, 1, 2);
+				switch (_getch()) {
+				case 224:
+					switch (_getch()) { // Get the second value
+					case 72: // Up arrow
+						lcntr--;
+						break;
+					case 80: // Down arrow
+						lcntr = 0;
+						break;
+					}
+					coorxy(97, 17); cout << "   ";
+					coorxy(116, 17); cout << "   ";
+					goto E;
+				case 13:
+					coorxy(97, 17); cout << " <<";
+					coorxy(116, 17); cout << ">> ";
+					buttonxy2(100, 16, 14, 1, 1);
+					Sleep(150);
+					system("cls");
+
+
+					// Back to main menu here
+
+					break;
+				}
+
+				break;
+			} // this is for local switch
+			break;
+
+		case 1:
+
+			if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
+				cntr++;
+				system("cls");
+				goto R;
+			}
+			else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
+				page2();
+
+				// Getting the prereq subs - done
+
+				int prereq = 3;
+				int y = 0; // counter for how many subject have pre requisites
+				string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+				//string repititvesub;
+				for (int x = 0; x < 9; x++) {
+					if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
+						int cnf = 0;
+						for (int j = 0; j <= y; j++) { // checking if its not existing
+							if (dssub[prereq] == prereqsub[j] && j <= y) { // check if pre-req is already in prereqsub storage
+								cnf = 0;
+								break;
+							}
+							else
+							{
+								cnf = 1;
+							}
+						}
+						if (cnf == 1) {
+							prereqsub[y] = dssub[prereq]; // store to pre requisite subject if not existing
+							y++;
+							cnf = 0;
+						}
+						if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") { // check the second desired sub if it has pre-req
+							int cnf = 0;
+							for (int j = 0; j <= y; j++) { // checking if its not existing
+								if (dssub[prereq + 1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
+									cnf = 0;
+									break;
+								}
+								else
+								{
+									cnf = 1;
+								}
+							}
+							if (cnf == 1) {
+								prereqsub[y] = dssub[prereq + 1]; // store if its not existing
+								y++;
+								cnf = 0;
+							}
+						}
+						prereq += 5;
+					}
+				}
+
+				// Displaying prerequisites
+
+				int cx = 5;
+				int cy = 8;
+				int z = 0;
+				n1 = 0;
+
+				for (int x = 0; x < y; x++) {
+					z = 0;
+					cx = 5;
+					for (int a = 0; a < 9; a++) {
+						if (prereqsub[x] == presub[z]) {
+							coorxy(cx, cy); cout << n1 + 1;
+							cx += 5;
+							coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+							cx += 27;
+							/*coorxy(cx, cy); cout << prereqsub[x];
+							cx += 10;*/
+							coorxy(cx, cy); cout << presub[z];
+							cx += 15;
+							coorxy(cx, cy); cout << presub[z + 1];
+							cy += 2;
+							n1++;
+							//z = 0;
+							break;
+						}
+						z += 5;
+					}
+				}
+
+
+				// this is for determining how many cases/cin will be used in marking
+
+				string* grd = new string[n1];
+				cx = 108;
+				cy = 8;
+				for (int a = 0; a < n1; a++) {
+					coorxy(cx, cy); getchVale(grd[a], 'n', 1);
+					cy += 2;
+				}
+
+				// Removing failed subjects to prereq array
+
+				for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - youre at getting all the subjects
+					if (grd[a] == "0") { // if the pre req index == 0 / failed
+						int index = -1; // just initialization of not existing index
+						int sz = size(prereqsub); // declaring the size of the loop
+						for (int s = 0; s < sz; s++) {
+							if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+								index = a; // now declaring the index of subject to be removed
+								break;
+							}
+						}
+
+						if (index != -1) { // if index is existing
+							for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+								prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+							}
+							--sz;
+							for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
+								grd[a] = grd[a + 1];
+							}
+							--n1; // decrementing the number of iterations when subject is removed
+						}
+					}
+					else {
+						a++;
+					}
+				}
+
+				// This is just for testing
+
+				for (int a = 0; a < size(prereqsub); a++) {
+					cout << endl << prereqsub[a] << "     ";
+				}
+
+
+			}
+			else { // getting the previous sub of last sem
+				page2();
+
+				// Getting the prereq subs - done
+
+				int prereq = 3;
+				int y = 0; // counter for how many subject have pre requisites
+				string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+				string repititvesub;
+				for (int x = 0; x < 9; x++) {
+					if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
+						int cnf = 0;
+						for (int j = 0; j <= y; j++) { // checking if its not existing
+							if (dssub[prereq] == prereqsub[j] && j <= y) {
+								cnf = 0;
+								break;
+							}
+							else
+							{
+								cnf = 1;
+							}
+						}
+						if (cnf == 1) {
+							prereqsub[y] = dssub[prereq];
+							y++;
+							cnf = 0;
+						}
+						if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
+							//for (int j = 0; j < 5; j++) { // checking if its not exististing
+							int cnf = 0;
+							for (int j = 0; j <= y; j++) { // checking if its not existing
+								if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
+									cnf = 0;
+									break;
+								}
+								else
+								{
+									cnf = 1;
+								}
+							}
+							if (cnf == 1) {
+								prereqsub[y] = dssub[prereq + 1];
+								y++;
+								cnf = 0;
+							}
+							//}
+						}
+						else {
+							//y++;
+						}
+						prereq += 5;
+					}
+
+
+				}
+
+				int cx = 5;
+				int cy = 8;
+				int z = 0;
+
+				// Displaying prerequisites
+
+				for (int x = 0; x < y; x++) {
+					z = 0;
+					cx = 5;
+					for (int a = 0; a < 9; a++) {
+						if (prereqsub[x] == presub[z]) {
+							coorxy(cx, cy); cout << n1 + 1;
+							cx += 5;
+							coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+							cx += 27;
+							coorxy(cx, cy); cout << presub[z];
+							cx += 15;
+							coorxy(cx, cy); cout << presub[z + 1];
+							cy += 2;
+							n1++;
+							//z = 0;
+							break;
+						}
+						z += 5;
+					}
+				}
+
+				// getting marks
+
+				string* grd = new string[n1];
+
+				cx = 108;
+				cy = 8;
+				for (int a = 0; a < n1; a++) {
+					coorxy(cx, cy); cin >> grd[a];
+					cy += 2;
+				}
+
+				// Removing the failed subject to prereq
+
+				for (int a = 0; a < n1;) {
+					if (grd[a] == "0") { // if the pre req index == 0 / failed
+						int index = -1; // just initialization of not existing index
+						int sz = size(prereqsub); // declaring the size of the loop
+						for (int s = 0; s < sz; s++) {
+							if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+								index = a; // now declaring the index of subject to be removed
+								break;
+							}
+						}
+
+						if (index != -1) { // if index is existing
+							for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+								prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+							}
+							--sz;
+							for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
+								grd[a] = grd[a + 1];
+							}
+							--n1; // decrementing the number of iterations when subject is removed
+						}
+					}
+					else {
+						a++;
+					}
+				}
+
+				// This is just for testing
+
+				for (int a = 0; a < size(prereqsub); a++) {
+					cout << prereqsub[a] << "     ";
+				}
+			}
+
+			break; // break for case 1
+		case 2:
+			page3();
+			break;
+		}
 	}
 
 	system("cls");
@@ -2893,10 +3402,10 @@ int menu(int x, int y) {
 
 ///////////////////////////////
 
-int main() {
-	/*font1(300, 10, 20);*/
-	menu(1,0); // youre at access in enrollment
-}
+//int main() {
+//	/*font1(300, 10, 20);*/
+//	menu(3,0); // youre at access in enrollment
+//}
 
 //enrolment
 
@@ -2920,536 +3429,631 @@ int main() {
 //	}
 //}
 
-//int main() { // Enrolment
-//	//menu(2);
-//
-//	string finder; // finder storage
-//	int lcntr; // local counter // inside switch
-//	int tempre; // return value storage
-//	int cntr = 0; // counter for first switch
-//	int tempyear; // temporary strage for year string to int conversion
-//	int tempsem;// temporary strage for sem string to int conversion
-//	int v = 0; // temporary variable storage for storing sub
-//	int n1 = 0; // counter for number of prereq
-//
-//	string subfile;
-//	string stinfo[20]; // storage for student information
-//
-//	string dssub[45]; // storage for incoming subject
-//	string presub[45]; // storage for previous sub
-//	
-//
-//
-//	R:
-//	switch (cntr) {
-//	case 0:
-//		page1(); // display table
-//
-//		tempre = 0;
-//		lcntr = 0;
-//		finder = "";
-//
-//		E:
-//			
-//		// Switch for local option
-//
-//		switch (lcntr) {
-//		case 0:
-//			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
-//			coorxy(27, 2); cout << string(8, ' ');
-//			coorxy(27, 2); cout << finder;
-//			if (tempre == 101) lcntr = 2;
-//			else if (tempre == 110) lcntr++;
-//			else if (tempre == 100) goto E;
-//			else if (tempre == 111) {
-//
-//				string txtfile = finder + ".txt";
-//				ifstream file(txtfile);
-//
-//				if (file.is_open()) {
-//
-//					string line;
-//					while (getline(file, line)) {
-//						stringstream ss(line);
-//						for (int x = 0; x < 20; x++) {
-//							getline(ss, stinfo[x], '$');
-//						}
-//					}
-//				
-//				// erase display - done
-//					coorxy(15, 6); cout << string(25, ' '); // surname
-//					coorxy(54, 6); cout << string(26, ' '); // firstname
-//					coorxy(94, 6); cout << string(23, ' '); // middle name
-//					coorxy(11, 8); cout << string(9, ' ');// age
-//					coorxy(31, 8); cout << string(29, ' ');// gender
-//					coorxy(68, 8); cout << string(15, ' ');// lrn
-//					coorxy(15, 10); cout << string(102, ' ');// address
-//					coorxy(21, 12); cout << string(5, ' ');// year
-//					coorxy(73, 12); cout << string(5, ' ');// sem
-//
-//				// display
-//				coorxy(15, 6); cout << stinfo[3]; // surname
-//				coorxy(54, 6); cout << stinfo[1]; // first name
-//				coorxy(95, 6); cout << stinfo[2]; // middle name
-//				coorxy(11, 8); cout << stinfo[4]; // age
-//				coorxy(31, 8); cout << stinfo[5]; // gender
-//				coorxy(68, 8); cout << stinfo[6]; // lrn
-//				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
-//				coorxy(21, 12); cout << stinfo[18]; // year
-//				coorxy(73, 12); cout << stinfo[19]; // sem
-//				}
-//				else {
-//
-//					// remove values
-//
-//					for (int x = 0; x < 20; x++) {
-//						stinfo[x] = "";
-//					}
-//
-//					// erase display - done
-//					coorxy(15, 6); cout << string(25, ' '); // surname
-//					coorxy(54, 6); cout << string(26, ' '); // firstname
-//					coorxy(94, 6); cout << string(23, ' '); // middle name
-//					coorxy(11, 8); cout << string(9, ' ');// age
-//					coorxy(31, 8); cout << string(29, ' ');// gender
-//					coorxy(68, 8); cout << string(15, ' ');// lrn
-//					coorxy(15, 10); cout << string(102, ' ');// address
-//					coorxy(21, 12); cout << string(5, ' ');// year
-//					coorxy(73, 12); cout << string(5, ' ');// sem
-//				}
-//				file.close();
-//
-//				// Open another ifstream for future subject
-//				v = 0;
-//				string subf;
-//				subf = stinfo[18] + stinfo[19] + ".txt";
-//				ifstream subtxt(subf);
-//				if (subtxt.is_open()) {
-//					string line;
-//					for (int x = 0; x < 9; x++) {
-//						getline(subtxt, line);
-//						stringstream ss(line);
-//						if (line.substr(0) != "$$$$$") { // check if subject is not empty
-//							for (int y = 0; y < 5; y++) {
-//								getline(ss, dssub[v], '$');
-//								v++;
-//							}
-//						}
-//					}
-//				}
-//				subtxt.close();
-//
-//				// get the previous sub if not fresh man
-//
-//				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
-//					tempyear = stoi(stinfo[18]) - 1;
-//					tempsem = stoi(stinfo[19]) + 1;
-//					v = 0;
-//					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
-//					ifstream subtxt(prevsubfile);
-//					if (subtxt.is_open()) {
-//						string line;
-//						for (int x = 0; x < 9; x++) {
-//							getline(subtxt, line);
-//							stringstream ss(line);
-//							if (line.substr(0) != "$$$$") { // check if subject is not empty
-//								for (int y = 0; y < 5; y++) {
-//									getline(ss, presub[v], '$');
-//									v++;
-//
-//								}
-//							}
-//						}
-//					}
-//					subtxt.close();
-//
-//				}
-//				else if (stinfo[19] == "2") { // if remain in same year
-//
-//					tempsem = stoi(stinfo[19]) - 1;
-//					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
-//					ifstream subtxt(prevsubfile);
-//					v = 0;
-//					if (subtxt.is_open()) {
-//						string line;
-//						for (int x = 0; x < 9; x++) {
-//							getline(subtxt, line);
-//							stringstream ss(line);
-//							if (line.substr(0) != "$$$$") { // check if subject is not empty
-//								for (int y = 0; y < 5; y++) {
-//									getline(ss, presub[v], '$');
-//									v++;
-//								}
-//							}
-//						}
-//					}
-//					subtxt.close();
-//				}
-//
-//
-//
-//				lcntr++;
-//			}
-//			goto E;
-//			break;
-//		case 1:
-//
-//			// Enroll Button
-//
-//			coorxy(77, 17); cout << "<< ";
-//			coorxy(96, 17); cout << " >>";
-//			//buttonxy2(80, 16, 14, 1, 2);
-//			switch (_getch()) {
-//				case 224:
-//					switch (_getch()) { // Get the second value
-//					case 72: // Up arrow
-//						lcntr--;
-//						break;
-//					case 80: // Down arrow
-//						lcntr++;
-//						break;
-//					}
-//					coorxy(77, 17); cout << "   ";
-//					coorxy(96, 17); cout << "   ";
-//					goto E;
-//					break;
-//				case 13: // proceed to enroll
-//					coorxy(77, 17); cout << " <<";
-//					coorxy(96, 17); cout << ">> ";
-//					buttonxy2(80,16,14,1,1);
-//					Sleep(100);
-//					int lext = 0;
-//					for (int x = 0; x < 20; x++) {
-//						if (stinfo[x] == "") {
-//							break;
-//						}
-//						else {
-//							lext = 1;
-//							system("cls");
-//						}
-//					}
-//
-//					if (lext == 1) {
-//						cntr++;
-//						subfile = stinfo[18] + stinfo[19];
-//						goto R;
-//					}
-//					else goto E;
-//			}
-//			break;
-//		case 2:
-//
-//			// Back button
-//
-//			coorxy(97, 17); cout << "<< ";
-//			coorxy(116, 17); cout << " >>";
-//			//buttonxy2(100, 16, 14, 1, 2);
-//			switch (_getch()) {
-//			case 224:
-//				switch (_getch()) { // Get the second value
-//				case 72: // Up arrow
-//					lcntr--;
-//					break;
-//				case 80: // Down arrow
-//					lcntr=0;
-//					break;
-//				}
-//				coorxy(97, 17); cout << "   ";
-//				coorxy(116, 17); cout << "   ";
-//				goto E;
-//			case 13:
-//				coorxy(97, 17); cout << " <<";
-//				coorxy(116, 17); cout << ">> ";
-//				buttonxy2(100, 16, 14, 1, 1);
-//				Sleep(150);
-//				system("cls");
-//
-//
-//				// Back to main menu here
-//
-//				break;
-//			}
-//			
-//			break;
-//		} // this is for local switch
-//		break;
-//
-//	case 1:
-//
-//		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
-//			cntr++;
-//			system("cls");
-//			goto R;
-//		}
-//		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
-//			page2();
-//
-//			// Getting the prereq subs - done
-//
-//			int prereq = 3;
-//			int y =0; // counter for how many subject have pre requisites
-//			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-//			//string repititvesub;
-//			for (int x = 0; x < 9; x++) {
-//				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
-//					int cnf = 0;
-//					for (int j = 0; j <=y; j++) { // checking if its not existing
-//						if (dssub[prereq] == prereqsub[j]&& j<=y) { // check if pre-req is already in prereqsub storage
-//							cnf = 0;
-//							break;
-//						}
-//						else
-//						{
-//							cnf = 1;
-//						}
-//					}
-//					if (cnf == 1) {
-//						prereqsub[y] = dssub[prereq]; // store to pre requisite subject if not existing
-//						y++;
-//						cnf = 0;
-//					}
-//					if (dssub[prereq+1] != "NONE" && dssub[prereq+1] != "") { // check the second desired sub if it has pre-req
-//							int cnf = 0;
-//							for (int j = 0; j <=y; j++) { // checking if its not existing
-//								if (dssub[prereq+1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
-//									cnf = 0;
-//									break;
-//								}
-//								else
-//								{
-//									cnf = 1;
-//								}
-//							}
-//							if (cnf == 1) {
-//								prereqsub[y] = dssub[prereq+1]; // store if its not existing
-//								y++;
-//								cnf = 0;
-//							}
-//					}
-//					prereq += 5;
-//				}
-//			}
-//
-//			// Displaying prerequisites
-//
-//			int cx =5;
-//			int cy =8;
-//			int z = 0;
-//			n1=0;
-//
-//			for (int x = 0; x < y; x++) { 
-//				z = 0;
-//				cx = 5;
-//				for (int a = 0; a < 9; a++){
-//					if (prereqsub[x] == presub[z]) {
-//						coorxy(cx, cy); cout << n1+1;
-//						cx += 5;
-//						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-//						cx += 27;
-//						/*coorxy(cx, cy); cout << prereqsub[x];
-//						cx += 10;*/
-//						coorxy(cx, cy); cout << presub[z];
-//						cx += 15;
-//						coorxy(cx, cy); cout << presub[z + 1];
-//						cy += 2;
-//						n1++;
-//						//z = 0;
-//						break;
-//					}
-//					z += 5;
-//				}
-//			}
-//
-//
-//			// this is for determining how many cases/cin will be used in marking
-//
-//			string* grd = new string[n1];
-//			cx = 108;
-//			cy = 8;
-//			for (int a = 0; a < n1;a++) {
-//				coorxy(cx, cy); getchVale(grd[a],'n',1);
-//				cy += 2;
-//			}
-//
-//			// Removing failed subjects to prereq array
-//
-//			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - youre at getting all the subjects
-//				if (grd[a] == "0") { // if the pre req index == 0 / failed
-//					int index = -1; // just initialization of not existing index
-//					int sz = size(prereqsub); // declaring the size of the loop
-//					for (int s = 0; s < sz; s++) {
-//						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
-//							index = a; // now declaring the index of subject to be removed
-//							break;
-//						}
-//					}
-//
-//					if (index != -1) { // if index is existing
-//						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
-//							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
-//						}
-//						--sz;
-//						for (int a = index; a < n1-1; a++) { // now the grade of next subject will be the first because the first one was removed
-//							grd[a] = grd[a + 1];
-//						}
-//						--n1; // decrementing the number of iterations when subject is removed
-//					}
-//				}
-//				else {
-//					a++;
-//				}
-//			}
-//
-//			// This is just for testing
-//
-//			for (int a = 0; a < size(prereqsub); a++) {
-//				cout <<endl<< prereqsub[a] << "     ";
-//			}
-//
-//
-//		}
-//		else { // getting the previous sub of last sem
-//			page2();	
-//
-//			// Getting the prereq subs - done
-//
-//			int prereq = 3;
-//			int y = 0; // counter for how many subject have pre requisites
-//			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-//			string repititvesub;
-//			for (int x = 0; x < 9; x++) {
-//				if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
-//					int cnf = 0;
-//					for (int j = 0; j <= y; j++) { // checking if its not existing
-//						if (dssub[prereq] == prereqsub[j] && j <= y) {
-//							cnf = 0;
-//							break;
-//						}
-//						else
-//						{
-//							cnf = 1;
-//						}
-//					}
-//					if (cnf == 1) {
-//						prereqsub[y] = dssub[prereq];
-//						y++;
-//						cnf = 0;
-//					}
-//					if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
-//						//for (int j = 0; j < 5; j++) { // checking if its not exististing
-//						int cnf = 0;
-//						for (int j = 0; j <= y; j++) { // checking if its not existing
-//							if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
-//								cnf = 0;
-//								break;
-//							}
-//							else
-//							{
-//								cnf = 1;
-//							}
-//						}
-//						if (cnf == 1) {
-//							prereqsub[y] = dssub[prereq + 1];
-//							y++;
-//							cnf = 0;
-//						}
-//						//}
-//					}
-//					else {
-//						//y++;
-//					}
-//					prereq += 5;
-//				}
-//
-//
-//			}
-//
-//			int cx = 5;
-//			int cy = 8;
-//			int z = 0;
-//
-//			// Displaying prerequisites
-//
-//			for (int x = 0; x < y; x++) {
-//				z = 0;
-//				cx = 5;
-//				for (int a = 0; a < 9; a++) {
-//					if (prereqsub[x] == presub[z]) {
-//						coorxy(cx, cy); cout << n1 + 1;
-//						cx += 5;
-//						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-//						cx += 27;
-//						/*coorxy(cx, cy); cout << prereqsub[x];
-//						cx += 10;*/
-//						coorxy(cx, cy); cout << presub[z];
-//						cx += 15;
-//						coorxy(cx, cy); cout << presub[z + 1];
-//						cy += 2;
-//						n1++;
-//						//z = 0;
-//						break;
-//					}
-//					z += 5;
-//				}
-//			}
-//
-//			//
-//			//int* grd = new int[n1];
-//			string *grd = new string[n1];
-//
-//			cx = 108;
-//			cy = 8;
-//			for (int a = 0; a < n1; a++) {
-//				coorxy(cx, cy); cin >> grd[a];
-//				cy += 2;
-//			}
-//
-//			// Removing the failed subject to prereq
-//
-//			for (int a = 0; a < n1;) {
-//				if (grd[a] == "0") { // if the pre req index == 0 / failed
-//					int index = -1; // just initialization of not existing index
-//					int sz = size(prereqsub); // declaring the size of the loop
-//					for (int s = 0; s < sz; s++) {
-//						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
-//							index = a; // now declaring the index of subject to be removed
-//							break;
-//						}
-//					}
-//
-//					if (index != -1) { // if index is existing
-//						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
-//							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
-//						}
-//						--sz;
-//						for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
-//							grd[a] = grd[a + 1];
-//						}
-//						--n1; // decrementing the number of iterations when subject is removed
-//					}
-//				}
-//				else {
-//					a++;
-//				}
-//			}
-//
-//			// This is just for testing
-//
-//			for (int a = 0; a < size(prereqsub); a++) {
-//				cout << prereqsub[a]<< "     ";
-//			}
-//
-//
-//		}
-//
-//		break; // break for case 1
-//	case 2:
-//		page3();
-//		break;
-//	}
-//
-//	coorxy(0, 29); system("pause");
-//}
+int main() { // Enrolment
+	//menu(2);
+
+	string finder; // finder storage
+	int lcntr; // local counter // inside switch
+	int tempre; // return value storage
+	int cntr = 0; // counter for first switch
+	int tempyear; // temporary strage for year string to int conversion
+	int tempsem;// temporary strage for sem string to int conversion
+	int v = 0; // temporary variable storage for storing sub
+	int n1 = 0; // counter for number of prereq
+
+	string subfile;
+	string stinfo[20]; // storage for student information
+
+	string dssub[45]; // storage for incoming subject
+	string presub[45]; // storage for previous sub
+	string subnoprq[45]; // subject that has no pre req
+	string psdsub[9]; // passed subject
+	//string allsub[360]; // all subject
+	
+
+
+	R:
+	switch (cntr) {
+	case 0:
+		page1(); // display table
+
+		tempre = 0;
+		lcntr = 0;
+		finder = "";
+
+		E:
+			
+		// Switch for local option
+
+		switch (lcntr) {
+		case 0:
+			coorxy(27, 2); tempre = getchVal2(finder, 'n', 8);
+			coorxy(27, 2); cout << string(8, ' ');
+			coorxy(27, 2); cout << finder;
+			if (tempre == 101) lcntr = 2;
+			else if (tempre == 110) lcntr++;
+			else if (tempre == 100) goto E;
+			else if (tempre == 111) {
+
+				string txtfile = finder + ".txt";
+				ifstream file(txtfile);
+
+				if (file.is_open()) {
+
+					string line;
+					while (getline(file, line)) {
+						stringstream ss(line);
+						for (int x = 0; x < 20; x++) {
+							getline(ss, stinfo[x], '$');
+						}
+					}
+				
+				// erase display - done
+					coorxy(15, 6); cout << string(25, ' '); // surname
+					coorxy(54, 6); cout << string(26, ' '); // firstname
+					coorxy(94, 6); cout << string(23, ' '); // middle name
+					coorxy(11, 8); cout << string(9, ' ');// age
+					coorxy(31, 8); cout << string(29, ' ');// gender
+					coorxy(68, 8); cout << string(15, ' ');// lrn
+					coorxy(15, 10); cout << string(102, ' ');// address
+					coorxy(21, 12); cout << string(5, ' ');// year
+					coorxy(73, 12); cout << string(5, ' ');// sem
+
+				// display
+				coorxy(15, 6); cout << stinfo[3]; // surname
+				coorxy(54, 6); cout << stinfo[1]; // first name
+				coorxy(95, 6); cout << stinfo[2]; // middle name
+				coorxy(11, 8); cout << stinfo[4]; // age
+				coorxy(31, 8); cout << stinfo[5]; // gender
+				coorxy(68, 8); cout << stinfo[6]; // lrn
+				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
+				coorxy(21, 12); cout << stinfo[18]; // year
+				coorxy(73, 12); cout << stinfo[19]; // sem
+				}
+				else {
+
+					// remove values
+
+					for (int x = 0; x < 20; x++) {
+						stinfo[x] = "";
+					}
+
+					// erase display - done
+					coorxy(15, 6); cout << string(25, ' '); // surname
+					coorxy(54, 6); cout << string(26, ' '); // firstname
+					coorxy(94, 6); cout << string(23, ' '); // middle name
+					coorxy(11, 8); cout << string(9, ' ');// age
+					coorxy(31, 8); cout << string(29, ' ');// gender
+					coorxy(68, 8); cout << string(15, ' ');// lrn
+					coorxy(15, 10); cout << string(102, ' ');// address
+					coorxy(21, 12); cout << string(5, ' ');// year
+					coorxy(73, 12); cout << string(5, ' ');// sem
+				}
+				file.close();
+
+				// Open another ifstream for future subject
+
+				v = 0;
+				string subf;
+				subf = stinfo[18] + stinfo[19] + ".txt";
+				ifstream subtxt(subf);
+				if (subtxt.is_open()) {
+					string line;
+					for (int x = 0; x < 9; x++) {
+						getline(subtxt, line);
+						stringstream ss(line);
+						if (line.substr(0) != "$$$$$") { // check if subject is not empty
+							for (int y = 0; y < 5; y++) {
+								getline(ss, dssub[v], '$');
+								v++;
+							}
+						}
+					}
+				}
+				subtxt.close();
+
+				// open another ifstream to get all subjects
+
+
+				v = 0;
+
+				ofstream savefile;
+				savefile.open("allsub.txt");
+				for (int a = 1; a <= 4; a++) {
+					string yr,loadfile;
+					yr = to_string(a);
+					for (int s = 1; s <= 2; s++) {
+						string sm,fl;
+						sm = to_string(s);
+						fl = yr + sm + ".txt";
+						ifstream loadfile(fl);
+						if (loadfile.is_open()) {
+							string line;
+							for (int d = 0; d < 9; d++) {
+								getline(loadfile, line);
+								//stringstream ss(line);
+								if (line.substr(0) != "$$$$$") { // check if subject is not empty
+									savefile << line << endl;
+									/*for (int f = 0; f < 5; f++) {
+										getline(ss, allsub[v], '$');
+										v++;
+									}*/
+								}
+							}
+						}
+						loadfile.close();
+					}
+				}
+				savefile.close();
+
+				// get the previous sub if not fresh man
+
+				//if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
+				//	tempyear = stoi(stinfo[18]) - 1;
+				//	tempsem = stoi(stinfo[19]) + 1;
+				//	v = 0;
+				//	string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
+				//	ifstream subtxt(prevsubfile);
+				//	if (subtxt.is_open()) {
+				//		string line;
+				//		for (int x = 0; x < 9; x++) {
+				//			getline(subtxt, line);
+				//			stringstream ss(line);
+				//			if (line.substr(0) != "$$$$") { // check if subject is not empty
+				//				for (int y = 0; y < 5; y++) {
+				//					getline(ss, presub[v], '$');
+				//					v++;
+
+				//				}
+				//			}
+				//		}
+				//	}
+				//	subtxt.close();
+
+				//}
+				//else if (stinfo[19] == "2") { // if remain in same year
+
+				//	tempsem = stoi(stinfo[19]) - 1;
+				//	string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
+				//	ifstream subtxt(prevsubfile);
+				//	v = 0;
+				//	if (subtxt.is_open()) {
+				//		string line;
+				//		for (int x = 0; x < 9; x++) {
+				//			getline(subtxt, line);
+				//			stringstream ss(line);
+				//			if (line.substr(0) != "$$$$") { // check if subject is not empty
+				//				for (int y = 0; y < 5; y++) {
+				//					getline(ss, presub[v], '$');
+				//					v++;
+				//				}
+				//			}
+				//		}
+				//	}
+				//	subtxt.close();
+				//}
+
+
+
+				lcntr++;
+			}
+			goto E;
+			break;
+		case 1:
+
+			// Enroll Button
+
+			coorxy(77, 17); cout << "<< ";
+			coorxy(96, 17); cout << " >>";
+			//buttonxy2(80, 16, 14, 1, 2);
+			switch (_getch()) {
+				case 224:
+					switch (_getch()) { // Get the second value
+					case 72: // Up arrow
+						lcntr--;
+						break;
+					case 80: // Down arrow
+						lcntr++;
+						break;
+					}
+					coorxy(77, 17); cout << "   ";
+					coorxy(96, 17); cout << "   ";
+					goto E;
+					break;
+				case 13: // proceed to enroll
+					coorxy(77, 17); cout << " <<";
+					coorxy(96, 17); cout << ">> ";
+					buttonxy2(80,16,14,1,1);
+					Sleep(100);
+					int lext = 0;
+					for (int x = 0; x < 20; x++) {
+						if (stinfo[x] == "") {
+							break;
+						}
+						else {
+							lext = 1;
+							system("cls");
+						}
+					}
+
+					if (lext == 1) {
+						cntr++;
+						subfile = stinfo[18] + stinfo[19];
+						goto R;
+					}
+					else goto E;
+			}
+			break;
+		case 2:
+
+			// Back button
+
+			coorxy(97, 17); cout << "<< ";
+			coorxy(116, 17); cout << " >>";
+			//buttonxy2(100, 16, 14, 1, 2);
+			switch (_getch()) {
+			case 224:
+				switch (_getch()) { // Get the second value
+				case 72: // Up arrow
+					lcntr--;
+					break;
+				case 80: // Down arrow
+					lcntr=0;
+					break;
+				}
+				coorxy(97, 17); cout << "   ";
+				coorxy(116, 17); cout << "   ";
+				goto E;
+			case 13:
+				coorxy(97, 17); cout << " <<";
+				coorxy(116, 17); cout << ">> ";
+				buttonxy2(100, 16, 14, 1, 1);
+				Sleep(150);
+				system("cls");
+
+
+				// Back to main menu here
+
+				break;
+			}
+			
+			break;
+		} // this is for local switch
+		break;
+
+	case 1:
+
+		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
+			cntr++;
+			system("cls");
+			goto R;
+		}
+		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
+			Z:
+			page2();
+
+			// Getting the prereq subs - done
+
+			int prereq = 3;
+			int y =0; // counter for how many subject have pre requisites
+			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+			//string repititvesub;
+			for (int x = 0; x < 9; x++) {
+				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
+					int cnf = 0;
+					for (int j = 0; j <=y; j++) { // checking if its not existing
+						if (dssub[prereq] == prereqsub[j]&& j<=y) { // check if pre-req is already in prereqsub storage
+							cnf = 0;
+							break;
+						}
+						else
+						{
+							cnf = 1;
+						}
+					}
+					if (cnf == 1) {
+						prereqsub[y] = dssub[prereq]; // store to pre requisite subject if not existing
+						y++;
+						cnf = 0;
+					}
+					if (dssub[prereq+1] != "NONE" && dssub[prereq+1] != "") { // check the second desired sub if it has pre-req
+							int cnf = 0;
+							for (int j = 0; j <=y; j++) { // checking if its not existing
+								if (dssub[prereq+1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
+									cnf = 0;
+									break;
+								}
+								else
+								{
+									cnf = 1;
+								}
+							}
+							if (cnf == 1) {
+								prereqsub[y] = dssub[prereq+1]; // store if its not existing
+								y++;
+								cnf = 0;
+							}
+					}
+					prereq += 5;
+				}
+			}
+
+			// Displaying prerequisites
+
+			int cx =5;
+			int cy =8;
+			int z = 0;
+			n1=0;
+			v = 0;
+
+
+			for (int x = 0; x < y; x++) { 
+				z = 0;
+				cx = 5;
+				ifstream ldfile;
+				ldfile.open("allsub.txt");
+
+				for (int a = 0; a < 9; a++){
+					string line;
+					while (getline(ldfile, line)) {
+						stringstream ss(line);
+						string var[5];
+						for (int s = 0; s < 5; s++) {
+							getline(ss, var[s], '$');
+						}
+						if (prereqsub[x] == var[0]) {
+							coorxy(cx, cy); cout << n1 + 1; // subject number
+							cx += 5;
+							//coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+							coorxy(cx, cy); cout << "Remove this column na";
+							cx += 27;
+							/*coorxy(cx, cy); cout << prereqsub[x];
+							cx += 10;*/
+							coorxy(cx, cy); cout << var[0]; // subject code
+							cx += 15;
+							coorxy(cx, cy); cout <<var[1]; // subject descrip
+							cy += 2;
+							n1++;
+							//z = 0;
+							break;
+						}
+					}
+				ldfile.close();
+				}
+			}
+
+
+			// this is for determining how many cases/cin will be used in marking
+
+			string* grd = new string[n1];
+			cx = 108;
+			cy = 8;
+			for (int a = 0; a < n1;a++) {
+				coorxy(cx, cy); getchVale(grd[a],'n',1);
+				cy += 2;
+			}
+
+			// Removing failed subjects to prereq array
+
+			v = 0;
+			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - done
+				if (grd[a] == "0") { // if the pre req index == 0 / failed
+					int index = -1; // just initialization of not existing index
+					int sz = size(prereqsub); // declaring the size of the loop
+					for (int s = 0; s < sz; s++) {
+						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+							index = a; // now declaring the index of subject to be removed
+							break;
+						}
+					}
+
+					if (index != -1) { // if index is existing
+						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+						}
+						--sz;
+						for (int a = index; a < n1-1; a++) { // now the grade of next subject will be the first because the first one was removed
+							grd[a] = grd[a + 1];
+						}
+						--n1; // decrementing the number of iterations when subject is removed
+					}
+				}
+				else {
+					psdsub[v] = prereqsub[a]; // getting all the passed subject
+					v++;
+					a++;
+				}
+			}
+
+			// confirmation "Next"
+
+			coorxy(92, 27); cout << "<< ";
+			coorxy(111, 27); cout << " >>";
+			char cn1; // confirmation
+			do {
+				 cn1= _getch();
+			} while (cn1 != 13);
+			coorxy(92, 27); cout << " <<";
+			coorxy(111, 27); cout << ">> ";
+			Sleep(100);
+			cntr++;
+			//// This is just for testing
+			//for (int a = 0; a < size(psdsub); a++) {
+			//	cout <<endl<< psdsub[a] << "     ";
+			//}
+			system("cls");
+			goto R;
+
+		}
+
+
+		else { // getting the previous sub of last sem - youre here
+			page2();	
+
+			// Getting the prereq subs - done
+
+			int prereq = 3;
+			int y = 0; // counter for how many subject have pre requisites
+			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+			string repititvesub;
+			for (int x = 0; x < 9; x++) {
+				if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
+					int cnf = 0;
+					for (int j = 0; j <= y; j++) { // checking if its not existing
+						if (dssub[prereq] == prereqsub[j] && j <= y) {
+							cnf = 0;
+							break;
+						}
+						else
+						{
+							cnf = 1;
+						}
+					}
+					if (cnf == 1) {
+						prereqsub[y] = dssub[prereq];
+						y++;
+						cnf = 0;
+					}
+					if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
+						//for (int j = 0; j < 5; j++) { // checking if its not exististing
+						int cnf = 0;
+						for (int j = 0; j <= y; j++) { // checking if its not existing
+							if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
+								cnf = 0;
+								break;
+							}
+							else
+							{
+								cnf = 1;
+							}
+						}
+						if (cnf == 1) {
+							prereqsub[y] = dssub[prereq + 1];
+							y++;
+							cnf = 0;
+						}
+					
+					}
+					prereq += 5;
+				}
+
+
+			}
+
+			// displaying prerequisits
+
+			int cx = 5;
+			int cy = 8;
+			int z = 0;
+			n1 = 0;
+			v = 0;
+
+
+			for (int x = 0; x < y; x++) {
+				z = 0;
+				cx = 5;
+				ifstream ldfile;
+				ldfile.open("allsub.txt"); // getting the all subjects as basis
+
+				for (int a = 0; a < 9; a++) {
+					string line;
+					while (getline(ldfile, line)) {
+						stringstream ss(line);
+						string var[5];
+						for (int s = 0; s < 5; s++) {
+							getline(ss, var[s], '$');
+						}
+						if (prereqsub[x] == var[0]) {
+							coorxy(cx, cy); cout << n1 + 1; // subject number
+							cx += 5;
+							//coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+							coorxy(cx, cy); cout << "Remove this column na";
+							cx += 27;
+							/*coorxy(cx, cy); cout << prereqsub[x];
+							cx += 10;*/
+							coorxy(cx, cy); cout << var[0]; // subject code
+							cx += 15;
+							coorxy(cx, cy); cout << var[1]; // subject descrip
+							cy += 2;
+							n1++;
+							//z = 0;
+							break;
+						}
+					}
+					ldfile.close();
+				}
+			}
+
+			// getting the marks of prereq subjects
+			
+			string *grd = new string[n1];
+
+			cx = 108;
+			cy = 8;
+			for (int a = 0; a < n1; a++) {
+				coorxy(cx, cy); cin >> grd[a];
+				cy += 2;
+			}
+
+			// Removing the failed subject to prereq
+
+			for (int a = 0; a < n1;) {
+				if (grd[a] == "0") { // if the pre req index == 0 / failed
+					int index = -1; // just initialization of not existing index
+					int sz = size(prereqsub); // declaring the size of the loop
+					for (int s = 0; s < sz; s++) {
+						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+							index = a; // now declaring the index of subject to be removed
+							break;
+						}
+					}
+
+					if (index != -1) { // if index is existing
+						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+						}
+						--sz;
+						for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
+							grd[a] = grd[a + 1];
+						}
+						--n1; // decrementing the number of iterations when subject is removed
+					}
+				}
+				else {
+					a++;
+				}
+			}
+
+			// confirmation "Next"
+
+			coorxy(92, 27); cout << "<< ";
+			coorxy(111, 27); cout << " >>";
+			char cn1; // confirmation
+			do {
+				cn1 = _getch();
+			} while (cn1 != 13);
+			coorxy(92, 27); cout << " <<";
+			coorxy(111, 27); cout << ">> ";
+			Sleep(100);
+			cntr++;
+			//// This is just for testing
+			//for (int a = 0; a < size(psdsub); a++) {
+			//	cout <<endl<< psdsub[a] << "     ";
+			//}
+			system("cls");
+			goto R;
+		}
+
+		break; // break for case 1
+	case 2:
+		page3();
+
+
+		break;
+	}
+
+	coorxy(0, 29); system("pause");
+}
 
 //bool checkConditions(bool conditions[], const std::string conditionNames[], int numConditions) {
 //	for (int i = 0; i < numConditions; ++i) {
@@ -3460,7 +4064,7 @@ int main() {
 //	}
 //	return true;
 //}
-//
+
 //int main() {
 //	const int NUM_CONDITIONS = 3;
 //	bool conditions[NUM_CONDITIONS];
