@@ -1,9 +1,9 @@
 ﻿  button.cpp
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(1676,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(1807,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3857,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(4024,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3740,4): warning C4102: 'Z': unreferenced label
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3852,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(4019,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3735,4): warning C4102: 'Z': unreferenced label
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3440,6): warning C4101: 'tempsem': unreferenced local variable
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\button.cpp(3439,6): warning C4101: 'tempyear': unreferenced local variable
 C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\getchValue.h(342): warning C4715: 'getchVale': not all control paths return a value

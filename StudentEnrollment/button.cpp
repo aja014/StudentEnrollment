@@ -3661,12 +3661,7 @@ int main() { // Enrolment
 					goto E;
 					break;
 				case 13: // proceed to enroll
-					if (finder != "") {
 
-
-						coorxy(77, 17); cout << " <<";
-						coorxy(96, 17); cout << ">> ";
-						buttonxy2(80, 16, 14, 1, 1);
 						Sleep(100);
 						int lext = 0;
 						for (int x = 0; x < 20; x++) {
@@ -3675,20 +3670,20 @@ int main() { // Enrolment
 							}
 							else {
 								lext = 1;
-								system("cls");
 							}
 						}
 
 						if (lext == 1) {
+							coorxy(77, 17); cout << " <<";
+							coorxy(96, 17); cout << ">> ";
+							buttonxy2(80, 16, 14, 1, 1);
+							Sleep(100);
+							system("cls");
 							cntr++;
 							subfile = stinfo[18] + stinfo[19];
 							goto R;
 						}
 						else goto E;
-					}
-					else {
-						goto E;
-					}
 
 			}
 			break;
