@@ -107,12 +107,16 @@ void multival(string& v, string& w, string& x, string& y, string& z, int a,int b
 
 
 
-int menu(int x) { 
+int menu(int x, int y) { 
 
 	system("cls");
 	//char a;
+	int acc = y;
 
 	if (x == 1) {
+
+
+
 		string currentfile; // storage for filename
 
 		string pooln, fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
@@ -158,6 +162,19 @@ int menu(int x) {
 
 		table();
 
+		if (acc != 1) { // display access table
+			for (int a = 26; a <= 29; a++) {
+				coorxy(69, a); cout << string(17, ' ');
+			}
+
+			for (int a = 1; a <= 3; a++) {
+				coorxy(0, a); cout << string(50, ' ');
+			}
+
+
+			coorxy(48, 27); cout << string(10,' ');
+			coorxy(51, 27); cout << "ADD";
+		}
 
 
 
@@ -167,120 +184,40 @@ int menu(int x) {
 
 			switch (counter) {
 			case 0:
-
-
-				coorxy(31, 2);
-				for (int j = 0;;) {
-					d = _getch();
-					if (d == -32) {
+				if (acc == 1) {// if admin have the access
+					coorxy(31, 2);
+					for (int j = 0;;) {
 						d = _getch();
-						if (d == 72 || d == 75) {
-							counter = 20;
-							break;
+						if (d == -32) {
+							d = _getch();
+							if (d == 72 || d == 75) {
+								counter = 20;
+								break;
+							}
+							else if (d == 80 || d == 77) {
+								counter++;
+								break;
+							}
 						}
-						else if (d == 80 || d == 77) {
-							counter++;
-							break;
+						else if (d == 8 && j >= 1) {
+							cout << "\b \b";
+							searchpool[--j] = '\0';
 						}
-					}
-					else if (d == 8 && j >= 1) {
-						cout << "\b \b";
-						searchpool[--j] = '\0';
-					}
-					else if ((d >= '0' && d <= '9') && j < 8) {
-						cout << d;
-						searchpool[j] = d;
-						++j;
-					}
-					else if (d == 13) {
-						//counter++;
-						searchpool[j] = '\0';
-
-						for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
-							finder += searchpool[k];
-
+						else if ((d >= '0' && d <= '9') && j < 8) {
+							cout << d;
+							searchpool[j] = d;
+							++j;
 						}
+						else if (d == 13) {
+							//counter++;
+							searchpool[j] = '\0';
 
-						// Erasing display
+							for (int k = 0; k < 8; k++) { // converting string array searchpoolnum[32] to single value finder
+								finder += searchpool[k];
 
-						coorxy(19, 6); cout << string(15, ' ');
-						coorxy(57, 6); cout << string(15, ' ');
-						coorxy(93, 6); cout << string(15, ' ');
-						coorxy(18, 8); cout << string(15, ' ');
-						coorxy(18, 10); cout << string(15, ' ');
-						coorxy(56, 10); cout << string(15, ' ');
-						coorxy(26, 12); cout << string(15, ' ');
-						coorxy(56, 12); cout << string(15, ' ');
-						coorxy(93, 12); cout << string(15, ' ');
-						coorxy(29, 14); cout << string(15, ' ');
-						coorxy(33, 16); cout << string(15, ' ');
-						coorxy(29, 18); cout << string(15, ' ');
-						coorxy(31, 20); cout << string(15, ' ');
-						coorxy(65, 20); cout << string(15, ' ');
-						coorxy(97, 20); cout << string(15, ' ');
-						coorxy(35, 22); cout << string(15, ' ');
-						coorxy(29, 24); cout << string(15, ' ');
-
-						// youre here at finding  - done
-
-						string findtxt = finder + ".txt";
-						ifstream loadfile(findtxt);
-						if (loadfile.is_open()) { // if found, store the data
-							currentfile = findtxt;
-							string line;
-							while (getline(loadfile, line)) {
-								stringstream ss(line);
-								getline(ss, pooln, '$');
-								getline(ss, fname, '$');
-								getline(ss, mname, '$');
-								getline(ss, lname, '$');
-								getline(ss, age, '$');
-								getline(ss, gender, '$');
-								getline(ss, lrn, '$');
-								getline(ss, bmonth, '$');
-								getline(ss, bday, '$');
-								getline(ss, byear, '$');
-								getline(ss, barangay, '$');
-								getline(ss, municipality, '$');
-								getline(ss, province, '$');
-								getline(ss, gfname, '$');
-								getline(ss, gmname, '$');
-								getline(ss, glname, '$');
-								getline(ss, gcnum, '$');
-								getline(ss, grelation, '$');
-								getline(ss, year, '$');
-								getline(ss, sem, '$');
 							}
 
-							// displaying found datas - done
-
-							coorxy(19, 6); cout << fname;
-							coorxy(57, 6); cout << mname;
-							coorxy(93, 6); cout << lname;
-							coorxy(18, 8); cout << age;
-							coorxy(18, 10); cout << gender;
-							coorxy(56, 10); cout << lrn;
-							coorxy(26, 12); cout << bmonth;
-							coorxy(56, 12); cout << bday;
-							coorxy(93, 12); cout << byear;
-							coorxy(29, 14); cout << barangay;
-							coorxy(33, 16); cout << municipality;
-							coorxy(29, 18); cout << province;
-							coorxy(31, 20); cout << gfname;
-							coorxy(65, 20); cout << gmname;
-							coorxy(97, 20); cout << glname;
-							coorxy(35, 22); cout << gcnum;
-							coorxy(29, 24); cout << grelation;
-
-
-							loadfile.close();
-							coorxy(10, 0); cout << "         ";
-							coorxy(10, 0); cout << "found";
-						}
-						else { // if not found;
-
-
-							// erasing display - done
+							// Erasing display
 
 							coorxy(19, 6); cout << string(15, ' ');
 							coorxy(57, 6); cout << string(15, ' ');
@@ -300,53 +237,139 @@ int menu(int x) {
 							coorxy(35, 22); cout << string(15, ' ');
 							coorxy(29, 24); cout << string(15, ' ');
 
+							// youre here at finding  - done
 
-							pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
-								lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-								municipality = "", province = "", gfname = "", gmname = "",
-								glname = "", gcnum = "", grelation = "", year = "",sem="";
-
-
-							// finding new empty pooling number - done
-
-							temppool = 20240001; // temporary pooling number
-							ext = 0; // confirmation exit
-							do {
-								string tempfinder = to_string(temppool) + ".txt";
-								ifstream newfile; // making new file and check if it exist
-								newfile.open(tempfinder);
-								if (newfile.is_open()) {
-									temppool++;
-									newfile.close();
+							string findtxt = finder + ".txt";
+							ifstream loadfile(findtxt);
+							if (loadfile.is_open()) { // if found, store the data
+								currentfile = findtxt;
+								string line;
+								while (getline(loadfile, line)) {
+									stringstream ss(line);
+									getline(ss, pooln, '$');
+									getline(ss, fname, '$');
+									getline(ss, mname, '$');
+									getline(ss, lname, '$');
+									getline(ss, age, '$');
+									getline(ss, gender, '$');
+									getline(ss, lrn, '$');
+									getline(ss, bmonth, '$');
+									getline(ss, bday, '$');
+									getline(ss, byear, '$');
+									getline(ss, barangay, '$');
+									getline(ss, municipality, '$');
+									getline(ss, province, '$');
+									getline(ss, gfname, '$');
+									getline(ss, gmname, '$');
+									getline(ss, glname, '$');
+									getline(ss, gcnum, '$');
+									getline(ss, grelation, '$');
+									getline(ss, year, '$');
+									getline(ss, sem, '$');
 								}
-								else {
-									finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-									currentfile = finder + ".txt";
-									ext = 1;
-									break;
-								}
-							} while (ext != 1);
-							coorxy(10, 0); cout << "not found";
+
+								// displaying found datas - done
+
+								coorxy(19, 6); cout << fname;
+								coorxy(57, 6); cout << mname;
+								coorxy(93, 6); cout << lname;
+								coorxy(18, 8); cout << age;
+								coorxy(18, 10); cout << gender;
+								coorxy(56, 10); cout << lrn;
+								coorxy(26, 12); cout << bmonth;
+								coorxy(56, 12); cout << bday;
+								coorxy(93, 12); cout << byear;
+								coorxy(29, 14); cout << barangay;
+								coorxy(33, 16); cout << municipality;
+								coorxy(29, 18); cout << province;
+								coorxy(31, 20); cout << gfname;
+								coorxy(65, 20); cout << gmname;
+								coorxy(97, 20); cout << glname;
+								coorxy(35, 22); cout << gcnum;
+								coorxy(29, 24); cout << grelation;
+
+
+								loadfile.close();
+								coorxy(10, 0); cout << "         ";
+								coorxy(10, 0); cout << "found";
+							}
+							else { // if not found;
+
+
+								// erasing display - done
+
+								coorxy(19, 6); cout << string(15, ' ');
+								coorxy(57, 6); cout << string(15, ' ');
+								coorxy(93, 6); cout << string(15, ' ');
+								coorxy(18, 8); cout << string(15, ' ');
+								coorxy(18, 10); cout << string(15, ' ');
+								coorxy(56, 10); cout << string(15, ' ');
+								coorxy(26, 12); cout << string(15, ' ');
+								coorxy(56, 12); cout << string(15, ' ');
+								coorxy(93, 12); cout << string(15, ' ');
+								coorxy(29, 14); cout << string(15, ' ');
+								coorxy(33, 16); cout << string(15, ' ');
+								coorxy(29, 18); cout << string(15, ' ');
+								coorxy(31, 20); cout << string(15, ' ');
+								coorxy(65, 20); cout << string(15, ' ');
+								coorxy(97, 20); cout << string(15, ' ');
+								coorxy(35, 22); cout << string(15, ' ');
+								coorxy(29, 24); cout << string(15, ' ');
+
+
+								pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "", // resetting variable values
+									lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+									municipality = "", province = "", gfname = "", gmname = "",
+									glname = "", gcnum = "", grelation = "", year = "", sem = "";
+
+
+								// finding new empty pooling number - done
+
+								temppool = 20240001; // temporary pooling number
+								ext = 0; // confirmation exit
+								do {
+									string tempfinder = to_string(temppool) + ".txt";
+									ifstream newfile; // making new file and check if it exist
+									newfile.open(tempfinder);
+									if (newfile.is_open()) {
+										temppool++;
+										newfile.close();
+									}
+									else {
+										finder = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+										currentfile = finder + ".txt";
+										ext = 1;
+										break;
+									}
+								} while (ext != 1);
+								coorxy(10, 0); cout << "not found";
+							}
+
+
+							coorxy(31, 2); cout << string(8, ' ');
+
+							j = 0; // resetting the searchfinder
+							temppoolnum = finder; // backuping the pooling num
+							finder = ""; // resetting poolinf finder
+							counter = 0;
+							goto Q;
 						}
-
-
-						coorxy(31, 2); cout << string(8, ' ');
-
-						j = 0; // resetting the searchfinder
-						temppoolnum = finder; // backuping the pooling num
-						finder = ""; // resetting poolinf finder
-						counter = 0;
-						goto Q;
 					}
+				} else {
+
+					counter = 1;
 				}
-
-
 				break;
 			case 1:
 				coorxy(19, 6); n = getchVal(fname, 'l', 21);
 				coorxy(19, 6); cout << string(21, ' ');
 				coorxy(19, 6); cout << fname;//getchcout(fname);
-				if (n == 101) counter--;
+				if (n == 101) {
+					if (acc == 1) {
+						counter--;
+					}
+					else counter = 20;
+				}
 				else counter++;
 				goto Q;
 				break;
@@ -584,81 +607,100 @@ int menu(int x) {
 
 					system("cls");
 					table();
+
+					if (acc != 1) { // display access table
+						for (int a = 26; a <= 29; a++) {
+							coorxy(69, a); cout << string(17, ' ');
+						}
+
+						for (int a = 1; a <= 3; a++) {
+							coorxy(0, a); cout << string(50, ' ');
+						}
+
+						coorxy(48, 27); cout << string(10, ' ');
+						coorxy(51, 27); cout << "ADD";
+					}
+
 				}
 				break;
 
 			case 19:
+				if (acc == 1) { // admin access
 
-				// youre here
+					// youre here
 
-				coorxy(67, 27); cout << "<<";
-				coorxy(87, 27); cout << ">>";
-				char b;
-				b = _getch();
-				if (b == -32) {
+					coorxy(67, 27); cout << "<<";
+					coorxy(87, 27); cout << ">>";
+					char b;
 					b = _getch();
-					coorxy(67, 27); cout << "  ";
-					coorxy(87, 27); cout << "  ";
-					if (b == 72 || b == 75) counter--;
-					else if (b == 80 || b == 77) counter++;
-				}
-				else if (b == 13) {
-					i;
-					coorxy(67, 27); cout << "  ";
-					coorxy(87, 27); cout << "  ";
-					coorxy(68, 27); cout << "<<";
-					coorxy(86, 27); cout << ">>";
-					Sleep(100);
-
-
-					// Youre here at deleting the file
-
-					remove(currentfile.c_str());
-
-
-
-					// Erasing Values - done
-
-					pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
-						lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
-						municipality = "", province = "", gfname = "", gmname = "",
-						glname = "", gcnum = "", grelation = "", year = "", sem = "";
-
-
-					n = 0;
-					coorxy(3, 27); cout << string(20, ' ');
-					coorxy(28, 27); cout << ' ';
-					for (int x = 0; x < 2; x++) {
-						coorxy(3, 26 + n); cout << string(26, ' ');
-						n += 2;
+					if (b == -32) {
+						b = _getch();
+						coorxy(67, 27); cout << "  ";
+						coorxy(87, 27); cout << "  ";
+						if (b == 72 || b == 75) counter--;
+						else if (b == 80 || b == 77) counter++;
 					}
+					else if (b == 13) {
+						i;
+						coorxy(67, 27); cout << "  ";
+						coorxy(87, 27); cout << "  ";
+						coorxy(68, 27); cout << "<<";
+						coorxy(86, 27); cout << ">>";
+						Sleep(100);
 
 
-					//finding the empty file - done
+						// Youre here at deleting the file
 
-					int temppool = 20240001;
-					int ext = 0;
-					do {
-						string tempfinder = to_string(temppool) + ".txt";
-						ifstream newfile; // making new file and check if it exist
-						newfile.open(tempfinder);
-						if (newfile.is_open()) {
-							temppool++;
-							newfile.close();
+						remove(currentfile.c_str());
+
+
+
+						// Erasing Values - done
+
+						pooln = ""; fname = "", mname = "", lname = "", age = "", gender = "",
+							lrn = "", bmonth = "", bday = "", byear = "", barangay = "",
+							municipality = "", province = "", gfname = "", gmname = "",
+							glname = "", gcnum = "", grelation = "", year = "", sem = "";
+
+
+						n = 0;
+						coorxy(3, 27); cout << string(20, ' ');
+						coorxy(28, 27); cout << ' ';
+						for (int x = 0; x < 2; x++) {
+							coorxy(3, 26 + n); cout << string(26, ' ');
+							n += 2;
 						}
-						else {
-							temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
-							currentfile = temppoolnum + ".txt";
-							ext = 1;
-							break;
-						}
-					} while (ext != 1);
 
-					counter = 0;
-					coorxy(68, 27); cout << "  ";
-					coorxy(86, 27); cout << "  ";
-					system("cls");
-					table();
+
+						//finding the empty file - done
+
+						int temppool = 20240001;
+						int ext = 0;
+						do {
+							string tempfinder = to_string(temppool) + ".txt";
+							ifstream newfile; // making new file and check if it exist
+							newfile.open(tempfinder);
+							if (newfile.is_open()) {
+								temppool++;
+								newfile.close();
+							}
+							else {
+								temppoolnum = to_string(temppool); // if it doesnt exist, it'll be as the current file;
+								currentfile = temppoolnum + ".txt";
+								ext = 1;
+								break;
+							}
+						} while (ext != 1);
+
+						counter = 0;
+						coorxy(68, 27); cout << "  ";
+						coorxy(86, 27); cout << "  ";
+						system("cls");
+						table();
+					}
+				}
+				else {
+					counter = 20;
 				}
 				break;
 
@@ -671,8 +713,16 @@ int menu(int x) {
 					c = _getch();
 					coorxy(92, 27); cout << "  ";
 					coorxy(112, 27); cout << "  ";
-					if (c == 72 || c == 75) counter--;
-					else if (c == 80 || c == 77) counter = 0;
+					if (c == 72 || c == 75) {
+						if (acc == 1) {
+							counter--;
+						}
+						else counter = 18;
+					}
+					else if (c == 80 || c == 77) {
+						if (acc == 1) counter = 0;
+						else counter = 1;
+					}
 				}
 				else if (c == 13) {
 					coorxy(92, 27); cout << "  ";
@@ -717,6 +767,13 @@ int menu(int x) {
 		tablec();
 
 
+		if (acc != 1) {
+			for (int a = 26; a <= 29; a++) {
+				coorxy(57, a); cout << string(40, ' ');
+			}
+		}
+
+
 
 
 
@@ -744,7 +801,19 @@ int menu(int x) {
 				coorxy(64, 2);
 				if (st == 101) counter--;
 				else if (st == 111) {
-					counter++;
+					if (sem == "") {
+						counter = 0;
+						goto W;
+					}
+					else {
+						if (acc == 1) {
+							counter++;
+						}
+						else {
+							counter = 13;
+						}
+
+					}
 
 					// Erasing variables first
 
@@ -1213,7 +1282,12 @@ int menu(int x) {
 						counter = 0;
 					}
 					else {
-						counter--;
+						if (acc == 1) {
+							counter--;
+						}
+						else {
+							counter = 0;
+						}
 					}
 					coorxy(97, 27); cout << "  ";
 					coorxy(117, 27); cout << "  ";
@@ -1596,7 +1670,7 @@ int menu(int x) {
 //					break;
 //				}
 //			system("cls");
-//			menu(num); // Options when entered part 2
+//			menu(num, access); // Options when entered part 2
 //			//switch (num) { // Options when entered part 1 *error*
 //			//case 1: enrollment();
 //			//	break;
@@ -2819,565 +2893,563 @@ int menu(int x) {
 
 ///////////////////////////////
 
-//int main() {
-//	font1(300, 10, 20);
-//	menu(2);
-//}
+int main() {
+	/*font1(300, 10, 20);*/
+	menu(1,0); // youre at access in enrollment
+}
 
 //enrolment
 
 
-bool marks(int x, string y, string  z) {
-	if (x == 1) {
-		if (y == "1") {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	else if (x == 2) {
-		if (y == "1" && z == "1") {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-}
-
-
-
-int main() { // Enrolment
-	//menu(2);
-
-	string finder; // finder storage
-	int lcntr; // local counter // inside switch
-	int tempre; // return value storage
-	int cntr = 0; // counter for first switch
-	int tempyear; // temporary strage for year string to int conversion
-	int tempsem;// temporary strage for sem string to int conversion
-	int v = 0; // temporary variable storage for storing sub
-	int n1 = 0; // counter for number of prereq
-
-	string subfile;
-	string stinfo[20]; // storage for student information
-
-	string dssub[45]; // storage for incoming subject
-	string presub[45]; // storage for previous sub
-	
-
-
-	R:
-	switch (cntr) {
-	case 0:
-		page1(); // display table
-
-		tempre = 0;
-		lcntr = 0;
-		finder = "";
-
-		E:
-			
-		// Switch for local option
-
-		switch (lcntr) {
-		case 0:
-			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
-			coorxy(27, 2); cout << string(8, ' ');
-			coorxy(27, 2); cout << finder;
-			if (tempre == 101) lcntr = 2;
-			else if (tempre == 110) lcntr++;
-			else if (tempre == 100) goto E;
-			else if (tempre == 111) {
-
-				string txtfile = finder + ".txt";
-				ifstream file(txtfile);
-
-				if (file.is_open()) {
-
-					string line;
-					while (getline(file, line)) {
-						stringstream ss(line);
-						for (int x = 0; x < 20; x++) {
-							getline(ss, stinfo[x], '$');
-						}
-					}
-				
-				// erase display - done
-					coorxy(15, 6); cout << string(25, ' '); // surname
-					coorxy(54, 6); cout << string(26, ' '); // firstname
-					coorxy(94, 6); cout << string(23, ' '); // middle name
-					coorxy(11, 8); cout << string(9, ' ');// age
-					coorxy(31, 8); cout << string(29, ' ');// gender
-					coorxy(68, 8); cout << string(15, ' ');// lrn
-					coorxy(15, 10); cout << string(102, ' ');// address
-					coorxy(21, 12); cout << string(5, ' ');// year
-					coorxy(73, 12); cout << string(5, ' ');// sem
-
-				// display
-				coorxy(15, 6); cout << stinfo[3]; // surname
-				coorxy(54, 6); cout << stinfo[1]; // first name
-				coorxy(95, 6); cout << stinfo[2]; // middle name
-				coorxy(11, 8); cout << stinfo[4]; // age
-				coorxy(31, 8); cout << stinfo[5]; // gender
-				coorxy(68, 8); cout << stinfo[6]; // lrn
-				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
-				coorxy(21, 12); cout << stinfo[18]; // year
-				coorxy(73, 12); cout << stinfo[19]; // sem
-				}
-				else {
-
-					// remove values
-
-					for (int x = 0; x < 20; x++) {
-						stinfo[x] = "";
-					}
-
-					// erase display - done
-					coorxy(15, 6); cout << string(25, ' '); // surname
-					coorxy(54, 6); cout << string(26, ' '); // firstname
-					coorxy(94, 6); cout << string(23, ' '); // middle name
-					coorxy(11, 8); cout << string(9, ' ');// age
-					coorxy(31, 8); cout << string(29, ' ');// gender
-					coorxy(68, 8); cout << string(15, ' ');// lrn
-					coorxy(15, 10); cout << string(102, ' ');// address
-					coorxy(21, 12); cout << string(5, ' ');// year
-					coorxy(73, 12); cout << string(5, ' ');// sem
-				}
-				file.close();
-
-				// Open another ifstream for future subject
-				v = 0;
-				string subf;
-				subf = stinfo[18] + stinfo[19] + ".txt";
-				ifstream subtxt(subf);
-				if (subtxt.is_open()) {
-					string line;
-					for (int x = 0; x < 9; x++) {
-						getline(subtxt, line);
-						stringstream ss(line);
-						if (line.substr(0) != "$$$$$") { // check if subject is not empty
-							for (int y = 0; y < 5; y++) {
-								getline(ss, dssub[v], '$');
-								v++;
-							}
-						}
-					}
-				}
-				subtxt.close();
-
-				// get the previous sub if not fresh man
-
-				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
-					tempyear = stoi(stinfo[18]) - 1;
-					tempsem = stoi(stinfo[19]) + 1;
-					v = 0;
-					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
-					ifstream subtxt(prevsubfile);
-					if (subtxt.is_open()) {
-						string line;
-						for (int x = 0; x < 9; x++) {
-							getline(subtxt, line);
-							stringstream ss(line);
-							if (line.substr(0) != "$$$$") { // check if subject is not empty
-								for (int y = 0; y < 5; y++) {
-									getline(ss, presub[v], '$');
-									v++;
-
-								}
-							}
-						}
-					}
-					subtxt.close();
-
-				}
-				else if (stinfo[19] == "2") { // if remain in same year
-
-					tempsem = stoi(stinfo[19]) - 1;
-					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
-					ifstream subtxt(prevsubfile);
-					v = 0;
-					if (subtxt.is_open()) {
-						string line;
-						for (int x = 0; x < 9; x++) {
-							getline(subtxt, line);
-							stringstream ss(line);
-							if (line.substr(0) != "$$$$") { // check if subject is not empty
-								for (int y = 0; y < 5; y++) {
-									getline(ss, presub[v], '$');
-									v++;
-								}
-							}
-						}
-					}
-					subtxt.close();
-				}
-
-
-
-				lcntr++;
-			}
-			goto E;
-			break;
-		case 1:
-
-			// Enroll Button
-
-			coorxy(77, 17); cout << "<< ";
-			coorxy(96, 17); cout << " >>";
-			//buttonxy2(80, 16, 14, 1, 2);
-			switch (_getch()) {
-				case 224:
-					switch (_getch()) { // Get the second value
-					case 72: // Up arrow
-						lcntr--;
-						break;
-					case 80: // Down arrow
-						lcntr++;
-						break;
-					}
-					coorxy(77, 17); cout << "   ";
-					coorxy(96, 17); cout << "   ";
-					goto E;
-					break;
-				case 13: // proceed to enroll
-					coorxy(77, 17); cout << " <<";
-					coorxy(96, 17); cout << ">> ";
-					buttonxy2(80,16,14,1,1);
-					Sleep(100);
-					int lext = 0;
-					for (int x = 0; x < 20; x++) {
-						if (stinfo[x] == "") {
-							break;
-						}
-						else {
-							lext = 1;
-							system("cls");
-						}
-					}
-
-					if (lext == 1) {
-						cntr++;
-						subfile = stinfo[18] + stinfo[19];
-						goto R;
-					}
-					else goto E;
-			}
-			break;
-		case 2:
-
-			// Back button
-
-			coorxy(97, 17); cout << "<< ";
-			coorxy(116, 17); cout << " >>";
-			//buttonxy2(100, 16, 14, 1, 2);
-			switch (_getch()) {
-			case 224:
-				switch (_getch()) { // Get the second value
-				case 72: // Up arrow
-					lcntr--;
-					break;
-				case 80: // Down arrow
-					lcntr=0;
-					break;
-				}
-				coorxy(97, 17); cout << "   ";
-				coorxy(116, 17); cout << "   ";
-				goto E;
-			case 13:
-				coorxy(97, 17); cout << " <<";
-				coorxy(116, 17); cout << ">> ";
-				buttonxy2(100, 16, 14, 1, 1);
-				Sleep(150);
-				system("cls");
-
-
-				// Back to main menu here
-
-				break;
-			}
-			
-			break;
-		} // this is for local switch
-		break;
-
-	case 1:
-
-		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
-			cntr++;
-			system("cls");
-			goto R;
-		}
-		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
-			page2();
-
-			// Getting the prereq subs - done
-
-			int prereq = 3;
-			int y =0; // counter for how many subject have pre requisites
-			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-			//string repititvesub;
-			for (int x = 0; x < 9; x++) {
-				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
-					int cnf = 0;
-					for (int j = 0; j <=y; j++) { // checking if its not existing
-						if (dssub[prereq] == prereqsub[j]&& j<=y) { // check if pre-req is already in prereqsub storage
-							cnf = 0;
-							break;
-						}
-						else
-						{
-							cnf = 1;
-						}
-					}
-					if (cnf == 1) {
-						prereqsub[y] = dssub[prereq]; // store to pre requisite subject if not existing
-						y++;
-						cnf = 0;
-					}
-					if (dssub[prereq+1] != "NONE" && dssub[prereq+1] != "") { // check the second desired sub if it has pre-req
-							int cnf = 0;
-							for (int j = 0; j <=y; j++) { // checking if its not existing
-								if (dssub[prereq+1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
-									cnf = 0;
-									break;
-								}
-								else
-								{
-									cnf = 1;
-								}
-							}
-							if (cnf == 1) {
-								prereqsub[y] = dssub[prereq+1]; // store if its not existing
-								y++;
-								cnf = 0;
-							}
-					}
-					prereq += 5;
-				}
-			}
-
-			// Displaying prerequisites
-
-			int cx =5;
-			int cy =8;
-			int z = 0;
-			n1=0;
-
-			for (int x = 0; x < y; x++) { 
-				z = 0;
-				cx = 5;
-				for (int a = 0; a < 9; a++){
-					if (prereqsub[x] == presub[z]) {
-						coorxy(cx, cy); cout << n1+1;
-						cx += 5;
-						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-						cx += 27;
-						/*coorxy(cx, cy); cout << prereqsub[x];
-						cx += 10;*/
-						coorxy(cx, cy); cout << presub[z];
-						cx += 15;
-						coorxy(cx, cy); cout << presub[z + 1];
-						cy += 2;
-						n1++;
-						//z = 0;
-						break;
-					}
-					z += 5;
-				}
-			}
-
-
-			// this is for determining how many cases/cin will be used in marking
-
-			string* grd = new string[n1];
-			cx = 108;
-			cy = 8;
-			for (int a = 0; a < n1;a++) {
-				coorxy(cx, cy); getchVale(grd[a],'n',1);
-				cy += 2;
-			}
-
-			// Removing failed subjects to prereq array
-
-			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - youre at getting all the subjects
-				if (grd[a] == "0") { // if the pre req index == 0 / failed
-					int index = -1; // just initialization of not existing index
-					int sz = size(prereqsub); // declaring the size of the loop
-					for (int s = 0; s < sz; s++) {
-						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
-							index = a; // now declaring the index of subject to be removed
-							break;
-						}
-					}
-
-					if (index != -1) { // if index is existing
-						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
-							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
-						}
-						--sz;
-						for (int a = index; a < n1-1; a++) { // now the grade of next subject will be the first because the first one was removed
-							grd[a] = grd[a + 1];
-						}
-						--n1; // decrementing the number of iterations when subject is removed
-					}
-				}
-				else {
-					a++;
-				}
-			}
-
-			// This is just for testing
-
-			for (int a = 0; a < size(prereqsub); a++) {
-				cout <<endl<< prereqsub[a] << "     ";
-			}
-
-
-		}
-		else { // getting the previous sub of last sem
-			page2();	
-
-			// Getting the prereq subs - done
-
-			int prereq = 3;
-			int y = 0; // counter for how many subject have pre requisites
-			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-			string repititvesub;
-			for (int x = 0; x < 9; x++) {
-				if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
-					int cnf = 0;
-					for (int j = 0; j <= y; j++) { // checking if its not existing
-						if (dssub[prereq] == prereqsub[j] && j <= y) {
-							cnf = 0;
-							break;
-						}
-						else
-						{
-							cnf = 1;
-						}
-					}
-					if (cnf == 1) {
-						prereqsub[y] = dssub[prereq];
-						y++;
-						cnf = 0;
-					}
-					if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
-						//for (int j = 0; j < 5; j++) { // checking if its not exististing
-						int cnf = 0;
-						for (int j = 0; j <= y; j++) { // checking if its not existing
-							if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
-								cnf = 0;
-								break;
-							}
-							else
-							{
-								cnf = 1;
-							}
-						}
-						if (cnf == 1) {
-							prereqsub[y] = dssub[prereq + 1];
-							y++;
-							cnf = 0;
-						}
-						//}
-					}
-					else {
-						//y++;
-					}
-					prereq += 5;
-				}
-
-
-			}
-
-			int cx = 5;
-			int cy = 8;
-			int z = 0;
-
-			// Displaying prerequisites
-
-			for (int x = 0; x < y; x++) {
-				z = 0;
-				cx = 5;
-				for (int a = 0; a < 9; a++) {
-					if (prereqsub[x] == presub[z]) {
-						coorxy(cx, cy); cout << n1 + 1;
-						cx += 5;
-						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-						cx += 27;
-						/*coorxy(cx, cy); cout << prereqsub[x];
-						cx += 10;*/
-						coorxy(cx, cy); cout << presub[z];
-						cx += 15;
-						coorxy(cx, cy); cout << presub[z + 1];
-						cy += 2;
-						n1++;
-						//z = 0;
-						break;
-					}
-					z += 5;
-				}
-			}
-
-			//
-			//int* grd = new int[n1];
-			string *grd = new string[n1];
-
-			cx = 108;
-			cy = 8;
-			for (int a = 0; a < n1; a++) {
-				coorxy(cx, cy); cin >> grd[a];
-				cy += 2;
-			}
-
-			// Removing the failed subject to prereq
-
-			for (int a = 0; a < n1;) {
-				if (grd[a] == "0") { // if the pre req index == 0 / failed
-					int index = -1; // just initialization of not existing index
-					int sz = size(prereqsub); // declaring the size of the loop
-					for (int s = 0; s < sz; s++) {
-						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
-							index = a; // now declaring the index of subject to be removed
-							break;
-						}
-					}
-
-					if (index != -1) { // if index is existing
-						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
-							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
-						}
-						--sz;
-						for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
-							grd[a] = grd[a + 1];
-						}
-						--n1; // decrementing the number of iterations when subject is removed
-					}
-				}
-				else {
-					a++;
-				}
-			}
-
-			// This is just for testing
-
-			for (int a = 0; a < size(prereqsub); a++) {
-				cout << prereqsub[a]<< "     ";
-			}
-
-
-		}
-
-		break; // break for case 1
-	case 2:
-		page3();
-		break;
-	}
-
-	coorxy(0, 29); system("pause");
-}
+//bool marks(int x, string y, string  z) {
+//	if (x == 1) {
+//		if (y == "1") {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+//	else if (x == 2) {
+//		if (y == "1" && z == "1") {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+//}
+
+//int main() { // Enrolment
+//	//menu(2);
+//
+//	string finder; // finder storage
+//	int lcntr; // local counter // inside switch
+//	int tempre; // return value storage
+//	int cntr = 0; // counter for first switch
+//	int tempyear; // temporary strage for year string to int conversion
+//	int tempsem;// temporary strage for sem string to int conversion
+//	int v = 0; // temporary variable storage for storing sub
+//	int n1 = 0; // counter for number of prereq
+//
+//	string subfile;
+//	string stinfo[20]; // storage for student information
+//
+//	string dssub[45]; // storage for incoming subject
+//	string presub[45]; // storage for previous sub
+//	
+//
+//
+//	R:
+//	switch (cntr) {
+//	case 0:
+//		page1(); // display table
+//
+//		tempre = 0;
+//		lcntr = 0;
+//		finder = "";
+//
+//		E:
+//			
+//		// Switch for local option
+//
+//		switch (lcntr) {
+//		case 0:
+//			coorxy(27, 2);	tempre = getchVal2(finder, 'n', 8);
+//			coorxy(27, 2); cout << string(8, ' ');
+//			coorxy(27, 2); cout << finder;
+//			if (tempre == 101) lcntr = 2;
+//			else if (tempre == 110) lcntr++;
+//			else if (tempre == 100) goto E;
+//			else if (tempre == 111) {
+//
+//				string txtfile = finder + ".txt";
+//				ifstream file(txtfile);
+//
+//				if (file.is_open()) {
+//
+//					string line;
+//					while (getline(file, line)) {
+//						stringstream ss(line);
+//						for (int x = 0; x < 20; x++) {
+//							getline(ss, stinfo[x], '$');
+//						}
+//					}
+//				
+//				// erase display - done
+//					coorxy(15, 6); cout << string(25, ' '); // surname
+//					coorxy(54, 6); cout << string(26, ' '); // firstname
+//					coorxy(94, 6); cout << string(23, ' '); // middle name
+//					coorxy(11, 8); cout << string(9, ' ');// age
+//					coorxy(31, 8); cout << string(29, ' ');// gender
+//					coorxy(68, 8); cout << string(15, ' ');// lrn
+//					coorxy(15, 10); cout << string(102, ' ');// address
+//					coorxy(21, 12); cout << string(5, ' ');// year
+//					coorxy(73, 12); cout << string(5, ' ');// sem
+//
+//				// display
+//				coorxy(15, 6); cout << stinfo[3]; // surname
+//				coorxy(54, 6); cout << stinfo[1]; // first name
+//				coorxy(95, 6); cout << stinfo[2]; // middle name
+//				coorxy(11, 8); cout << stinfo[4]; // age
+//				coorxy(31, 8); cout << stinfo[5]; // gender
+//				coorxy(68, 8); cout << stinfo[6]; // lrn
+//				coorxy(15, 10); cout << stinfo[10] << " " << stinfo[11] << " " << stinfo[12]; // address
+//				coorxy(21, 12); cout << stinfo[18]; // year
+//				coorxy(73, 12); cout << stinfo[19]; // sem
+//				}
+//				else {
+//
+//					// remove values
+//
+//					for (int x = 0; x < 20; x++) {
+//						stinfo[x] = "";
+//					}
+//
+//					// erase display - done
+//					coorxy(15, 6); cout << string(25, ' '); // surname
+//					coorxy(54, 6); cout << string(26, ' '); // firstname
+//					coorxy(94, 6); cout << string(23, ' '); // middle name
+//					coorxy(11, 8); cout << string(9, ' ');// age
+//					coorxy(31, 8); cout << string(29, ' ');// gender
+//					coorxy(68, 8); cout << string(15, ' ');// lrn
+//					coorxy(15, 10); cout << string(102, ' ');// address
+//					coorxy(21, 12); cout << string(5, ' ');// year
+//					coorxy(73, 12); cout << string(5, ' ');// sem
+//				}
+//				file.close();
+//
+//				// Open another ifstream for future subject
+//				v = 0;
+//				string subf;
+//				subf = stinfo[18] + stinfo[19] + ".txt";
+//				ifstream subtxt(subf);
+//				if (subtxt.is_open()) {
+//					string line;
+//					for (int x = 0; x < 9; x++) {
+//						getline(subtxt, line);
+//						stringstream ss(line);
+//						if (line.substr(0) != "$$$$$") { // check if subject is not empty
+//							for (int y = 0; y < 5; y++) {
+//								getline(ss, dssub[v], '$');
+//								v++;
+//							}
+//						}
+//					}
+//				}
+//				subtxt.close();
+//
+//				// get the previous sub if not fresh man
+//
+//				if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
+//					tempyear = stoi(stinfo[18]) - 1;
+//					tempsem = stoi(stinfo[19]) + 1;
+//					v = 0;
+//					string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
+//					ifstream subtxt(prevsubfile);
+//					if (subtxt.is_open()) {
+//						string line;
+//						for (int x = 0; x < 9; x++) {
+//							getline(subtxt, line);
+//							stringstream ss(line);
+//							if (line.substr(0) != "$$$$") { // check if subject is not empty
+//								for (int y = 0; y < 5; y++) {
+//									getline(ss, presub[v], '$');
+//									v++;
+//
+//								}
+//							}
+//						}
+//					}
+//					subtxt.close();
+//
+//				}
+//				else if (stinfo[19] == "2") { // if remain in same year
+//
+//					tempsem = stoi(stinfo[19]) - 1;
+//					string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
+//					ifstream subtxt(prevsubfile);
+//					v = 0;
+//					if (subtxt.is_open()) {
+//						string line;
+//						for (int x = 0; x < 9; x++) {
+//							getline(subtxt, line);
+//							stringstream ss(line);
+//							if (line.substr(0) != "$$$$") { // check if subject is not empty
+//								for (int y = 0; y < 5; y++) {
+//									getline(ss, presub[v], '$');
+//									v++;
+//								}
+//							}
+//						}
+//					}
+//					subtxt.close();
+//				}
+//
+//
+//
+//				lcntr++;
+//			}
+//			goto E;
+//			break;
+//		case 1:
+//
+//			// Enroll Button
+//
+//			coorxy(77, 17); cout << "<< ";
+//			coorxy(96, 17); cout << " >>";
+//			//buttonxy2(80, 16, 14, 1, 2);
+//			switch (_getch()) {
+//				case 224:
+//					switch (_getch()) { // Get the second value
+//					case 72: // Up arrow
+//						lcntr--;
+//						break;
+//					case 80: // Down arrow
+//						lcntr++;
+//						break;
+//					}
+//					coorxy(77, 17); cout << "   ";
+//					coorxy(96, 17); cout << "   ";
+//					goto E;
+//					break;
+//				case 13: // proceed to enroll
+//					coorxy(77, 17); cout << " <<";
+//					coorxy(96, 17); cout << ">> ";
+//					buttonxy2(80,16,14,1,1);
+//					Sleep(100);
+//					int lext = 0;
+//					for (int x = 0; x < 20; x++) {
+//						if (stinfo[x] == "") {
+//							break;
+//						}
+//						else {
+//							lext = 1;
+//							system("cls");
+//						}
+//					}
+//
+//					if (lext == 1) {
+//						cntr++;
+//						subfile = stinfo[18] + stinfo[19];
+//						goto R;
+//					}
+//					else goto E;
+//			}
+//			break;
+//		case 2:
+//
+//			// Back button
+//
+//			coorxy(97, 17); cout << "<< ";
+//			coorxy(116, 17); cout << " >>";
+//			//buttonxy2(100, 16, 14, 1, 2);
+//			switch (_getch()) {
+//			case 224:
+//				switch (_getch()) { // Get the second value
+//				case 72: // Up arrow
+//					lcntr--;
+//					break;
+//				case 80: // Down arrow
+//					lcntr=0;
+//					break;
+//				}
+//				coorxy(97, 17); cout << "   ";
+//				coorxy(116, 17); cout << "   ";
+//				goto E;
+//			case 13:
+//				coorxy(97, 17); cout << " <<";
+//				coorxy(116, 17); cout << ">> ";
+//				buttonxy2(100, 16, 14, 1, 1);
+//				Sleep(150);
+//				system("cls");
+//
+//
+//				// Back to main menu here
+//
+//				break;
+//			}
+//			
+//			break;
+//		} // this is for local switch
+//		break;
+//
+//	case 1:
+//
+//		if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
+//			cntr++;
+//			system("cls");
+//			goto R;
+//		}
+//		else if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // getting the previos sub last year
+//			page2();
+//
+//			// Getting the prereq subs - done
+//
+//			int prereq = 3;
+//			int y =0; // counter for how many subject have pre requisites
+//			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+//			//string repititvesub;
+//			for (int x = 0; x < 9; x++) {
+//				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
+//					int cnf = 0;
+//					for (int j = 0; j <=y; j++) { // checking if its not existing
+//						if (dssub[prereq] == prereqsub[j]&& j<=y) { // check if pre-req is already in prereqsub storage
+//							cnf = 0;
+//							break;
+//						}
+//						else
+//						{
+//							cnf = 1;
+//						}
+//					}
+//					if (cnf == 1) {
+//						prereqsub[y] = dssub[prereq]; // store to pre requisite subject if not existing
+//						y++;
+//						cnf = 0;
+//					}
+//					if (dssub[prereq+1] != "NONE" && dssub[prereq+1] != "") { // check the second desired sub if it has pre-req
+//							int cnf = 0;
+//							for (int j = 0; j <=y; j++) { // checking if its not existing
+//								if (dssub[prereq+1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
+//									cnf = 0;
+//									break;
+//								}
+//								else
+//								{
+//									cnf = 1;
+//								}
+//							}
+//							if (cnf == 1) {
+//								prereqsub[y] = dssub[prereq+1]; // store if its not existing
+//								y++;
+//								cnf = 0;
+//							}
+//					}
+//					prereq += 5;
+//				}
+//			}
+//
+//			// Displaying prerequisites
+//
+//			int cx =5;
+//			int cy =8;
+//			int z = 0;
+//			n1=0;
+//
+//			for (int x = 0; x < y; x++) { 
+//				z = 0;
+//				cx = 5;
+//				for (int a = 0; a < 9; a++){
+//					if (prereqsub[x] == presub[z]) {
+//						coorxy(cx, cy); cout << n1+1;
+//						cx += 5;
+//						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+//						cx += 27;
+//						/*coorxy(cx, cy); cout << prereqsub[x];
+//						cx += 10;*/
+//						coorxy(cx, cy); cout << presub[z];
+//						cx += 15;
+//						coorxy(cx, cy); cout << presub[z + 1];
+//						cy += 2;
+//						n1++;
+//						//z = 0;
+//						break;
+//					}
+//					z += 5;
+//				}
+//			}
+//
+//
+//			// this is for determining how many cases/cin will be used in marking
+//
+//			string* grd = new string[n1];
+//			cx = 108;
+//			cy = 8;
+//			for (int a = 0; a < n1;a++) {
+//				coorxy(cx, cy); getchVale(grd[a],'n',1);
+//				cy += 2;
+//			}
+//
+//			// Removing failed subjects to prereq array
+//
+//			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - youre at getting all the subjects
+//				if (grd[a] == "0") { // if the pre req index == 0 / failed
+//					int index = -1; // just initialization of not existing index
+//					int sz = size(prereqsub); // declaring the size of the loop
+//					for (int s = 0; s < sz; s++) {
+//						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+//							index = a; // now declaring the index of subject to be removed
+//							break;
+//						}
+//					}
+//
+//					if (index != -1) { // if index is existing
+//						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+//							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+//						}
+//						--sz;
+//						for (int a = index; a < n1-1; a++) { // now the grade of next subject will be the first because the first one was removed
+//							grd[a] = grd[a + 1];
+//						}
+//						--n1; // decrementing the number of iterations when subject is removed
+//					}
+//				}
+//				else {
+//					a++;
+//				}
+//			}
+//
+//			// This is just for testing
+//
+//			for (int a = 0; a < size(prereqsub); a++) {
+//				cout <<endl<< prereqsub[a] << "     ";
+//			}
+//
+//
+//		}
+//		else { // getting the previous sub of last sem
+//			page2();	
+//
+//			// Getting the prereq subs - done
+//
+//			int prereq = 3;
+//			int y = 0; // counter for how many subject have pre requisites
+//			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
+//			string repititvesub;
+//			for (int x = 0; x < 9; x++) {
+//				if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
+//					int cnf = 0;
+//					for (int j = 0; j <= y; j++) { // checking if its not existing
+//						if (dssub[prereq] == prereqsub[j] && j <= y) {
+//							cnf = 0;
+//							break;
+//						}
+//						else
+//						{
+//							cnf = 1;
+//						}
+//					}
+//					if (cnf == 1) {
+//						prereqsub[y] = dssub[prereq];
+//						y++;
+//						cnf = 0;
+//					}
+//					if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
+//						//for (int j = 0; j < 5; j++) { // checking if its not exististing
+//						int cnf = 0;
+//						for (int j = 0; j <= y; j++) { // checking if its not existing
+//							if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
+//								cnf = 0;
+//								break;
+//							}
+//							else
+//							{
+//								cnf = 1;
+//							}
+//						}
+//						if (cnf == 1) {
+//							prereqsub[y] = dssub[prereq + 1];
+//							y++;
+//							cnf = 0;
+//						}
+//						//}
+//					}
+//					else {
+//						//y++;
+//					}
+//					prereq += 5;
+//				}
+//
+//
+//			}
+//
+//			int cx = 5;
+//			int cy = 8;
+//			int z = 0;
+//
+//			// Displaying prerequisites
+//
+//			for (int x = 0; x < y; x++) {
+//				z = 0;
+//				cx = 5;
+//				for (int a = 0; a < 9; a++) {
+//					if (prereqsub[x] == presub[z]) {
+//						coorxy(cx, cy); cout << n1 + 1;
+//						cx += 5;
+//						coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
+//						cx += 27;
+//						/*coorxy(cx, cy); cout << prereqsub[x];
+//						cx += 10;*/
+//						coorxy(cx, cy); cout << presub[z];
+//						cx += 15;
+//						coorxy(cx, cy); cout << presub[z + 1];
+//						cy += 2;
+//						n1++;
+//						//z = 0;
+//						break;
+//					}
+//					z += 5;
+//				}
+//			}
+//
+//			//
+//			//int* grd = new int[n1];
+//			string *grd = new string[n1];
+//
+//			cx = 108;
+//			cy = 8;
+//			for (int a = 0; a < n1; a++) {
+//				coorxy(cx, cy); cin >> grd[a];
+//				cy += 2;
+//			}
+//
+//			// Removing the failed subject to prereq
+//
+//			for (int a = 0; a < n1;) {
+//				if (grd[a] == "0") { // if the pre req index == 0 / failed
+//					int index = -1; // just initialization of not existing index
+//					int sz = size(prereqsub); // declaring the size of the loop
+//					for (int s = 0; s < sz; s++) {
+//						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
+//							index = a; // now declaring the index of subject to be removed
+//							break;
+//						}
+//					}
+//
+//					if (index != -1) { // if index is existing
+//						for (int a = index; a < sz - 1; a++) { // the loop will iterate througout the prereq array
+//							prereqsub[a] = prereqsub[a + 1]; // Now the index of subject(to be removed) will be replaced by the next index
+//						}
+//						--sz;
+//						for (int a = index; a < n1 - 1; a++) { // now the grade of next subject will be the first because the first one was removed
+//							grd[a] = grd[a + 1];
+//						}
+//						--n1; // decrementing the number of iterations when subject is removed
+//					}
+//				}
+//				else {
+//					a++;
+//				}
+//			}
+//
+//			// This is just for testing
+//
+//			for (int a = 0; a < size(prereqsub); a++) {
+//				cout << prereqsub[a]<< "     ";
+//			}
+//
+//
+//		}
+//
+//		break; // break for case 1
+//	case 2:
+//		page3();
+//		break;
+//	}
+//
+//	coorxy(0, 29); system("pause");
+//}
 
 //bool checkConditions(bool conditions[], const std::string conditionNames[], int numConditions) {
 //	for (int i = 0; i < numConditions; ++i) {
