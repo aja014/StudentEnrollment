@@ -3661,27 +3661,35 @@ int main() { // Enrolment
 					goto E;
 					break;
 				case 13: // proceed to enroll
-					coorxy(77, 17); cout << " <<";
-					coorxy(96, 17); cout << ">> ";
-					buttonxy2(80,16,14,1,1);
-					Sleep(100);
-					int lext = 0;
-					for (int x = 0; x < 20; x++) {
-						if (stinfo[x] == "") {
-							break;
+					if (finder != "") {
+
+
+						coorxy(77, 17); cout << " <<";
+						coorxy(96, 17); cout << ">> ";
+						buttonxy2(80, 16, 14, 1, 1);
+						Sleep(100);
+						int lext = 0;
+						for (int x = 0; x < 20; x++) {
+							if (stinfo[x] == "") {
+								break;
+							}
+							else {
+								lext = 1;
+								system("cls");
+							}
 						}
-						else {
-							lext = 1;
-							system("cls");
+
+						if (lext == 1) {
+							cntr++;
+							subfile = stinfo[18] + stinfo[19];
+							goto R;
 						}
+						else goto E;
+					}
+					else {
+						goto E;
 					}
 
-					if (lext == 1) {
-						cntr++;
-						subfile = stinfo[18] + stinfo[19];
-						goto R;
-					}
-					else goto E;
 			}
 			break;
 		case 2:
@@ -3736,8 +3744,9 @@ int main() { // Enrolment
 
 			int prereq = 3;
 			int y =0; // counter for how many subject have pre requisites
+			int precode = 0; // subject code for no pre req sub
+			v = 0;
 			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-			//string repititvesub;
 			for (int x = 0; x < 9; x++) {
 				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
 					int cnf = 0;
@@ -3774,8 +3783,14 @@ int main() { // Enrolment
 								cnf = 0;
 							}
 					}
-					prereq += 5;
 				}
+				else {
+					if (dssub[prereq] != "") {
+						subnoprq[v] = dssub[prereq - 3];
+						v++;
+					}
+				}
+				prereq += 5;
 			}
 
 			// Displaying prerequisites
@@ -3893,7 +3908,9 @@ int main() { // Enrolment
 			// Getting the prereq subs - done
 
 			int prereq = 3;
+			int precode = 0;
 			int y = 0; // counter for how many subject have pre requisites
+			v = 0;
 			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
 			string repititvesub;
 			for (int x = 0; x < 9; x++) {
@@ -3934,10 +3951,14 @@ int main() { // Enrolment
 						}
 					
 					}
-					prereq += 5;
 				}
-
-
+				else {
+					if (dssub[prereq] != "") {
+						subnoprq[v] = dssub[prereq-3];
+						v++;
+					}
+				}
+				prereq += 5;
 			}
 
 			// displaying prerequisits
@@ -3996,7 +4017,7 @@ int main() { // Enrolment
 			}
 
 			// Removing the failed subject to prereq
-
+			v = 0;
 			for (int a = 0; a < n1;) {
 				if (grd[a] == "0") { // if the pre req index == 0 / failed
 					int index = -1; // just initialization of not existing index
@@ -4020,6 +4041,8 @@ int main() { // Enrolment
 					}
 				}
 				else {
+					psdsub[v] = prereqsub[a]; // getting all the passed subject
+					v++;
 					a++;
 				}
 			}
@@ -4045,10 +4068,50 @@ int main() { // Enrolment
 		}
 
 		break; // break for case 1
-	case 2:
-		page3();
+	case 2: // youre here at final page
+
+		// you have mow the passed subjects, no pre requisites subjects and desired subjects - youre here at showing the desired subject if passed
+
+		// make an if else for desired subjects that has only 1 pre req and desired subject that have 2 pre req
 
 
+		// passed subjects
+		for (int a = 0; a < size(psdsub); a++) {
+			if (psdsub[a] == "") {
+				break;
+			}
+			else {
+				cout << psdsub[a] << endl;
+			}
+		}
+		cout << endl;
+		
+
+		// no pre req sub
+		for (int a = 0; a < size(subnoprq); a++) {
+			if (subnoprq[a] == "") {
+				break;
+			}
+			else {
+				cout << subnoprq[a] << endl;
+			}
+		}
+		cout << endl;
+
+		// desired sub
+		v = 0;
+		for (int a = 0; a < size(dssub); a++) {
+			cout << dssub[a];
+			v++;
+			if (v == 5) {
+				cout << endl;
+				v = 0;
+			}
+		}
+
+		//page3();
+
+		
 		break;
 	}
 

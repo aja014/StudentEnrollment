@@ -289,7 +289,7 @@ int getchVale(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 			if (a == 72 || a == 75) return  101;
 			else if (a == 80 || a == 77) return 111;
 		}*/
-		if (a == 13) {
+		if (a == 13 && z >=1) {
 			x[z] = '\0';
 			for (int j = 0; j < z; j++) { // Storing to string variable
 				if ((x[j] >= 'a' && x[j] <= 'z') || (x[j] >= 'A' && x[j] <= 'Z') || (x[j] >= '0' && x[j] <= '9') || x[j] == ' ') {
