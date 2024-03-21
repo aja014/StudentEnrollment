@@ -3432,7 +3432,6 @@ int menu(int x, int y) {
 int main() { // Enrolment
 	//menu(2);
 
-	string finder; // finder storage
 	int lcntr; // local counter // inside switch
 	int tempre; // return value storage
 	int cntr = 0; // counter for first switch
@@ -3440,15 +3439,29 @@ int main() { // Enrolment
 	int tempsem;// temporary strage for sem string to int conversion
 	int v = 0; // temporary variable storage for storing sub
 	int n1 = 0; // counter for number of prereq
+	int lext = 0; // local exit counter
+	int prereq = 0; // counter for pre req
+	int y = 0; // counter for how many subject have pre requisites
+	int precode = 0; // subject code for no pre req sub
+	//int v; // just a global counter
+	int cnf = 0; // local confirmation
+	int cx = 0; // variable for gotoxy x
+	int cy = 0; // variable for gotoxy y
+	int index = 0; // variable for declaring index
+	int sz = 0; // size of the loop
+	int v1 = 0; // page3 local counter variable
 
 	string subfile;
 	string stinfo[20]; // storage for student information
 
+	string finder; // finder storage
 	string dssub[45]; // storage for incoming subject
 	string presub[45]; // storage for previous sub
 	string subnoprq[45]; // subject that has no pre req
+	//string prereqsub[9]; // subject that have pre-requisites
 	string psdsub[9]; // passed subject
 	//string allsub[360]; // all subject
+	char cn1; // local confirmation
 	
 
 
@@ -3585,56 +3598,6 @@ int main() { // Enrolment
 					}
 				}
 				savefile.close();
-
-				// get the previous sub if not fresh man
-
-				//if ((stinfo[18] == "2" && stinfo[19] == "1") || (stinfo[18] == "3" && stinfo[19] == "1") || (stinfo[18] == "4" && stinfo[19] == "1")) { // fresh for new year
-				//	tempyear = stoi(stinfo[18]) - 1;
-				//	tempsem = stoi(stinfo[19]) + 1;
-				//	v = 0;
-				//	string prevsubfile = to_string(tempyear) + to_string(tempsem) + ".txt";
-				//	ifstream subtxt(prevsubfile);
-				//	if (subtxt.is_open()) {
-				//		string line;
-				//		for (int x = 0; x < 9; x++) {
-				//			getline(subtxt, line);
-				//			stringstream ss(line);
-				//			if (line.substr(0) != "$$$$") { // check if subject is not empty
-				//				for (int y = 0; y < 5; y++) {
-				//					getline(ss, presub[v], '$');
-				//					v++;
-
-				//				}
-				//			}
-				//		}
-				//	}
-				//	subtxt.close();
-
-				//}
-				//else if (stinfo[19] == "2") { // if remain in same year
-
-				//	tempsem = stoi(stinfo[19]) - 1;
-				//	string prevsubfile = stinfo[18] + to_string(tempsem) + ".txt";
-				//	ifstream subtxt(prevsubfile);
-				//	v = 0;
-				//	if (subtxt.is_open()) {
-				//		string line;
-				//		for (int x = 0; x < 9; x++) {
-				//			getline(subtxt, line);
-				//			stringstream ss(line);
-				//			if (line.substr(0) != "$$$$") { // check if subject is not empty
-				//				for (int y = 0; y < 5; y++) {
-				//					getline(ss, presub[v], '$');
-				//					v++;
-				//				}
-				//			}
-				//		}
-				//	}
-				//	subtxt.close();
-				//}
-
-
-
 				lcntr++;
 			}
 			goto E;
@@ -3663,7 +3626,7 @@ int main() { // Enrolment
 				case 13: // proceed to enroll
 
 						Sleep(100);
-						int lext = 0;
+						lext = 0;
 						for (int x = 0; x < 20; x++) {
 							if (stinfo[x] == "") {
 								break;
@@ -3737,14 +3700,14 @@ int main() { // Enrolment
 
 			// Getting the prereq subs - done
 
-			int prereq = 3;
-			int y =0; // counter for how many subject have pre requisites
-			int precode = 0; // subject code for no pre req sub
+			prereq = 3;
+			y =0; // counter for how many subject have pre requisites
+			precode = 0; // subject code for no pre req sub
 			v = 0;
 			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
 			for (int x = 0; x < 9; x++) {
 				if (dssub[prereq] != "NONE" && dssub[prereq] != "") { // check the first desired subject if it has pre-req
-					int cnf = 0;
+					cnf = 0;
 					for (int j = 0; j <=y; j++) { // checking if its not existing
 						if (dssub[prereq] == prereqsub[j]&& j<=y) { // check if pre-req is already in prereqsub storage
 							cnf = 0;
@@ -3761,7 +3724,7 @@ int main() { // Enrolment
 						cnf = 0;
 					}
 					if (dssub[prereq+1] != "NONE" && dssub[prereq+1] != "") { // check the second desired sub if it has pre-req
-							int cnf = 0;
+							cnf = 0;
 							for (int j = 0; j <=y; j++) { // checking if its not existing
 								if (dssub[prereq+1] == prereqsub[j] && j <= y) { // check again the second pre-req if its existing in prereqsub storage
 									cnf = 0;
@@ -3790,15 +3753,13 @@ int main() { // Enrolment
 
 			// Displaying prerequisites
 
-			int cx =5;
-			int cy =8;
-			int z = 0;
+			cx =5;
+			cy =8;
 			n1=0;
 			v = 0;
 
 
 			for (int x = 0; x < y; x++) { 
-				z = 0;
 				cx = 5;
 				ifstream ldfile;
 				ldfile.open("allsub.txt");
@@ -3848,8 +3809,8 @@ int main() { // Enrolment
 			v = 0;
 			for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - done
 				if (grd[a] == "0") { // if the pre req index == 0 / failed
-					int index = -1; // just initialization of not existing index
-					int sz = size(prereqsub); // declaring the size of the loop
+					index = -1; // just initialization of not existing index
+					sz = size(prereqsub); // declaring the size of the loop
 					for (int s = 0; s < sz; s++) {
 						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
 							index = a; // now declaring the index of subject to be removed
@@ -3879,7 +3840,6 @@ int main() { // Enrolment
 
 			coorxy(92, 27); cout << "<< ";
 			coorxy(111, 27); cout << " >>";
-			char cn1; // confirmation
 			do {
 				 cn1= _getch();
 			} while (cn1 != 13);
@@ -3902,15 +3862,14 @@ int main() { // Enrolment
 
 			// Getting the prereq subs - done
 
-			int prereq = 3;
-			int precode = 0;
-			int y = 0; // counter for how many subject have pre requisites
+			prereq = 3;
+			precode = 0;
+			y = 0; // counter for how many subject have pre requisites
 			v = 0;
 			string prereqsub[9]; // subject that have pre-requisites // 1 is the array of prereq // 2 is not prerequist
-			string repititvesub;
 			for (int x = 0; x < 9; x++) {
 				if (dssub[prereq] != "NONE" && dssub[prereq] != "") {
-					int cnf = 0;
+					cnf = 0;
 					for (int j = 0; j <= y; j++) { // checking if its not existing
 						if (dssub[prereq] == prereqsub[j] && j <= y) {
 							cnf = 0;
@@ -3928,7 +3887,7 @@ int main() { // Enrolment
 					}
 					if (dssub[prereq + 1] != "NONE" && dssub[prereq + 1] != "") {
 						//for (int j = 0; j < 5; j++) { // checking if its not exististing
-						int cnf = 0;
+						cnf = 0;
 						for (int j = 0; j <= y; j++) { // checking if its not existing
 							if (dssub[prereq + 1] == prereqsub[j] && j <= y) {
 								cnf = 0;
@@ -3958,15 +3917,13 @@ int main() { // Enrolment
 
 			// displaying prerequisits
 
-			int cx = 5;
-			int cy = 8;
-			int z = 0;
+			cx = 5;
+			cy = 8;
 			n1 = 0;
 			v = 0;
 
 
 			for (int x = 0; x < y; x++) {
-				z = 0;
 				cx = 5;
 				ifstream ldfile;
 				ldfile.open("allsub.txt"); // getting the all subjects as basis
@@ -3992,7 +3949,6 @@ int main() { // Enrolment
 							coorxy(cx, cy); cout << var[1]; // subject descrip
 							cy += 2;
 							n1++;
-							//z = 0;
 							break;
 						}
 					}
@@ -4012,11 +3968,13 @@ int main() { // Enrolment
 			}
 
 			// Removing the failed subject to prereq
+
+
 			v = 0;
 			for (int a = 0; a < n1;) {
 				if (grd[a] == "0") { // if the pre req index == 0 / failed
-					int index = -1; // just initialization of not existing index
-					int sz = size(prereqsub); // declaring the size of the loop
+					index = -1; // just initialization of not existing index
+					sz = size(prereqsub); // declaring the size of the loop
 					for (int s = 0; s < sz; s++) {
 						if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
 							index = a; // now declaring the index of subject to be removed
@@ -4046,7 +4004,6 @@ int main() { // Enrolment
 
 			coorxy(92, 27); cout << "<< ";
 			coorxy(111, 27); cout << " >>";
-			char cn1; // confirmation
 			do {
 				cn1 = _getch();
 			} while (cn1 != 13);
@@ -4069,76 +4026,133 @@ int main() { // Enrolment
 
 		// make an if else for desired subjects that has only 1 pre req and desired subject that have 2 pre req
 
+		page3();
 
-		// passed subjects
-		for (int a = 0; a < size(psdsub); a++) {
-			if (psdsub[a] == "") {
-				break;
-			}
-			else {
-				cout << psdsub[a] << endl;
-			}
-		}
-		cout << endl;
-		
+		int unt = 0; // total units
 
-		// no pre req sub
-		for (int a = 0; a < size(subnoprq); a++) {
-			if (subnoprq[a] == "") {
-				break;
-			}
-			else {
-				cout << subnoprq[a] << endl;
-			}
-		}
-		cout << endl;
-
-		// desired sub
-		v = 0;
-		for (int a = 0; a < size(dssub); a++) {
-			cout << dssub[a];
-			v++;
-			if (v == 5) {
-				cout << endl;
-				v = 0;
+		if (stinfo[18] == "1" && stinfo[19] == "1") {
+			v = 0;
+			cy = 6;
+			cx = 37;
+			for (int a = 0; a < size(dssub); a++) {
+				for (int s = 0; s < 1; s++) {
+					coorxy(5, cy); cout << a + 1;
+					coorxy(10, cy); cout << "Year " << stinfo[18] << " / sem " << stinfo[19];
+					coorxy(cx, cy); cout << dssub[v];
+					cx += 15;
+					v++;
+					coorxy(cx, cy); cout << dssub[v];
+					cx += 56;
+					v++;
+					coorxy(cx, cy); cout << dssub[v];
+					unt += stoi(dssub[v]); 
+				}
+				v += 3;
+				cy += 2;
+				cx = 37;
 			}
 		}
+		else {
+			v = 3;
+			v1 = 0;
+			cy = 4;
+			cx = 37;
+			for (int a = 0; a < 9; a++) {
+				if (dssub[v] != "NONE" && dssub[v] != "" && dssub[v+1] != "NONE" && dssub[v+1] != "") {
+					cnf = 0;
+					for (int a = 0; a < size(psdsub); a++) {
+						if (psdsub[a] == "") {
+							v1 += 5;
+							break;
+						}
+						if (dssub[v] == psdsub[a]) {
+							cnf = 1; // means pasado
+							break;
+						}
+					}
+					if (cnf == 1) { // checking the second pre req
+						cnf = 0;
+						
+						for (int a = 0; a < size(psdsub); a++) {
+							if (psdsub[a] == "") {
+								v1 += 5;
+								break;
+							}
+							if (dssub[v+1] == psdsub[a]) {
+								cnf = 1; // means pasado
+								break;
+							}
+						}
 
-		//page3();
+						if (cnf == 1) {
+							cnf = 0;
+							// cout the passed sub for 2 pre req
+							cx = 37;
+							cy += 2;
+							coorxy(5, cy); cout << a + 1;
+							coorxy(10, cy); cout << "Year " << stinfo[18] << " / sem " << stinfo[19];
+							coorxy(cx, cy); cout << dssub[v1];
+							cx += 15;
+							v1++;
+							coorxy(cx, cy); cout << dssub[v1];
+							cx += 56;
+							v1++;
+							coorxy(cx, cy); cout << dssub[v1];
+							unt += stoi(dssub[v1]);
+							v1 += 3;
 
-		
+						}
+					}
+				}
+				else if (dssub[v] != "NONE" && dssub[v] != "") {
+					for (int a = 0; a < size(psdsub); a++) {
+						if (psdsub[a] == "") {
+							v1 += 5;
+							break;
+						}
+						if (dssub[v] == psdsub[a]) {
+							cx = 37;
+							cy += 2;
+							cnf = 1; // means pasado
+							coorxy(5, cy); cout << a + 1;
+							coorxy(10, cy); cout << "Year " << stinfo[18] << " / sem " << stinfo[19];
+							coorxy(cx, cy); cout << dssub[v1];
+							cx += 15;
+							v1++;
+							coorxy(cx, cy); cout << dssub[v1];
+							cx += 56;
+							v1++;
+							coorxy(cx, cy); cout << dssub[v1];
+							unt += stoi(dssub[v1]);
+							v1 += 3;
+							break;
+						}
+					}
+				}
+				else if ((dssub[v] == "NONE" || dssub[v] == "") && dssub[v-3] != "") {
+					cy += 2;
+					cx = 37;
+					coorxy(5, cy); cout << a + 1;
+					coorxy(10, cy); cout << "Year " << stinfo[18] << " / sem " << stinfo[19];
+					coorxy(cx, cy); cout << dssub[v1];
+					cx += 15;
+					v1++;
+					coorxy(cx, cy); cout << dssub[v1];
+					cx += 56;
+					v1++;
+					coorxy(cx, cy); cout << dssub[v1];
+					unt += stoi(dssub[v1]);
+					v1 += 3;
+				}
+				//v1 += 5;
+				v += 5;
+			}
+		}
+
+		coorxy(108, 24); cout << unt;
 		break;
 	}
 
 	coorxy(0, 29); system("pause");
 }
 
-//bool checkConditions(bool conditions[], const std::string conditionNames[], int numConditions) {
-//	for (int i = 0; i < numConditions; ++i) {
-//		if (!conditions[i]) {
-//			std::cout << "Sorry, you did not meet the condition for " << conditionNames[i] << "." << std::endl;
-//			return false;
-//		}
-//	}
-//	return true;
-//}
-
-//int main() {
-//	const int NUM_CONDITIONS = 3;
-//	bool conditions[NUM_CONDITIONS];
-//	string conditionNames[NUM_CONDITIONS] = { "English", "Science", "PE" };
-//
-//	// Let's assume the user inputs whether the conditions are met
-//	cout << "Enter '1' if the condition is met, and '0' otherwise." << std::endl;
-//	for (int i = 0; i < NUM_CONDITIONS; ++i) {
-//		cout << conditionNames[i] << ": ";
-//		cin >> conditions[i];
-//	}
-//
-//	// Check if all conditions are met
-//	if (checkConditions(conditions, conditionNames, NUM_CONDITIONS)) {
-//		cout << "Congratulations! You meet all the conditions." << std::endl;
-//	}
-//
-//	return 0;
-//}
