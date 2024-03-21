@@ -7,7 +7,6 @@ PCM 101$Purposive Communication$3$NONE$$
 ARP 101$Araling Pilipino$3$NONE$$
 PATHFit 1$Physical Education$2$NONE$$
 NSTP 10$ROTC LTS CWTS$3$NONE$$
-IT 104$Discrete Mathemathics$3$MMW 101$$
 CC 104$Computer Programming 2$3$CC 103$$
 IT 106$Platform Technologies$3$NONE$$
 IT 107$Human Computer Interaction$3$CC 103$$
@@ -15,6 +14,7 @@ UTS 101 $Understanding the Self$3$NONE$$
 PAL 101$Panitikan at Lipunan$3$NONE$$
 PATHFit 2$Physical Edication II$2$NONE$$
 NSTP 11$ROTC LTS CWTS$3$NSTP 10$$
+IT 104$Discrete Mathematics$3$MMW 101$$
 CC 105$Data Structures and Algorithms$3$CC 104$$
 CC 106$Information Management$3$CC 104$$
 IT 203$Object oriented Programming$3$CC 104$$

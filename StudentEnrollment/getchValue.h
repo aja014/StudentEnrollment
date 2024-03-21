@@ -339,6 +339,7 @@ int getchVale(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 			}
 		}
 	}
+	return 0;
 }
 
 
