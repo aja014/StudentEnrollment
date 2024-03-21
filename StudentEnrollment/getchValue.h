@@ -74,7 +74,7 @@ using namespace std;
 //}
 
 int getchVal(string& s, char t ,int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[100];
+	char x[100] = {};
 
 	int num = 1;
 	int nm = 1;
@@ -141,7 +141,7 @@ int getchVal(string& s, char t ,int l) { // 101 is up, 111 is down // s string s
 }
 
 int getchVal2(string& s, char t, int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[100];
+	char x[100] = {};
 
 	int num = 1;
 	int nm = 1;
@@ -208,7 +208,7 @@ int getchVal2(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 }
 
 int getchValc(string& s, char t, int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[50];
+	char x[50] = {};
 
 	int num = 1;
 	int nm = 1; // for curriculum erasing
@@ -275,7 +275,7 @@ int getchValc(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 }
 
 int getchVale(string& s, char t, int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[50];
+	char x[50] = {};
 
 	int num = 1;
 	int nm = 1; // for curriculum erasing
@@ -344,7 +344,7 @@ int getchVale(string& s, char t, int l) { // 101 is up, 111 is down // s string 
 
 
 int getchValarr(string s[], int l) { // 101 is up, 111 is down // s string storage, l is length
-	char x[32];
+	char x[32] = {};
 
 	int num = 1;
 	char a;

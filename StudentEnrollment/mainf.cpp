@@ -112,6 +112,9 @@ int menu(int x, int y) {
 	system("cls");
 	//char a;
 	int acc = y;
+	//variables for display
+	int cx = 0; // x position
+	int cy = 0; // y position
 
 	if (x == 1) {
 
@@ -756,8 +759,8 @@ int menu(int x, int y) {
 		int st; // storage for returning value
 
 		//variables for display
-		int cx = 37; // x position
-		int cy = 8; // y position
+		cx = 37; // x position
+		cy = 8; // y position
 
 		//variables for display - for year and sem
 		int dn = 0;
@@ -1324,8 +1327,6 @@ int menu(int x, int y) {
 		int lcntr; // local counter // inside switch
 		int tempre; // return value storage
 		int cntr = 0; // counter for first switch
-		//int tempyear; // temporary strage for year string to int conversion
-		//int tempsem;// temporary strage for sem string to int conversion
 		int v = 0; // temporary variable storage for storing sub
 		int n1 = 0; // counter for number of prereq
 		int lext = 0; // local exit counter
@@ -1701,7 +1702,7 @@ int menu(int x, int y) {
 				for (int a = 0; a < n1;) { // YOUR PROBLEM IS WITH THE COUNTER OF GRD - done
 					if (grd[a] == "0") { // if the pre req index == 0 / failed
 						index = -1; // just initialization of not existing index
-						sz = size(prereqsub); // declaring the size of the loop
+						sz = 9; // declaring the size of the loop
 						for (int s = 0; s < sz; s++) {
 							if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
 								index = a; // now declaring the index of subject to be removed
@@ -1866,7 +1867,7 @@ int menu(int x, int y) {
 				for (int a = 0; a < n1;) {
 					if (grd[a] == "0") { // if the pre req index == 0 / failed
 						index = -1; // just initialization of not existing index
-						sz = size(prereqsub); // declaring the size of the loop
+						sz = 9; // declaring the size of the loop
 						for (int s = 0; s < sz; s++) {
 							if (prereqsub[s] == prereqsub[a]) { // loop will find the subject to be removed
 								index = a; // now declaring the index of subject to be removed
@@ -2112,6 +2113,7 @@ int menu(int x, int y) {
 	return 0;
 }
 
+
 int main() {
 
 	font1(600, 10, 20);
@@ -2119,7 +2121,7 @@ int main() {
 
 	char user[] = "user1", upass[] = "upass1";
 	char admin[] = "admin1", apass[] = "apass1";
-	char username[32], password[32], a;
+	char username[32]={}, password[32]={}, a;
 
 	//int num = 0;
 	int num = 1;
@@ -2481,6 +2483,9 @@ int main() {
 	//coorxy(0, 29); system("pause");
 }
 
+//int main() {
+//	menu(2, 1);
+//}
 
 //void savefile() {
 //	ofstream myfile("C:\\Users\\Asus\\Documents\\GitHub\\StudentEnrollment\\StudentEnrollment\\Students.txt");

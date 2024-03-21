@@ -1,4 +1,2 @@
 ﻿  mainf.cpp
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\mainf.cpp(1704,16): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\mainf.cpp(1869,16): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe
