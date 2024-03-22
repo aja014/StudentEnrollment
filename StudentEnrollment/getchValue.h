@@ -138,10 +138,6 @@ int getchVal(string& s, char t ,int l) { // 101 is up, 111 is down // s string s
 				++z;
 			}
 		}
-		else if (a == '\0') {
-			if (_getch() == 63) hp();
-			return 505;
-		}
 	}
 }
 

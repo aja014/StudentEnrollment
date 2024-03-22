@@ -56,6 +56,11 @@ void buttonxy2(int w,int x, int y, int z, int a) { // choosing button // Buttonx
 	}
 	else if (a == 2) { // Selection
 
+		coorxy(w - 1, x - 1); cout << string(1, ' '); // Upper left corner
+		coorxy(w + y + 2, x - 1); cout << string(1, ' '); // Upper right corner
+		coorxy(w - 1, x + z + 2); cout << string(1, ' '); // Down left corner
+		coorxy(w + y + 2, x + z + 2); cout << string(1, ' '); // Down right corner
+
 
 		coorxy(w - 1, x - 1); cout << string(1, char(218)); // Upper left corner
 		coorxy(w + y + 2, x - 1); cout << string(1, char(191)); // Upper right corner
@@ -71,12 +76,12 @@ void buttonxy2(int w,int x, int y, int z, int a) { // choosing button // Buttonx
 	}
 }
 
-void pressedbutton(int w, int x, int y, int z) {
+void psdbtn(int w, int x, int y, int z) {
 	coorxy(w, x); cout << string(y + 2, char(220)); // Upper line
-	coorxy(w+1, x+1); cout << string(y, char(176)); // upper line shaddow
+	coorxy(w, x + z + 1); cout << string(y + 2, char(223)); // down line
 
 	for (int i = 0; i < z; i++) {
-		coorxy(w + 1, x + 1 + i); cout << string(1, char(176)); // left line shadow
 		coorxy(w, x + i + 1); cout << string(1, char(219)); // left line
+		coorxy(w + y + 1, x + i + 1); cout << string(1, char(219)); // right line
 	}
 }

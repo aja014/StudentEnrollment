@@ -44,6 +44,7 @@ void table() {
 
 
 	coorxy(3, 2); cout << char(179) << " Search Pooling number " << char(179) << " :"; coorxy(40, 2); cout << char(179);
+	coorxy(70, 2); cout << "- BSIT Student Enrollment Management System -";
 	coorxy(5, 6); cout << "First name " << char(179) << ":";
 	coorxy(40, 6); cout << char(179) << " Middle name " << char(179) << ":";
 	coorxy(78, 6); cout << char(179) << " Last name " << char(179) << ":";
@@ -67,10 +68,11 @@ void table() {
 	coorxy(48, 27); cout << "ADD/UPDATE";
 	coorxy(75, 27); cout << "DELETE";
 	coorxy(101, 27); cout << "BACK";
+	coorxy(26, 27); cout << "HELP";
 
 	n = 0;
-	for (int i = 0; i < 3; i++) {
-		buttonxy(45+n, 26,14,1);
+	for (int i = 0; i < 4; i++) {
+		buttonxy(20+n, 26,14,1);
 		n += 25;
 	}
 }
@@ -135,4 +137,144 @@ void pooltable() {
 	coorxy(40, 13); cout << "Enter what semester :" << char(179);
 	coorxy(40, 15); cout << "Target Year/Semester code: " << char(179);
 	coorxy(40, 17); cout << "Pooling num: " << char(179);
+}
+
+void openscen() {
+	int ld = 0;
+
+	coorxy(55, 4); cout << string(7, char(220));
+	Sleep(100);
+	for (int i = 0; i < 3; i++) {
+		Sleep(100);
+		coorxy(58, 2 + i); cout << char(219);
+		coorxy(57 + i, 15); cout << char(220);
+	}
+	Sleep(100);
+	coorxy(59, 2); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(59, 3); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(55, 5); cout << char(221);
+	Sleep(100);
+	coorxy(61, 5); cout << char(222);
+	Sleep(100);
+	coorxy(53, 6); cout << char(222);
+	Sleep(100);
+	coorxy(63, 6); cout << char(221);
+	Sleep(100);
+	coorxy(54, 7); cout << string(9, char(223));
+	Sleep(100);
+	coorxy(55, 7); cout << char(219);
+	Sleep(100);
+	coorxy(61, 7); cout << char(219);
+	Sleep(100);
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(54 + ld, 5); cout << char(220);
+		ld += 8;
+	}
+	for (int i = 0; i < 10; i++) {
+		Sleep(100);
+		coorxy(55, 8 + i); cout << char(221);
+		coorxy(61, 8 + i); cout << char(222);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(54 + i, 14); cout << char(254);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 8); cout << string(2, char(220));
+		ld += 33;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(43 + ld, 8); cout << char(219);
+		ld += 30;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 8); cout << string(11, char(223));
+		ld += 18;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(40 + ld, 9); cout << char(219);
+		coorxy(40 + ld, 10); cout << char(219);
+		ld += 36;
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(41 + ld, 10); cout << string(14, char(220));
+		ld += 21;
+	}
+	ld = 0;
+	for (int i = 0; i < 7; i++) {
+		Sleep(100);
+		coorxy(41, 11 + i); cout << char(219);
+		coorxy(75, 11 + i); cout << char(219);
+	}
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(57, 16 + i); cout << char(221);
+		coorxy(59, 16 + i); cout << char(222);
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(44 + ld, 12); cout << string(8, char(177));
+		coorxy(44 + ld, 13); cout << string(8, char(177));
+		coorxy(44 + ld, 15); cout << string(8, char(177));
+		coorxy(44 + ld, 16); cout << string(8, char(177));
+		ld += 21;
+		coorxy(57, 10 + i); cout << string(3, char(177));
+	}
+	ld = 0;
+	for (int i = 0; i < 2; i++) {
+		Sleep(100);
+		coorxy(26 + ld, 11); cout << string(15, char(220));
+		coorxy(25, 12); cout << char(219);
+		coorxy(91, 12); cout << char(219);
+		coorxy(26 + ld, 13); cout << string(15, char(223));
+		ld += 50;
+	}
+	ld = 0;
+	for (int i = 0; i < 5; i++) {
+		Sleep(100);
+		coorxy(27, 13 + i); cout << char(219);
+		coorxy(89, 13 + i); cout << char(219);
+	}
+
+	Sleep(100);
+	coorxy(57, 9); cout << string(3, char(220));
+	Sleep(100);
+	coorxy(57, 12); cout << string(3, char(223));
+	Sleep(100);
+	coorxy(44, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(62, 18); cout << string(11, char(223));
+	Sleep(100);
+	coorxy(43, 18); cout << char(219);
+	Sleep(100);
+	coorxy(73, 18); cout << char(219);
+	Sleep(100);
+	coorxy(41, 18); cout << string(35, char(223));
+
+	for (int i = 0; i < 14; i++) {
+		Sleep(100);
+		coorxy(27 + i, 17); cout << char(219);
+		coorxy(89 - i, 17); cout << char(219);
+	}
+	for (int i = 0; i < 9; i++) {
+		Sleep(100);
+		coorxy(30 + i, 14); cout << char(177);
+		coorxy(30 + i, 15); cout << char(177);
+		coorxy(86 - i, 14); cout << char(177);
+		coorxy(86 - i, 15); cout << char(177);
+	}
 }

@@ -56,9 +56,9 @@ void hp() {
     cout << "2. Error messages will be displayed if incorrect inputs are provided, guiding users to correct any mistakes.\n";
     gotoxy(margin, topSpace + 20);
     cout << "3. For further assistance or queries, contact our support team for prompt assistance.\n";
-    coorxy(4, 24); cout << "- BSIT Student Enrollment Management System -";
+    coorxy(60, 26); cout << "- BSIT Student Enrollment Management System -";
 
-    coorxy(6, 25); system("pause");
+    coorxy(6, 26); system("pause");
     system("cls");
 
 }

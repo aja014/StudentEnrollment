@@ -1,2 +1,4 @@
 ﻿  mainf.cpp
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\mainf.cpp(187,3): warning C4102: 'H': unreferenced label
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\mainf.cpp(2401,41): warning C4101: 'a': unreferenced local variable
   StudentEnrollment.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\StudentEnrollment\x64\Debug\StudentEnrollment.exe
