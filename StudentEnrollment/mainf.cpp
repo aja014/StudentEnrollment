@@ -10,6 +10,7 @@
 #include <cstdio> // for deleting text file (database)
 #include "curriTable.h" // Display table for Curriculum
 #include "entable.h" // Display for enrollment
+#include "help.h"
 
 //#include "Delay.h"
 #define gc getchcout
@@ -169,6 +170,8 @@ int menu(int x, int y) {
 			}
 		} while (ext != 1);
 
+
+		H:
 
 		table();
 
@@ -364,6 +367,12 @@ int menu(int x, int y) {
 							counter = 0;
 							goto Q;
 						}
+						else if (d == '\0') {
+							if (_getch() == 63) {
+								hp();
+							}
+							goto H;
+						}
 					}
 				}
 				else {
@@ -381,6 +390,9 @@ int menu(int x, int y) {
 					}
 					else counter = 20;
 				}
+				else if (n == 505) {
+					goto H;
+				}
 				else counter++;
 				goto Q;
 				break;
@@ -389,6 +401,7 @@ int menu(int x, int y) {
 				coorxy(57, 6); cout << string(21, ' ');
 				coorxy(57, 6); cout << mname; //getchcout(mname);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -397,6 +410,7 @@ int menu(int x, int y) {
 				coorxy(93, 6); cout << string(23, ' ');
 				coorxy(93, 6); cout << lname; //getchcout(lname);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -405,6 +419,7 @@ int menu(int x, int y) {
 				coorxy(18, 8); cout << string(2, ' ');
 				coorxy(18, 8); cout << age; //getchcout(age);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -413,6 +428,7 @@ int menu(int x, int y) {
 				coorxy(18, 10); cout << string(29, ' ');
 				coorxy(18, 10); cout << gender; //getchcout(gender);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -421,6 +437,7 @@ int menu(int x, int y) {
 				coorxy(56, 10); cout << string(12, ' ');
 				coorxy(56, 10); cout << lrn; //getchcout(lrn);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -429,6 +446,7 @@ int menu(int x, int y) {
 				coorxy(26, 12); cout << string(21, ' ');
 				coorxy(26, 12); cout << bmonth; //getchcout(bmonth);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -437,6 +455,7 @@ int menu(int x, int y) {
 				coorxy(56, 12); cout << string(2, ' ');
 				coorxy(56, 12); cout << bday; //getchcout(bday);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -445,6 +464,7 @@ int menu(int x, int y) {
 				coorxy(93, 12); cout << string(4, ' ');
 				coorxy(93, 12); cout << byear; //getchcout(byear);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -453,6 +473,7 @@ int menu(int x, int y) {
 				coorxy(29, 14); cout << string(87, ' ');
 				coorxy(29, 14); cout << barangay; //getchcout(barangay);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -461,6 +482,7 @@ int menu(int x, int y) {
 				coorxy(33, 16); cout << string(83, ' ');
 				coorxy(33, 16); cout << municipality; //getchcout(municipality);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -469,6 +491,7 @@ int menu(int x, int y) {
 				coorxy(29, 18); cout << string(87, ' ');
 				coorxy(29, 18); cout << province; //getchcout(province);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -485,6 +508,7 @@ int menu(int x, int y) {
 				coorxy(31, 20); cout << string(17, ' ');
 				coorxy(31, 20); cout << gfname;// getchcout(gfname);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -493,6 +517,7 @@ int menu(int x, int y) {
 				coorxy(65, 20); cout << string(17, ' ');
 				coorxy(65, 20); cout << gmname; //getchcout(gmname);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -501,6 +526,7 @@ int menu(int x, int y) {
 				coorxy(97, 20); cout << string(19, ' ');
 				coorxy(97, 20); cout << glname; //getchcout(glname);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -509,6 +535,7 @@ int menu(int x, int y) {
 				coorxy(35, 22); cout << string(11, ' ');
 				coorxy(35, 22); cout << gcnum; //getchcout(gcnum);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				goto Q;
 				break;
@@ -517,6 +544,7 @@ int menu(int x, int y) {
 				coorxy(29, 24); cout << string(87, ' ');
 				coorxy(29, 24); cout << grelation; //getchcout(grelation);
 				if (n == 101) counter--;
+				else if (n == 505) goto H;
 				else counter++;
 				break;
 			case 18:
@@ -2491,7 +2519,8 @@ int menu(int x, int y) {
 //}
 
 int main() {
-	menu(2, 1);
+	//h();
+	menu(1, 1);
 }
 
 //void savefile() {

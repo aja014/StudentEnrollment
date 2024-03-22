@@ -136,6 +136,7 @@
     <ClInclude Include="Delay.h" />
     <ClInclude Include="entable.h" />
     <ClInclude Include="getchValue.h" />
+    <ClInclude Include="help.h" />
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

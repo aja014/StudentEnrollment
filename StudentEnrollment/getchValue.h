@@ -2,6 +2,7 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include "help.h"
 
 
 using namespace std;
@@ -136,6 +137,10 @@ int getchVal(string& s, char t ,int l) { // 101 is up, 111 is down // s string s
 				x[z] = a;
 				++z;
 			}
+		}
+		else if (a == '\0') {
+			if (_getch() == 63) hp();
+			return 505;
 		}
 	}
 }
