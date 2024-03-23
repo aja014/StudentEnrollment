@@ -279,52 +279,114 @@ void openscen() {
 	}
 }
 
-void menudes(int x,int y) {
-	int cy = 0;
-	int cx = 0;
-	for (int a = 0; a < 3; a++) { // top
-		coorxy(x+cx, y+a); cout << char(220);
-		cx += 6;
+void menudes(int x, int y) {
+
+	int xx = x;
+	int yy = y;
+
+	for (int a = 0; a < 2; a++) { // Top right slant
+		coorxy(xx, yy); cout << string(4, char(220));
+		xx += 8;
+		yy += 1;
 	}
-	cx = 0;
-	for (int a = 0; a < 3; a++) {
-		coorxy(x-cx, y+a); cout << char(220);
-		cx += 6;
-	}
-	cx = 1;
-	cy = 1;
-	for (int a = 0; a < 2; a++) {
-		coorxy(x + cx, y+cy); cout << string(5, char(223));
-		cx += 6;
-		cy += 1;
-	}
-	cx = 5;
-	cy = 1;
-	for (int a = 0; a < 2; a++) {
-		coorxy(x - cx, y + cy); cout << string(5, char(223));
-		cx += 6;
-		cy += 1;
-	}
-	cx = 0;
-	cy = 4;
-	for (int a = 0; a < 3; a++) { // bottom
-		coorxy(x+cx, y+cy); cout << char(220);
-		cy -= 1;
-		cx += 6;
-	}
-	cx = 0;
-	cy = 4;
-	for (int a = 0; a < 3; a++) { 
-		coorxy(x + cx, y + cy); cout << char(220);
-		cy -= 1;
-		cx -= 6;
-	}
-	cx = 1;
-	cy = 4;
-	for (int a = 0; a < 2; a++) { // youre here
-		coorxy(x - cx, y - cy); cout << string(5, char(223));
-		cx += 6;
-		cy += 1;
+	xx = x;
+	yy = y;
+	xx += 4;
+	yy += 1;
+	for (int a = 0; a < 1; a++) { // top right slant
+		coorxy(xx, yy); cout << string(4, char(223));
+		xx += 8;
+		yy += 1;
 	}
 
+	xx = x;
+	yy = y;
+	xx -= 9;
+	yy += 1;
+	for (int a = 0; a < 2; a++) {
+		coorxy(xx, yy); cout << string(4, char(220));
+		xx += 8;
+		yy -= 1;
+	}
+
+	xx = x;
+	yy = y;
+	xx -= 5;
+	yy += 1;
+	for (int a = 0; a < 1; a++) {
+		coorxy(xx, yy); cout << string(4, char(223));
+		xx += 10;
+		yy -= 1;
+	}
+
+	xx = x;
+	yy = y;
+	xx -= 9;
+	yy += 1;
+	coorxy(xx, yy); cout << string(4, char(220));
+	coorxy(xx + 8, yy + 1); cout << string(5, char(220));
+
+	xx = x;
+	yy = y;
+	xx -= 5;
+	yy += 2;
+	for (int a = 0; a < 2; a++) { // top left slant
+		coorxy(xx, yy); cout << string(4, char(223));
+		xx += 9;
+	}
+	xx -= 17;
+	for (int a = 0; a < 2; a++) {
+		coorxy(xx, yy+a); cout << char(219);
+		coorxy(xx + 10, yy+a); cout << char(219);
+	}
+	xx = x;
+	yy = y;
+	xx -= 3;
+	yy += 4;
+	for (int a = 0; a < 2; a++) {
+		coorxy(xx, yy); cout << string(2,char(223));
+		xx += 7;
+	}
+	xx -=12;
+	//yy += 1;
+	coorxy(xx, yy); cout << string(5, char(220));
+	xx = x;
+	yy = y;
+	xx += 11;
+	yy += 2;
+	coorxy(xx, yy); cout << char(219);
+	yy += 1;
+	coorxy(xx, yy); cout << char(223);
+	yy -= 1;
+	xx -= 1;
+	for (int a = 0; a < 2; a++) {
+		coorxy(xx, yy); cout << char(220);
+	xx += 2;
+	}
+
+	xx = x;
+	yy = y;
+
+	xx -= 13;
+	yy -= 2;
+	coorxy(xx, yy); cout << string(29,char(220));
+	yy += 8;
+	coorxy(xx, yy); cout << string(15, char(220));
+	xx += 17;
+	coorxy(xx, yy); cout << string(12, char(220));
+	xx = x;
+	yy = y;
+	xx -= 13;
+	yy -= 1;
+	for (int a = 0; a < 8; a++) {
+		coorxy(xx, yy + a); cout << char(219);
+		coorxy(xx+28, yy + a); cout << char(219);
+	}
+	xx = x;
+	yy = y;
+	yy += 7;
+	xx -= 1;
+	coorxy(xx, yy); cout << char(219);
+	coorxy(xx+5, yy); cout << char(219);
+	coorxy(xx - 4, yy + 1); cout << string(14,char(223));
 }
