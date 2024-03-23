@@ -184,7 +184,7 @@ int menu(int x, int y) {
 		} while (ext != 1);
 
 
-		H:
+		//H:
 
 		table();
 
@@ -2616,412 +2616,420 @@ int menu(int x, int y) {
 }
 
 
+//int main() {
+//
+//	font1(600, 10, 20);
+//
+//
+//	char user[] = "user1", upass[] = "upass1";
+//	char admin[] = "admin1", apass[] = "apass1";
+//	char username[32]={}, password[32]={}, a;
+//
+//
+//	int num = 1;
+//	int access =0;
+//
+//	hdc(1);
+//	openscen();
+//
+//	coorxy(37, 27); cout << "- BSIT Student Enrollment Management System -";
+//	coorxy(45, 22); system("pause"); ////////////// OPENING 
+//	coorxy(45, 22); cout << string(40, ' ');
+//	hdc(0);
+//
+//	coorxy(42, 20); cout << "Username :";
+//	coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
+//	coorxy(53, 20); cout << char(179);
+//	coorxy(74, 20); cout << char(179);
+//	coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
+//
+//	coorxy(42, 23); cout << "Password :";
+//	coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
+//	coorxy(53, 23); cout << char(179);
+//	coorxy(74, 23); cout << char(179);
+//	coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
+//
+//	Usr: // Login security system
+//	coorxy(55, 20);
+//	for (int i = 0;;) { // Login security for username
+//		a = _getch();
+//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+//			if (i < 19) {
+//				cout << a;
+//				username[i] = a;
+//				++i;
+//			}
+//		}
+//		else if (a == 8 && i >= 1) {
+//			cout << "\b \b";
+//			username[--i] = '\0';
+//		}
+//		else if (a == 13 && i!=0) {
+//			username[i] = '\0';
+//			break;
+//		}
+//	}
+//	coorxy(55, 23);
+//	for (int i = 0;;) { // login security for password
+//		a = _getch();
+//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
+//			if (i < 19) {
+//				cout << "*";
+//				password[i] = a;
+//				++i;
+//			}
+//		}
+//		else if (a == 8 && i >= 1) {
+//			cout << "\b \b";
+//			password[--i] = '\0';
+//		}
+//		else if (a == 13) {
+//			password[i] = '\0';
+//			if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
+//				if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
+//					access = 1; // admin access
+//				}
+//				break;
+//
+//			}
+//			else {
+//				i = 0;
+//				coorxy(43, 25); cout << "Incorrect Username or Password";
+//				coorxy(55, 20); cout << string(19, ' ');
+//				coorxy(55, 23); cout << string(19, ' ');
+//				goto Usr;
+//			}
+//		}
+//	}
+//
+//
+//	//coorxy(45, 25); system("pause");
+//	
+//	system("cls");
+//
+//	int cy = 0;
+//	int cntr = 0;
+//	int ext = 0;
+//
+//mn:
+//	cy = 0;
+//	for (int a = 0; a < 5; a++) {
+//		buttonxy(10, 2+cy,25,3);
+//		cy += 5;
+//	}
+//	coorxy(70, 2); cout << "- BSIT Student Enrollment Management System -";
+//	coorxy(14, 4); cout << "Student Registration";
+//	coorxy(13, 9); cout << "Curriculum Management";
+//	coorxy(14, 14); cout << "Student Enrollment";
+//	coorxy(21, 19); cout << "Help";
+//	coorxy(21, 24); cout << "Exit";
+//
+//
+//Arrw:
+//	hdc(1);
+//	cy = 0;
+//	for (int a = 0; a < 5; a++) {
+//		coorxy(7, 4+cy); cout << "   ";
+//		coorxy(37, 4 + cy); cout << "   ";
+//		cy += 5;
+//	}
+//
+//	if (cntr == 0) {
+//		coorxy(7, 4); cout << ">> ";
+//		coorxy(37, 4); cout << " <<";
+//	}
+//	else if (cntr == 1) {
+//		coorxy(7, 9); cout << ">> ";
+//		coorxy(37, 9); cout << " <<";
+//	}
+//	else if (cntr == 2) {
+//		coorxy(7, 14); cout << ">> ";
+//		coorxy(37, 14); cout << " <<";
+//	}
+//	else if (cntr == 3) {
+//		coorxy(7, 19); cout << ">> ";
+//		coorxy(37, 19); cout << " <<";
+//	}
+//	else if (cntr == 4) {
+//		coorxy(7, 24); cout << ">> ";
+//		coorxy(37, 24); cout << " <<";
+//	}
+//
+//	switch (_getch()) {
+//	case 224:
+//		switch (_getch()) {
+//		case 72:
+//			if (cntr == 0) cntr = 4;
+//			else cntr--;
+//			break;
+//		case 80:
+//			if (cntr == 4) cntr = 0;
+//			else cntr++;
+//			break;
+//		}
+//		goto Arrw;
+//		break;
+//	case 13:
+//		if (cntr == 0) {
+//			coorxy(7, 4); cout << "   ";
+//			coorxy(37, 4); cout << "   ";
+//			psdbtn(10, 2, 25, 3);
+//			Sleep(150);
+//			system("cls");
+//			hdc(0);
+//			menu(1, access);
+//			system("cls");
+//		}
+//		else if (cntr == 1) {
+//			coorxy(7, 9); cout << "   ";
+//			coorxy(37, 9); cout << "   ";
+//			psdbtn(10, 7, 25, 3);
+//			Sleep(150);
+//			system("cls");
+//			hdc(0);
+//			menu(2, access);
+//			system("cls");
+//		}
+//		else if (cntr == 2) {
+//			coorxy(7, 14); cout << "   ";
+//			coorxy(37, 14); cout << "   ";
+//			psdbtn(10, 12, 25, 3);
+//			Sleep(150);
+//			system("cls");
+//			hdc(0);
+//			menu(3, access);
+//			system("cls");
+//		}
+//		else if (cntr == 3) {
+//			coorxy(7, 19); cout << "   ";
+//			coorxy(37, 19); cout << "   ";
+//			psdbtn(10, 17, 25, 3);
+//			Sleep(150);
+//			system("cls");
+//			hp();
+//			system("cls");
+//		}
+//		else if (cntr == 4) {
+//			coorxy(7, 24); cout << "   ";
+//			coorxy(37, 24); cout << "   ";
+//			psdbtn(10, 22, 25, 3);
+//			Sleep(150);
+//			system("cls");
+//			ext = 0;
+//			cntr = 0;
+//			for (int i = 0; i < 26;) {
+//				buttonxy(45+i, 11, 12, 1);
+//				i += 17;
+//			}
+//
+//			//buttonxy2(45, 11, 12, 1, 2);
+//			coorxy(55, 9); cout << "Are you sure?";
+//			coorxy(50, 12); cout << "Yes";
+//			coorxy(68, 12); cout << "No";
+//
+//		ls:
+//			cy = 0;
+//			for (int a = 0; a < 2; a++) {
+//				coorxy(44, 10+cy); cout << string(33, ' ');
+//				cy += 4;
+//			}
+//
+//
+//			if (cntr == 0) {
+//				buttonxy2(45, 11, 12, 1,2);
+//			}
+//			else if (cntr == 1) {
+//				buttonxy2(62, 11, 12, 1, 2);
+//			}
+//
+//			coorxy(39, 5); cout << "- BSIT Student Enrollment Management System -";
+//			switch (_getch()) {
+//			case 224:
+//				switch (_getch()) {
+//				case 75:
+//					if (cntr == 0) cntr = 1;
+//					else cntr--;
+//					break;
+//				case 77:
+//					if (cntr == 1) cntr = 0;
+//					else cntr++;
+//					break;
+//				}
+//				goto ls;
+//				break;
+//			case 13:
+//				if (cntr == 0) {
+//					psdbtn(45, 11, 12, 1);
+//					Sleep(150);
+//					system("cls");
+//					exit(0);
+//				}
+//				else if (cntr == 1) {
+//					psdbtn(62, 11, 12, 1);
+//					Sleep(150);
+//					system("cls");
+//					cntr = 4;
+//					goto mn;
+//				}
+//				break;
+//			default:
+//				goto ls;
+//				break;
+//			}
+//		}
+//		goto mn;
+//		break;
+//	default:
+//		goto Arrw;
+//		break;
+//	}
+//
+//
+//
+//	coorxy(0, 29); system("pause");
+//
+//	//for (int i = 0; i < 24;) {
+//	//	buttonxy(10, 3 + i, 25, 1);
+//	//	i += 3;
+//	//}
+//
+//	//buttonxy2(10, 3, 25, 3,2);
+//
+//	//for (int i = 0;;) {
+//
+//	//	coorxy(14, 5); cout << "Student Registration";
+//	//	coorxy(13, 11); cout << "Curriculum Management";
+//	//	coorxy(15, 17); cout << "Student Enrollment";
+//	//	coorxy(21, 23); cout << "Exit";
+//
+//	//	for (int i = 0; i < 24;) {
+//	//		buttonxy(10, 3 + i, 25, 2);
+//	//		i += 3;
+//	//	}
+//	//	coorxy(0, 0); char  a = _getch();
+//
+//
+//	//	if (a == 72) num--;
+//	//	else if (a == 80) num++;
+//
+//	//	else if (a == 13) { // PRESSING ENTER KEY
+//
+//
+//	//		if (num == 4) { // Exit Pressed button function
+//	//			buttonxy2(10, 21, 25, 3, 1);
+//	//			Sleep(250);
+//	//			system("cls");
+//
+//	//			int exit = 0;
+//	//			int num = 1;
+//	//			
+//
+//	//			for (int i = 0; i < 26;) {
+//	//				buttonxy(45+i, 11, 12, 1);
+//	//				i += 17;
+//	//			}
+//
+//	//			buttonxy2(45, 11, 12, 1, 2);
+//	//			coorxy(55, 9); cout << "Are you sure?";
+//	//			coorxy(50, 12); cout << "Yes";
+//	//			coorxy(68, 12); cout << "No";
+//
+//	//			char a;
+//	//			for (int i = 0;;) {
+//	//			coorxy(0, 0); a =_getch();
+//
+//	//				if (a == 75)num--; // arrow key function
+//	//				else if (a == 77)num++;
+//
+//	//				if (num < 1)num = 1;
+//	//				else if (num > 2) num = 2;
+//
+//	//				if (a == 13) { // exit confirmation
+//	//					if (num == 2) {
+//	//						buttonxy2(62, 11, 12, 1,1);
+//	//						Sleep(200);
+//	//						system("cls");
+//	//						break;
+//	//					}
+//	//					else {
+//	//						exit = 1;
+//	//						buttonxy2(45, 11, 12, 1, 1);
+//	//						Sleep(200);
+//	//						system("cls");
+//	//						break;
+//	//					}
+//	//				}
+//
+//	//				for (int i = 0;i<5;) { //erasing selection animation
+//	//					coorxy(43, 10+i); cout << string(40, ' ');
+//	//					i += 4;
+//	//					
+//	//				}
+//	//				switch (num) { // Exit selection animation
+//	//				case 1:buttonxy2(45, 11, 12, 1,2);
+//	//					break;
+//	//				case 2:buttonxy2(62, 11, 12, 1, 2);
+//	//					break;
+//	//				}
+//
+//	//			}
+//	//			if (exit == 1) { // exit
+//	//				break;
+//	//			}
+//	//		}
+//	//		else {
+//
+//	//		switch (num) { // Pressed button animation
+//	//		case 1: buttonxy2(10, 3, 25, 3, 1);
+//	//				Sleep(200);
+//	//				break;
+//	//		case 2: buttonxy2(10, 9, 25, 3, 1);
+//	//				Sleep(200);
+//	//				break;
+//	//		case 3: buttonxy2(10, 15, 25, 3, 1);
+//	//				Sleep(200);
+//	//				break;
+//	//		default:
+//	//				break;
+//	//			}
+//	//		system("cls");
+//	//		menu(num, access); // Options when entered part 2
+//	//		//switch (num) { // Options when entered part 1 *error*
+//	//		//case 1: enrollment();
+//	//		//	break;
+//	//		//} 
+//	//		}
+//	//	}
+//	//	
+//
+//	//	if (num < 1) num = 4;
+//	//	else if (num > 4) num = 1;
+//
+//	//	for (int i = 0; i < 25; i++) { // erase selection
+//	//		coorxy(9, 2 + i); cout << string(1, ' ');
+//	//		coorxy(37, 2 + i); cout << string(1, ' ');
+//	//	}
+//
+//
+//	//	switch (num) { // Selection bar
+//	//	case 1: buttonxy2(10, 3, 25, 3,2);
+//	//		break;
+//	//	case 2:buttonxy2(10, 9, 25, 3,2);
+//	//		break;
+//	//	case 3:buttonxy2(10, 15, 25, 3,2);
+//	//		break;
+//	//	case 4:buttonxy2(10, 21, 25, 3,02);
+//	//		break;
+//	//	}
+//	//}
+//
+//	//coorxy(0, 29); system("pause");
+//}
+
 int main() {
-
-	font1(600, 10, 20);
-
-
-	char user[] = "user1", upass[] = "upass1";
-	char admin[] = "admin1", apass[] = "apass1";
-	char username[32]={}, password[32]={}, a;
-
-
-	int num = 1;
-	int access =1;
-
-	//openscen();
-
-	//coorxy(38, 27); cout << "BSIT Student Enrollment Management System";
-	//coorxy(45, 22); system("pause"); ////////////// OPENING 
-	//coorxy(45, 22); cout << string(40, ' ');
-
-	//coorxy(42, 20); cout << "Username :";
-	//coorxy(53, 19); cout << char(218) <<string(20, char(196)) << char(191);
-	//coorxy(53, 20); cout << char(179);
-	//coorxy(74, 20); cout << char(179);
-	//coorxy(53, 21); cout << char(192) <<string(20, char(196)) << char(217);
-
-	//coorxy(42, 23); cout << "Password :";
-	//coorxy(53, 22); cout << char(218) << string(20, char(196)) << char(191);
-	//coorxy(53, 23); cout << char(179);
-	//coorxy(74, 23); cout << char(179);
-	//coorxy(53, 24); cout << char(192) << string(20, char(196)) << char(217);
-
-	//Usr: // Login security system
-	//coorxy(55, 20);
-	//for (int i = 0;;) { // Login security for username
-	//	a = _getch();
-	//	if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-	//		if (i < 19) {
-	//			cout << a;
-	//			username[i] = a;
-	//			++i;
-	//		}
-	//	}
-	//	else if (a == 8 && i >= 1) {
-	//		cout << "\b \b";
-	//		username[--i] = '\0';
-	//	}
-	//	else if (a == 13) {
-	//		username[i] = '\0';
-	//		break;
-	//	}
-	//}
-	//coorxy(55, 23);
-	//for (int i = 0;;) { // login security for password
-	//	a = _getch();
-	//	if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z' || a >= '0' && a <= '9' || a == ' ') {
-	//		if (i < 19) {
-	//			cout << "*";
-	//			password[i] = a;
-	//			++i;
-	//		}
-	//	}
-	//	else if (a == 8 && i >= 1) {
-	//		cout << "\b \b";
-	//		password[--i] = '\0';
-	//	}
-	//	else if (a == 13) {
-	//		password[i] = '\0';
-	//		if ((strcmp(username, user) == 0 && strcmp(password, upass) == 0)|| strcmp(username, admin) == 0 && strcmp(password, apass) == 0) { // For logging in
-	//			if (strcmp(username, admin) == 0 && strcmp(password, apass) == 0) {
-	//				access = 1; // admin access
-	//			}
-	//			break;
-
-	//		}
-	//		else {
-	//			i = 0;
-	//			coorxy(43, 25); cout << "Incorrect Username or Password";
-	//			coorxy(55, 20); cout << string(19, ' ');
-	//			coorxy(55, 23); cout << string(19, ' ');
-	//			goto Usr;
-	//		}
-	//	}
-	//}
-
-
-	//coorxy(45, 25); system("pause");
-	
-	system("cls");
-
-	int cy = 0;
-	int cntr = 0;
-	int ext = 0;
-
-mn:
-	cy = 0;
-	for (int a = 0; a < 5; a++) {
-		buttonxy(10, 2+cy,25,3);
-		cy += 5;
-	}
-	coorxy(70, 2); cout << "- BSIT Student Enrollment Management System -";
-	coorxy(14, 4); cout << "Student Registration";
-	coorxy(13, 9); cout << "Curriculum Management";
-	coorxy(14, 14); cout << "Student Enrollment";
-	coorxy(21, 19); cout << "Help";
-	coorxy(21, 24); cout << "Exit";
-
-
-Arrw:
-	hdc(1);
-	cy = 0;
-	for (int a = 0; a < 5; a++) {
-		coorxy(7, 4+cy); cout << "   ";
-		coorxy(37, 4 + cy); cout << "   ";
-		cy += 5;
-	}
-
-	if (cntr == 0) {
-		coorxy(7, 4); cout << ">> ";
-		coorxy(37, 4); cout << " <<";
-	}
-	else if (cntr == 1) {
-		coorxy(7, 9); cout << ">> ";
-		coorxy(37, 9); cout << " <<";
-	}
-	else if (cntr == 2) {
-		coorxy(7, 14); cout << ">> ";
-		coorxy(37, 14); cout << " <<";
-	}
-	else if (cntr == 3) {
-		coorxy(7, 19); cout << ">> ";
-		coorxy(37, 19); cout << " <<";
-	}
-	else if (cntr == 4) {
-		coorxy(7, 24); cout << ">> ";
-		coorxy(37, 24); cout << " <<";
-	}
-
-	switch (_getch()) {
-	case 224:
-		switch (_getch()) {
-		case 72:
-			if (cntr == 0) cntr = 4;
-			else cntr--;
-			break;
-		case 80:
-			if (cntr == 4) cntr = 0;
-			else cntr++;
-			break;
-		}
-		goto Arrw;
-		break;
-	case 13:
-		if (cntr == 0) {
-			coorxy(7, 4); cout << "   ";
-			coorxy(37, 4); cout << "   ";
-			psdbtn(10, 2, 25, 3);
-			Sleep(150);
-			system("cls");
-			hdc(0);
-			menu(1, access);
-			system("cls");
-		}
-		else if (cntr == 1) {
-			coorxy(7, 9); cout << "   ";
-			coorxy(37, 9); cout << "   ";
-			psdbtn(10, 7, 25, 3);
-			Sleep(150);
-			system("cls");
-			hdc(0);
-			menu(2, access);
-			system("cls");
-		}
-		else if (cntr == 2) {
-			coorxy(7, 14); cout << "   ";
-			coorxy(37, 14); cout << "   ";
-			psdbtn(10, 12, 25, 3);
-			Sleep(150);
-			system("cls");
-			hdc(0);
-			menu(3, access);
-			system("cls");
-		}
-		else if (cntr == 3) {
-			coorxy(7, 19); cout << "   ";
-			coorxy(37, 19); cout << "   ";
-			psdbtn(10, 17, 25, 3);
-			Sleep(150);
-			system("cls");
-			hp();
-			system("cls");
-		}
-		else if (cntr == 4) {
-			coorxy(7, 24); cout << "   ";
-			coorxy(37, 24); cout << "   ";
-			psdbtn(10, 22, 25, 3);
-			Sleep(150);
-			system("cls");
-			ext = 0;
-			cntr = 0;
-			for (int i = 0; i < 26;) {
-				buttonxy(45+i, 11, 12, 1);
-				i += 17;
-			}
-
-			//buttonxy2(45, 11, 12, 1, 2);
-			coorxy(55, 9); cout << "Are you sure?";
-			coorxy(50, 12); cout << "Yes";
-			coorxy(68, 12); cout << "No";
-
-		ls:
-			cy = 0;
-			for (int a = 0; a < 2; a++) {
-				coorxy(44, 10+cy); cout << string(33, ' ');
-				cy += 4;
-			}
-
-
-			if (cntr == 0) {
-				buttonxy2(45, 11, 12, 1,2);
-			}
-			else if (cntr == 1) {
-				buttonxy2(62, 11, 12, 1, 2);
-			}
-
-			coorxy(39, 5); cout << "- BSIT Student Enrollment Management System -";
-			switch (_getch()) {
-			case 224:
-				switch (_getch()) {
-				case 75:
-					if (cntr == 0) cntr = 1;
-					else cntr--;
-					break;
-				case 77:
-					if (cntr == 1) cntr = 0;
-					else cntr++;
-					break;
-				}
-				goto ls;
-				break;
-			case 13:
-				if (cntr == 0) {
-					psdbtn(45, 11, 12, 1);
-					Sleep(150);
-					system("cls");
-					exit(0);
-				}
-				else if (cntr == 1) {
-					psdbtn(62, 11, 12, 1);
-					Sleep(150);
-					system("cls");
-					cntr = 4;
-					goto mn;
-				}
-				break;
-			default:
-				goto ls;
-				break;
-			}
-		}
-		goto mn;
-		break;
-	default:
-		goto Arrw;
-		break;
-	}
-
-
-
+	//hdc(1);
+	menudes(45,10);
 	coorxy(0, 29); system("pause");
-
-	//for (int i = 0; i < 24;) {
-	//	buttonxy(10, 3 + i, 25, 1);
-	//	i += 3;
-	//}
-
-	//buttonxy2(10, 3, 25, 3,2);
-
-	//for (int i = 0;;) {
-
-	//	coorxy(14, 5); cout << "Student Registration";
-	//	coorxy(13, 11); cout << "Curriculum Management";
-	//	coorxy(15, 17); cout << "Student Enrollment";
-	//	coorxy(21, 23); cout << "Exit";
-
-	//	for (int i = 0; i < 24;) {
-	//		buttonxy(10, 3 + i, 25, 2);
-	//		i += 3;
-	//	}
-	//	coorxy(0, 0); char  a = _getch();
-
-
-	//	if (a == 72) num--;
-	//	else if (a == 80) num++;
-
-	//	else if (a == 13) { // PRESSING ENTER KEY
-
-
-	//		if (num == 4) { // Exit Pressed button function
-	//			buttonxy2(10, 21, 25, 3, 1);
-	//			Sleep(250);
-	//			system("cls");
-
-	//			int exit = 0;
-	//			int num = 1;
-	//			
-
-	//			for (int i = 0; i < 26;) {
-	//				buttonxy(45+i, 11, 12, 1);
-	//				i += 17;
-	//			}
-
-	//			buttonxy2(45, 11, 12, 1, 2);
-	//			coorxy(55, 9); cout << "Are you sure?";
-	//			coorxy(50, 12); cout << "Yes";
-	//			coorxy(68, 12); cout << "No";
-
-	//			char a;
-	//			for (int i = 0;;) {
-	//			coorxy(0, 0); a =_getch();
-
-	//				if (a == 75)num--; // arrow key function
-	//				else if (a == 77)num++;
-
-	//				if (num < 1)num = 1;
-	//				else if (num > 2) num = 2;
-
-	//				if (a == 13) { // exit confirmation
-	//					if (num == 2) {
-	//						buttonxy2(62, 11, 12, 1,1);
-	//						Sleep(200);
-	//						system("cls");
-	//						break;
-	//					}
-	//					else {
-	//						exit = 1;
-	//						buttonxy2(45, 11, 12, 1, 1);
-	//						Sleep(200);
-	//						system("cls");
-	//						break;
-	//					}
-	//				}
-
-	//				for (int i = 0;i<5;) { //erasing selection animation
-	//					coorxy(43, 10+i); cout << string(40, ' ');
-	//					i += 4;
-	//					
-	//				}
-	//				switch (num) { // Exit selection animation
-	//				case 1:buttonxy2(45, 11, 12, 1,2);
-	//					break;
-	//				case 2:buttonxy2(62, 11, 12, 1, 2);
-	//					break;
-	//				}
-
-	//			}
-	//			if (exit == 1) { // exit
-	//				break;
-	//			}
-	//		}
-	//		else {
-
-	//		switch (num) { // Pressed button animation
-	//		case 1: buttonxy2(10, 3, 25, 3, 1);
-	//				Sleep(200);
-	//				break;
-	//		case 2: buttonxy2(10, 9, 25, 3, 1);
-	//				Sleep(200);
-	//				break;
-	//		case 3: buttonxy2(10, 15, 25, 3, 1);
-	//				Sleep(200);
-	//				break;
-	//		default:
-	//				break;
-	//			}
-	//		system("cls");
-	//		menu(num, access); // Options when entered part 2
-	//		//switch (num) { // Options when entered part 1 *error*
-	//		//case 1: enrollment();
-	//		//	break;
-	//		//} 
-	//		}
-	//	}
-	//	
-
-	//	if (num < 1) num = 4;
-	//	else if (num > 4) num = 1;
-
-	//	for (int i = 0; i < 25; i++) { // erase selection
-	//		coorxy(9, 2 + i); cout << string(1, ' ');
-	//		coorxy(37, 2 + i); cout << string(1, ' ');
-	//	}
-
-
-	//	switch (num) { // Selection bar
-	//	case 1: buttonxy2(10, 3, 25, 3,2);
-	//		break;
-	//	case 2:buttonxy2(10, 9, 25, 3,2);
-	//		break;
-	//	case 3:buttonxy2(10, 15, 25, 3,2);
-	//		break;
-	//	case 4:buttonxy2(10, 21, 25, 3,02);
-	//		break;
-	//	}
-	//}
-
-	//coorxy(0, 29); system("pause");
 }
 
 //int main() {

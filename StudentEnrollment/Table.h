@@ -278,3 +278,53 @@ void openscen() {
 		coorxy(86 - i, 15); cout << char(177);
 	}
 }
+
+void menudes(int x,int y) {
+	int cy = 0;
+	int cx = 0;
+	for (int a = 0; a < 3; a++) { // top
+		coorxy(x+cx, y+a); cout << char(220);
+		cx += 6;
+	}
+	cx = 0;
+	for (int a = 0; a < 3; a++) {
+		coorxy(x-cx, y+a); cout << char(220);
+		cx += 6;
+	}
+	cx = 1;
+	cy = 1;
+	for (int a = 0; a < 2; a++) {
+		coorxy(x + cx, y+cy); cout << string(5, char(223));
+		cx += 6;
+		cy += 1;
+	}
+	cx = 5;
+	cy = 1;
+	for (int a = 0; a < 2; a++) {
+		coorxy(x - cx, y + cy); cout << string(5, char(223));
+		cx += 6;
+		cy += 1;
+	}
+	cx = 0;
+	cy = 4;
+	for (int a = 0; a < 3; a++) { // bottom
+		coorxy(x+cx, y+cy); cout << char(220);
+		cy -= 1;
+		cx += 6;
+	}
+	cx = 0;
+	cy = 4;
+	for (int a = 0; a < 3; a++) { 
+		coorxy(x + cx, y + cy); cout << char(220);
+		cy -= 1;
+		cx -= 6;
+	}
+	cx = 1;
+	cy = 4;
+	for (int a = 0; a < 2; a++) { // youre here
+		coorxy(x - cx, y - cy); cout << string(5, char(223));
+		cx += 6;
+		cy += 1;
+	}
+
+}
