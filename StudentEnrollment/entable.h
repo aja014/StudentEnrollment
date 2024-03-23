@@ -16,6 +16,7 @@ void page1()
 	hl(3, 3, 115, 196);// Search bar
 
 	coorxy(4, 2); cout << "SEARCH POOLING NUMBER" << char(179);
+	coorxy(35, 4); cout << "- BSIT Student Enrollment Management System -";
 
 	//page 1
 
@@ -77,9 +78,10 @@ void page2()
 	gotoxy(95, 26); cout << string(15, char(205));	gotoxy(95, 28); cout << string(15, char(205)); gotoxy(95, 27); cout << char(186); gotoxy(110, 27); cout << char(186);
 	gotoxy(95, 26); cout << char(201);	gotoxy(95, 28); cout << char(200);	gotoxy(110, 26); cout << char(187);	gotoxy(110, 28); cout << char(188);
 
+	coorxy(35, 2); cout << "- BSIT Student Enrollment Management System -";
 	gotoxy(101, 27); cout << "NEXT"; //gotoxy(98, 27); cout << "CLEAR MARK";
 
-	coorxy(5, 6); cout << "NO"; coorxy(15, 6); cout << "YEAR LEVEL"; coorxy(36, 6); cout << " SUBJECT CODE";
+	coorxy(5, 6); cout << "NO"; coorxy(14, 6); cout << "PRE-REQUISITES"; coorxy(36, 6); cout << " SUBJECT CODE";
 	coorxy(65, 6); cout << " SUBJECT DESCRIPTION"; coorxy(106, 6); cout << "MARKS";
 }
 void page3()
@@ -121,4 +123,5 @@ void page3()
 	gotoxy(84, 27); cout << "CONFIRM"; gotoxy(106, 27); cout << "BACK";
 	coorxy(5, 4); cout << "NO"; coorxy(15, 4); cout << "YEAR LEVEL"; coorxy(36, 4); cout << " SUBJECT CODE";
 	coorxy(65, 4); cout << " SUBJECT DESCRIPTION"; coorxy(103, 4); cout << "SUBJECT UNIT"; coorxy(85, 24); cout << "TOTAL UNITS";
+	coorxy(35, 2); cout << "- BSIT Student Enrollment Management System -";
 }

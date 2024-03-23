@@ -37,7 +37,7 @@ void hdc(int x) {
 
 void multival(string& v, string& w, string& x, string& y, string& z, int a, int b, int c) { // w x y z is the storage, a b is the position of gotoxy, c if erasing (1 == erase)
 
-
+	hdc(0);
 	if (c == 1) { // this is to erase
 		v = "";
 		coorxy(a + 28, b); cout << string(13, ' ');
@@ -1064,6 +1064,10 @@ int menu(int x, int y) {
 		do {
 
 		W:
+			hdc(1);
+			for (int a = 8; a <= 24; a++) {
+				coorxy(1, a); cout << " ";
+			}
 
 			switch (counter) {
 
@@ -1310,7 +1314,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 2:
-				coorxy(0, 8);
+				coorxy(1, 8); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter = 0;
@@ -1328,7 +1332,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 3:
-				coorxy(0, 10);
+				coorxy(1, 10); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1346,7 +1350,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 4:
-				coorxy(0, 12);
+				coorxy(1, 12); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1364,7 +1368,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 5:
-				coorxy(0, 14);
+				coorxy(1, 14); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1382,7 +1386,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 6:
-				coorxy(0, 16);
+				coorxy(1, 16); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1400,7 +1404,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 7:
-				coorxy(0, 18);
+				coorxy(1, 18); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1418,7 +1422,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 8:
-				coorxy(0, 20);
+				coorxy(1, 20); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1436,7 +1440,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 9:
-				coorxy(0, 22);
+				coorxy(1, 22); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1455,7 +1459,7 @@ int menu(int x, int y) {
 				break;
 			case 10:
 				hdc(0);
-				coorxy(0, 24);
+				coorxy(1, 24); cout << char(254);
 				switch (_getch()) {
 				case 72:
 					counter--;
@@ -1895,6 +1899,9 @@ int menu(int x, int y) {
 					}
 					else {
 
+						coorxy(27, 2); cout << string(8, ' ');
+						coorxy(27, 2); cout << finder;
+
 						// remove values
 
 						for (int x = 0; x < 20; x++) {
@@ -1911,6 +1918,9 @@ int menu(int x, int y) {
 						coorxy(15, 10); cout << string(102, ' ');// address
 						coorxy(21, 12); cout << string(5, ' ');// year
 						coorxy(73, 12); cout << string(5, ' ');// sem
+
+						goto E;
+
 					}
 					file.close();
 
@@ -1983,9 +1993,11 @@ int menu(int x, int y) {
 				case 224:
 					switch (_getch()) { // Get the second value
 					case 72: // Up arrow
+					case 75:
 						lcntr--;
 						break;
 					case 80: // Down arrow
+					case 77:
 						lcntr++;
 						break;
 					}
@@ -2033,9 +2045,11 @@ int menu(int x, int y) {
 				case 224:
 					switch (_getch()) { // Get the second value
 					case 72: // Up arrow
+					case 75:
 						lcntr--;
 						break;
 					case 80: // Down arrow
+					case 77:
 						lcntr = 0;
 						break;
 					}
@@ -2062,7 +2076,7 @@ int menu(int x, int y) {
 			break;
 
 		case 1:
-
+			hdc(0);
 			if (stinfo[18] == "1" && stinfo[19] == "1") { // if freshman
 				cntr++;
 				system("cls");
@@ -2150,7 +2164,7 @@ int menu(int x, int y) {
 								coorxy(cx, cy); cout << n1 + 1; // subject number
 								cx += 5;
 								//coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-								coorxy(cx, cy); cout << "Remove this column na";
+								coorxy(18, cy); cout << "Pre-req ";
 								cx += 27;
 								/*coorxy(cx, cy); cout << prereqsub[x];
 								cx += 10;*/
@@ -2211,7 +2225,7 @@ int menu(int x, int y) {
 				}
 
 				// confirmation "Next"
-
+				hdc(1);
 				coorxy(92, 27); cout << "<< ";
 				coorxy(111, 27); cout << " >>";
 				do {
@@ -2220,7 +2234,9 @@ int menu(int x, int y) {
 				//buttonxy2(92, 27, 14, 1, 1);
 				coorxy(92, 27); cout << " <<";
 				coorxy(111, 27); cout << ">> ";
+				psdbtn(95, 26, 14, 1);
 				Sleep(100);
+				//hdc(0);
 				cntr++;
 				//// This is just for testing
 				//for (int a = 0; a < size(psdsub); a++) {
@@ -2315,7 +2331,7 @@ int menu(int x, int y) {
 								coorxy(cx, cy); cout << n1 + 1; // subject number
 								cx += 5;
 								//coorxy(cx, cy); cout << "Year " << stinfo[18] << " / Sem " << stinfo[19];
-								coorxy(cx, cy); cout << "Remove this column na";
+								coorxy(18, cy); cout << "Pre-req ";
 								cx += 27;
 								/*coorxy(cx, cy); cout << prereqsub[x];
 								cx += 10;*/
@@ -2338,7 +2354,7 @@ int menu(int x, int y) {
 				cx = 108;
 				cy = 8;
 				for (int a = 0; a < n1; a++) {
-					coorxy(cx, cy); cin >> grd[a];
+					coorxy(cx, cy); getchVale(grd[a], 'n', 1);
 					cy += 2;
 				}
 
@@ -2376,7 +2392,7 @@ int menu(int x, int y) {
 				}
 
 				// confirmation "Next"
-
+				hdc(1);
 				coorxy(92, 27); cout << "<< ";
 				coorxy(111, 27); cout << " >>";
 				do {
@@ -2384,6 +2400,8 @@ int menu(int x, int y) {
 				} while (cn1 != 13);
 				coorxy(92, 27); cout << " <<";
 				coorxy(111, 27); cout << ">> ";
+				psdbtn(95, 26, 14, 1);
+				//hdc(0);
 				Sleep(100);
 				cntr++;
 				//// This is just for testing
@@ -2550,7 +2568,7 @@ int menu(int x, int y) {
 				coorxy(97, 27); cout << "<< ";
 				coorxy(116, 27); cout << " >>";
 			}
-
+			hdc(1);
 			switch (_getch()) {
 			case 224:
 				switch (_getch()) {
@@ -2571,6 +2589,7 @@ int menu(int x, int y) {
 					//coorxy(0, 29); system("pause");
 					coorxy(77, 27); cout << " <<";
 					coorxy(96, 27); cout << ">> ";
+					psdbtn(80, 26, 14, 1);
 					Sleep(150);
 					system("cls");
 				}
@@ -2578,6 +2597,7 @@ int menu(int x, int y) {
 					//buttonxy2(97, 27, 14, 1, 1);
 					coorxy(97, 27); cout << " <<";
 					coorxy(116, 27); cout << ">> ";
+					psdbtn(100, 26, 14, 1);
 					Sleep(150);
 					system("cls");
 					goto estrt;
@@ -2607,7 +2627,7 @@ int main() {
 
 
 	int num = 1;
-	int access = 0;
+	int access =1;
 
 	//openscen();
 
@@ -2698,7 +2718,7 @@ mn:
 	coorxy(70, 2); cout << "- BSIT Student Enrollment Management System -";
 	coorxy(14, 4); cout << "Student Registration";
 	coorxy(13, 9); cout << "Curriculum Management";
-	coorxy(14, 14); cout << "Student Enrollement";
+	coorxy(14, 14); cout << "Student Enrollment";
 	coorxy(21, 19); cout << "Help";
 	coorxy(21, 24); cout << "Exit";
 
@@ -2753,8 +2773,8 @@ Arrw:
 			coorxy(37, 4); cout << "   ";
 			psdbtn(10, 2, 25, 3);
 			Sleep(150);
-			hdc(0);
 			system("cls");
+			hdc(0);
 			menu(1, access);
 			system("cls");
 		}
@@ -2763,8 +2783,8 @@ Arrw:
 			coorxy(37, 9); cout << "   ";
 			psdbtn(10, 7, 25, 3);
 			Sleep(150);
-			hdc(0);
 			system("cls");
+			hdc(0);
 			menu(2, access);
 			system("cls");
 		}
@@ -2773,8 +2793,8 @@ Arrw:
 			coorxy(37, 14); cout << "   ";
 			psdbtn(10, 12, 25, 3);
 			Sleep(150);
-			hdc(0);
 			system("cls");
+			hdc(0);
 			menu(3, access);
 			system("cls");
 		}
@@ -2837,10 +2857,14 @@ Arrw:
 				break;
 			case 13:
 				if (cntr == 0) {
+					psdbtn(45, 11, 12, 1);
+					Sleep(150);
 					system("cls");
 					exit(0);
 				}
 				else if (cntr == 1) {
+					psdbtn(62, 11, 12, 1);
+					Sleep(150);
 					system("cls");
 					cntr = 4;
 					goto mn;

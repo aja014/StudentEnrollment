@@ -74,6 +74,7 @@ void tablec()
 	gotoxy(64, 27); cout << " UPDATE "; gotoxy(85, 27); cout << "DELETE"; gotoxy(106, 27); cout << "BACK";
 
 	gotoxy(5, 2); cout << "SEARCH YEAR: " << char(179); gotoxy(45, 2); cout << char(179) << "SEARCH SEMESTER:" << char(179);
+	coorxy(35, 4); cout << "- BSIT Student Enrollment Management System -";
 
 
 }
