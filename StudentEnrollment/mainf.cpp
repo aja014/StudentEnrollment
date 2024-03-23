@@ -43,13 +43,13 @@ void multival(string& v, string& w, string& x, string& y, string& z, int a, int 
 		coorxy(a + 28, b); cout << string(13, ' ');
 		coorxy(a + 28, b); cout << v;
 		w = "";
-		coorxy(a + 43, b); cout << string(37, ' ');
+		coorxy(a + 43, b); cout << string(46, ' ');
 		coorxy(a + 43, b); cout << w;
 		x = "";
-		coorxy(a + 92, b); cout << string(8, ' ');
+		coorxy(a + 92, b); cout << string(5, ' ');
 		coorxy(a + 92, b); cout << x;
 		y = "";
-		coorxy(a + 99, b); cout << string(7, ' ');
+		coorxy(a + 99, b); cout << string(6, ' ');
 		coorxy(a + 99, b); cout << y;
 		z = "";
 		coorxy(a + 107, b); cout << string(7, ' ');
@@ -561,6 +561,7 @@ int menu(int x, int y) {
 						coorxy(37, 27); cout << "  ";
 						coorxy(18, 27); cout << "<<";
 						coorxy(36, 27); cout << ">>";
+						psdbtn(20, 26, 14, 1);
 						Sleep(100);
 						system("cls");
 						hp();
@@ -613,6 +614,7 @@ int menu(int x, int y) {
 						coorxy(62, 27); cout << "  ";
 						coorxy(43, 27); cout << "<<";
 						coorxy(61, 27); cout << ">>";
+						psdbtn(45, 26, 14, 1);
 						Sleep(100);
 
 						// information must not be empty inorder to add or save
@@ -731,6 +733,7 @@ int menu(int x, int y) {
 						coorxy(62, 27); cout << "  ";
 						coorxy(43, 27); cout << "<<";
 						coorxy(61, 27); cout << ">>";
+						psdbtn(45, 26, 14, 1);
 						Sleep(100);
 						system("cls");
 						hp();
@@ -795,6 +798,7 @@ int menu(int x, int y) {
 						coorxy(87, 27); cout << "  ";
 						coorxy(68, 27); cout << "<<";
 						coorxy(86, 27); cout << ">>";
+						psdbtn(70, 26, 14, 1);
 						Sleep(100);
 						hdc(0);
 
@@ -867,6 +871,7 @@ int menu(int x, int y) {
 						coorxy(87, 27); cout << "  ";
 						coorxy(68, 27); cout << "<<";
 						coorxy(86, 27); cout << ">>";
+						psdbtn(70, 26, 14, 1);
 						Sleep(100);
 
 						// information must not be empty inorder to add or save
@@ -1001,6 +1006,7 @@ int menu(int x, int y) {
 					coorxy(112, 27); cout << "  ";
 					coorxy(93, 27); cout << "<<";
 					coorxy(111, 27); cout << ">>";
+					psdbtn(95, 26, 14, 1);
 					Sleep(100);
 					system("cls");
 					hdc(0);
@@ -1042,8 +1048,11 @@ int menu(int x, int y) {
 
 		if (acc != 1) {
 			for (int a = 26; a <= 29; a++) {
-				coorxy(57, a); cout << string(40, ' ');
+				//coorxy(57, a); cout << string(40, ' ');
+				coorxy(40, a); cout << string(40, ' ');
 			}
+			coorxy(81, 27); cout << string(14, ' ');
+			coorxy(86, 27); cout << "HELP";
 		}
 
 
@@ -1059,6 +1068,7 @@ int menu(int x, int y) {
 			switch (counter) {
 
 			case 0:
+				hdc(0);
 				coorxy(20, 2); st = getchValc(year, 'n', 1);
 				coorxy(20, 2); cout << string(1, ' ');
 				coorxy(20, 2); cout << year;
@@ -1068,6 +1078,7 @@ int menu(int x, int y) {
 				break;
 
 			case 1:
+				hdc(0);
 				coorxy(64, 2); st = getchValc(sem, 'n', 1);
 				coorxy(64, 2); cout << string(1, ' ');
 				coorxy(64, 2); cout << sem;
@@ -1075,7 +1086,29 @@ int menu(int x, int y) {
 				if (st == 101) counter--;
 				else if (st == 111) {
 					if (sem == "") {
-						counter = 13;
+						counter = 11;
+						cx = 3;
+						cy = 8;
+
+						for (int z = 0; z < 9; z++) {
+							coorxy(cx, cy);
+							for (int x = 0; x < 1; x++) {
+								coorxy(cx, cy); cout << string(3, ' '); // no
+								cx += 4;
+								coorxy(cx, cy); cout << string(19, ' '); // year level
+								cx += 20;
+								coorxy(cx, cy); cout << string(14, ' '); // subject code
+								cx += 15;
+								coorxy(cx, cy); cout << string(48, ' '); // subject description
+								cx += 49;
+								coorxy(cx, cy); cout << string(6, ' '); // credits
+								cx += 7;
+								coorxy(cx, cy); cout << string(20, ' '); // subject pre requisites (both 1 & 2)
+							}
+							cy += 2;
+							cx = 3;
+						}
+
 						hdc(1);
 						goto W;
 					}
@@ -1084,7 +1117,7 @@ int menu(int x, int y) {
 							counter++;
 						}
 						else {
-							counter = 13;
+							counter = 11;
 						}
 
 					}
@@ -1248,29 +1281,29 @@ int menu(int x, int y) {
 
 						// Clearing display
 
-						cx = 5;
+						cx = 3;
 						cy = 8;
 
 						for (int z = 0; z < 9; z++) {
 							coorxy(cx, cy);
 							for (int x = 0; x < 1; x++) {
-								coorxy(cx, cy); cout << string(4, ' ');
-								cx += 6;
-								coorxy(cx, cy); cout << string(23, ' ');
-								cx += 25;
-								coorxy(cx, cy); cout << string(13, ' ');
+								coorxy(cx, cy); cout << string(3, ' '); // no
+								cx += 4;
+								coorxy(cx, cy); cout << string(19, ' '); // year level
+								cx += 20;
+								coorxy(cx, cy); cout << string(14, ' '); // subject code
 								cx += 15;
-								coorxy(cx, cy); cout << string(38, ' ');
-								cx += 40;
-								coorxy(cx, cy); cout << string(8, ' ');
-								cx += 10;
-								coorxy(cx, cy); cout << string(14, ' ');
+								coorxy(cx, cy); cout << string(48, ' '); // subject description
+								cx += 49;
+								coorxy(cx, cy); cout << string(6, ' '); // credits
+								cx += 7;
+								coorxy(cx, cy); cout << string(20, ' '); // subject pre requisites (both 1 & 2)
 							}
 							cy += 2;
-							cx = 5;
+							cx = 3;
 						}
 
-						counter = 13;
+						counter = 11;
 					}
 				}
 
@@ -1421,6 +1454,7 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 10:
+				hdc(0);
 				coorxy(0, 24);
 				switch (_getch()) {
 				case 72:
@@ -1439,20 +1473,187 @@ int menu(int x, int y) {
 				goto W;
 				break;
 			case 11:
+					hdc(1);
+				if (acc == 1) {
+					coorxy(37, 27); cout << "<< ";
+					coorxy(57, 27); cout << " >>";
+
+					switch (_getch()) {
+
+					case 72:
+					case 75:
+						if (year == "" && sem == "") {
+							counter = 0;
+						}
+						else {
+							counter--;
+						}
+						break;
+					case 80:
+					case 77:
+						if (year == "" && sem == "") {
+							counter = 14;
+						}
+						else {
+							counter++;
+						}
+						break;
+					case 13:
+						coorxy(37, 27); cout << " <<";
+						coorxy(57, 27); cout << ">> ";
+						psdbtn(40,26,15,1);
+						Sleep(100);
+						hp();
+						tablec();
+						coorxy(20, 2); cout << year;
+						coorxy(64, 2); cout << sem;
+						cx = 28;
+						cy = 8;
+						lvar = 0;
+						r = 0;
+						dn = 0;
+						num = 1;
+
+						for (int z = 0; z < 9; z++) {
+							coorxy(cx, cy);
+							for (int x = 0; x < 1; x++) {
+								if (var[r] != "") {// skip if subject code is empty
+									coorxy(cx, cy); cout << var[lvar]; // subject code
+									cx += 15;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // description
+									cx += 49;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // credits
+									cx += 7;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // prse req 1
+									cx += 10;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // pre req 2
+									lvar++;
+									coorxy(8, 8 + dn); cout << " Year " << year << " / " << "sem " << sem; // year level
+									coorxy(4, 8 + dn); cout << num; // No.
+									num++;
+									dn += 2;
+									cy += 2;
+								}
+								else {
+									lvar += 5;
+								}
+							}
+							r += 5;
+							cx = 28;
+						}
+						hdc(0);
+						break;
+					}
+					coorxy(37, 27); cout << "   ";
+					coorxy(57, 27); cout << "   ";
+				}
+				else {
+					coorxy(77, 27); cout << "<<";
+					coorxy(97, 27); cout << ">>";
+					switch (_getch()) {
+					case 72:
+					case 75:
+						if (acc == 1) {
+							counter--;
+						}
+						else {
+							counter = 0;
+						}
+						break;
+					case 80:
+					case 77:
+						if (acc == 1) {
+							counter++;
+						}
+						else {
+							counter = 14;
+						}
+						break;
+					case 13:
+						coorxy(77, 27); cout << " <<";
+						coorxy(96, 27); cout << ">> ";
+						psdbtn(80, 26, 14, 1);
+						Sleep(100);
+						hp();
+						tablec();
+						coorxy(20, 2); cout << year;
+						coorxy(64, 2); cout << sem;
+						cx = 28;
+						cy = 8;
+						lvar = 0;
+						r = 0;
+						dn = 0;
+						num = 1;
+
+						for (int z = 0; z < 9; z++) {
+							coorxy(cx, cy);
+							for (int x = 0; x < 1; x++) {
+								if (var[r] != "") {// skip if subject code is empty
+									coorxy(cx, cy); cout << var[lvar]; // subject code
+									cx += 15;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // description
+									cx += 49;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // credits
+									cx += 7;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // prse req 1
+									cx += 10;
+									lvar++;
+									coorxy(cx, cy); cout << var[lvar]; // pre req 2
+									lvar++;
+									coorxy(8, 8 + dn); cout << " Year " << year << " / " << "sem " << sem; // year level
+									coorxy(4, 8 + dn); cout << num; // No.
+									num++;
+									dn += 2;
+									cy += 2;
+								}
+								else {
+									lvar += 5;
+								}
+							}
+							r += 5;
+							cx = 28;
+						}
+						hdc(0);
+
+						for (int a = 26; a <= 29; a++) {
+							coorxy(40, a); cout << string(40, ' ');
+						}
+						coorxy(81, 27); cout << string(14, ' ');
+						coorxy(86, 27); cout << "HELP";
+						break;
+					}
+
+					// Deleting display access
+
+					coorxy(77, 27); cout << "   ";
+					coorxy(96, 27); cout << "   ";
+				}
+				break;
+			case 12:
 				coorxy(57, 27); cout << "<<";
 				coorxy(77, 27); cout << ">>";
 
 				switch (_getch()) {
 
 				case 72:
+				case 75:
 					counter--;
 					break;
 				case 80:
+				case 77:
 					counter++;
 					break;
 				case 13:
 					coorxy(57, 27); cout << " <<";
 					coorxy(76, 27); cout << ">> ";
+					psdbtn(60,26,14,1);
 					Sleep(100);
 
 					// Add / update here to data base
@@ -1495,19 +1696,22 @@ int menu(int x, int y) {
 				coorxy(76, 27); cout << "   ";
 				goto W;
 				break;
-			case 12:
+			case 13:
 				coorxy(77, 27); cout << "<<";
 				coorxy(97, 27); cout << ">>";
 				switch (_getch()) {
 				case 72:
+				case 75:
 					counter--;
 					break;
 				case 80:
+				case 77:
 					counter++;
 					break;
 				case 13:
 					coorxy(77, 27); cout << " <<";
 					coorxy(96, 27); cout << ">> ";
+					psdbtn(80, 26, 14, 1);
 					Sleep(100);
 
 
@@ -1546,14 +1750,14 @@ int menu(int x, int y) {
 				coorxy(96, 27); cout << "   ";
 				goto W;
 				break;
-			case 13:
+			case 14:
 				coorxy(97, 27); cout << "<<";
 				coorxy(117, 27); cout << ">>";
 				switch (_getch()) {
 				case 72:
 				case 75:
 					if (year == "" && sem == "") {
-						counter = 0;
+						counter = 11;
 					}
 					else {
 						if (acc == 1) {
@@ -1579,6 +1783,7 @@ int menu(int x, int y) {
 				case 13:
 					coorxy(97, 27); cout << " <<";
 					coorxy(116, 27); cout << ">> ";
+					psdbtn(100, 26,14,1);
 					Sleep(100);
 					ext = 1;
 					break;
@@ -2402,7 +2607,7 @@ int main() {
 
 
 	int num = 1;
-	int access = 1;
+	int access = 0;
 
 	//openscen();
 

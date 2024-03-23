@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "coorxy.h"
+#include "button.h"
 
 #define gotoxy coorxy
 
@@ -58,6 +59,8 @@ void tablec()
 	gotoxy(3, 6); cout << "NO"; gotoxy(10, 6); cout << "YEAR LEVEL"; gotoxy(27, 6); cout << " SUBJECT CODE";
 	gotoxy(55, 6); cout << " SUBJECT DESCRIPTION"; gotoxy(92, 6); cout << "UNIT"; gotoxy(103, 6); cout << "PRE-REQ.";
 
+	buttonxy(40,26,15,1); 
+	coorxy(46, 27); cout << "HELP";
 
 	gotoxy(60, 26); cout << string(15, char(205));	gotoxy(60, 28); cout << string(15, char(205)); gotoxy(60, 27); cout << string(1, char(186)); gotoxy(75, 27); cout << string(1, char(186));
 	gotoxy(60, 26); cout << string(1, char(201));	gotoxy(60, 28); cout << string(1, char(200));	gotoxy(75, 26); cout << string(1, char(187));	gotoxy(75, 28); cout << string(1, char(188));
