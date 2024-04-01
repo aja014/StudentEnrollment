@@ -1,0 +1,9 @@
+IT 401W$Web Programming and Frameworks$3$IT 305W$$
+IT 402W$Advanced Game Development $3$IT 307W$$
+IT 403$Information Assurance and Security 2$3$IT 309$$
+CAP 401W$Capstone Project and Research 2WMAD$3$IT 401W$ IT 402$
+MST 101a$Environmental Science$3$NONE$$
+$$$$
+$$$$
+$$$$
+$$$$

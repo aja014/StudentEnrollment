@@ -2616,7 +2616,6 @@ int menu(int x, int y) {
 	return 0;
 }
 
-
 int main() {
 
 	font1(600, 10, 20);

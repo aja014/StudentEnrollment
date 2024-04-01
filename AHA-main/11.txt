@@ -1,0 +1,9 @@
+CC 102$Intorduction to Computing $3$NONE$
+CC 103$Computer Programming 1$3$NONE$
+TCW 101$The Contemporary World$3$NONE$
+MMW 101$Mathematics in the Modern World$3$NONE$
+PRH 101 $Reading in Philippine History$3$NONE$
+PCM 101$Purposive Communication$3$NONE$
+ARP 101$Araling Pilipino$3$NONE$
+PATHFit 1$Physical Education$2$NONE$
+NSTP 10$ROTC LTS CWTS$3$NONE$

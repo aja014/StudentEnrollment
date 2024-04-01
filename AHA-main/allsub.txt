@@ -1,0 +1,56 @@
+CC 102$Intorduction to Computing $3$NONE$$
+CC 103$Computer Programming 1$3$NONE$$
+TCW 101$The Contemporary World$3$NONE$$
+MMW 101$Mathematics in the Modern World$3$NONE$$
+PRH 101 $Reading in Philippine History$3$NONE$$
+PCM 101$Purposive Communication$3$NONE$$
+ARP 101$Araling Pilipino$3$NONE$$
+PATHFit 1$Physical Education$2$NONE$$
+NSTP 10$ROTC LTS CWTS$3$NONE$$
+CC 104$Computer Programming 2$3$CC 103$$
+IT 106$Platform Technologies$3$NONE$$
+IT 107$Human Computer Interaction$3$CC 103$$
+UTS 101 $Understanding the Self$3$NONE$$
+PAL 101$Panitikan at Lipunan$3$NONE$$
+PATHFit 2$Physical Edication II$2$NONE$$
+NSTP 11$ROTC LTS CWTS$3$NSTP 10$$
+IT 104$Discrete Mathematics$3$MMW 101$$
+CC 105$Data Structures and Algorithms$3$CC 104$$
+CC 106$Information Management$3$CC 104$$
+IT 203$Object oriented Programming$3$CC 104$$
+IT 204$Networking 1$3$IT 106$$
+IT 205$Quantitative Methods$3$IT 104$$
+STS 101$Science Technology and Society$3$NONE$$
+RLW 101$Life and Works of Rizal$3$NONE$$
+ETH 101$Ethics$3$NONE$$
+PATHFit 3$Physical Education III$2$NONE$$
+IT 206$Ecent Driven programming$3$IT 203$$
+IT 207$Integrative Programming and Technologies$3$IT 106$IT 203$
+IT 208$Advanced Database Systems$3$CC 106$$
+IT 209$Introduction to Data Analytics$3$CC 102$IT 205$
+IT 210$Networking 2$3$IT 204$$
+IT 211$Web Systems and Technologies$3$IT 102$$
+FL 101$Foreign Language$3$NONE$$
+AAP 101$Art Appreciation$3$NONE$$
+PATHFit 4$Physical Education IV$2$NONE$$
+CC 107$Application Development and Emerging Technology$3$IT 206$IT 208$
+IT 302$Systems Integration and Architecture$3$IT 206$IT 207$
+IT 303$System Analysis and Design$3$IT 206$IT 208$
+IT 304W$UI and UX Design$3$IT 207$IT 107$
+IT 305W$Advanced Web Applications$3$IT 211$$
+IT 306W$Mobile Application Development$3$IT 208$IT 203$
+SSP 101d$The Enterpreneurial Mind$3$NONE$$
+IT 307W$Mobile Game Development$3$IT 203$$
+IT 308W$Advanced Mobile Application$3$IT 306W$$
+IT 309$Information Assurance and Security 1$3$IT 302$$
+IT 310$Presentation Skills and Personality Development$3$NONE$$
+IT 311$Social and Professional Issues$3$IT 206 $IT 208$
+IT 3112W$Project Management in IT WMAD$3$SPP101d$$
+CAP 301W$Capstone Project and Research 1$3$IT 303W$ IT305W$
+SSP 101c$Gender and Society$3$NONE$$
+IT 401W$Web Programming and Frameworks$3$IT 305W$$
+IT 402W$Advanced Game Development $3$IT 307W$$
+IT 403$Information Assurance and Security 2$3$IT 309$$
+CAP 401W$Capstone Project and Research 2WMAD$3$IT 401W$ IT 402$
+MST 101a$Environmental Science$3$NONE$$
+IT 106$Internship 500 Hours$6$NONE$$
