@@ -1,0 +1,9 @@
+IT 206$Ecent Driven programming$3$IT 203$$
+IT 207$Integrative Programming and Technologies$3$IT 106$IT 203$
+IT 208$Advanced Database Systems$3$CC 106$$
+IT 209$Introduction to Data Analytics$3$CC 102$IT 205$
+IT 210$Networking 2$3$IT 204$$
+IT 211$Web Systems and Technologies$3$IT 102$$
+FL 101$Foreign Language$3$NONE$$
+AAP 101$Art Appreciation$3$NONE$$
+PATHFit 4$Physical Education IV$2$NONE$$

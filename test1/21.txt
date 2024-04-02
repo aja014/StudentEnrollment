@@ -1,0 +1,9 @@
+CC 105$Data Structures and Algorithms$3$CC 104$
+CC 106$Information Management$3$CC 104$
+IT 203$Object oriented Programming$3$CC 104$
+IT 204$Networking 1$3$IT 106$
+IT 205$Quantitative Methods$3$IT 104$
+STS 101$Science Technology and Society$3$NONE$
+RLW 101$Life and Works of Rizal$3$NONE$
+ETH 101$Ethics$3$NONE$
+PATHFit 3$Physical Education III$2$NONE$
