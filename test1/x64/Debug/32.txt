@@ -1,0 +1,9 @@
+IT 307W$Mobile Game Development$3$IT 203$$
+IT 308W$Advanced Mobile Application$3$IT 306W$$
+IT 309$Information Assurance and Security 1$3$IT 302$$
+IT 310$Presentation Skills and Personality Development$3$NONE$$
+IT 311$Social and Professional Issues$3$IT 206 $IT 208$
+IT 3112W$Project Management in IT WMAD$3$SPP101d$$
+CAP 301W$Capstone Project and Research 1$3$IT 303W$ IT305W$
+SSP 101c$Gender and Society$3$NONE$$
+$$$$
