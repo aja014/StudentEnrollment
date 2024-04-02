@@ -21,7 +21,6 @@ using namespace std;
 // ofstream to write
 
 
-string psdsub[9]; // passed subject
 
 
 void multival(string& v, string& w, string& x, string& y, string& z, int a, int b, int c) { // w x y z is the storage, a b is the position of gotoxy, c if erasing (1 == erase)
@@ -135,6 +134,7 @@ int menu(int x, int y) {
 		string pooln, fname, mname, lname, age, gender, lrn, bmonth, bday, byear, barangay, municipality, province, gfname, gmname, glname, gcnum,
 			grelation, year, sem,blnc;// Local varible storage for information
 
+		string psdsub[9]; // passed subject
 		string finder; // storage for searching pooling number
 		string temppoolnum; // storage for conversion of int temppool to string
 		string searchpool[32]; // array storage for searching
@@ -1984,7 +1984,7 @@ int menu(int x, int y) {
 		string presub[45]; // storage for previous sub
 		string subnoprq[45]; // subject that has no pre req
 		//string prereqsub[9]; // subject that have pre-requisites
-		//string psdsub[9]; // passed subject
+		string psdsub[9]; // passed subject
 		//string allsub[360]; // all subject
 		char cn1; // local confirmation
 
@@ -2082,6 +2082,10 @@ int menu(int x, int y) {
 
 						coorxy(54, 4); cout << "         ";
 						coorxy(54, 4); cout << "not found";
+						for (int a = 0; a < 9; a++) {
+							psdsub[a] = "";
+						}
+
 						goto E;
 					}
 					file.close();
@@ -2869,12 +2873,12 @@ int menu(int x, int y) {
 						if (pmt > ttlpmt)
 						{
 							coorxy(50, 27); color(4); cout << "too much input"; color(7);
-							coorxy(50, 27); Sleep(500); cout << string(20, ' ');
-							if (stinfo[0] != "") {
+							coorxy(50, 27); Sleep(1000); cout << string(20, ' ');
+							if (stinfo[20] != "") {
 								coorxy(41, 27); cout << "      ";
 							}
 							else {
-								coorxy(37, 27); cout << "      ";
+								coorxy(38, 27); cout << "      ";
 							}
 							ecntr = 0;
 							color(8); buttonxy(80, 26, 14, 1);coorxy(84, 27); cout << "CONFIRM";color(7);
@@ -2882,14 +2886,14 @@ int menu(int x, int y) {
 							goto l;
 							break;
 						}
-						else if (pmt < (ttlpmt / 2)) {
+						else if (pmt < round(ttlpmt / 2)) {
 							coorxy(50, 27); color(4); cout << "Limit of half the price"; color(7);
-							coorxy(50, 27); Sleep(500); cout << string(20, ' ');
-							if (stinfo[0] != "") {
-								coorxy(41, 27); cout << "      ";
+							coorxy(50, 27); Sleep(1000); cout << string(30, ' ');
+							if (stinfo[20] != "") {
+								coorxy(41, 27); cout <<"     ";
 							}
 							else {
-								coorxy(37, 27); cout << "      ";
+								coorxy(38, 27); cout << "      ";
 							}
 							ecntr = 0;
 							color(8); buttonxy(80, 26, 14, 1); coorxy(84, 27); cout << "CONFIRM"; color(7);
@@ -3019,6 +3023,7 @@ int menu(int x, int y) {
 		}			
 	}	
 }
+
 
 
 int main() {

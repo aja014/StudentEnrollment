@@ -290,6 +290,7 @@ void page2()//ENROLLMENT PAGE 2
 	gotoxy(95, 26); cout << char(201);	gotoxy(95, 28); cout << char(200);	gotoxy(110, 26); cout << char(187);	gotoxy(110, 28); cout << char(188);
 
 	coorxy(35, 2); cout << "- BSIT Student Enrollment Management System -";
+	coorxy(23, 4); cout << "Enter (1) the if subject is passed, Enter (0) if the subject is failed.";
 	gotoxy(101, 27); cout << "NEXT"; //gotoxy(98, 27); cout << "CLEAR MARK";
 
 	coorxy(5, 6); cout << "NO"; coorxy(14, 6); cout << "PRE-REQUISITES"; coorxy(36, 6); cout << " SUBJECT CODE";
