@@ -2808,7 +2808,7 @@ int menu(int x, int y) {
 				case 0:
 					if (ttlpmt == 0) {
 						coorxy(4, 27); cout << string(40, ' ');
-						coorxy(5, 27); cout << "You are successfully enrolled : " << stinfo[0];
+						coorxy(8, 27); cout << stinfo[0] << " is successfully enrolled";
 						coorxy(4, 24); cout << string(40, ' ');
 						//coorxy(55, 27); cout << "Pool ID : " << stinfo[0];
 						pm = "0";
@@ -2886,7 +2886,7 @@ int menu(int x, int y) {
 							goto l;
 							break;
 						}
-						else if (pmt < round(ttlpmt / 2)) {
+						else if ((pmt < round(ttlpmt / 2))&&stinfo[20] == "") { // first downpayment needs half
 							coorxy(50, 27); color(4); cout << "Limit of half the price"; color(7);
 							coorxy(50, 27); Sleep(1000); cout << string(30, ' ');
 							if (stinfo[20] != "") {
@@ -2947,7 +2947,7 @@ int menu(int x, int y) {
 								}
 							}
 							else {
-								coorxy(55, 17); cout << char(158) << bal << " balance";
+								coorxy(58, 17); cout << " " << bal << " php";
 							}
 							coorxy(57, 12); cout << stinfo[0];
 							coorxy(52, 13); cout << stinfo[3] +" " + stinfo[1];
@@ -3172,7 +3172,7 @@ mn:
 	coorxy(17, 9); cout << "Curriculum Management";
 	coorxy(18, 14); cout << "Student Enrollment";
 	coorxy(25, 19); cout << "Help";
-	coorxy(24, 24); cout << "Exit";
+	coorxy(25, 24); cout << "Exit";
 
 	hdc(1);
 	coorxy(60, 19); cout << "Use UP and DOWN arrow key to navigate";
