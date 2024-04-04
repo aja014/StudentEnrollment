@@ -1,0 +1,5 @@
+Name | Address | Phone number
+Aaron James Angeles	|	San Nicolas Hagonoy Bulacan	|	09123456789
+juan dela cruz	|	san isidro hagonoy bulacan	|	0987654321
+Jose Victor Miguel	|	San pascual hagonoy bulacan	|	09543218776
+Test1 Test1	|	Test1 	|	test111

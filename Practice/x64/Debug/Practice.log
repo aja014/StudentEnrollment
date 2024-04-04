@@ -1,0 +1,6 @@
+﻿  add.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/FORCE' specification
+Mainsource.obj : warning LNK4006: "void __cdecl addemp(void)" (?addemp@@YAXXZ) already defined in add.obj; second definition ignored
+Mainsource.obj : warning LNK4006: "void __cdecl coorxy(int,int)" (?coorxy@@YAXHH@Z) already defined in add.obj; second definition ignored
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
+  Practice.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe
