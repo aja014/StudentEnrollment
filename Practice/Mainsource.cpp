@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <conio.h>
+#include <sstream>
 
 #include "add.cpp"
 #include "list.cpp"

@@ -1,4 +1,4 @@
-﻿  add.cpp
+﻿  list.cpp
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/FORCE' specification
 list.obj : warning LNK4006: "void __cdecl coorxy(int,int)" (?coorxy@@YAXHH@Z) already defined in add.obj; second definition ignored
 Mainsource.obj : warning LNK4006: "void __cdecl addemp(void)" (?addemp@@YAXXZ) already defined in add.obj; second definition ignored
