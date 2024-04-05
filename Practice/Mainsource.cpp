@@ -5,6 +5,7 @@
 #include <conio.h>
 
 #include "add.cpp"
+#include "list.cpp"
 
 using namespace std;
 
@@ -54,13 +55,14 @@ W:
 			addemp();
 		}
 		else if (cntr == 2) {
-			// see employee
+			vw();
 		}
 		else if (cntr == 3) {
 			// exit
 			system("cls");
 			exit(0);
 		}
+	default:
 		goto Q;
 		break;
 	}
