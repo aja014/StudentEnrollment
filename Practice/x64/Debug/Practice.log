@@ -1,8 +1,12 @@
-﻿  list.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(5669,5): warning MSB3061: Unable to delete file "C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe". Access to the path 'C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe' is denied.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets(77,5): warning : Access to the path 'c:\users\asus\documents\github\studentenrollment\practice\x64\debug\practice.exe' is denied.
+  add.cpp
+  list.cpp
+  Mainsource.cpp
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\Graphics.h(45,59): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\Graphics.h(46,59): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\Graphics.h(209,11): warning C4244: '*=': conversion from 'double' to 'SHORT', possible loss of data
+C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\Graphics.h(210,11): warning C4244: '*=': conversion from 'double' to 'SHORT', possible loss of data
+  Generating Code...
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/FORCE' specification
-list.obj : warning LNK4006: "void __cdecl coorxy(int,int)" (?coorxy@@YAXHH@Z) already defined in add.obj; second definition ignored
-Mainsource.obj : warning LNK4006: "void __cdecl addemp(void)" (?addemp@@YAXXZ) already defined in add.obj; second definition ignored
-Mainsource.obj : warning LNK4006: "void __cdecl coorxy(int,int)" (?coorxy@@YAXHH@Z) already defined in add.obj; second definition ignored
-Mainsource.obj : warning LNK4006: "void __cdecl vw(void)" (?vw@@YAXXZ) already defined in list.obj; second definition ignored
-C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
-  Practice.vcxproj -> C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe
+LINK : fatal error LNK1104: cannot open file 'C:\Users\Asus\Documents\GitHub\StudentEnrollment\Practice\x64\Debug\Practice.exe'
