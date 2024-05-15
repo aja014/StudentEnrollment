@@ -15,7 +15,6 @@ PAL 101$Panitikan at Lipunan$3$NONE$$
 PATHFit 2$Physical Edication II$2$NONE$$
 NSTP 11$ROTC LTS CWTS$3$NSTP 10$$
 IT 104$Discrete Mathematics$3$MMW 101$$
-AJ 1$Aaron james$3$NONE$$
 CC 105$Data Structures and Algorithms$3$CC 104$$
 CC 106$Information Management$3$CC 104$$
 IT 203$Object oriented Programming$3$CC 104$$
@@ -41,7 +40,6 @@ IT 304W$UI and UX Design$3$IT 207$IT 107$
 IT 305W$Advanced Web Applications$3$IT 211$$
 IT 306W$Mobile Application Development$3$IT 208$IT 203$
 SSP 101d$The Enterpreneurial Mind$3$NONE$$
-SP 1$Sopia zion$3$AJ 1$$
 IT 307W$Mobile Game Development$3$IT 203$$
 IT 308W$Advanced Mobile Application$3$IT 306W$$
 IT 309$Information Assurance and Security 1$3$IT 302$$

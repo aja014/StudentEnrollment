@@ -2950,7 +2950,7 @@ int menu(int x, int y) {
 								coorxy(58, 17); cout << " " << bal << " php";
 							}
 							coorxy(57, 12); cout << stinfo[0];
-							coorxy(52, 13); cout << stinfo[3] +" " + stinfo[1];
+							coorxy(52, 13); cout << stinfo[3] +", " + stinfo[1] + " " + stinfo[2];
 
 							coorxy(50, 22); cout << "<<";
 							coorxy(70, 22); cout << ">>";
